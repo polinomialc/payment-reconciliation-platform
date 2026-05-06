@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <rect width="1440" height="900" fill="#f4f1ea"/>
+  <rect x="0" y="0" width="1440" height="76" fill="#14342b"/>
+  <text x="40" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#f7f2e8">Payment Reconciliation Platform</text>
+  <text x="1120" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#b9d3c8">Operations Dashboard</text>
+
+  <rect x="28" y="110" width="310" height="150" rx="18" fill="#fffdf8" stroke="#d6d0c4"/>
+  <rect x="356" y="110" width="310" height="150" rx="18" fill="#fffdf8" stroke="#d6d0c4"/>
+  <rect x="684" y="110" width="310" height="150" rx="18" fill="#fffdf8" stroke="#d6d0c4"/>
+  <rect x="1012" y="110" width="400" height="150" rx="18" fill="#fffdf8" stroke="#d6d0c4"/>
+
+  <text x="52" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#6f6a60">Schedules processed</text>
+  <text x="52" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" fill="#14342b">2,184</text>
+
+  <text x="380" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#6f6a60">Auto-match rate</text>
+  <text x="380" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" fill="#14342b">91.8%</text>
+
+  <text x="708" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#6f6a60">Exceptions pending</text>
+  <text x="708" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" fill="#8c3d2e">147</text>
+
+  <text x="1036" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#6f6a60">Platform model</text>
+  <text x="1036" y="204" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#14342b">DuckDB PoC -&gt; BigQuery + Cloud Run</text>
+
+  <rect x="28" y="292" width="900" height="560" rx="20" fill="#fffdf8" stroke="#d6d0c4"/>
+  <rect x="950" y="292" width="462" height="560" rx="20" fill="#fffdf8" stroke="#d6d0c4"/>
+
+  <text x="52" y="334" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#14342b">Reconciliation Trend</text>
+  <text x="974" y="334" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#14342b">Queue by Type</text>
+
+  <line x1="70" y1="780" x2="890" y2="780" stroke="#cabfae" stroke-width="2"/>
+  <line x1="70" y1="400" x2="70" y2="780" stroke="#cabfae" stroke-width="2"/>
+  <polyline fill="none" stroke="#1b7f5b" stroke-width="6" points="90,700 200,640 310,620 420,560 530,520 640,470 750,440 860,390"/>
+  <polyline fill="none" stroke="#d6872f" stroke-width="6" points="90,730 200,710 310,690 420,680 530,650 640,640 750,610 860,600"/>
+  <circle cx="860" cy="390" r="8" fill="#1b7f5b"/>
+  <circle cx="860" cy="600" r="8" fill="#d6872f"/>
+  <text x="770" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1b7f5b">Matched</text>
+  <text x="770" y="625" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#d6872f">Check / Exceptions</text>
+
+  <rect x="980" y="380" width="402" height="48" rx="12" fill="#e5f0ea"/>
+  <rect x="980" y="448" width="290" height="48" rx="12" fill="#f3e8d7"/>
+  <rect x="980" y="516" width="168" height="48" rx="12" fill="#efd7d2"/>
+  <rect x="980" y="584" width="118" height="48" rx="12" fill="#dfe7f4"/>
+
+  <text x="996" y="411" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">MATCH</text>
+  <text x="1330" y="411" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">5,284</text>
+
+  <text x="996" y="479" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">CHECK</text>
+  <text x="1218" y="479" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">1,421</text>
+
+  <text x="996" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">CFEE</text>
+  <text x="1098" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">264</text>
+
+  <text x="996" y="615" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">OVP</text>
+  <text x="1050" y="615" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">93</text>
+
+  <text x="48" y="874" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#7a756d">Sanitized illustrative mockup - no real operational data</text>
+</svg>
+
