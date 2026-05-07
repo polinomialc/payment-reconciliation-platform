@@ -30,14 +30,14 @@ This keeps the case study platform-agnostic while still representing a common re
 ## Typical Match Outcomes
 - `MATCH`
 - `CHECK`
-- `CFEE` for cancellation-fee patterns
+- `CFEE` for cancellation fees charged to the customer after reservation cancellation
 - `OVP` for overpayment cases
 - `CHARGEBACK`
 
 ## Example Rule Themes
 - prefer deterministic identifier + amount + date when possible
 - tolerate date offsets only when justified by a country-specific exception
-- treat cancellation-fee cases as paired financial events
+- treat cancellation-fee cases as customer cancellation charges linked back to the reservation
 - distinguish face-to-face vs e-commerce receipts based on available reference structures
 - preserve raw data and apply all logic in the transformation layer
 

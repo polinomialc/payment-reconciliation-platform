@@ -65,7 +65,7 @@ Core rule areas include:
 - acquirer-reference matching
 - payment-gateway token resolution
 - chargeback handling
-- cancellation-fee handling
+- cancellation fee handling for fees charged to the customer after reservation cancellation
 - overpayment detection
 - country-specific exception logic
 

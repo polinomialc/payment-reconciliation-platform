@@ -47,7 +47,7 @@
   <text x="996" y="479" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">CHECK</text>
   <text x="1218" y="479" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">1,421</text>
 
-  <text x="996" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">CFEE</text>
+  <text x="996" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">Cancellation fee</text>
   <text x="1098" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">264</text>
 
   <text x="996" y="615" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">OVP</text>
@@ -55,4 +55,3 @@
 
   <text x="48" y="874" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#7a756d">Sanitized illustrative mockup - no real operational data</text>
 </svg>
-
