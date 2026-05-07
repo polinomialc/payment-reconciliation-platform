@@ -8,8 +8,24 @@ Typical reconciliation keys can include:
 - reservation reference
 - acquirer reference
 - e-commerce token
+- payment-gateway transaction token
 - amount
 - transaction date
+
+## Payment Gateway Reference Mapping
+In some payment flows, customer prepayment transactions are not emitted with the original internal invoice reference.
+
+Instead, the payment provider or gateway may generate its own external transaction token. In those cases, reconciliation requires an intermediate mapping layer that links:
+- external gateway transaction token
+- internal merchant or reservation reference
+- transaction date
+- amount
+
+This repository uses generic terminology for that layer:
+- **payment-gateway token**
+- **reference mapping dataset**
+
+This keeps the case study platform-agnostic while still representing a common reconciliation problem in payment operations.
 
 ## Typical Match Outcomes
 - `MATCH`
@@ -31,4 +47,3 @@ Rules should be:
 - versioned
 - explainable to business users
 - easy to adjust internally without vendor dependency
-

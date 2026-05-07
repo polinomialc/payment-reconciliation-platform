@@ -63,7 +63,7 @@ Core rule areas include:
 - invoice matching
 - reservation matching
 - acquirer-reference matching
-- e-commerce token resolution
+- payment-gateway token resolution
 - chargeback handling
 - cancellation-fee handling
 - overpayment detection
