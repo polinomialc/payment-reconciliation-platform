@@ -9,7 +9,7 @@
   <rect x="684" y="110" width="310" height="150" rx="18" fill="#fffdf8" stroke="#d6d0c4"/>
   <rect x="1012" y="110" width="400" height="150" rx="18" fill="#fffdf8" stroke="#d6d0c4"/>
 
-  <text x="52" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#6f6a60">Schedules processed</text>
+  <text x="52" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#6f6a60">Payment batches processed</text>
   <text x="52" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" fill="#14342b">2,184</text>
 
   <text x="380" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#6f6a60">Auto-match rate</text>

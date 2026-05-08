@@ -16,7 +16,7 @@ This project separates concerns into four layers:
    - exception handling
 
 3. **Reporting / Views**
-   - reconciliation by schedule
+   - reconciliation by payment batch
    - reconciliation by receipt
    - exception reporting
    - aging support views
@@ -44,4 +44,3 @@ This project separates concerns into four layers:
 - easier to test
 - easier to migrate from local PoC to cloud
 - business-rule changes do not require application rewrites
-

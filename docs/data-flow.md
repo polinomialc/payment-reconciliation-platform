@@ -1,7 +1,7 @@
 # Data Flow
 
 ## Inputs
-- schedule exports
+- payment batch exports
 - receipt exports
 - reference mapping files
 - optional post-treatment adjustments
@@ -15,8 +15,7 @@
 6. expose outputs for operations and reporting
 
 ## Output Types
-- reconciliation by schedule
+- reconciliation by payment batch
 - reconciliation by receipt
 - exception review
 - downstream aging support
-

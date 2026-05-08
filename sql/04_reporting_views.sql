@@ -1,11 +1,11 @@
 -- Example: reporting outputs.
 
-create or replace view reconciliation_by_schedule as
+create or replace view reconciliation_by_payment_batch as
 select
-    schedule_id,
+    payment_batch_id,
     match_status,
     count(*) as row_count,
-    sum(schedule_amount) as schedule_total
+    sum(payment_batch_amount) as payment_batch_total
 from reconciled_rows
 group by 1, 2;
 
@@ -17,4 +17,3 @@ select
     sum(receipt_amount) as receipt_total
 from reconciled_rows
 group by 1, 2;
-

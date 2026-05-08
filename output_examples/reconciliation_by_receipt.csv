@@ -1,5 +1,4 @@
 receipt_ref,match_status,row_count,receipt_total
-UK2604010000001,MATCH,1,145.50
-UK2604010000002,CHECK,1,87.32
-UK2604020000003,MATCH,1,45.00
-
+receipt_reference1,MATCH,1,145.50
+receipt_reference2,CHECK,1,87.32
+receipt_reference3,MATCH,1,45.00

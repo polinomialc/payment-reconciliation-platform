@@ -1,5 +1,4 @@
 receipt_ref,transaction_date,contract_type,your_reference,gross_amount,net_amount
-UK2604010000001,2026-04-01,Card Acceptance at the Point of Sale,INV: 100400000001 RA: 158000001 RES: 1199000001,145.50,143.91
-UK2604010000002,2026-04-01,Secure E-Commerce,X1Y2Z3A4B5C6,87.32,86.40
-UK2604020000003,2026-04-02,Card Acceptance at the Point of Sale,INV: 100400000010 RA: 158000010 RES: 1199000010,45.00,45.00
-
+receipt_reference1,2026-04-01,Card Acceptance at the Point of Sale,INV: 100400000001 RA: 158000001 RES: 1199000001,145.50,143.91
+receipt_reference2,2026-04-01,Secure E-Commerce,X1Y2Z3A4B5C6,87.32,86.40
+receipt_reference3,2026-04-02,Card Acceptance at the Point of Sale,INV: 100400000010 RA: 158000010 RES: 1199000010,45.00,45.00

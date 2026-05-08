@@ -7,7 +7,7 @@ This project represents the design and prototyping of an internal reconciliation
 
 The original workflow relied on:
 - multiple spreadsheets per country
-- manual cross-checks between schedules, receipts, and post-treatment files
+- manual cross-checks between payment batches, receipts, and post-treatment files
 - duplicated logic and formula drift
 - slow troubleshooting
 - low auditability
@@ -144,6 +144,11 @@ While this repository uses sanitized examples, the original project was aimed at
 - traceability of exceptions
 - operational maintainability
 - internal control over business rules
+
+## Terminology
+To keep the case study understandable outside the original internal context:
+- **payment batch** = grouped payment block generated on the ERP side
+- **receipt reference** = identifier of the external receipt or remittance document
 
 ## Resume Version
 Designed and prototyped a financial reconciliation platform to replace spreadsheet-based operational workflows across multiple countries. Built a local proof of concept in DuckDB and Python to validate reconciliation logic, exception handling, and operational workflows, while defining the target production architecture in Google Cloud using BigQuery and a containerized Streamlit interface on Cloud Run.

@@ -25,20 +25,19 @@ with col1:
     st.dataframe(receipts, use_container_width=True)
 
 with col2:
-    st.subheader("Sample Schedules")
-    schedules = pd.read_csv(ROOT / "sample_data" / "schedules_sample.csv")
-    st.dataframe(schedules, use_container_width=True)
+    st.subheader("Sample Payment Batches")
+    payment_batches = pd.read_csv(ROOT / "sample_data" / "payment_batches_sample.csv")
+    st.dataframe(payment_batches, use_container_width=True)
 
 st.subheader("Example Outputs")
 out1, out2 = st.columns(2)
 
 with out1:
-    st.markdown("**Reconciliation by schedule**")
-    by_schedule = pd.read_csv(ROOT / "output_examples" / "reconciliation_by_schedule.csv")
-    st.dataframe(by_schedule, use_container_width=True)
+    st.markdown("**Reconciliation by payment batch**")
+    by_payment_batch = pd.read_csv(ROOT / "output_examples" / "reconciliation_by_payment_batch.csv")
+    st.dataframe(by_payment_batch, use_container_width=True)
 
 with out2:
     st.markdown("**Reconciliation by receipt**")
     by_receipt = pd.read_csv(ROOT / "output_examples" / "reconciliation_by_receipt.csv")
     st.dataframe(by_receipt, use_container_width=True)
-

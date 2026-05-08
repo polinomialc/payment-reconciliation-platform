@@ -1,0 +1,4 @@
+payment_batch_id,match_status,row_count,payment_batch_total
+payment_batch_001,MATCH,1,145.50
+payment_batch_002,CHECK,1,87.32
+payment_batch_003,MATCH,1,45.00
