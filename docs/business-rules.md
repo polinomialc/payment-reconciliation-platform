@@ -39,7 +39,14 @@ This keeps the case study platform-agnostic while still representing a common re
 - tolerate date offsets only when justified by a country-specific exception
 - treat cancellation-fee cases as customer cancellation charges linked back to the reservation
 - distinguish face-to-face vs e-commerce receipts based on available reference structures
+- identify intercompany payment scenarios separately from standard customer settlement flows
+- detect mixed or misapplied payments when funds appear to settle the wrong balance or reference chain
 - preserve raw data and apply all logic in the transformation layer
+
+## Historical Reanalysis
+One important capability of this model is that historical aging can be revisited whenever the data picture improves.
+
+If new receipts, payment batches, or reference-mapping files are imported later, older open balances can be recalculated and reinterpreted using the same governed logic layer. This makes retrospective aging review far easier than in spreadsheet-only workflows.
 
 ## Governance Principle
 Rules should be:

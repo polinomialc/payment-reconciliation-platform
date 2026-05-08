@@ -67,6 +67,8 @@ Core rule areas include:
 - chargeback handling
 - cancellation fee handling for fees charged to the customer after reservation cancellation
 - overpayment detection
+- intercompany payment detection
+- mixed or misapplied payment detection
 - country-specific exception logic
 
 ## Architecture
@@ -144,6 +146,7 @@ While this repository uses sanitized examples, the original project was aimed at
 - traceability of exceptions
 - operational maintainability
 - internal control over business rules
+- historical aging review by allowing older balances to be reanalyzed whenever new receipts, payment batches, or reference mappings become available
 
 ## Terminology
 To keep the case study understandable outside the original internal context:
