@@ -1,4 +1,5 @@
 from datetime import date
+from html import escape
 from pathlib import Path
 import re
 
@@ -11,6 +12,195 @@ AS_OF_DATE = pd.Timestamp(date.today())
 
 
 st.set_page_config(page_title="Financial Aging Review", layout="wide")
+
+
+def apply_product_styles() -> None:
+    st.markdown(
+        """
+        <style>
+        :root {
+            --surface: #ffffff;
+            --surface-muted: #f6f8fb;
+            --border: #e4e8ef;
+            --text: #202635;
+            --muted: #667085;
+            --accent: #b42318;
+            --accent-soft: #fff4f2;
+            --positive: #0f766e;
+        }
+
+        .block-container {
+            max-width: 1480px;
+            padding-top: 2.1rem;
+            padding-bottom: 3.5rem;
+        }
+
+        [data-testid="stSidebar"] {
+            background: #f7f9fc;
+            border-right: 1px solid var(--border);
+        }
+
+        [data-testid="stSidebar"] h1,
+        [data-testid="stSidebar"] h2,
+        [data-testid="stSidebar"] h3 {
+            color: var(--text);
+        }
+
+        h1 {
+            color: var(--text);
+            font-size: 2.45rem;
+            line-height: 1.08;
+            letter-spacing: 0;
+            margin-bottom: 0.35rem;
+        }
+
+        h2, h3 {
+            color: var(--text);
+            letter-spacing: 0;
+        }
+
+        p, label, span {
+            color: var(--text);
+        }
+
+        div[data-testid="stCaptionContainer"] p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        div[data-testid="stMetric"] {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.05rem;
+            min-height: 112px;
+            box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+        }
+
+        div[data-testid="stMetricLabel"] {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        div[data-testid="stMetricValue"] {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 0.35rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stTabs [data-baseweb="tab"] {
+            height: 44px;
+            padding: 0 0.8rem;
+            color: var(--muted);
+            border-radius: 6px 6px 0 0;
+        }
+
+        .stTabs [aria-selected="true"] {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            background: #fff;
+        }
+
+        [data-testid="stDataFrame"] {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+        }
+
+        div[data-testid="stExpander"] {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+        }
+
+        .demo-hero {
+            border-bottom: 1px solid var(--border);
+            padding: 0.2rem 0 1.05rem;
+            margin: 0.2rem 0 1.25rem;
+        }
+
+        .demo-kicker {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .demo-copy {
+            color: var(--muted);
+            font-size: 0.98rem;
+            max-width: 980px;
+            margin: 0;
+        }
+
+        .status-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.45rem 0 1.2rem;
+        }
+
+        .status-pill {
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface);
+            color: var(--text);
+            padding: 0.35rem 0.65rem;
+            font-size: 0.82rem;
+            line-height: 1.2;
+        }
+
+        .status-pill strong {
+            color: var(--positive);
+        }
+
+        .sidebar-note {
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.45;
+            margin-top: 0.25rem;
+        }
+
+        .section-label {
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def hero_block(kicker: str, title: str, copy: str) -> None:
+    st.markdown(
+        f"""
+        <div class="demo-hero">
+            <div class="demo-kicker">{escape(kicker)}</div>
+            <h1>{escape(title)}</h1>
+            <p class="demo-copy">{escape(copy)}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def status_strip(items: list[tuple[str, str]]) -> None:
+    pills = "".join(
+        f'<span class="status-pill">{escape(label)}: <strong>{escape(value)}</strong></span>'
+        for label, value in items
+    )
+    st.markdown(f'<div class="status-strip">{pills}</div>', unsafe_allow_html=True)
 
 
 def aging_bucket(days_open: int) -> str:
@@ -193,19 +383,33 @@ DATA_FILES = (
 data = load_data(tuple(path.stat().st_mtime for path in DATA_FILES))
 batch_aging = data["batch_aging"]
 
+apply_product_styles()
+
+st.sidebar.title("Reconciliation Demo")
+st.sidebar.markdown(
+    '<p class="sidebar-note">Operational view for allocation readiness, open-balance aging, and receipt-level exception review.</p>',
+    unsafe_allow_html=True,
+)
 page = st.sidebar.radio(
-    "Demo navigation",
+    "Navigation",
     ["Operations Dashboard", "Receipt Reconciliation"],
+)
+st.sidebar.markdown('<div class="section-label">Dataset</div>', unsafe_allow_html=True)
+st.sidebar.caption(
+    f"{data['receipts']['receipt_ref'].nunique():,} receipts | "
+    f"{len(data['receipts']):,} receipt lines | "
+    f"{len(data['payment_batches']):,} payment-batch lines"
 )
 
 status_options = list(STATUS_LABELS.values())
 bucket_options = ["0-7 days", "8-30 days", "31-60 days", "60+ days"]
 
 if page == "Receipt Reconciliation":
-    st.title("Receipt Reconciliation")
-    st.caption(
+    hero_block(
+        "Receipt procedure",
+        "Receipt Reconciliation",
         "Select a payment receipt and run the same kind of read-out an analyst would use: receipt lines, "
-        "linked payment batches, missing-evidence transactions, and exception treatment."
+        "linked payment batches, missing-evidence transactions, and exception treatment.",
     )
 
     receipts = data["receipts"].copy()
@@ -313,9 +517,13 @@ if page == "Receipt Reconciliation":
     ) if not line_detail.empty else []
     missing_lines = (line_detail["Outcome"] == "Missing Receipt Evidence").sum() if not line_detail.empty else 0
 
-    st.write(
-        f"Receipt `{selected_receipt_ref}` contains `{len(receipt_lines):,}` transaction lines. "
-        f"Channel: `{receipt_channel}`. Market: `{receipt_market}`."
+    status_strip(
+        [
+            ("Receipt", selected_receipt_ref),
+            ("Lines", f"{len(receipt_lines):,}"),
+            ("Channel", str(receipt_channel)),
+            ("Market", str(receipt_market)),
+        ]
     )
 
     kpi_1, kpi_2, kpi_3, kpi_4, kpi_5 = st.columns(5)
@@ -530,9 +738,10 @@ select * from reconciliation_rules
         )
     st.stop()
 
-st.title("Financial Operations Aging Review")
-st.caption(
-    "Executive demo of payment allocation readiness, open-balance aging, and exception queues."
+hero_block(
+    "Operations dashboard",
+    "Financial Operations Aging Review",
+    "Executive demo of payment allocation readiness, open-balance aging, and exception queues.",
 )
 
 with st.expander("Dashboard filters", expanded=False):

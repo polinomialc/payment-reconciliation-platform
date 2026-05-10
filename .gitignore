@@ -11,3 +11,5 @@ venv/
 .streamlit/secrets.toml
 bookstack/.env
 bookstack/config/
+*.duckdb
+*.duckdb.wal

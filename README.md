@@ -140,6 +140,7 @@ payment-reconciliation-platform/
 │  ├─ data-flow.md
 │  └─ vendor-independence.md
 ├─ sql/
+├─ scripts/
 ├─ app/
 ├─ bookstack/
 ├─ sample_data/
@@ -174,6 +175,19 @@ pip install -r requirements.txt
 streamlit run app/streamlit_demo.py
 ```
 
+### Demo Walkthrough
+Use this short path when presenting the project:
+
+1. Open the Streamlit app and start on **Operations Dashboard**.
+2. Show the executive KPIs: allocation-ready amount, open exposure, open batches, operational review items, and chargebacks.
+3. Open **Aging Procedure** to show how unresolved payment batches are grouped by aging bucket and review status.
+4. Open **Exception Procedure** to show amount variances, rejected card transactions, cancellation-fee cases, and receipt-side chargebacks.
+5. Switch to **Receipt Reconciliation** from the sidebar.
+6. Select `receipt_ref_001` and show how one receipt with hundreds of lines is reconciled against multiple payment groups.
+7. Point out the split between allocation-ready lines, linked payment groups, and items requiring review.
+8. Open **Presentation Role** to explain that the same procedure can be adapted by changing SQL rules, tolerance tables, and exception ownership.
+9. Optionally open BookStack to show where the business concepts, procedures, and exception playbooks would live.
+
 Run the separate BookStack knowledge-library demo:
 
 ```bash
@@ -193,6 +207,14 @@ Validate that the sanitized CSV sample data reproduces the published output exam
 python3 tests/validate_examples.py
 python3 tests/validate_duckdb_sql.py
 ```
+
+Build an optional local DuckDB database from the CSV samples and SQL views:
+
+```bash
+python3 scripts/build_duckdb_demo.py
+```
+
+This creates `local_reconciliation_demo.duckdb`, which is ignored by Git. The repository keeps CSVs as transparent sample inputs while the generated DuckDB file provides a local database artifact for SQL inspection.
 
 Regenerate the deterministic sample dataset:
 
