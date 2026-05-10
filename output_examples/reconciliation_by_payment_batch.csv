@@ -1,1050 +1,1050 @@
-payment_batch_id,receipt_ref,match_status,row_count,payment_batch_total
-open_payment_group_check_001,,CHECK,1,191.00
-open_payment_group_check_002,,CHECK,1,202.00
-open_payment_group_check_003,,CHECK,1,213.00
-open_payment_group_check_004,,CHECK,1,224.00
-open_payment_group_unmatched_001,,UNMATCHED,1,102.00
-open_payment_group_unmatched_002,,UNMATCHED,1,109.00
-open_payment_group_unmatched_003,,UNMATCHED,1,116.00
-open_payment_group_unmatched_004,,UNMATCHED,1,123.00
-payment_group_001_fee_0430,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0431,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0432,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0433,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0434,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0435,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0436,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0437,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0438,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0439,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0440,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0441,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0442,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0443,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0444,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0445,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0446,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0447,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0448,receipt_ref_001,CFEE,1,45.00
-payment_group_001_fee_0449,receipt_ref_001,CFEE,1,45.00
-payment_group_001_line_0001,receipt_ref_001,MATCH,1,31.13
-payment_group_001_line_0002,receipt_ref_001,MATCH,1,32.26
-payment_group_001_line_0003,receipt_ref_001,MATCH,1,33.39
-payment_group_001_line_0004,receipt_ref_001,MATCH,1,34.52
-payment_group_001_line_0005,receipt_ref_001,MATCH,1,35.65
-payment_group_001_line_0006,receipt_ref_001,MATCH,1,36.78
-payment_group_001_line_0007,receipt_ref_001,MATCH,1,37.91
-payment_group_001_line_0008,receipt_ref_001,MATCH,1,39.04
-payment_group_001_line_0009,receipt_ref_001,MATCH,1,40.17
-payment_group_001_line_0010,receipt_ref_001,MATCH,1,41.30
-payment_group_001_line_0011,receipt_ref_001,MATCH,1,42.43
-payment_group_001_line_0012,receipt_ref_001,MATCH,1,43.56
-payment_group_001_line_0013,receipt_ref_001,MATCH,1,44.69
-payment_group_001_line_0014,receipt_ref_001,MATCH,1,45.82
-payment_group_001_line_0015,receipt_ref_001,MATCH,1,46.95
-payment_group_001_line_0016,receipt_ref_001,MATCH,1,48.08
-payment_group_001_line_0017,receipt_ref_001,MATCH,1,49.21
-payment_group_001_line_0018,receipt_ref_001,MATCH,1,50.34
-payment_group_001_line_0019,receipt_ref_001,MATCH,1,51.47
-payment_group_001_line_0020,receipt_ref_001,MATCH,1,52.60
-payment_group_001_line_0021,receipt_ref_001,MATCH,1,53.73
-payment_group_001_line_0022,receipt_ref_001,MATCH,1,54.86
-payment_group_001_line_0023,receipt_ref_001,MATCH,1,55.99
-payment_group_001_line_0024,receipt_ref_001,MATCH,1,57.12
-payment_group_001_line_0025,receipt_ref_001,MATCH,1,58.25
-payment_group_001_line_0026,receipt_ref_001,MATCH,1,59.38
-payment_group_001_line_0027,receipt_ref_001,MATCH,1,60.51
-payment_group_001_line_0028,receipt_ref_001,MATCH,1,61.64
-payment_group_001_line_0029,receipt_ref_001,MATCH,1,62.77
-payment_group_001_line_0030,receipt_ref_001,MATCH,1,63.90
-payment_group_001_line_0031,receipt_ref_001,MATCH,1,65.03
-payment_group_001_line_0032,receipt_ref_001,MATCH,1,66.16
-payment_group_001_line_0033,receipt_ref_001,MATCH,1,67.29
-payment_group_001_line_0034,receipt_ref_001,MATCH,1,68.42
-payment_group_001_line_0035,receipt_ref_001,MATCH,1,69.55
-payment_group_001_line_0036,receipt_ref_001,MATCH,1,70.68
-payment_group_001_line_0037,receipt_ref_001,MATCH,1,71.81
-payment_group_001_line_0038,receipt_ref_001,MATCH,1,72.94
-payment_group_001_line_0039,receipt_ref_001,MATCH,1,74.07
-payment_group_001_line_0040,receipt_ref_001,MATCH,1,75.20
-payment_group_001_line_0041,receipt_ref_001,MATCH,1,76.33
-payment_group_001_line_0042,receipt_ref_001,MATCH,1,77.46
-payment_group_001_line_0043,receipt_ref_001,MATCH,1,78.59
-payment_group_001_line_0044,receipt_ref_001,MATCH,1,79.72
-payment_group_001_line_0045,receipt_ref_001,MATCH,1,80.85
-payment_group_001_line_0046,receipt_ref_001,MATCH,1,81.98
-payment_group_001_line_0047,receipt_ref_001,MATCH,1,83.11
-payment_group_001_line_0048,receipt_ref_001,MATCH,1,84.24
-payment_group_001_line_0049,receipt_ref_001,MATCH,1,85.37
-payment_group_001_line_0050,receipt_ref_001,MATCH,1,86.50
-payment_group_001_line_0051,receipt_ref_001,MATCH,1,87.63
-payment_group_001_line_0052,receipt_ref_001,MATCH,1,88.76
-payment_group_001_line_0053,receipt_ref_001,MATCH,1,89.89
-payment_group_001_line_0054,receipt_ref_001,MATCH,1,91.02
-payment_group_001_line_0055,receipt_ref_001,MATCH,1,92.15
-payment_group_001_line_0056,receipt_ref_001,MATCH,1,93.28
-payment_group_001_line_0057,receipt_ref_001,MATCH,1,94.41
-payment_group_001_line_0058,receipt_ref_001,MATCH,1,95.54
-payment_group_001_line_0059,receipt_ref_001,MATCH,1,96.67
-payment_group_001_line_0060,receipt_ref_001,MATCH,1,97.80
-payment_group_001_line_0061,receipt_ref_001,MATCH,1,98.93
-payment_group_001_line_0062,receipt_ref_001,MATCH,1,100.06
-payment_group_001_line_0063,receipt_ref_001,MATCH,1,101.19
-payment_group_001_line_0064,receipt_ref_001,MATCH,1,102.32
-payment_group_001_line_0065,receipt_ref_001,MATCH,1,103.45
-payment_group_001_line_0066,receipt_ref_001,MATCH,1,104.58
-payment_group_001_line_0067,receipt_ref_001,MATCH,1,105.71
-payment_group_001_line_0068,receipt_ref_001,MATCH,1,106.84
-payment_group_001_line_0069,receipt_ref_001,MATCH,1,107.97
-payment_group_001_line_0070,receipt_ref_001,MATCH,1,109.10
-payment_group_001_line_0071,receipt_ref_001,MATCH,1,110.23
-payment_group_001_line_0072,receipt_ref_001,MATCH,1,111.36
-payment_group_001_line_0073,receipt_ref_001,MATCH,1,112.49
-payment_group_001_line_0074,receipt_ref_001,MATCH,1,113.62
-payment_group_001_line_0075,receipt_ref_001,MATCH,1,114.75
-payment_group_001_line_0076,receipt_ref_001,MATCH,1,115.88
-payment_group_001_line_0077,receipt_ref_001,MATCH,1,117.01
-payment_group_001_line_0078,receipt_ref_001,MATCH,1,118.14
-payment_group_001_line_0079,receipt_ref_001,MATCH,1,119.27
-payment_group_001_line_0080,receipt_ref_001,MATCH,1,30.00
-payment_group_001_line_0081,receipt_ref_001,MATCH,1,31.13
-payment_group_001_line_0082,receipt_ref_001,MATCH,1,32.26
-payment_group_001_line_0083,receipt_ref_001,MATCH,1,33.39
-payment_group_001_line_0084,receipt_ref_001,MATCH,1,34.52
-payment_group_001_line_0085,receipt_ref_001,MATCH,1,35.65
-payment_group_001_line_0086,receipt_ref_001,MATCH,1,36.78
-payment_group_001_line_0087,receipt_ref_001,MATCH,1,37.91
-payment_group_001_line_0088,receipt_ref_001,MATCH,1,39.04
-payment_group_001_line_0089,receipt_ref_001,MATCH,1,40.17
-payment_group_001_line_0090,receipt_ref_001,MATCH,1,41.30
-payment_group_001_line_0091,receipt_ref_001,MATCH,1,42.43
-payment_group_001_line_0092,receipt_ref_001,MATCH,1,43.56
-payment_group_001_line_0093,receipt_ref_001,MATCH,1,44.69
-payment_group_001_line_0094,receipt_ref_001,MATCH,1,45.82
-payment_group_001_line_0095,receipt_ref_001,MATCH,1,46.95
-payment_group_001_line_0096,receipt_ref_001,MATCH,1,48.08
-payment_group_001_line_0097,receipt_ref_001,MATCH,1,49.21
-payment_group_001_line_0098,receipt_ref_001,MATCH,1,50.34
-payment_group_001_line_0099,receipt_ref_001,MATCH,1,51.47
-payment_group_001_line_0100,receipt_ref_001,MATCH,1,52.60
-payment_group_001_line_0101,receipt_ref_001,MATCH,1,53.73
-payment_group_001_line_0102,receipt_ref_001,MATCH,1,54.86
-payment_group_001_line_0103,receipt_ref_001,MATCH,1,55.99
-payment_group_001_line_0104,receipt_ref_001,MATCH,1,57.12
-payment_group_001_line_0105,receipt_ref_001,MATCH,1,58.25
-payment_group_001_line_0106,receipt_ref_001,MATCH,1,59.38
-payment_group_001_line_0107,receipt_ref_001,MATCH,1,60.51
-payment_group_001_line_0108,receipt_ref_001,MATCH,1,61.64
-payment_group_001_line_0109,receipt_ref_001,MATCH,1,62.77
-payment_group_001_line_0110,receipt_ref_001,MATCH,1,63.90
-payment_group_001_line_0111,receipt_ref_001,MATCH,1,65.03
-payment_group_001_line_0112,receipt_ref_001,MATCH,1,66.16
-payment_group_001_line_0113,receipt_ref_001,MATCH,1,67.29
-payment_group_001_line_0114,receipt_ref_001,MATCH,1,68.42
-payment_group_001_line_0115,receipt_ref_001,MATCH,1,69.55
-payment_group_001_line_0116,receipt_ref_001,MATCH,1,70.68
-payment_group_001_line_0117,receipt_ref_001,MATCH,1,71.81
-payment_group_001_line_0118,receipt_ref_001,MATCH,1,72.94
-payment_group_001_line_0119,receipt_ref_001,MATCH,1,74.07
-payment_group_001_line_0120,receipt_ref_001,MATCH,1,75.20
-payment_group_001_line_0121,receipt_ref_001,MATCH,1,76.33
-payment_group_001_line_0122,receipt_ref_001,MATCH,1,77.46
-payment_group_001_line_0123,receipt_ref_001,MATCH,1,78.59
-payment_group_001_line_0124,receipt_ref_001,MATCH,1,79.72
-payment_group_001_line_0125,receipt_ref_001,MATCH,1,80.85
-payment_group_001_line_0126,receipt_ref_001,MATCH,1,81.98
-payment_group_001_line_0127,receipt_ref_001,MATCH,1,83.11
-payment_group_001_line_0128,receipt_ref_001,MATCH,1,84.24
-payment_group_001_line_0129,receipt_ref_001,MATCH,1,85.37
-payment_group_001_line_0130,receipt_ref_001,MATCH,1,86.50
-payment_group_001_line_0131,receipt_ref_001,MATCH,1,87.63
-payment_group_001_line_0132,receipt_ref_001,MATCH,1,88.76
-payment_group_001_line_0133,receipt_ref_001,MATCH,1,89.89
-payment_group_001_line_0134,receipt_ref_001,MATCH,1,91.02
-payment_group_001_line_0135,receipt_ref_001,MATCH,1,92.15
-payment_group_001_line_0136,receipt_ref_001,MATCH,1,93.28
-payment_group_001_line_0137,receipt_ref_001,MATCH,1,94.41
-payment_group_001_line_0138,receipt_ref_001,MATCH,1,95.54
-payment_group_001_line_0139,receipt_ref_001,MATCH,1,96.67
-payment_group_001_line_0140,receipt_ref_001,MATCH,1,97.80
-payment_group_001_line_0141,receipt_ref_001,MATCH,1,98.93
-payment_group_001_line_0142,receipt_ref_001,MATCH,1,100.06
-payment_group_001_line_0143,receipt_ref_001,MATCH,1,101.19
-payment_group_001_line_0144,receipt_ref_001,MATCH,1,102.32
-payment_group_001_line_0145,receipt_ref_001,MATCH,1,103.45
-payment_group_001_line_0146,receipt_ref_001,MATCH,1,104.58
-payment_group_001_line_0147,receipt_ref_001,MATCH,1,105.71
-payment_group_001_line_0148,receipt_ref_001,MATCH,1,106.84
-payment_group_001_line_0149,receipt_ref_001,MATCH,1,107.97
-payment_group_001_line_0150,receipt_ref_001,MATCH,1,109.10
-payment_group_001_line_0151,receipt_ref_001,MATCH,1,110.23
-payment_group_001_line_0152,receipt_ref_001,MATCH,1,111.36
-payment_group_001_line_0153,receipt_ref_001,MATCH,1,112.49
-payment_group_001_line_0154,receipt_ref_001,MATCH,1,113.62
-payment_group_001_line_0155,receipt_ref_001,MATCH,1,114.75
-payment_group_001_line_0156,receipt_ref_001,MATCH,1,115.88
-payment_group_001_line_0157,receipt_ref_001,MATCH,1,117.01
-payment_group_001_line_0158,receipt_ref_001,MATCH,1,118.14
-payment_group_001_line_0159,receipt_ref_001,MATCH,1,119.27
-payment_group_001_line_0160,receipt_ref_001,MATCH,1,30.00
-payment_group_001_line_0161,receipt_ref_001,MATCH,1,31.13
-payment_group_001_line_0162,receipt_ref_001,MATCH,1,32.26
-payment_group_001_line_0163,receipt_ref_001,MATCH,1,33.39
-payment_group_001_line_0164,receipt_ref_001,MATCH,1,34.52
-payment_group_001_line_0165,receipt_ref_001,MATCH,1,35.65
-payment_group_001_line_0166,receipt_ref_001,MATCH,1,36.78
-payment_group_001_line_0167,receipt_ref_001,MATCH,1,37.91
-payment_group_001_line_0168,receipt_ref_001,MATCH,1,39.04
-payment_group_001_line_0169,receipt_ref_001,MATCH,1,40.17
-payment_group_001_line_0170,receipt_ref_001,MATCH,1,41.30
-payment_group_001_line_0171,receipt_ref_001,MATCH,1,42.43
-payment_group_001_line_0172,receipt_ref_001,MATCH,1,43.56
-payment_group_001_line_0173,receipt_ref_001,MATCH,1,44.69
-payment_group_001_line_0174,receipt_ref_001,MATCH,1,45.82
-payment_group_001_line_0175,receipt_ref_001,MATCH,1,46.95
-payment_group_001_line_0176,receipt_ref_001,MATCH,1,48.08
-payment_group_001_line_0177,receipt_ref_001,MATCH,1,49.21
-payment_group_001_line_0178,receipt_ref_001,MATCH,1,50.34
-payment_group_001_line_0179,receipt_ref_001,MATCH,1,51.47
-payment_group_001_line_0180,receipt_ref_001,MATCH,1,52.60
-payment_group_001_line_0181,receipt_ref_001,MATCH,1,53.73
-payment_group_001_line_0182,receipt_ref_001,MATCH,1,54.86
-payment_group_001_line_0183,receipt_ref_001,MATCH,1,55.99
-payment_group_001_line_0184,receipt_ref_001,MATCH,1,57.12
-payment_group_001_line_0185,receipt_ref_001,MATCH,1,58.25
-payment_group_001_line_0186,receipt_ref_001,MATCH,1,59.38
-payment_group_001_line_0187,receipt_ref_001,MATCH,1,60.51
-payment_group_001_line_0188,receipt_ref_001,MATCH,1,61.64
-payment_group_001_line_0189,receipt_ref_001,MATCH,1,62.77
-payment_group_001_line_0190,receipt_ref_001,MATCH,1,63.90
-payment_group_001_line_0191,receipt_ref_001,MATCH,1,65.03
-payment_group_001_line_0192,receipt_ref_001,MATCH,1,66.16
-payment_group_001_line_0193,receipt_ref_001,MATCH,1,67.29
-payment_group_001_line_0194,receipt_ref_001,MATCH,1,68.42
-payment_group_001_line_0195,receipt_ref_001,MATCH,1,69.55
-payment_group_001_line_0196,receipt_ref_001,MATCH,1,70.68
-payment_group_001_line_0197,receipt_ref_001,MATCH,1,71.81
-payment_group_001_line_0198,receipt_ref_001,MATCH,1,72.94
-payment_group_001_line_0199,receipt_ref_001,MATCH,1,74.07
-payment_group_001_line_0200,receipt_ref_001,MATCH,1,75.20
-payment_group_001_line_0201,receipt_ref_001,MATCH,1,76.33
-payment_group_001_line_0202,receipt_ref_001,MATCH,1,77.46
-payment_group_001_line_0203,receipt_ref_001,MATCH,1,78.59
-payment_group_001_line_0204,receipt_ref_001,MATCH,1,79.72
-payment_group_001_line_0205,receipt_ref_001,MATCH,1,80.85
-payment_group_001_line_0206,receipt_ref_001,MATCH,1,81.98
-payment_group_001_line_0207,receipt_ref_001,MATCH,1,83.11
-payment_group_001_line_0208,receipt_ref_001,MATCH,1,84.24
-payment_group_001_line_0209,receipt_ref_001,MATCH,1,85.37
-payment_group_001_line_0210,receipt_ref_001,MATCH,1,86.50
-payment_group_001_line_0211,receipt_ref_001,MATCH,1,87.63
-payment_group_001_line_0212,receipt_ref_001,MATCH,1,88.76
-payment_group_001_line_0213,receipt_ref_001,MATCH,1,89.89
-payment_group_001_line_0214,receipt_ref_001,MATCH,1,91.02
-payment_group_001_line_0215,receipt_ref_001,MATCH,1,92.15
-payment_group_001_line_0216,receipt_ref_001,MATCH,1,93.28
-payment_group_001_line_0217,receipt_ref_001,MATCH,1,94.41
-payment_group_001_line_0218,receipt_ref_001,MATCH,1,95.54
-payment_group_001_line_0219,receipt_ref_001,MATCH,1,96.67
-payment_group_001_line_0220,receipt_ref_001,MATCH,1,97.80
-payment_group_001_line_0221,receipt_ref_001,MATCH,1,98.93
-payment_group_001_line_0222,receipt_ref_001,MATCH,1,100.06
-payment_group_001_line_0223,receipt_ref_001,MATCH,1,101.19
-payment_group_001_line_0224,receipt_ref_001,MATCH,1,102.32
-payment_group_001_line_0225,receipt_ref_001,MATCH,1,103.45
-payment_group_001_line_0226,receipt_ref_001,MATCH,1,104.58
-payment_group_001_line_0227,receipt_ref_001,MATCH,1,105.71
-payment_group_001_line_0228,receipt_ref_001,MATCH,1,106.84
-payment_group_001_line_0229,receipt_ref_001,MATCH,1,107.97
-payment_group_001_line_0230,receipt_ref_001,MATCH,1,109.10
-payment_group_001_line_0231,receipt_ref_001,MATCH,1,110.23
-payment_group_001_line_0232,receipt_ref_001,MATCH,1,111.36
-payment_group_001_line_0233,receipt_ref_001,MATCH,1,112.49
-payment_group_001_line_0234,receipt_ref_001,MATCH,1,113.62
-payment_group_001_line_0235,receipt_ref_001,MATCH,1,114.75
-payment_group_001_line_0236,receipt_ref_001,MATCH,1,115.88
-payment_group_001_line_0237,receipt_ref_001,MATCH,1,117.01
-payment_group_001_line_0238,receipt_ref_001,MATCH,1,118.14
-payment_group_001_line_0239,receipt_ref_001,MATCH,1,119.27
-payment_group_001_line_0240,receipt_ref_001,MATCH,1,30.00
-payment_group_001_line_0241,receipt_ref_001,MATCH,1,31.13
-payment_group_001_line_0242,receipt_ref_001,MATCH,1,32.26
-payment_group_001_line_0243,receipt_ref_001,MATCH,1,33.39
-payment_group_001_line_0244,receipt_ref_001,MATCH,1,34.52
-payment_group_001_line_0245,receipt_ref_001,MATCH,1,35.65
-payment_group_001_line_0246,receipt_ref_001,MATCH,1,36.78
-payment_group_001_line_0247,receipt_ref_001,MATCH,1,37.91
-payment_group_001_line_0248,receipt_ref_001,MATCH,1,39.04
-payment_group_001_line_0249,receipt_ref_001,MATCH,1,40.17
-payment_group_001_line_0250,receipt_ref_001,MATCH,1,41.30
-payment_group_001_line_0430,receipt_ref_001,CFEE,1,-120.00
-payment_group_001_line_0431,receipt_ref_001,CFEE,1,-123.00
-payment_group_001_line_0432,receipt_ref_001,CFEE,1,-126.00
-payment_group_001_line_0433,receipt_ref_001,CFEE,1,-129.00
-payment_group_001_line_0434,receipt_ref_001,CFEE,1,-132.00
-payment_group_001_line_0435,receipt_ref_001,CFEE,1,-135.00
-payment_group_001_line_0436,receipt_ref_001,CFEE,1,-138.00
-payment_group_001_line_0437,receipt_ref_001,CFEE,1,-141.00
-payment_group_001_line_0438,receipt_ref_001,CFEE,1,-144.00
-payment_group_001_line_0439,receipt_ref_001,CFEE,1,-147.00
-payment_group_001_line_0440,receipt_ref_001,CFEE,1,-150.00
-payment_group_001_line_0441,receipt_ref_001,CFEE,1,-153.00
-payment_group_001_line_0442,receipt_ref_001,CFEE,1,-120.00
-payment_group_001_line_0443,receipt_ref_001,CFEE,1,-123.00
-payment_group_001_line_0444,receipt_ref_001,CFEE,1,-126.00
-payment_group_001_line_0445,receipt_ref_001,CFEE,1,-129.00
-payment_group_001_line_0446,receipt_ref_001,CFEE,1,-132.00
-payment_group_001_line_0447,receipt_ref_001,CFEE,1,-135.00
-payment_group_001_line_0448,receipt_ref_001,CFEE,1,-138.00
-payment_group_001_line_0449,receipt_ref_001,CFEE,1,-141.00
-payment_group_002_line_0251,receipt_ref_001,MATCH,1,32.26
-payment_group_002_line_0252,receipt_ref_001,MATCH,1,33.39
-payment_group_002_line_0253,receipt_ref_001,MATCH,1,34.52
-payment_group_002_line_0254,receipt_ref_001,MATCH,1,35.65
-payment_group_002_line_0255,receipt_ref_001,MATCH,1,36.78
-payment_group_002_line_0256,receipt_ref_001,MATCH,1,37.91
-payment_group_002_line_0257,receipt_ref_001,MATCH,1,39.04
-payment_group_002_line_0258,receipt_ref_001,MATCH,1,40.17
-payment_group_002_line_0259,receipt_ref_001,MATCH,1,41.30
-payment_group_002_line_0260,receipt_ref_001,MATCH,1,42.43
-payment_group_002_line_0261,receipt_ref_001,MATCH,1,43.56
-payment_group_002_line_0262,receipt_ref_001,MATCH,1,44.69
-payment_group_002_line_0263,receipt_ref_001,MATCH,1,45.82
-payment_group_002_line_0264,receipt_ref_001,MATCH,1,46.95
-payment_group_002_line_0265,receipt_ref_001,MATCH,1,48.08
-payment_group_002_line_0266,receipt_ref_001,MATCH,1,49.21
-payment_group_002_line_0267,receipt_ref_001,MATCH,1,50.34
-payment_group_002_line_0268,receipt_ref_001,MATCH,1,51.47
-payment_group_002_line_0269,receipt_ref_001,MATCH,1,52.60
-payment_group_002_line_0270,receipt_ref_001,MATCH,1,53.73
-payment_group_002_line_0271,receipt_ref_001,MATCH,1,54.86
-payment_group_002_line_0272,receipt_ref_001,MATCH,1,55.99
-payment_group_002_line_0273,receipt_ref_001,MATCH,1,57.12
-payment_group_002_line_0274,receipt_ref_001,MATCH,1,58.25
-payment_group_002_line_0275,receipt_ref_001,MATCH,1,59.38
-payment_group_002_line_0276,receipt_ref_001,MATCH,1,60.51
-payment_group_002_line_0277,receipt_ref_001,MATCH,1,61.64
-payment_group_002_line_0278,receipt_ref_001,MATCH,1,62.77
-payment_group_002_line_0279,receipt_ref_001,MATCH,1,63.90
-payment_group_002_line_0280,receipt_ref_001,MATCH,1,65.03
-payment_group_002_line_0281,receipt_ref_001,MATCH,1,66.16
-payment_group_002_line_0282,receipt_ref_001,MATCH,1,67.29
-payment_group_002_line_0283,receipt_ref_001,MATCH,1,68.42
-payment_group_002_line_0284,receipt_ref_001,MATCH,1,69.55
-payment_group_002_line_0285,receipt_ref_001,MATCH,1,70.68
-payment_group_002_line_0286,receipt_ref_001,MATCH,1,71.81
-payment_group_002_line_0287,receipt_ref_001,MATCH,1,72.94
-payment_group_002_line_0288,receipt_ref_001,MATCH,1,74.07
-payment_group_002_line_0289,receipt_ref_001,MATCH,1,75.20
-payment_group_002_line_0290,receipt_ref_001,MATCH,1,76.33
-payment_group_002_line_0291,receipt_ref_001,MATCH,1,77.46
-payment_group_002_line_0292,receipt_ref_001,MATCH,1,78.59
-payment_group_002_line_0293,receipt_ref_001,MATCH,1,79.72
-payment_group_002_line_0294,receipt_ref_001,MATCH,1,80.85
-payment_group_002_line_0295,receipt_ref_001,MATCH,1,81.98
-payment_group_002_line_0296,receipt_ref_001,MATCH,1,83.11
-payment_group_002_line_0297,receipt_ref_001,MATCH,1,84.24
-payment_group_002_line_0298,receipt_ref_001,MATCH,1,85.37
-payment_group_002_line_0299,receipt_ref_001,MATCH,1,86.50
-payment_group_002_line_0300,receipt_ref_001,MATCH,1,87.63
-payment_group_002_line_0301,receipt_ref_001,MATCH,1,88.76
-payment_group_002_line_0302,receipt_ref_001,MATCH,1,89.89
-payment_group_002_line_0303,receipt_ref_001,MATCH,1,91.02
-payment_group_002_line_0304,receipt_ref_001,MATCH,1,92.15
-payment_group_002_line_0305,receipt_ref_001,MATCH,1,93.28
-payment_group_002_line_0306,receipt_ref_001,MATCH,1,94.41
-payment_group_002_line_0307,receipt_ref_001,MATCH,1,95.54
-payment_group_002_line_0308,receipt_ref_001,MATCH,1,96.67
-payment_group_002_line_0309,receipt_ref_001,MATCH,1,97.80
-payment_group_002_line_0310,receipt_ref_001,MATCH,1,98.93
-payment_group_002_line_0311,receipt_ref_001,MATCH,1,100.06
-payment_group_002_line_0312,receipt_ref_001,MATCH,1,101.19
-payment_group_002_line_0313,receipt_ref_001,MATCH,1,102.32
-payment_group_002_line_0314,receipt_ref_001,MATCH,1,103.45
-payment_group_002_line_0315,receipt_ref_001,MATCH,1,104.58
-payment_group_002_line_0316,receipt_ref_001,MATCH,1,105.71
-payment_group_002_line_0317,receipt_ref_001,MATCH,1,106.84
-payment_group_002_line_0318,receipt_ref_001,MATCH,1,107.97
-payment_group_002_line_0319,receipt_ref_001,MATCH,1,109.10
-payment_group_002_line_0320,receipt_ref_001,MATCH,1,110.23
-payment_group_002_line_0321,receipt_ref_001,MATCH,1,111.36
-payment_group_002_line_0322,receipt_ref_001,MATCH,1,112.49
-payment_group_002_line_0323,receipt_ref_001,MATCH,1,113.62
-payment_group_002_line_0324,receipt_ref_001,MATCH,1,114.75
-payment_group_002_line_0325,receipt_ref_001,MATCH,1,115.88
-payment_group_002_line_0326,receipt_ref_001,MATCH,1,117.01
-payment_group_002_line_0327,receipt_ref_001,MATCH,1,118.14
-payment_group_002_line_0328,receipt_ref_001,MATCH,1,119.27
-payment_group_002_line_0329,receipt_ref_001,MATCH,1,30.00
-payment_group_002_line_0330,receipt_ref_001,MATCH,1,31.13
-payment_group_003_line_0331,receipt_ref_001,MATCH,1,33.39
-payment_group_003_line_0332,receipt_ref_001,MATCH,1,34.52
-payment_group_003_line_0333,receipt_ref_001,MATCH,1,35.65
-payment_group_003_line_0334,receipt_ref_001,MATCH,1,36.78
-payment_group_003_line_0335,receipt_ref_001,MATCH,1,37.91
-payment_group_003_line_0336,receipt_ref_001,MATCH,1,39.04
-payment_group_003_line_0337,receipt_ref_001,MATCH,1,40.17
-payment_group_003_line_0338,receipt_ref_001,MATCH,1,41.30
-payment_group_003_line_0339,receipt_ref_001,MATCH,1,42.43
-payment_group_003_line_0340,receipt_ref_001,MATCH,1,43.56
-payment_group_003_line_0341,receipt_ref_001,MATCH,1,44.69
-payment_group_003_line_0342,receipt_ref_001,MATCH,1,45.82
-payment_group_003_line_0343,receipt_ref_001,MATCH,1,46.95
-payment_group_003_line_0344,receipt_ref_001,MATCH,1,48.08
-payment_group_003_line_0345,receipt_ref_001,MATCH,1,49.21
-payment_group_003_line_0346,receipt_ref_001,MATCH,1,50.34
-payment_group_003_line_0347,receipt_ref_001,MATCH,1,51.47
-payment_group_003_line_0348,receipt_ref_001,MATCH,1,52.60
-payment_group_003_line_0349,receipt_ref_001,MATCH,1,53.73
-payment_group_003_line_0350,receipt_ref_001,MATCH,1,54.86
-payment_group_003_line_0351,receipt_ref_001,MATCH,1,55.99
-payment_group_003_line_0352,receipt_ref_001,MATCH,1,57.12
-payment_group_003_line_0353,receipt_ref_001,MATCH,1,58.25
-payment_group_003_line_0354,receipt_ref_001,MATCH,1,59.38
-payment_group_003_line_0355,receipt_ref_001,MATCH,1,60.51
-payment_group_003_line_0356,receipt_ref_001,MATCH,1,61.64
-payment_group_003_line_0357,receipt_ref_001,MATCH,1,62.77
-payment_group_003_line_0358,receipt_ref_001,MATCH,1,63.90
-payment_group_003_line_0359,receipt_ref_001,MATCH,1,65.03
-payment_group_003_line_0360,receipt_ref_001,MATCH,1,66.16
-payment_group_003_line_0361,receipt_ref_001,MATCH,1,67.29
-payment_group_003_line_0362,receipt_ref_001,MATCH,1,68.42
-payment_group_003_line_0363,receipt_ref_001,MATCH,1,69.55
-payment_group_003_line_0364,receipt_ref_001,MATCH,1,70.68
-payment_group_003_line_0365,receipt_ref_001,MATCH,1,71.81
-payment_group_003_line_0366,receipt_ref_001,MATCH,1,72.94
-payment_group_003_line_0367,receipt_ref_001,MATCH,1,74.07
-payment_group_003_line_0368,receipt_ref_001,MATCH,1,75.20
-payment_group_003_line_0369,receipt_ref_001,MATCH,1,76.33
-payment_group_003_line_0370,receipt_ref_001,MATCH,1,77.46
-payment_group_003_line_0371,receipt_ref_001,MATCH,1,78.59
-payment_group_003_line_0372,receipt_ref_001,MATCH,1,79.72
-payment_group_003_line_0373,receipt_ref_001,MATCH,1,80.85
-payment_group_003_line_0374,receipt_ref_001,MATCH,1,81.98
-payment_group_003_line_0375,receipt_ref_001,MATCH,1,83.11
-payment_group_003_line_0376,receipt_ref_001,MATCH,1,84.24
-payment_group_003_line_0377,receipt_ref_001,MATCH,1,85.37
-payment_group_003_line_0378,receipt_ref_001,MATCH,1,86.50
-payment_group_003_line_0379,receipt_ref_001,MATCH,1,87.63
-payment_group_003_line_0380,receipt_ref_001,MATCH,1,88.76
-payment_group_003_line_0381,receipt_ref_001,MATCH,1,89.89
-payment_group_003_line_0382,receipt_ref_001,MATCH,1,91.02
-payment_group_003_line_0383,receipt_ref_001,MATCH,1,92.15
-payment_group_003_line_0384,receipt_ref_001,MATCH,1,93.28
-payment_group_003_line_0385,receipt_ref_001,MATCH,1,94.41
-payment_group_003_line_0386,receipt_ref_001,MATCH,1,95.54
-payment_group_003_line_0387,receipt_ref_001,MATCH,1,96.67
-payment_group_003_line_0388,receipt_ref_001,MATCH,1,97.80
-payment_group_003_line_0389,receipt_ref_001,MATCH,1,98.93
-payment_group_003_line_0390,receipt_ref_001,MATCH,1,100.06
-payment_group_003_line_0391,receipt_ref_001,MATCH,1,101.19
-payment_group_003_line_0392,receipt_ref_001,MATCH,1,102.32
-payment_group_003_line_0393,receipt_ref_001,MATCH,1,103.45
-payment_group_003_line_0394,receipt_ref_001,MATCH,1,104.58
-payment_group_003_line_0395,receipt_ref_001,MATCH,1,105.71
-payment_group_003_line_0396,receipt_ref_001,MATCH,1,106.84
-payment_group_003_line_0397,receipt_ref_001,MATCH,1,107.97
-payment_group_003_line_0398,receipt_ref_001,MATCH,1,109.10
-payment_group_003_line_0399,receipt_ref_001,MATCH,1,110.23
-payment_group_003_line_0400,receipt_ref_001,MATCH,1,111.36
-payment_group_003_line_0401,receipt_ref_001,MATCH,1,112.49
-payment_group_003_line_0402,receipt_ref_001,MATCH,1,113.62
-payment_group_003_line_0403,receipt_ref_001,MATCH,1,114.75
-payment_group_003_line_0404,receipt_ref_001,MATCH,1,115.88
-payment_group_003_line_0405,receipt_ref_001,MATCH,1,117.01
-payment_group_003_line_0406,receipt_ref_001,MATCH,1,118.14
-payment_group_003_line_0407,receipt_ref_001,MATCH,1,119.27
-payment_group_003_line_0408,receipt_ref_001,MATCH,1,30.00
-payment_group_003_line_0409,receipt_ref_001,MATCH,1,31.13
-payment_group_003_line_0410,receipt_ref_001,MATCH,1,32.26
-payment_group_003_line_0411,receipt_ref_001,MATCH,1,33.39
-payment_group_003_line_0412,receipt_ref_001,MATCH,1,34.52
-payment_group_003_line_0413,receipt_ref_001,MATCH,1,35.65
-payment_group_003_line_0414,receipt_ref_001,MATCH,1,36.78
-payment_group_003_line_0415,receipt_ref_001,MATCH,1,37.91
-payment_group_003_line_0416,receipt_ref_001,MATCH,1,39.04
-payment_group_003_line_0417,receipt_ref_001,MATCH,1,40.17
-payment_group_003_line_0418,receipt_ref_001,MATCH,1,41.30
-payment_group_003_line_0419,receipt_ref_001,MATCH,1,42.43
-payment_group_003_line_0420,receipt_ref_001,MATCH,1,43.56
-payment_group_003_line_0421,receipt_ref_001,MATCH,1,44.69
-payment_group_003_line_0422,receipt_ref_001,MATCH,1,45.82
-payment_group_003_line_0423,receipt_ref_001,MATCH,1,46.95
-payment_group_003_line_0424,receipt_ref_001,MATCH,1,48.08
-payment_group_003_line_0425,receipt_ref_001,MATCH,1,49.21
-payment_group_003_line_0426,receipt_ref_001,MATCH,1,50.34
-payment_group_003_line_0427,receipt_ref_001,MATCH,1,51.47
-payment_group_003_line_0428,receipt_ref_001,MATCH,1,52.60
-payment_group_003_line_0429,receipt_ref_001,MATCH,1,53.73
-payment_group_003_line_0450,receipt_ref_001,OVP,1,75.00
-payment_group_003_line_0451,receipt_ref_001,OVP,1,77.20
-payment_group_003_line_0452,receipt_ref_001,OVP,1,79.40
-payment_group_003_line_0453,receipt_ref_001,OVP,1,81.60
-payment_group_003_line_0454,receipt_ref_001,OVP,1,83.80
-payment_group_003_line_0455,receipt_ref_001,OVP,1,86.00
-payment_group_003_line_0456,receipt_ref_001,OVP,1,88.20
-payment_group_003_line_0457,receipt_ref_001,OVP,1,90.40
-payment_group_003_line_0458,receipt_ref_001,OVP,1,92.60
-payment_group_003_line_0459,receipt_ref_001,OVP,1,94.80
-payment_group_003_line_0460,receipt_ref_001,OVP,1,97.00
-payment_group_003_line_0461,receipt_ref_001,OVP,1,99.20
-payment_group_003_line_0462,receipt_ref_001,OVP,1,101.40
-payment_group_003_line_0463,receipt_ref_001,OVP,1,103.60
-payment_group_003_line_0464,receipt_ref_001,OVP,1,105.80
-payment_group_003_line_0465,receipt_ref_001,OVP,1,108.00
-payment_group_003_line_0466,receipt_ref_001,OVP,1,110.20
-payment_group_003_line_0467,receipt_ref_001,OVP,1,112.40
-payment_group_003_line_0468,receipt_ref_001,OVP,1,114.60
-payment_group_003_line_0469,receipt_ref_001,OVP,1,116.80
-payment_group_003_line_0470,receipt_ref_001,OVP,1,119.00
-payment_group_003_line_0471,receipt_ref_001,OVP,1,121.20
-payment_group_003_line_0472,receipt_ref_001,OVP,1,123.40
-payment_group_003_line_0473,receipt_ref_001,OVP,1,125.60
-payment_group_003_line_0474,receipt_ref_001,OVP,1,127.80
-payment_group_003_line_0475,receipt_ref_001,OVP,1,130.00
-payment_group_003_line_0476,receipt_ref_001,OVP,1,132.20
-payment_group_003_line_0477,receipt_ref_001,OVP,1,134.40
-payment_group_003_line_0478,receipt_ref_001,OVP,1,136.60
-payment_group_003_line_0479,receipt_ref_001,OVP,1,138.80
-payment_group_004_fee_0221,receipt_ref_002,CFEE,1,50.00
-payment_group_004_fee_0222,receipt_ref_002,CFEE,1,50.00
-payment_group_004_fee_0223,receipt_ref_002,CFEE,1,50.00
-payment_group_004_fee_0224,receipt_ref_002,CFEE,1,50.00
-payment_group_004_fee_0225,receipt_ref_002,CFEE,1,50.00
-payment_group_004_fee_0226,receipt_ref_002,CFEE,1,50.00
-payment_group_004_fee_0227,receipt_ref_002,CFEE,1,50.00
-payment_group_004_fee_0228,receipt_ref_002,CFEE,1,50.00
-payment_group_004_line_0001,receipt_ref_002,MATCH,1,31.13
-payment_group_004_line_0002,receipt_ref_002,MATCH,1,32.26
-payment_group_004_line_0003,receipt_ref_002,MATCH,1,33.39
-payment_group_004_line_0004,receipt_ref_002,MATCH,1,34.52
-payment_group_004_line_0005,receipt_ref_002,MATCH,1,35.65
-payment_group_004_line_0006,receipt_ref_002,MATCH,1,36.78
-payment_group_004_line_0007,receipt_ref_002,MATCH,1,37.91
-payment_group_004_line_0008,receipt_ref_002,MATCH,1,39.04
-payment_group_004_line_0009,receipt_ref_002,MATCH,1,40.17
-payment_group_004_line_0010,receipt_ref_002,MATCH,1,41.30
-payment_group_004_line_0011,receipt_ref_002,MATCH,1,42.43
-payment_group_004_line_0012,receipt_ref_002,MATCH,1,43.56
-payment_group_004_line_0013,receipt_ref_002,MATCH,1,44.69
-payment_group_004_line_0014,receipt_ref_002,MATCH,1,45.82
-payment_group_004_line_0015,receipt_ref_002,MATCH,1,46.95
-payment_group_004_line_0016,receipt_ref_002,MATCH,1,48.08
-payment_group_004_line_0017,receipt_ref_002,MATCH,1,49.21
-payment_group_004_line_0018,receipt_ref_002,MATCH,1,50.34
-payment_group_004_line_0019,receipt_ref_002,MATCH,1,51.47
-payment_group_004_line_0020,receipt_ref_002,MATCH,1,52.60
-payment_group_004_line_0021,receipt_ref_002,MATCH,1,53.73
-payment_group_004_line_0022,receipt_ref_002,MATCH,1,54.86
-payment_group_004_line_0023,receipt_ref_002,MATCH,1,55.99
-payment_group_004_line_0024,receipt_ref_002,MATCH,1,57.12
-payment_group_004_line_0025,receipt_ref_002,MATCH,1,58.25
-payment_group_004_line_0026,receipt_ref_002,MATCH,1,59.38
-payment_group_004_line_0027,receipt_ref_002,MATCH,1,60.51
-payment_group_004_line_0028,receipt_ref_002,MATCH,1,61.64
-payment_group_004_line_0029,receipt_ref_002,MATCH,1,62.77
-payment_group_004_line_0030,receipt_ref_002,MATCH,1,63.90
-payment_group_004_line_0031,receipt_ref_002,MATCH,1,65.03
-payment_group_004_line_0032,receipt_ref_002,MATCH,1,66.16
-payment_group_004_line_0033,receipt_ref_002,MATCH,1,67.29
-payment_group_004_line_0034,receipt_ref_002,MATCH,1,68.42
-payment_group_004_line_0035,receipt_ref_002,MATCH,1,69.55
-payment_group_004_line_0036,receipt_ref_002,MATCH,1,70.68
-payment_group_004_line_0037,receipt_ref_002,MATCH,1,71.81
-payment_group_004_line_0038,receipt_ref_002,MATCH,1,72.94
-payment_group_004_line_0039,receipt_ref_002,MATCH,1,74.07
-payment_group_004_line_0040,receipt_ref_002,MATCH,1,75.20
-payment_group_004_line_0041,receipt_ref_002,MATCH,1,76.33
-payment_group_004_line_0042,receipt_ref_002,MATCH,1,77.46
-payment_group_004_line_0043,receipt_ref_002,MATCH,1,78.59
-payment_group_004_line_0044,receipt_ref_002,MATCH,1,79.72
-payment_group_004_line_0045,receipt_ref_002,MATCH,1,80.85
-payment_group_004_line_0046,receipt_ref_002,MATCH,1,81.98
-payment_group_004_line_0047,receipt_ref_002,MATCH,1,83.11
-payment_group_004_line_0048,receipt_ref_002,MATCH,1,84.24
-payment_group_004_line_0049,receipt_ref_002,MATCH,1,85.37
-payment_group_004_line_0050,receipt_ref_002,MATCH,1,86.50
-payment_group_004_line_0051,receipt_ref_002,MATCH,1,87.63
-payment_group_004_line_0052,receipt_ref_002,MATCH,1,88.76
-payment_group_004_line_0053,receipt_ref_002,MATCH,1,89.89
-payment_group_004_line_0054,receipt_ref_002,MATCH,1,91.02
-payment_group_004_line_0055,receipt_ref_002,MATCH,1,92.15
-payment_group_004_line_0056,receipt_ref_002,MATCH,1,93.28
-payment_group_004_line_0057,receipt_ref_002,MATCH,1,94.41
-payment_group_004_line_0058,receipt_ref_002,MATCH,1,95.54
-payment_group_004_line_0059,receipt_ref_002,MATCH,1,96.67
-payment_group_004_line_0060,receipt_ref_002,MATCH,1,97.80
-payment_group_004_line_0061,receipt_ref_002,MATCH,1,98.93
-payment_group_004_line_0062,receipt_ref_002,MATCH,1,100.06
-payment_group_004_line_0063,receipt_ref_002,MATCH,1,101.19
-payment_group_004_line_0064,receipt_ref_002,MATCH,1,102.32
-payment_group_004_line_0065,receipt_ref_002,MATCH,1,103.45
-payment_group_004_line_0066,receipt_ref_002,MATCH,1,104.58
-payment_group_004_line_0067,receipt_ref_002,MATCH,1,105.71
-payment_group_004_line_0068,receipt_ref_002,MATCH,1,106.84
-payment_group_004_line_0069,receipt_ref_002,MATCH,1,107.97
-payment_group_004_line_0070,receipt_ref_002,MATCH,1,109.10
-payment_group_004_line_0071,receipt_ref_002,MATCH,1,110.23
-payment_group_004_line_0072,receipt_ref_002,MATCH,1,111.36
-payment_group_004_line_0073,receipt_ref_002,MATCH,1,112.49
-payment_group_004_line_0074,receipt_ref_002,MATCH,1,113.62
-payment_group_004_line_0075,receipt_ref_002,MATCH,1,114.75
-payment_group_004_line_0076,receipt_ref_002,MATCH,1,115.88
-payment_group_004_line_0077,receipt_ref_002,MATCH,1,117.01
-payment_group_004_line_0078,receipt_ref_002,MATCH,1,118.14
-payment_group_004_line_0079,receipt_ref_002,MATCH,1,119.27
-payment_group_004_line_0080,receipt_ref_002,MATCH,1,30.00
-payment_group_004_line_0081,receipt_ref_002,MATCH,1,31.13
-payment_group_004_line_0082,receipt_ref_002,MATCH,1,32.26
-payment_group_004_line_0083,receipt_ref_002,MATCH,1,33.39
-payment_group_004_line_0084,receipt_ref_002,MATCH,1,34.52
-payment_group_004_line_0085,receipt_ref_002,MATCH,1,35.65
-payment_group_004_line_0086,receipt_ref_002,MATCH,1,36.78
-payment_group_004_line_0087,receipt_ref_002,MATCH,1,37.91
-payment_group_004_line_0088,receipt_ref_002,MATCH,1,39.04
-payment_group_004_line_0089,receipt_ref_002,MATCH,1,40.17
-payment_group_004_line_0090,receipt_ref_002,MATCH,1,41.30
-payment_group_004_line_0091,receipt_ref_002,MATCH,1,42.43
-payment_group_004_line_0092,receipt_ref_002,MATCH,1,43.56
-payment_group_004_line_0093,receipt_ref_002,MATCH,1,44.69
-payment_group_004_line_0094,receipt_ref_002,MATCH,1,45.82
-payment_group_004_line_0095,receipt_ref_002,MATCH,1,46.95
-payment_group_004_line_0096,receipt_ref_002,MATCH,1,48.08
-payment_group_004_line_0097,receipt_ref_002,MATCH,1,49.21
-payment_group_004_line_0098,receipt_ref_002,MATCH,1,50.34
-payment_group_004_line_0099,receipt_ref_002,MATCH,1,51.47
-payment_group_004_line_0100,receipt_ref_002,MATCH,1,52.60
-payment_group_004_line_0101,receipt_ref_002,MATCH,1,53.73
-payment_group_004_line_0102,receipt_ref_002,MATCH,1,54.86
-payment_group_004_line_0103,receipt_ref_002,MATCH,1,55.99
-payment_group_004_line_0104,receipt_ref_002,MATCH,1,57.12
-payment_group_004_line_0105,receipt_ref_002,MATCH,1,58.25
-payment_group_004_line_0106,receipt_ref_002,MATCH,1,59.38
-payment_group_004_line_0107,receipt_ref_002,MATCH,1,60.51
-payment_group_004_line_0108,receipt_ref_002,MATCH,1,61.64
-payment_group_004_line_0109,receipt_ref_002,MATCH,1,62.77
-payment_group_004_line_0110,receipt_ref_002,MATCH,1,63.90
-payment_group_004_line_0111,receipt_ref_002,MATCH,1,65.03
-payment_group_004_line_0112,receipt_ref_002,MATCH,1,66.16
-payment_group_004_line_0113,receipt_ref_002,MATCH,1,67.29
-payment_group_004_line_0114,receipt_ref_002,MATCH,1,68.42
-payment_group_004_line_0115,receipt_ref_002,MATCH,1,69.55
-payment_group_004_line_0116,receipt_ref_002,MATCH,1,70.68
-payment_group_004_line_0117,receipt_ref_002,MATCH,1,71.81
-payment_group_004_line_0118,receipt_ref_002,MATCH,1,72.94
-payment_group_004_line_0119,receipt_ref_002,MATCH,1,74.07
-payment_group_004_line_0120,receipt_ref_002,MATCH,1,75.20
-payment_group_004_line_0121,receipt_ref_002,MATCH,1,76.33
-payment_group_004_line_0122,receipt_ref_002,MATCH,1,77.46
-payment_group_004_line_0123,receipt_ref_002,MATCH,1,78.59
-payment_group_004_line_0124,receipt_ref_002,MATCH,1,79.72
-payment_group_004_line_0125,receipt_ref_002,MATCH,1,80.85
-payment_group_004_line_0126,receipt_ref_002,MATCH,1,81.98
-payment_group_004_line_0127,receipt_ref_002,MATCH,1,83.11
-payment_group_004_line_0128,receipt_ref_002,MATCH,1,84.24
-payment_group_004_line_0129,receipt_ref_002,MATCH,1,85.37
-payment_group_004_line_0130,receipt_ref_002,MATCH,1,86.50
-payment_group_004_line_0221,receipt_ref_002,CFEE,1,-120.00
-payment_group_004_line_0222,receipt_ref_002,CFEE,1,-123.00
-payment_group_004_line_0223,receipt_ref_002,CFEE,1,-126.00
-payment_group_004_line_0224,receipt_ref_002,CFEE,1,-129.00
-payment_group_004_line_0225,receipt_ref_002,CFEE,1,-132.00
-payment_group_004_line_0226,receipt_ref_002,CFEE,1,-135.00
-payment_group_004_line_0227,receipt_ref_002,CFEE,1,-138.00
-payment_group_004_line_0228,receipt_ref_002,CFEE,1,-141.00
-payment_group_005_line_0131,receipt_ref_002,MATCH,1,32.26
-payment_group_005_line_0132,receipt_ref_002,MATCH,1,33.39
-payment_group_005_line_0133,receipt_ref_002,MATCH,1,34.52
-payment_group_005_line_0134,receipt_ref_002,MATCH,1,35.65
-payment_group_005_line_0135,receipt_ref_002,MATCH,1,36.78
-payment_group_005_line_0136,receipt_ref_002,MATCH,1,37.91
-payment_group_005_line_0137,receipt_ref_002,MATCH,1,39.04
-payment_group_005_line_0138,receipt_ref_002,MATCH,1,40.17
-payment_group_005_line_0139,receipt_ref_002,MATCH,1,41.30
-payment_group_005_line_0140,receipt_ref_002,MATCH,1,42.43
-payment_group_005_line_0141,receipt_ref_002,MATCH,1,43.56
-payment_group_005_line_0142,receipt_ref_002,MATCH,1,44.69
-payment_group_005_line_0143,receipt_ref_002,MATCH,1,45.82
-payment_group_005_line_0144,receipt_ref_002,MATCH,1,46.95
-payment_group_005_line_0145,receipt_ref_002,MATCH,1,48.08
-payment_group_005_line_0146,receipt_ref_002,MATCH,1,49.21
-payment_group_005_line_0147,receipt_ref_002,MATCH,1,50.34
-payment_group_005_line_0148,receipt_ref_002,MATCH,1,51.47
-payment_group_005_line_0149,receipt_ref_002,MATCH,1,52.60
-payment_group_005_line_0150,receipt_ref_002,MATCH,1,53.73
-payment_group_005_line_0151,receipt_ref_002,MATCH,1,54.86
-payment_group_005_line_0152,receipt_ref_002,MATCH,1,55.99
-payment_group_005_line_0153,receipt_ref_002,MATCH,1,57.12
-payment_group_005_line_0154,receipt_ref_002,MATCH,1,58.25
-payment_group_005_line_0155,receipt_ref_002,MATCH,1,59.38
-payment_group_005_line_0156,receipt_ref_002,MATCH,1,60.51
-payment_group_005_line_0157,receipt_ref_002,MATCH,1,61.64
-payment_group_005_line_0158,receipt_ref_002,MATCH,1,62.77
-payment_group_005_line_0159,receipt_ref_002,MATCH,1,63.90
-payment_group_005_line_0160,receipt_ref_002,MATCH,1,65.03
-payment_group_005_line_0161,receipt_ref_002,MATCH,1,66.16
-payment_group_005_line_0162,receipt_ref_002,MATCH,1,67.29
-payment_group_005_line_0163,receipt_ref_002,MATCH,1,68.42
-payment_group_005_line_0164,receipt_ref_002,MATCH,1,69.55
-payment_group_005_line_0165,receipt_ref_002,MATCH,1,70.68
-payment_group_005_line_0166,receipt_ref_002,MATCH,1,71.81
-payment_group_005_line_0167,receipt_ref_002,MATCH,1,72.94
-payment_group_005_line_0168,receipt_ref_002,MATCH,1,74.07
-payment_group_005_line_0169,receipt_ref_002,MATCH,1,75.20
-payment_group_005_line_0170,receipt_ref_002,MATCH,1,76.33
-payment_group_005_line_0171,receipt_ref_002,MATCH,1,77.46
-payment_group_005_line_0172,receipt_ref_002,MATCH,1,78.59
-payment_group_005_line_0173,receipt_ref_002,MATCH,1,79.72
-payment_group_005_line_0174,receipt_ref_002,MATCH,1,80.85
-payment_group_005_line_0175,receipt_ref_002,MATCH,1,81.98
-payment_group_005_line_0176,receipt_ref_002,MATCH,1,83.11
-payment_group_005_line_0177,receipt_ref_002,MATCH,1,84.24
-payment_group_005_line_0178,receipt_ref_002,MATCH,1,85.37
-payment_group_005_line_0179,receipt_ref_002,MATCH,1,86.50
-payment_group_005_line_0180,receipt_ref_002,MATCH,1,87.63
-payment_group_005_line_0181,receipt_ref_002,MATCH,1,88.76
-payment_group_005_line_0182,receipt_ref_002,MATCH,1,89.89
-payment_group_005_line_0183,receipt_ref_002,MATCH,1,91.02
-payment_group_005_line_0184,receipt_ref_002,MATCH,1,92.15
-payment_group_005_line_0185,receipt_ref_002,MATCH,1,93.28
-payment_group_005_line_0186,receipt_ref_002,MATCH,1,94.41
-payment_group_005_line_0187,receipt_ref_002,MATCH,1,95.54
-payment_group_005_line_0188,receipt_ref_002,MATCH,1,96.67
-payment_group_005_line_0189,receipt_ref_002,MATCH,1,97.80
-payment_group_005_line_0190,receipt_ref_002,MATCH,1,98.93
-payment_group_005_line_0191,receipt_ref_002,MATCH,1,100.06
-payment_group_005_line_0192,receipt_ref_002,MATCH,1,101.19
-payment_group_005_line_0193,receipt_ref_002,MATCH,1,102.32
-payment_group_005_line_0194,receipt_ref_002,MATCH,1,103.45
-payment_group_005_line_0195,receipt_ref_002,MATCH,1,104.58
-payment_group_005_line_0196,receipt_ref_002,MATCH,1,105.71
-payment_group_005_line_0197,receipt_ref_002,MATCH,1,106.84
-payment_group_005_line_0198,receipt_ref_002,MATCH,1,107.97
-payment_group_005_line_0199,receipt_ref_002,MATCH,1,109.10
-payment_group_005_line_0200,receipt_ref_002,MATCH,1,110.23
-payment_group_005_line_0201,receipt_ref_002,MATCH,1,111.36
-payment_group_005_line_0202,receipt_ref_002,MATCH,1,112.49
-payment_group_005_line_0203,receipt_ref_002,MATCH,1,113.62
-payment_group_005_line_0204,receipt_ref_002,MATCH,1,114.75
-payment_group_005_line_0205,receipt_ref_002,MATCH,1,115.88
-payment_group_005_line_0206,receipt_ref_002,MATCH,1,117.01
-payment_group_005_line_0207,receipt_ref_002,MATCH,1,118.14
-payment_group_005_line_0208,receipt_ref_002,MATCH,1,119.27
-payment_group_005_line_0209,receipt_ref_002,MATCH,1,30.00
-payment_group_005_line_0210,receipt_ref_002,MATCH,1,31.13
-payment_group_005_line_0211,receipt_ref_002,MATCH,1,32.26
-payment_group_005_line_0212,receipt_ref_002,MATCH,1,33.39
-payment_group_005_line_0213,receipt_ref_002,MATCH,1,34.52
-payment_group_005_line_0214,receipt_ref_002,MATCH,1,35.65
-payment_group_005_line_0215,receipt_ref_002,MATCH,1,36.78
-payment_group_005_line_0216,receipt_ref_002,MATCH,1,37.91
-payment_group_005_line_0217,receipt_ref_002,MATCH,1,39.04
-payment_group_005_line_0218,receipt_ref_002,MATCH,1,40.17
-payment_group_005_line_0219,receipt_ref_002,MATCH,1,41.30
-payment_group_005_line_0220,receipt_ref_002,MATCH,1,42.43
-payment_group_005_line_0229,receipt_ref_002,OVP,1,75.00
-payment_group_005_line_0230,receipt_ref_002,OVP,1,77.20
-payment_group_005_line_0231,receipt_ref_002,OVP,1,79.40
-payment_group_005_line_0232,receipt_ref_002,OVP,1,81.60
-payment_group_005_line_0233,receipt_ref_002,OVP,1,83.80
-payment_group_005_line_0234,receipt_ref_002,OVP,1,86.00
-payment_group_005_line_0235,receipt_ref_002,OVP,1,88.20
-payment_group_005_line_0236,receipt_ref_002,OVP,1,90.40
-payment_group_005_line_0237,receipt_ref_002,OVP,1,92.60
-payment_group_005_line_0238,receipt_ref_002,OVP,1,94.80
-payment_group_005_line_0239,receipt_ref_002,OVP,1,97.00
-payment_group_005_line_0240,receipt_ref_002,OVP,1,99.20
-payment_group_006_fee_0148,receipt_ref_003,CFEE,1,50.00
-payment_group_006_fee_0149,receipt_ref_003,CFEE,1,50.00
-payment_group_006_fee_0150,receipt_ref_003,CFEE,1,50.00
-payment_group_006_fee_0151,receipt_ref_003,CFEE,1,50.00
-payment_group_006_fee_0152,receipt_ref_003,CFEE,1,50.00
-payment_group_006_fee_0153,receipt_ref_003,CFEE,1,50.00
-payment_group_006_line_0001,receipt_ref_003,MATCH,1,31.13
-payment_group_006_line_0002,receipt_ref_003,MATCH,1,32.26
-payment_group_006_line_0003,receipt_ref_003,MATCH,1,33.39
-payment_group_006_line_0004,receipt_ref_003,MATCH,1,34.52
-payment_group_006_line_0005,receipt_ref_003,MATCH,1,35.65
-payment_group_006_line_0006,receipt_ref_003,MATCH,1,36.78
-payment_group_006_line_0007,receipt_ref_003,MATCH,1,37.91
-payment_group_006_line_0008,receipt_ref_003,MATCH,1,39.04
-payment_group_006_line_0009,receipt_ref_003,MATCH,1,40.17
-payment_group_006_line_0010,receipt_ref_003,MATCH,1,41.30
-payment_group_006_line_0011,receipt_ref_003,MATCH,1,42.43
-payment_group_006_line_0012,receipt_ref_003,MATCH,1,43.56
-payment_group_006_line_0013,receipt_ref_003,MATCH,1,44.69
-payment_group_006_line_0014,receipt_ref_003,MATCH,1,45.82
-payment_group_006_line_0015,receipt_ref_003,MATCH,1,46.95
-payment_group_006_line_0016,receipt_ref_003,MATCH,1,48.08
-payment_group_006_line_0017,receipt_ref_003,MATCH,1,49.21
-payment_group_006_line_0018,receipt_ref_003,MATCH,1,50.34
-payment_group_006_line_0019,receipt_ref_003,MATCH,1,51.47
-payment_group_006_line_0020,receipt_ref_003,MATCH,1,52.60
-payment_group_006_line_0021,receipt_ref_003,MATCH,1,53.73
-payment_group_006_line_0022,receipt_ref_003,MATCH,1,54.86
-payment_group_006_line_0023,receipt_ref_003,MATCH,1,55.99
-payment_group_006_line_0024,receipt_ref_003,MATCH,1,57.12
-payment_group_006_line_0025,receipt_ref_003,MATCH,1,58.25
-payment_group_006_line_0026,receipt_ref_003,MATCH,1,59.38
-payment_group_006_line_0027,receipt_ref_003,MATCH,1,60.51
-payment_group_006_line_0028,receipt_ref_003,MATCH,1,61.64
-payment_group_006_line_0029,receipt_ref_003,MATCH,1,62.77
-payment_group_006_line_0030,receipt_ref_003,MATCH,1,63.90
-payment_group_006_line_0031,receipt_ref_003,MATCH,1,65.03
-payment_group_006_line_0032,receipt_ref_003,MATCH,1,66.16
-payment_group_006_line_0033,receipt_ref_003,MATCH,1,67.29
-payment_group_006_line_0034,receipt_ref_003,MATCH,1,68.42
-payment_group_006_line_0035,receipt_ref_003,MATCH,1,69.55
-payment_group_006_line_0036,receipt_ref_003,MATCH,1,70.68
-payment_group_006_line_0037,receipt_ref_003,MATCH,1,71.81
-payment_group_006_line_0038,receipt_ref_003,MATCH,1,72.94
-payment_group_006_line_0039,receipt_ref_003,MATCH,1,74.07
-payment_group_006_line_0040,receipt_ref_003,MATCH,1,75.20
-payment_group_006_line_0041,receipt_ref_003,MATCH,1,76.33
-payment_group_006_line_0042,receipt_ref_003,MATCH,1,77.46
-payment_group_006_line_0043,receipt_ref_003,MATCH,1,78.59
-payment_group_006_line_0044,receipt_ref_003,MATCH,1,79.72
-payment_group_006_line_0045,receipt_ref_003,MATCH,1,80.85
-payment_group_006_line_0046,receipt_ref_003,MATCH,1,81.98
-payment_group_006_line_0047,receipt_ref_003,MATCH,1,83.11
-payment_group_006_line_0048,receipt_ref_003,MATCH,1,84.24
-payment_group_006_line_0049,receipt_ref_003,MATCH,1,85.37
-payment_group_006_line_0050,receipt_ref_003,MATCH,1,86.50
-payment_group_006_line_0051,receipt_ref_003,MATCH,1,87.63
-payment_group_006_line_0052,receipt_ref_003,MATCH,1,88.76
-payment_group_006_line_0053,receipt_ref_003,MATCH,1,89.89
-payment_group_006_line_0054,receipt_ref_003,MATCH,1,91.02
-payment_group_006_line_0055,receipt_ref_003,MATCH,1,92.15
-payment_group_006_line_0056,receipt_ref_003,MATCH,1,93.28
-payment_group_006_line_0057,receipt_ref_003,MATCH,1,94.41
-payment_group_006_line_0058,receipt_ref_003,MATCH,1,95.54
-payment_group_006_line_0059,receipt_ref_003,MATCH,1,96.67
-payment_group_006_line_0060,receipt_ref_003,MATCH,1,97.80
-payment_group_006_line_0061,receipt_ref_003,MATCH,1,98.93
-payment_group_006_line_0062,receipt_ref_003,MATCH,1,100.06
-payment_group_006_line_0063,receipt_ref_003,MATCH,1,101.19
-payment_group_006_line_0064,receipt_ref_003,MATCH,1,102.32
-payment_group_006_line_0065,receipt_ref_003,MATCH,1,103.45
-payment_group_006_line_0066,receipt_ref_003,MATCH,1,104.58
-payment_group_006_line_0067,receipt_ref_003,MATCH,1,105.71
-payment_group_006_line_0068,receipt_ref_003,MATCH,1,106.84
-payment_group_006_line_0069,receipt_ref_003,MATCH,1,107.97
-payment_group_006_line_0070,receipt_ref_003,MATCH,1,109.10
-payment_group_006_line_0071,receipt_ref_003,MATCH,1,110.23
-payment_group_006_line_0072,receipt_ref_003,MATCH,1,111.36
-payment_group_006_line_0073,receipt_ref_003,MATCH,1,112.49
-payment_group_006_line_0074,receipt_ref_003,MATCH,1,113.62
-payment_group_006_line_0075,receipt_ref_003,MATCH,1,114.75
-payment_group_006_line_0076,receipt_ref_003,MATCH,1,115.88
-payment_group_006_line_0077,receipt_ref_003,MATCH,1,117.01
-payment_group_006_line_0078,receipt_ref_003,MATCH,1,118.14
-payment_group_006_line_0079,receipt_ref_003,MATCH,1,119.27
-payment_group_006_line_0080,receipt_ref_003,MATCH,1,30.00
-payment_group_006_line_0081,receipt_ref_003,MATCH,1,31.13
-payment_group_006_line_0082,receipt_ref_003,MATCH,1,32.26
-payment_group_006_line_0083,receipt_ref_003,MATCH,1,33.39
-payment_group_006_line_0084,receipt_ref_003,MATCH,1,34.52
-payment_group_006_line_0085,receipt_ref_003,MATCH,1,35.65
-payment_group_006_line_0086,receipt_ref_003,MATCH,1,36.78
-payment_group_006_line_0087,receipt_ref_003,MATCH,1,37.91
-payment_group_006_line_0088,receipt_ref_003,MATCH,1,39.04
-payment_group_006_line_0089,receipt_ref_003,MATCH,1,40.17
-payment_group_006_line_0090,receipt_ref_003,MATCH,1,41.30
-payment_group_006_line_0148,receipt_ref_003,CFEE,1,-120.00
-payment_group_006_line_0149,receipt_ref_003,CFEE,1,-123.00
-payment_group_006_line_0150,receipt_ref_003,CFEE,1,-126.00
-payment_group_006_line_0151,receipt_ref_003,CFEE,1,-129.00
-payment_group_006_line_0152,receipt_ref_003,CFEE,1,-132.00
-payment_group_006_line_0153,receipt_ref_003,CFEE,1,-135.00
-payment_group_007_line_0091,receipt_ref_003,MATCH,1,32.26
-payment_group_007_line_0092,receipt_ref_003,MATCH,1,33.39
-payment_group_007_line_0093,receipt_ref_003,MATCH,1,34.52
-payment_group_007_line_0094,receipt_ref_003,MATCH,1,35.65
-payment_group_007_line_0095,receipt_ref_003,MATCH,1,36.78
-payment_group_007_line_0096,receipt_ref_003,MATCH,1,37.91
-payment_group_007_line_0097,receipt_ref_003,MATCH,1,39.04
-payment_group_007_line_0098,receipt_ref_003,MATCH,1,40.17
-payment_group_007_line_0099,receipt_ref_003,MATCH,1,41.30
-payment_group_007_line_0100,receipt_ref_003,MATCH,1,42.43
-payment_group_007_line_0101,receipt_ref_003,MATCH,1,43.56
-payment_group_007_line_0102,receipt_ref_003,MATCH,1,44.69
-payment_group_007_line_0103,receipt_ref_003,MATCH,1,45.82
-payment_group_007_line_0104,receipt_ref_003,MATCH,1,46.95
-payment_group_007_line_0105,receipt_ref_003,MATCH,1,48.08
-payment_group_007_line_0106,receipt_ref_003,MATCH,1,49.21
-payment_group_007_line_0107,receipt_ref_003,MATCH,1,50.34
-payment_group_007_line_0108,receipt_ref_003,MATCH,1,51.47
-payment_group_007_line_0109,receipt_ref_003,MATCH,1,52.60
-payment_group_007_line_0110,receipt_ref_003,MATCH,1,53.73
-payment_group_007_line_0111,receipt_ref_003,MATCH,1,54.86
-payment_group_007_line_0112,receipt_ref_003,MATCH,1,55.99
-payment_group_007_line_0113,receipt_ref_003,MATCH,1,57.12
-payment_group_007_line_0114,receipt_ref_003,MATCH,1,58.25
-payment_group_007_line_0115,receipt_ref_003,MATCH,1,59.38
-payment_group_007_line_0116,receipt_ref_003,MATCH,1,60.51
-payment_group_007_line_0117,receipt_ref_003,MATCH,1,61.64
-payment_group_007_line_0118,receipt_ref_003,MATCH,1,62.77
-payment_group_007_line_0119,receipt_ref_003,MATCH,1,63.90
-payment_group_007_line_0120,receipt_ref_003,MATCH,1,65.03
-payment_group_007_line_0121,receipt_ref_003,MATCH,1,66.16
-payment_group_007_line_0122,receipt_ref_003,MATCH,1,67.29
-payment_group_007_line_0123,receipt_ref_003,MATCH,1,68.42
-payment_group_007_line_0124,receipt_ref_003,MATCH,1,69.55
-payment_group_007_line_0125,receipt_ref_003,MATCH,1,70.68
-payment_group_007_line_0126,receipt_ref_003,MATCH,1,71.81
-payment_group_007_line_0127,receipt_ref_003,MATCH,1,72.94
-payment_group_007_line_0128,receipt_ref_003,MATCH,1,74.07
-payment_group_007_line_0129,receipt_ref_003,MATCH,1,75.20
-payment_group_007_line_0130,receipt_ref_003,MATCH,1,76.33
-payment_group_007_line_0131,receipt_ref_003,MATCH,1,77.46
-payment_group_007_line_0132,receipt_ref_003,MATCH,1,78.59
-payment_group_007_line_0133,receipt_ref_003,MATCH,1,79.72
-payment_group_007_line_0134,receipt_ref_003,MATCH,1,80.85
-payment_group_007_line_0135,receipt_ref_003,MATCH,1,81.98
-payment_group_007_line_0136,receipt_ref_003,MATCH,1,83.11
-payment_group_007_line_0137,receipt_ref_003,MATCH,1,84.24
-payment_group_007_line_0138,receipt_ref_003,MATCH,1,85.37
-payment_group_007_line_0139,receipt_ref_003,MATCH,1,86.50
-payment_group_007_line_0140,receipt_ref_003,MATCH,1,87.63
-payment_group_007_line_0141,receipt_ref_003,MATCH,1,88.76
-payment_group_007_line_0142,receipt_ref_003,MATCH,1,89.89
-payment_group_007_line_0143,receipt_ref_003,MATCH,1,91.02
-payment_group_007_line_0144,receipt_ref_003,MATCH,1,92.15
-payment_group_007_line_0145,receipt_ref_003,MATCH,1,93.28
-payment_group_007_line_0146,receipt_ref_003,MATCH,1,94.41
-payment_group_007_line_0147,receipt_ref_003,MATCH,1,95.54
-payment_group_007_line_0154,receipt_ref_003,OVP,1,75.00
-payment_group_007_line_0155,receipt_ref_003,OVP,1,77.20
-payment_group_007_line_0156,receipt_ref_003,OVP,1,79.40
-payment_group_007_line_0157,receipt_ref_003,OVP,1,81.60
-payment_group_007_line_0158,receipt_ref_003,OVP,1,83.80
-payment_group_007_line_0159,receipt_ref_003,OVP,1,86.00
-payment_group_007_line_0160,receipt_ref_003,OVP,1,88.20
-payment_group_007_line_0161,receipt_ref_003,OVP,1,90.40
-payment_group_008_fee_0112,receipt_ref_004,CFEE,1,50.00
-payment_group_008_fee_0113,receipt_ref_004,CFEE,1,50.00
-payment_group_008_fee_0114,receipt_ref_004,CFEE,1,50.00
-payment_group_008_fee_0115,receipt_ref_004,CFEE,1,50.00
-payment_group_008_fee_0116,receipt_ref_004,CFEE,1,50.00
-payment_group_008_line_0001,receipt_ref_004,MATCH,1,31.13
-payment_group_008_line_0002,receipt_ref_004,MATCH,1,32.26
-payment_group_008_line_0003,receipt_ref_004,MATCH,1,33.39
-payment_group_008_line_0004,receipt_ref_004,MATCH,1,34.52
-payment_group_008_line_0005,receipt_ref_004,MATCH,1,35.65
-payment_group_008_line_0006,receipt_ref_004,MATCH,1,36.78
-payment_group_008_line_0007,receipt_ref_004,MATCH,1,37.91
-payment_group_008_line_0008,receipt_ref_004,MATCH,1,39.04
-payment_group_008_line_0009,receipt_ref_004,MATCH,1,40.17
-payment_group_008_line_0010,receipt_ref_004,MATCH,1,41.30
-payment_group_008_line_0011,receipt_ref_004,MATCH,1,42.43
-payment_group_008_line_0012,receipt_ref_004,MATCH,1,43.56
-payment_group_008_line_0013,receipt_ref_004,MATCH,1,44.69
-payment_group_008_line_0014,receipt_ref_004,MATCH,1,45.82
-payment_group_008_line_0015,receipt_ref_004,MATCH,1,46.95
-payment_group_008_line_0016,receipt_ref_004,MATCH,1,48.08
-payment_group_008_line_0017,receipt_ref_004,MATCH,1,49.21
-payment_group_008_line_0018,receipt_ref_004,MATCH,1,50.34
-payment_group_008_line_0019,receipt_ref_004,MATCH,1,51.47
-payment_group_008_line_0020,receipt_ref_004,MATCH,1,52.60
-payment_group_008_line_0021,receipt_ref_004,MATCH,1,53.73
-payment_group_008_line_0022,receipt_ref_004,MATCH,1,54.86
-payment_group_008_line_0023,receipt_ref_004,MATCH,1,55.99
-payment_group_008_line_0024,receipt_ref_004,MATCH,1,57.12
-payment_group_008_line_0025,receipt_ref_004,MATCH,1,58.25
-payment_group_008_line_0026,receipt_ref_004,MATCH,1,59.38
-payment_group_008_line_0027,receipt_ref_004,MATCH,1,60.51
-payment_group_008_line_0028,receipt_ref_004,MATCH,1,61.64
-payment_group_008_line_0029,receipt_ref_004,MATCH,1,62.77
-payment_group_008_line_0030,receipt_ref_004,MATCH,1,63.90
-payment_group_008_line_0031,receipt_ref_004,MATCH,1,65.03
-payment_group_008_line_0032,receipt_ref_004,MATCH,1,66.16
-payment_group_008_line_0033,receipt_ref_004,MATCH,1,67.29
-payment_group_008_line_0034,receipt_ref_004,MATCH,1,68.42
-payment_group_008_line_0035,receipt_ref_004,MATCH,1,69.55
-payment_group_008_line_0036,receipt_ref_004,MATCH,1,70.68
-payment_group_008_line_0037,receipt_ref_004,MATCH,1,71.81
-payment_group_008_line_0038,receipt_ref_004,MATCH,1,72.94
-payment_group_008_line_0039,receipt_ref_004,MATCH,1,74.07
-payment_group_008_line_0040,receipt_ref_004,MATCH,1,75.20
-payment_group_008_line_0041,receipt_ref_004,MATCH,1,76.33
-payment_group_008_line_0042,receipt_ref_004,MATCH,1,77.46
-payment_group_008_line_0043,receipt_ref_004,MATCH,1,78.59
-payment_group_008_line_0044,receipt_ref_004,MATCH,1,79.72
-payment_group_008_line_0045,receipt_ref_004,MATCH,1,80.85
-payment_group_008_line_0046,receipt_ref_004,MATCH,1,81.98
-payment_group_008_line_0047,receipt_ref_004,MATCH,1,83.11
-payment_group_008_line_0048,receipt_ref_004,MATCH,1,84.24
-payment_group_008_line_0049,receipt_ref_004,MATCH,1,85.37
-payment_group_008_line_0050,receipt_ref_004,MATCH,1,86.50
-payment_group_008_line_0051,receipt_ref_004,MATCH,1,87.63
-payment_group_008_line_0052,receipt_ref_004,MATCH,1,88.76
-payment_group_008_line_0053,receipt_ref_004,MATCH,1,89.89
-payment_group_008_line_0054,receipt_ref_004,MATCH,1,91.02
-payment_group_008_line_0055,receipt_ref_004,MATCH,1,92.15
-payment_group_008_line_0056,receipt_ref_004,MATCH,1,93.28
-payment_group_008_line_0057,receipt_ref_004,MATCH,1,94.41
-payment_group_008_line_0058,receipt_ref_004,MATCH,1,95.54
-payment_group_008_line_0059,receipt_ref_004,MATCH,1,96.67
-payment_group_008_line_0060,receipt_ref_004,MATCH,1,97.80
-payment_group_008_line_0061,receipt_ref_004,MATCH,1,98.93
-payment_group_008_line_0062,receipt_ref_004,MATCH,1,100.06
-payment_group_008_line_0063,receipt_ref_004,MATCH,1,101.19
-payment_group_008_line_0064,receipt_ref_004,MATCH,1,102.32
-payment_group_008_line_0065,receipt_ref_004,MATCH,1,103.45
-payment_group_008_line_0066,receipt_ref_004,MATCH,1,104.58
-payment_group_008_line_0067,receipt_ref_004,MATCH,1,105.71
-payment_group_008_line_0068,receipt_ref_004,MATCH,1,106.84
-payment_group_008_line_0069,receipt_ref_004,MATCH,1,107.97
-payment_group_008_line_0070,receipt_ref_004,MATCH,1,109.10
-payment_group_008_line_0112,receipt_ref_004,CFEE,1,-120.00
-payment_group_008_line_0113,receipt_ref_004,CFEE,1,-123.00
-payment_group_008_line_0114,receipt_ref_004,CFEE,1,-126.00
-payment_group_008_line_0115,receipt_ref_004,CFEE,1,-129.00
-payment_group_008_line_0116,receipt_ref_004,CFEE,1,-132.00
-payment_group_009_line_0071,receipt_ref_004,MATCH,1,32.26
-payment_group_009_line_0072,receipt_ref_004,MATCH,1,33.39
-payment_group_009_line_0073,receipt_ref_004,MATCH,1,34.52
-payment_group_009_line_0074,receipt_ref_004,MATCH,1,35.65
-payment_group_009_line_0075,receipt_ref_004,MATCH,1,36.78
-payment_group_009_line_0076,receipt_ref_004,MATCH,1,37.91
-payment_group_009_line_0077,receipt_ref_004,MATCH,1,39.04
-payment_group_009_line_0078,receipt_ref_004,MATCH,1,40.17
-payment_group_009_line_0079,receipt_ref_004,MATCH,1,41.30
-payment_group_009_line_0080,receipt_ref_004,MATCH,1,42.43
-payment_group_009_line_0081,receipt_ref_004,MATCH,1,43.56
-payment_group_009_line_0082,receipt_ref_004,MATCH,1,44.69
-payment_group_009_line_0083,receipt_ref_004,MATCH,1,45.82
-payment_group_009_line_0084,receipt_ref_004,MATCH,1,46.95
-payment_group_009_line_0085,receipt_ref_004,MATCH,1,48.08
-payment_group_009_line_0086,receipt_ref_004,MATCH,1,49.21
-payment_group_009_line_0087,receipt_ref_004,MATCH,1,50.34
-payment_group_009_line_0088,receipt_ref_004,MATCH,1,51.47
-payment_group_009_line_0089,receipt_ref_004,MATCH,1,52.60
-payment_group_009_line_0090,receipt_ref_004,MATCH,1,53.73
-payment_group_009_line_0091,receipt_ref_004,MATCH,1,54.86
-payment_group_009_line_0092,receipt_ref_004,MATCH,1,55.99
-payment_group_009_line_0093,receipt_ref_004,MATCH,1,57.12
-payment_group_009_line_0094,receipt_ref_004,MATCH,1,58.25
-payment_group_009_line_0095,receipt_ref_004,MATCH,1,59.38
-payment_group_009_line_0096,receipt_ref_004,MATCH,1,60.51
-payment_group_009_line_0097,receipt_ref_004,MATCH,1,61.64
-payment_group_009_line_0098,receipt_ref_004,MATCH,1,62.77
-payment_group_009_line_0099,receipt_ref_004,MATCH,1,63.90
-payment_group_009_line_0100,receipt_ref_004,MATCH,1,65.03
-payment_group_009_line_0101,receipt_ref_004,MATCH,1,66.16
-payment_group_009_line_0102,receipt_ref_004,MATCH,1,67.29
-payment_group_009_line_0103,receipt_ref_004,MATCH,1,68.42
-payment_group_009_line_0104,receipt_ref_004,MATCH,1,69.55
-payment_group_009_line_0105,receipt_ref_004,MATCH,1,70.68
-payment_group_009_line_0106,receipt_ref_004,MATCH,1,71.81
-payment_group_009_line_0107,receipt_ref_004,MATCH,1,72.94
-payment_group_009_line_0108,receipt_ref_004,MATCH,1,74.07
-payment_group_009_line_0109,receipt_ref_004,MATCH,1,75.20
-payment_group_009_line_0110,receipt_ref_004,MATCH,1,76.33
-payment_group_009_line_0111,receipt_ref_004,MATCH,1,77.46
-payment_group_009_line_0117,receipt_ref_004,OVP,1,75.00
-payment_group_009_line_0118,receipt_ref_004,OVP,1,77.20
-payment_group_009_line_0119,receipt_ref_004,OVP,1,79.40
-payment_group_009_line_0120,receipt_ref_004,OVP,1,81.60
-payment_group_009_line_0121,receipt_ref_004,OVP,1,83.80
-payment_group_009_line_0122,receipt_ref_004,OVP,1,86.00
+payment_batch_id,receipt_ref,reconciliation_outcome,row_count,payment_batch_total
+open_payment_group_evidence_001,,Evidence Review Required,1,191.00
+open_payment_group_evidence_002,,Evidence Review Required,1,202.00
+open_payment_group_evidence_003,,Evidence Review Required,1,213.00
+open_payment_group_evidence_004,,Evidence Review Required,1,224.00
+open_payment_group_missing_001,,Missing Receipt Evidence,1,102.00
+open_payment_group_missing_002,,Missing Receipt Evidence,1,109.00
+open_payment_group_missing_003,,Missing Receipt Evidence,1,116.00
+open_payment_group_missing_004,,Missing Receipt Evidence,1,123.00
+payment_group_001_fee_0430,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0431,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0432,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0433,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0434,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0435,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0436,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0437,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0438,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0439,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0440,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0441,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0442,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0443,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0444,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0445,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0446,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0447,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0448,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_fee_0449,receipt_ref_001,Cancellation Fee Review,1,45.00
+payment_group_001_line_0001,receipt_ref_001,Allocation Ready,1,31.13
+payment_group_001_line_0002,receipt_ref_001,Allocation Ready,1,32.26
+payment_group_001_line_0003,receipt_ref_001,Allocation Ready,1,33.39
+payment_group_001_line_0004,receipt_ref_001,Allocation Ready,1,34.52
+payment_group_001_line_0005,receipt_ref_001,Allocation Ready,1,35.65
+payment_group_001_line_0006,receipt_ref_001,Allocation Ready,1,36.78
+payment_group_001_line_0007,receipt_ref_001,Allocation Ready,1,37.91
+payment_group_001_line_0008,receipt_ref_001,Allocation Ready,1,39.04
+payment_group_001_line_0009,receipt_ref_001,Allocation Ready,1,40.17
+payment_group_001_line_0010,receipt_ref_001,Allocation Ready,1,41.30
+payment_group_001_line_0011,receipt_ref_001,Allocation Ready,1,42.43
+payment_group_001_line_0012,receipt_ref_001,Allocation Ready,1,43.56
+payment_group_001_line_0013,receipt_ref_001,Allocation Ready,1,44.69
+payment_group_001_line_0014,receipt_ref_001,Allocation Ready,1,45.82
+payment_group_001_line_0015,receipt_ref_001,Allocation Ready,1,46.95
+payment_group_001_line_0016,receipt_ref_001,Allocation Ready,1,48.08
+payment_group_001_line_0017,receipt_ref_001,Allocation Ready,1,49.21
+payment_group_001_line_0018,receipt_ref_001,Allocation Ready,1,50.34
+payment_group_001_line_0019,receipt_ref_001,Allocation Ready,1,51.47
+payment_group_001_line_0020,receipt_ref_001,Allocation Ready,1,52.60
+payment_group_001_line_0021,receipt_ref_001,Allocation Ready,1,53.73
+payment_group_001_line_0022,receipt_ref_001,Allocation Ready,1,54.86
+payment_group_001_line_0023,receipt_ref_001,Allocation Ready,1,55.99
+payment_group_001_line_0024,receipt_ref_001,Allocation Ready,1,57.12
+payment_group_001_line_0025,receipt_ref_001,Allocation Ready,1,58.25
+payment_group_001_line_0026,receipt_ref_001,Allocation Ready,1,59.38
+payment_group_001_line_0027,receipt_ref_001,Allocation Ready,1,60.51
+payment_group_001_line_0028,receipt_ref_001,Allocation Ready,1,61.64
+payment_group_001_line_0029,receipt_ref_001,Allocation Ready,1,62.77
+payment_group_001_line_0030,receipt_ref_001,Allocation Ready,1,63.90
+payment_group_001_line_0031,receipt_ref_001,Allocation Ready,1,65.03
+payment_group_001_line_0032,receipt_ref_001,Allocation Ready,1,66.16
+payment_group_001_line_0033,receipt_ref_001,Allocation Ready,1,67.29
+payment_group_001_line_0034,receipt_ref_001,Allocation Ready,1,68.42
+payment_group_001_line_0035,receipt_ref_001,Allocation Ready,1,69.55
+payment_group_001_line_0036,receipt_ref_001,Allocation Ready,1,70.68
+payment_group_001_line_0037,receipt_ref_001,Allocation Ready,1,71.81
+payment_group_001_line_0038,receipt_ref_001,Allocation Ready,1,72.94
+payment_group_001_line_0039,receipt_ref_001,Allocation Ready,1,74.07
+payment_group_001_line_0040,receipt_ref_001,Allocation Ready,1,75.20
+payment_group_001_line_0041,receipt_ref_001,Allocation Ready,1,76.33
+payment_group_001_line_0042,receipt_ref_001,Allocation Ready,1,77.46
+payment_group_001_line_0043,receipt_ref_001,Allocation Ready,1,78.59
+payment_group_001_line_0044,receipt_ref_001,Allocation Ready,1,79.72
+payment_group_001_line_0045,receipt_ref_001,Allocation Ready,1,80.85
+payment_group_001_line_0046,receipt_ref_001,Allocation Ready,1,81.98
+payment_group_001_line_0047,receipt_ref_001,Allocation Ready,1,83.11
+payment_group_001_line_0048,receipt_ref_001,Allocation Ready,1,84.24
+payment_group_001_line_0049,receipt_ref_001,Allocation Ready,1,85.37
+payment_group_001_line_0050,receipt_ref_001,Allocation Ready,1,86.50
+payment_group_001_line_0051,receipt_ref_001,Allocation Ready,1,87.63
+payment_group_001_line_0052,receipt_ref_001,Allocation Ready,1,88.76
+payment_group_001_line_0053,receipt_ref_001,Allocation Ready,1,89.89
+payment_group_001_line_0054,receipt_ref_001,Allocation Ready,1,91.02
+payment_group_001_line_0055,receipt_ref_001,Allocation Ready,1,92.15
+payment_group_001_line_0056,receipt_ref_001,Allocation Ready,1,93.28
+payment_group_001_line_0057,receipt_ref_001,Allocation Ready,1,94.41
+payment_group_001_line_0058,receipt_ref_001,Allocation Ready,1,95.54
+payment_group_001_line_0059,receipt_ref_001,Allocation Ready,1,96.67
+payment_group_001_line_0060,receipt_ref_001,Allocation Ready,1,97.80
+payment_group_001_line_0061,receipt_ref_001,Allocation Ready,1,98.93
+payment_group_001_line_0062,receipt_ref_001,Allocation Ready,1,100.06
+payment_group_001_line_0063,receipt_ref_001,Allocation Ready,1,101.19
+payment_group_001_line_0064,receipt_ref_001,Allocation Ready,1,102.32
+payment_group_001_line_0065,receipt_ref_001,Allocation Ready,1,103.45
+payment_group_001_line_0066,receipt_ref_001,Allocation Ready,1,104.58
+payment_group_001_line_0067,receipt_ref_001,Allocation Ready,1,105.71
+payment_group_001_line_0068,receipt_ref_001,Allocation Ready,1,106.84
+payment_group_001_line_0069,receipt_ref_001,Allocation Ready,1,107.97
+payment_group_001_line_0070,receipt_ref_001,Allocation Ready,1,109.10
+payment_group_001_line_0071,receipt_ref_001,Allocation Ready,1,110.23
+payment_group_001_line_0072,receipt_ref_001,Allocation Ready,1,111.36
+payment_group_001_line_0073,receipt_ref_001,Allocation Ready,1,112.49
+payment_group_001_line_0074,receipt_ref_001,Allocation Ready,1,113.62
+payment_group_001_line_0075,receipt_ref_001,Allocation Ready,1,114.75
+payment_group_001_line_0076,receipt_ref_001,Allocation Ready,1,115.88
+payment_group_001_line_0077,receipt_ref_001,Allocation Ready,1,117.01
+payment_group_001_line_0078,receipt_ref_001,Allocation Ready,1,118.14
+payment_group_001_line_0079,receipt_ref_001,Allocation Ready,1,119.27
+payment_group_001_line_0080,receipt_ref_001,Allocation Ready,1,30.00
+payment_group_001_line_0081,receipt_ref_001,Allocation Ready,1,31.13
+payment_group_001_line_0082,receipt_ref_001,Allocation Ready,1,32.26
+payment_group_001_line_0083,receipt_ref_001,Allocation Ready,1,33.39
+payment_group_001_line_0084,receipt_ref_001,Allocation Ready,1,34.52
+payment_group_001_line_0085,receipt_ref_001,Allocation Ready,1,35.65
+payment_group_001_line_0086,receipt_ref_001,Allocation Ready,1,36.78
+payment_group_001_line_0087,receipt_ref_001,Allocation Ready,1,37.91
+payment_group_001_line_0088,receipt_ref_001,Allocation Ready,1,39.04
+payment_group_001_line_0089,receipt_ref_001,Allocation Ready,1,40.17
+payment_group_001_line_0090,receipt_ref_001,Allocation Ready,1,41.30
+payment_group_001_line_0091,receipt_ref_001,Allocation Ready,1,42.43
+payment_group_001_line_0092,receipt_ref_001,Allocation Ready,1,43.56
+payment_group_001_line_0093,receipt_ref_001,Allocation Ready,1,44.69
+payment_group_001_line_0094,receipt_ref_001,Allocation Ready,1,45.82
+payment_group_001_line_0095,receipt_ref_001,Allocation Ready,1,46.95
+payment_group_001_line_0096,receipt_ref_001,Allocation Ready,1,48.08
+payment_group_001_line_0097,receipt_ref_001,Allocation Ready,1,49.21
+payment_group_001_line_0098,receipt_ref_001,Allocation Ready,1,50.34
+payment_group_001_line_0099,receipt_ref_001,Allocation Ready,1,51.47
+payment_group_001_line_0100,receipt_ref_001,Allocation Ready,1,52.60
+payment_group_001_line_0101,receipt_ref_001,Allocation Ready,1,53.73
+payment_group_001_line_0102,receipt_ref_001,Allocation Ready,1,54.86
+payment_group_001_line_0103,receipt_ref_001,Allocation Ready,1,55.99
+payment_group_001_line_0104,receipt_ref_001,Allocation Ready,1,57.12
+payment_group_001_line_0105,receipt_ref_001,Allocation Ready,1,58.25
+payment_group_001_line_0106,receipt_ref_001,Allocation Ready,1,59.38
+payment_group_001_line_0107,receipt_ref_001,Allocation Ready,1,60.51
+payment_group_001_line_0108,receipt_ref_001,Allocation Ready,1,61.64
+payment_group_001_line_0109,receipt_ref_001,Allocation Ready,1,62.77
+payment_group_001_line_0110,receipt_ref_001,Allocation Ready,1,63.90
+payment_group_001_line_0111,receipt_ref_001,Allocation Ready,1,65.03
+payment_group_001_line_0112,receipt_ref_001,Allocation Ready,1,66.16
+payment_group_001_line_0113,receipt_ref_001,Allocation Ready,1,67.29
+payment_group_001_line_0114,receipt_ref_001,Allocation Ready,1,68.42
+payment_group_001_line_0115,receipt_ref_001,Allocation Ready,1,69.55
+payment_group_001_line_0116,receipt_ref_001,Allocation Ready,1,70.68
+payment_group_001_line_0117,receipt_ref_001,Allocation Ready,1,71.81
+payment_group_001_line_0118,receipt_ref_001,Allocation Ready,1,72.94
+payment_group_001_line_0119,receipt_ref_001,Allocation Ready,1,74.07
+payment_group_001_line_0120,receipt_ref_001,Allocation Ready,1,75.20
+payment_group_001_line_0121,receipt_ref_001,Allocation Ready,1,76.33
+payment_group_001_line_0122,receipt_ref_001,Allocation Ready,1,77.46
+payment_group_001_line_0123,receipt_ref_001,Allocation Ready,1,78.59
+payment_group_001_line_0124,receipt_ref_001,Allocation Ready,1,79.72
+payment_group_001_line_0125,receipt_ref_001,Allocation Ready,1,80.85
+payment_group_001_line_0126,receipt_ref_001,Allocation Ready,1,81.98
+payment_group_001_line_0127,receipt_ref_001,Allocation Ready,1,83.11
+payment_group_001_line_0128,receipt_ref_001,Allocation Ready,1,84.24
+payment_group_001_line_0129,receipt_ref_001,Allocation Ready,1,85.37
+payment_group_001_line_0130,receipt_ref_001,Allocation Ready,1,86.50
+payment_group_001_line_0131,receipt_ref_001,Allocation Ready,1,87.63
+payment_group_001_line_0132,receipt_ref_001,Allocation Ready,1,88.76
+payment_group_001_line_0133,receipt_ref_001,Allocation Ready,1,89.89
+payment_group_001_line_0134,receipt_ref_001,Allocation Ready,1,91.02
+payment_group_001_line_0135,receipt_ref_001,Allocation Ready,1,92.15
+payment_group_001_line_0136,receipt_ref_001,Allocation Ready,1,93.28
+payment_group_001_line_0137,receipt_ref_001,Allocation Ready,1,94.41
+payment_group_001_line_0138,receipt_ref_001,Allocation Ready,1,95.54
+payment_group_001_line_0139,receipt_ref_001,Allocation Ready,1,96.67
+payment_group_001_line_0140,receipt_ref_001,Allocation Ready,1,97.80
+payment_group_001_line_0141,receipt_ref_001,Allocation Ready,1,98.93
+payment_group_001_line_0142,receipt_ref_001,Allocation Ready,1,100.06
+payment_group_001_line_0143,receipt_ref_001,Allocation Ready,1,101.19
+payment_group_001_line_0144,receipt_ref_001,Allocation Ready,1,102.32
+payment_group_001_line_0145,receipt_ref_001,Allocation Ready,1,103.45
+payment_group_001_line_0146,receipt_ref_001,Allocation Ready,1,104.58
+payment_group_001_line_0147,receipt_ref_001,Allocation Ready,1,105.71
+payment_group_001_line_0148,receipt_ref_001,Allocation Ready,1,106.84
+payment_group_001_line_0149,receipt_ref_001,Allocation Ready,1,107.97
+payment_group_001_line_0150,receipt_ref_001,Allocation Ready,1,109.10
+payment_group_001_line_0151,receipt_ref_001,Allocation Ready,1,110.23
+payment_group_001_line_0152,receipt_ref_001,Allocation Ready,1,111.36
+payment_group_001_line_0153,receipt_ref_001,Allocation Ready,1,112.49
+payment_group_001_line_0154,receipt_ref_001,Allocation Ready,1,113.62
+payment_group_001_line_0155,receipt_ref_001,Allocation Ready,1,114.75
+payment_group_001_line_0156,receipt_ref_001,Allocation Ready,1,115.88
+payment_group_001_line_0157,receipt_ref_001,Allocation Ready,1,117.01
+payment_group_001_line_0158,receipt_ref_001,Allocation Ready,1,118.14
+payment_group_001_line_0159,receipt_ref_001,Allocation Ready,1,119.27
+payment_group_001_line_0160,receipt_ref_001,Allocation Ready,1,30.00
+payment_group_001_line_0161,receipt_ref_001,Allocation Ready,1,31.13
+payment_group_001_line_0162,receipt_ref_001,Allocation Ready,1,32.26
+payment_group_001_line_0163,receipt_ref_001,Allocation Ready,1,33.39
+payment_group_001_line_0164,receipt_ref_001,Allocation Ready,1,34.52
+payment_group_001_line_0165,receipt_ref_001,Allocation Ready,1,35.65
+payment_group_001_line_0166,receipt_ref_001,Allocation Ready,1,36.78
+payment_group_001_line_0167,receipt_ref_001,Allocation Ready,1,37.91
+payment_group_001_line_0168,receipt_ref_001,Allocation Ready,1,39.04
+payment_group_001_line_0169,receipt_ref_001,Allocation Ready,1,40.17
+payment_group_001_line_0170,receipt_ref_001,Allocation Ready,1,41.30
+payment_group_001_line_0171,receipt_ref_001,Allocation Ready,1,42.43
+payment_group_001_line_0172,receipt_ref_001,Allocation Ready,1,43.56
+payment_group_001_line_0173,receipt_ref_001,Allocation Ready,1,44.69
+payment_group_001_line_0174,receipt_ref_001,Allocation Ready,1,45.82
+payment_group_001_line_0175,receipt_ref_001,Allocation Ready,1,46.95
+payment_group_001_line_0176,receipt_ref_001,Allocation Ready,1,48.08
+payment_group_001_line_0177,receipt_ref_001,Allocation Ready,1,49.21
+payment_group_001_line_0178,receipt_ref_001,Allocation Ready,1,50.34
+payment_group_001_line_0179,receipt_ref_001,Allocation Ready,1,51.47
+payment_group_001_line_0180,receipt_ref_001,Allocation Ready,1,52.60
+payment_group_001_line_0181,receipt_ref_001,Allocation Ready,1,53.73
+payment_group_001_line_0182,receipt_ref_001,Allocation Ready,1,54.86
+payment_group_001_line_0183,receipt_ref_001,Allocation Ready,1,55.99
+payment_group_001_line_0184,receipt_ref_001,Allocation Ready,1,57.12
+payment_group_001_line_0185,receipt_ref_001,Allocation Ready,1,58.25
+payment_group_001_line_0186,receipt_ref_001,Allocation Ready,1,59.38
+payment_group_001_line_0187,receipt_ref_001,Allocation Ready,1,60.51
+payment_group_001_line_0188,receipt_ref_001,Allocation Ready,1,61.64
+payment_group_001_line_0189,receipt_ref_001,Allocation Ready,1,62.77
+payment_group_001_line_0190,receipt_ref_001,Allocation Ready,1,63.90
+payment_group_001_line_0191,receipt_ref_001,Allocation Ready,1,65.03
+payment_group_001_line_0192,receipt_ref_001,Allocation Ready,1,66.16
+payment_group_001_line_0193,receipt_ref_001,Allocation Ready,1,67.29
+payment_group_001_line_0194,receipt_ref_001,Allocation Ready,1,68.42
+payment_group_001_line_0195,receipt_ref_001,Allocation Ready,1,69.55
+payment_group_001_line_0196,receipt_ref_001,Allocation Ready,1,70.68
+payment_group_001_line_0197,receipt_ref_001,Allocation Ready,1,71.81
+payment_group_001_line_0198,receipt_ref_001,Allocation Ready,1,72.94
+payment_group_001_line_0199,receipt_ref_001,Allocation Ready,1,74.07
+payment_group_001_line_0200,receipt_ref_001,Allocation Ready,1,75.20
+payment_group_001_line_0201,receipt_ref_001,Allocation Ready,1,76.33
+payment_group_001_line_0202,receipt_ref_001,Allocation Ready,1,77.46
+payment_group_001_line_0203,receipt_ref_001,Allocation Ready,1,78.59
+payment_group_001_line_0204,receipt_ref_001,Allocation Ready,1,79.72
+payment_group_001_line_0205,receipt_ref_001,Allocation Ready,1,80.85
+payment_group_001_line_0206,receipt_ref_001,Allocation Ready,1,81.98
+payment_group_001_line_0207,receipt_ref_001,Allocation Ready,1,83.11
+payment_group_001_line_0208,receipt_ref_001,Allocation Ready,1,84.24
+payment_group_001_line_0209,receipt_ref_001,Allocation Ready,1,85.37
+payment_group_001_line_0210,receipt_ref_001,Allocation Ready,1,86.50
+payment_group_001_line_0211,receipt_ref_001,Allocation Ready,1,87.63
+payment_group_001_line_0212,receipt_ref_001,Allocation Ready,1,88.76
+payment_group_001_line_0213,receipt_ref_001,Allocation Ready,1,89.89
+payment_group_001_line_0214,receipt_ref_001,Allocation Ready,1,91.02
+payment_group_001_line_0215,receipt_ref_001,Allocation Ready,1,92.15
+payment_group_001_line_0216,receipt_ref_001,Allocation Ready,1,93.28
+payment_group_001_line_0217,receipt_ref_001,Allocation Ready,1,94.41
+payment_group_001_line_0218,receipt_ref_001,Allocation Ready,1,95.54
+payment_group_001_line_0219,receipt_ref_001,Allocation Ready,1,96.67
+payment_group_001_line_0220,receipt_ref_001,Allocation Ready,1,97.80
+payment_group_001_line_0221,receipt_ref_001,Allocation Ready,1,98.93
+payment_group_001_line_0222,receipt_ref_001,Allocation Ready,1,100.06
+payment_group_001_line_0223,receipt_ref_001,Allocation Ready,1,101.19
+payment_group_001_line_0224,receipt_ref_001,Allocation Ready,1,102.32
+payment_group_001_line_0225,receipt_ref_001,Allocation Ready,1,103.45
+payment_group_001_line_0226,receipt_ref_001,Allocation Ready,1,104.58
+payment_group_001_line_0227,receipt_ref_001,Allocation Ready,1,105.71
+payment_group_001_line_0228,receipt_ref_001,Allocation Ready,1,106.84
+payment_group_001_line_0229,receipt_ref_001,Allocation Ready,1,107.97
+payment_group_001_line_0230,receipt_ref_001,Allocation Ready,1,109.10
+payment_group_001_line_0231,receipt_ref_001,Allocation Ready,1,110.23
+payment_group_001_line_0232,receipt_ref_001,Allocation Ready,1,111.36
+payment_group_001_line_0233,receipt_ref_001,Allocation Ready,1,112.49
+payment_group_001_line_0234,receipt_ref_001,Allocation Ready,1,113.62
+payment_group_001_line_0235,receipt_ref_001,Allocation Ready,1,114.75
+payment_group_001_line_0236,receipt_ref_001,Allocation Ready,1,115.88
+payment_group_001_line_0237,receipt_ref_001,Allocation Ready,1,117.01
+payment_group_001_line_0238,receipt_ref_001,Allocation Ready,1,118.14
+payment_group_001_line_0239,receipt_ref_001,Allocation Ready,1,119.27
+payment_group_001_line_0240,receipt_ref_001,Allocation Ready,1,30.00
+payment_group_001_line_0241,receipt_ref_001,Allocation Ready,1,31.13
+payment_group_001_line_0242,receipt_ref_001,Allocation Ready,1,32.26
+payment_group_001_line_0243,receipt_ref_001,Allocation Ready,1,33.39
+payment_group_001_line_0244,receipt_ref_001,Allocation Ready,1,34.52
+payment_group_001_line_0245,receipt_ref_001,Allocation Ready,1,35.65
+payment_group_001_line_0246,receipt_ref_001,Allocation Ready,1,36.78
+payment_group_001_line_0247,receipt_ref_001,Allocation Ready,1,37.91
+payment_group_001_line_0248,receipt_ref_001,Allocation Ready,1,39.04
+payment_group_001_line_0249,receipt_ref_001,Allocation Ready,1,40.17
+payment_group_001_line_0250,receipt_ref_001,Allocation Ready,1,41.30
+payment_group_001_line_0430,receipt_ref_001,Cancellation Fee Review,1,-120.00
+payment_group_001_line_0431,receipt_ref_001,Cancellation Fee Review,1,-123.00
+payment_group_001_line_0432,receipt_ref_001,Cancellation Fee Review,1,-126.00
+payment_group_001_line_0433,receipt_ref_001,Cancellation Fee Review,1,-129.00
+payment_group_001_line_0434,receipt_ref_001,Cancellation Fee Review,1,-132.00
+payment_group_001_line_0435,receipt_ref_001,Cancellation Fee Review,1,-135.00
+payment_group_001_line_0436,receipt_ref_001,Cancellation Fee Review,1,-138.00
+payment_group_001_line_0437,receipt_ref_001,Cancellation Fee Review,1,-141.00
+payment_group_001_line_0438,receipt_ref_001,Cancellation Fee Review,1,-144.00
+payment_group_001_line_0439,receipt_ref_001,Cancellation Fee Review,1,-147.00
+payment_group_001_line_0440,receipt_ref_001,Cancellation Fee Review,1,-150.00
+payment_group_001_line_0441,receipt_ref_001,Cancellation Fee Review,1,-153.00
+payment_group_001_line_0442,receipt_ref_001,Cancellation Fee Review,1,-120.00
+payment_group_001_line_0443,receipt_ref_001,Cancellation Fee Review,1,-123.00
+payment_group_001_line_0444,receipt_ref_001,Cancellation Fee Review,1,-126.00
+payment_group_001_line_0445,receipt_ref_001,Cancellation Fee Review,1,-129.00
+payment_group_001_line_0446,receipt_ref_001,Cancellation Fee Review,1,-132.00
+payment_group_001_line_0447,receipt_ref_001,Cancellation Fee Review,1,-135.00
+payment_group_001_line_0448,receipt_ref_001,Cancellation Fee Review,1,-138.00
+payment_group_001_line_0449,receipt_ref_001,Cancellation Fee Review,1,-141.00
+payment_group_002_line_0251,receipt_ref_001,Allocation Ready,1,32.26
+payment_group_002_line_0252,receipt_ref_001,Allocation Ready,1,33.39
+payment_group_002_line_0253,receipt_ref_001,Allocation Ready,1,34.52
+payment_group_002_line_0254,receipt_ref_001,Allocation Ready,1,35.65
+payment_group_002_line_0255,receipt_ref_001,Allocation Ready,1,36.78
+payment_group_002_line_0256,receipt_ref_001,Allocation Ready,1,37.91
+payment_group_002_line_0257,receipt_ref_001,Allocation Ready,1,39.04
+payment_group_002_line_0258,receipt_ref_001,Allocation Ready,1,40.17
+payment_group_002_line_0259,receipt_ref_001,Allocation Ready,1,41.30
+payment_group_002_line_0260,receipt_ref_001,Allocation Ready,1,42.43
+payment_group_002_line_0261,receipt_ref_001,Allocation Ready,1,43.56
+payment_group_002_line_0262,receipt_ref_001,Allocation Ready,1,44.69
+payment_group_002_line_0263,receipt_ref_001,Allocation Ready,1,45.82
+payment_group_002_line_0264,receipt_ref_001,Allocation Ready,1,46.95
+payment_group_002_line_0265,receipt_ref_001,Allocation Ready,1,48.08
+payment_group_002_line_0266,receipt_ref_001,Allocation Ready,1,49.21
+payment_group_002_line_0267,receipt_ref_001,Allocation Ready,1,50.34
+payment_group_002_line_0268,receipt_ref_001,Allocation Ready,1,51.47
+payment_group_002_line_0269,receipt_ref_001,Allocation Ready,1,52.60
+payment_group_002_line_0270,receipt_ref_001,Allocation Ready,1,53.73
+payment_group_002_line_0271,receipt_ref_001,Allocation Ready,1,54.86
+payment_group_002_line_0272,receipt_ref_001,Allocation Ready,1,55.99
+payment_group_002_line_0273,receipt_ref_001,Allocation Ready,1,57.12
+payment_group_002_line_0274,receipt_ref_001,Allocation Ready,1,58.25
+payment_group_002_line_0275,receipt_ref_001,Allocation Ready,1,59.38
+payment_group_002_line_0276,receipt_ref_001,Allocation Ready,1,60.51
+payment_group_002_line_0277,receipt_ref_001,Allocation Ready,1,61.64
+payment_group_002_line_0278,receipt_ref_001,Allocation Ready,1,62.77
+payment_group_002_line_0279,receipt_ref_001,Allocation Ready,1,63.90
+payment_group_002_line_0280,receipt_ref_001,Allocation Ready,1,65.03
+payment_group_002_line_0281,receipt_ref_001,Allocation Ready,1,66.16
+payment_group_002_line_0282,receipt_ref_001,Allocation Ready,1,67.29
+payment_group_002_line_0283,receipt_ref_001,Allocation Ready,1,68.42
+payment_group_002_line_0284,receipt_ref_001,Allocation Ready,1,69.55
+payment_group_002_line_0285,receipt_ref_001,Allocation Ready,1,70.68
+payment_group_002_line_0286,receipt_ref_001,Allocation Ready,1,71.81
+payment_group_002_line_0287,receipt_ref_001,Allocation Ready,1,72.94
+payment_group_002_line_0288,receipt_ref_001,Allocation Ready,1,74.07
+payment_group_002_line_0289,receipt_ref_001,Allocation Ready,1,75.20
+payment_group_002_line_0290,receipt_ref_001,Allocation Ready,1,76.33
+payment_group_002_line_0291,receipt_ref_001,Allocation Ready,1,77.46
+payment_group_002_line_0292,receipt_ref_001,Allocation Ready,1,78.59
+payment_group_002_line_0293,receipt_ref_001,Allocation Ready,1,79.72
+payment_group_002_line_0294,receipt_ref_001,Allocation Ready,1,80.85
+payment_group_002_line_0295,receipt_ref_001,Allocation Ready,1,81.98
+payment_group_002_line_0296,receipt_ref_001,Allocation Ready,1,83.11
+payment_group_002_line_0297,receipt_ref_001,Allocation Ready,1,84.24
+payment_group_002_line_0298,receipt_ref_001,Allocation Ready,1,85.37
+payment_group_002_line_0299,receipt_ref_001,Allocation Ready,1,86.50
+payment_group_002_line_0300,receipt_ref_001,Allocation Ready,1,87.63
+payment_group_002_line_0301,receipt_ref_001,Allocation Ready,1,88.76
+payment_group_002_line_0302,receipt_ref_001,Allocation Ready,1,89.89
+payment_group_002_line_0303,receipt_ref_001,Allocation Ready,1,91.02
+payment_group_002_line_0304,receipt_ref_001,Allocation Ready,1,92.15
+payment_group_002_line_0305,receipt_ref_001,Allocation Ready,1,93.28
+payment_group_002_line_0306,receipt_ref_001,Allocation Ready,1,94.41
+payment_group_002_line_0307,receipt_ref_001,Allocation Ready,1,95.54
+payment_group_002_line_0308,receipt_ref_001,Allocation Ready,1,96.67
+payment_group_002_line_0309,receipt_ref_001,Allocation Ready,1,97.80
+payment_group_002_line_0310,receipt_ref_001,Allocation Ready,1,98.93
+payment_group_002_line_0311,receipt_ref_001,Allocation Ready,1,100.06
+payment_group_002_line_0312,receipt_ref_001,Allocation Ready,1,101.19
+payment_group_002_line_0313,receipt_ref_001,Allocation Ready,1,102.32
+payment_group_002_line_0314,receipt_ref_001,Allocation Ready,1,103.45
+payment_group_002_line_0315,receipt_ref_001,Allocation Ready,1,104.58
+payment_group_002_line_0316,receipt_ref_001,Allocation Ready,1,105.71
+payment_group_002_line_0317,receipt_ref_001,Allocation Ready,1,106.84
+payment_group_002_line_0318,receipt_ref_001,Allocation Ready,1,107.97
+payment_group_002_line_0319,receipt_ref_001,Allocation Ready,1,109.10
+payment_group_002_line_0320,receipt_ref_001,Allocation Ready,1,110.23
+payment_group_002_line_0321,receipt_ref_001,Allocation Ready,1,111.36
+payment_group_002_line_0322,receipt_ref_001,Allocation Ready,1,112.49
+payment_group_002_line_0323,receipt_ref_001,Allocation Ready,1,113.62
+payment_group_002_line_0324,receipt_ref_001,Allocation Ready,1,114.75
+payment_group_002_line_0325,receipt_ref_001,Allocation Ready,1,115.88
+payment_group_002_line_0326,receipt_ref_001,Allocation Ready,1,117.01
+payment_group_002_line_0327,receipt_ref_001,Allocation Ready,1,118.14
+payment_group_002_line_0328,receipt_ref_001,Allocation Ready,1,119.27
+payment_group_002_line_0329,receipt_ref_001,Allocation Ready,1,30.00
+payment_group_002_line_0330,receipt_ref_001,Allocation Ready,1,31.13
+payment_group_003_line_0331,receipt_ref_001,Allocation Ready,1,33.39
+payment_group_003_line_0332,receipt_ref_001,Allocation Ready,1,34.52
+payment_group_003_line_0333,receipt_ref_001,Allocation Ready,1,35.65
+payment_group_003_line_0334,receipt_ref_001,Allocation Ready,1,36.78
+payment_group_003_line_0335,receipt_ref_001,Allocation Ready,1,37.91
+payment_group_003_line_0336,receipt_ref_001,Allocation Ready,1,39.04
+payment_group_003_line_0337,receipt_ref_001,Allocation Ready,1,40.17
+payment_group_003_line_0338,receipt_ref_001,Allocation Ready,1,41.30
+payment_group_003_line_0339,receipt_ref_001,Allocation Ready,1,42.43
+payment_group_003_line_0340,receipt_ref_001,Allocation Ready,1,43.56
+payment_group_003_line_0341,receipt_ref_001,Allocation Ready,1,44.69
+payment_group_003_line_0342,receipt_ref_001,Allocation Ready,1,45.82
+payment_group_003_line_0343,receipt_ref_001,Allocation Ready,1,46.95
+payment_group_003_line_0344,receipt_ref_001,Allocation Ready,1,48.08
+payment_group_003_line_0345,receipt_ref_001,Allocation Ready,1,49.21
+payment_group_003_line_0346,receipt_ref_001,Allocation Ready,1,50.34
+payment_group_003_line_0347,receipt_ref_001,Allocation Ready,1,51.47
+payment_group_003_line_0348,receipt_ref_001,Allocation Ready,1,52.60
+payment_group_003_line_0349,receipt_ref_001,Allocation Ready,1,53.73
+payment_group_003_line_0350,receipt_ref_001,Allocation Ready,1,54.86
+payment_group_003_line_0351,receipt_ref_001,Allocation Ready,1,55.99
+payment_group_003_line_0352,receipt_ref_001,Allocation Ready,1,57.12
+payment_group_003_line_0353,receipt_ref_001,Allocation Ready,1,58.25
+payment_group_003_line_0354,receipt_ref_001,Allocation Ready,1,59.38
+payment_group_003_line_0355,receipt_ref_001,Allocation Ready,1,60.51
+payment_group_003_line_0356,receipt_ref_001,Allocation Ready,1,61.64
+payment_group_003_line_0357,receipt_ref_001,Allocation Ready,1,62.77
+payment_group_003_line_0358,receipt_ref_001,Allocation Ready,1,63.90
+payment_group_003_line_0359,receipt_ref_001,Allocation Ready,1,65.03
+payment_group_003_line_0360,receipt_ref_001,Allocation Ready,1,66.16
+payment_group_003_line_0361,receipt_ref_001,Allocation Ready,1,67.29
+payment_group_003_line_0362,receipt_ref_001,Allocation Ready,1,68.42
+payment_group_003_line_0363,receipt_ref_001,Allocation Ready,1,69.55
+payment_group_003_line_0364,receipt_ref_001,Allocation Ready,1,70.68
+payment_group_003_line_0365,receipt_ref_001,Allocation Ready,1,71.81
+payment_group_003_line_0366,receipt_ref_001,Allocation Ready,1,72.94
+payment_group_003_line_0367,receipt_ref_001,Allocation Ready,1,74.07
+payment_group_003_line_0368,receipt_ref_001,Allocation Ready,1,75.20
+payment_group_003_line_0369,receipt_ref_001,Allocation Ready,1,76.33
+payment_group_003_line_0370,receipt_ref_001,Allocation Ready,1,77.46
+payment_group_003_line_0371,receipt_ref_001,Allocation Ready,1,78.59
+payment_group_003_line_0372,receipt_ref_001,Allocation Ready,1,79.72
+payment_group_003_line_0373,receipt_ref_001,Allocation Ready,1,80.85
+payment_group_003_line_0374,receipt_ref_001,Allocation Ready,1,81.98
+payment_group_003_line_0375,receipt_ref_001,Allocation Ready,1,83.11
+payment_group_003_line_0376,receipt_ref_001,Allocation Ready,1,84.24
+payment_group_003_line_0377,receipt_ref_001,Allocation Ready,1,85.37
+payment_group_003_line_0378,receipt_ref_001,Allocation Ready,1,86.50
+payment_group_003_line_0379,receipt_ref_001,Allocation Ready,1,87.63
+payment_group_003_line_0380,receipt_ref_001,Allocation Ready,1,88.76
+payment_group_003_line_0381,receipt_ref_001,Allocation Ready,1,89.89
+payment_group_003_line_0382,receipt_ref_001,Allocation Ready,1,91.02
+payment_group_003_line_0383,receipt_ref_001,Allocation Ready,1,92.15
+payment_group_003_line_0384,receipt_ref_001,Allocation Ready,1,93.28
+payment_group_003_line_0385,receipt_ref_001,Allocation Ready,1,94.41
+payment_group_003_line_0386,receipt_ref_001,Allocation Ready,1,95.54
+payment_group_003_line_0387,receipt_ref_001,Allocation Ready,1,96.67
+payment_group_003_line_0388,receipt_ref_001,Allocation Ready,1,97.80
+payment_group_003_line_0389,receipt_ref_001,Allocation Ready,1,98.93
+payment_group_003_line_0390,receipt_ref_001,Allocation Ready,1,100.06
+payment_group_003_line_0391,receipt_ref_001,Allocation Ready,1,101.19
+payment_group_003_line_0392,receipt_ref_001,Allocation Ready,1,102.32
+payment_group_003_line_0393,receipt_ref_001,Allocation Ready,1,103.45
+payment_group_003_line_0394,receipt_ref_001,Allocation Ready,1,104.58
+payment_group_003_line_0395,receipt_ref_001,Allocation Ready,1,105.71
+payment_group_003_line_0396,receipt_ref_001,Allocation Ready,1,106.84
+payment_group_003_line_0397,receipt_ref_001,Allocation Ready,1,107.97
+payment_group_003_line_0398,receipt_ref_001,Allocation Ready,1,109.10
+payment_group_003_line_0399,receipt_ref_001,Allocation Ready,1,110.23
+payment_group_003_line_0400,receipt_ref_001,Allocation Ready,1,111.36
+payment_group_003_line_0401,receipt_ref_001,Allocation Ready,1,112.49
+payment_group_003_line_0402,receipt_ref_001,Allocation Ready,1,113.62
+payment_group_003_line_0403,receipt_ref_001,Allocation Ready,1,114.75
+payment_group_003_line_0404,receipt_ref_001,Allocation Ready,1,115.88
+payment_group_003_line_0405,receipt_ref_001,Allocation Ready,1,117.01
+payment_group_003_line_0406,receipt_ref_001,Allocation Ready,1,118.14
+payment_group_003_line_0407,receipt_ref_001,Allocation Ready,1,119.27
+payment_group_003_line_0408,receipt_ref_001,Allocation Ready,1,30.00
+payment_group_003_line_0409,receipt_ref_001,Allocation Ready,1,31.13
+payment_group_003_line_0410,receipt_ref_001,Allocation Ready,1,32.26
+payment_group_003_line_0411,receipt_ref_001,Allocation Ready,1,33.39
+payment_group_003_line_0412,receipt_ref_001,Allocation Ready,1,34.52
+payment_group_003_line_0413,receipt_ref_001,Allocation Ready,1,35.65
+payment_group_003_line_0414,receipt_ref_001,Allocation Ready,1,36.78
+payment_group_003_line_0415,receipt_ref_001,Allocation Ready,1,37.91
+payment_group_003_line_0416,receipt_ref_001,Allocation Ready,1,39.04
+payment_group_003_line_0417,receipt_ref_001,Allocation Ready,1,40.17
+payment_group_003_line_0418,receipt_ref_001,Allocation Ready,1,41.30
+payment_group_003_line_0419,receipt_ref_001,Allocation Ready,1,42.43
+payment_group_003_line_0420,receipt_ref_001,Allocation Ready,1,43.56
+payment_group_003_line_0421,receipt_ref_001,Allocation Ready,1,44.69
+payment_group_003_line_0422,receipt_ref_001,Allocation Ready,1,45.82
+payment_group_003_line_0423,receipt_ref_001,Allocation Ready,1,46.95
+payment_group_003_line_0424,receipt_ref_001,Allocation Ready,1,48.08
+payment_group_003_line_0425,receipt_ref_001,Allocation Ready,1,49.21
+payment_group_003_line_0426,receipt_ref_001,Allocation Ready,1,50.34
+payment_group_003_line_0427,receipt_ref_001,Allocation Ready,1,51.47
+payment_group_003_line_0428,receipt_ref_001,Allocation Ready,1,52.60
+payment_group_003_line_0429,receipt_ref_001,Allocation Ready,1,53.73
+payment_group_003_line_0450,receipt_ref_001,Amount Variance Review,1,75.00
+payment_group_003_line_0451,receipt_ref_001,Amount Variance Review,1,77.20
+payment_group_003_line_0452,receipt_ref_001,Amount Variance Review,1,79.40
+payment_group_003_line_0453,receipt_ref_001,Amount Variance Review,1,81.60
+payment_group_003_line_0454,receipt_ref_001,Amount Variance Review,1,83.80
+payment_group_003_line_0455,receipt_ref_001,Amount Variance Review,1,86.00
+payment_group_003_line_0456,receipt_ref_001,Amount Variance Review,1,88.20
+payment_group_003_line_0457,receipt_ref_001,Amount Variance Review,1,90.40
+payment_group_003_line_0458,receipt_ref_001,Amount Variance Review,1,92.60
+payment_group_003_line_0459,receipt_ref_001,Amount Variance Review,1,94.80
+payment_group_003_line_0460,receipt_ref_001,Amount Variance Review,1,97.00
+payment_group_003_line_0461,receipt_ref_001,Amount Variance Review,1,99.20
+payment_group_003_line_0462,receipt_ref_001,Amount Variance Review,1,101.40
+payment_group_003_line_0463,receipt_ref_001,Amount Variance Review,1,103.60
+payment_group_003_line_0464,receipt_ref_001,Amount Variance Review,1,105.80
+payment_group_003_line_0465,receipt_ref_001,Amount Variance Review,1,108.00
+payment_group_003_line_0466,receipt_ref_001,Amount Variance Review,1,110.20
+payment_group_003_line_0467,receipt_ref_001,Amount Variance Review,1,112.40
+payment_group_003_line_0468,receipt_ref_001,Amount Variance Review,1,114.60
+payment_group_003_line_0469,receipt_ref_001,Amount Variance Review,1,116.80
+payment_group_003_line_0470,receipt_ref_001,Amount Variance Review,1,119.00
+payment_group_003_line_0471,receipt_ref_001,Amount Variance Review,1,121.20
+payment_group_003_line_0472,receipt_ref_001,Amount Variance Review,1,123.40
+payment_group_003_line_0473,receipt_ref_001,Amount Variance Review,1,125.60
+payment_group_003_line_0474,receipt_ref_001,Amount Variance Review,1,127.80
+payment_group_003_line_0475,receipt_ref_001,Amount Variance Review,1,130.00
+payment_group_003_line_0476,receipt_ref_001,Amount Variance Review,1,132.20
+payment_group_003_line_0477,receipt_ref_001,Amount Variance Review,1,134.40
+payment_group_003_line_0478,receipt_ref_001,Amount Variance Review,1,136.60
+payment_group_003_line_0479,receipt_ref_001,Amount Variance Review,1,138.80
+payment_group_004_fee_0221,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_fee_0222,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_fee_0223,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_fee_0224,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_fee_0225,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_fee_0226,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_fee_0227,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_fee_0228,receipt_ref_002,Cancellation Fee Review,1,50.00
+payment_group_004_line_0001,receipt_ref_002,Allocation Ready,1,31.13
+payment_group_004_line_0002,receipt_ref_002,Allocation Ready,1,32.26
+payment_group_004_line_0003,receipt_ref_002,Allocation Ready,1,33.39
+payment_group_004_line_0004,receipt_ref_002,Allocation Ready,1,34.52
+payment_group_004_line_0005,receipt_ref_002,Allocation Ready,1,35.65
+payment_group_004_line_0006,receipt_ref_002,Allocation Ready,1,36.78
+payment_group_004_line_0007,receipt_ref_002,Allocation Ready,1,37.91
+payment_group_004_line_0008,receipt_ref_002,Allocation Ready,1,39.04
+payment_group_004_line_0009,receipt_ref_002,Allocation Ready,1,40.17
+payment_group_004_line_0010,receipt_ref_002,Allocation Ready,1,41.30
+payment_group_004_line_0011,receipt_ref_002,Allocation Ready,1,42.43
+payment_group_004_line_0012,receipt_ref_002,Allocation Ready,1,43.56
+payment_group_004_line_0013,receipt_ref_002,Allocation Ready,1,44.69
+payment_group_004_line_0014,receipt_ref_002,Allocation Ready,1,45.82
+payment_group_004_line_0015,receipt_ref_002,Allocation Ready,1,46.95
+payment_group_004_line_0016,receipt_ref_002,Allocation Ready,1,48.08
+payment_group_004_line_0017,receipt_ref_002,Allocation Ready,1,49.21
+payment_group_004_line_0018,receipt_ref_002,Allocation Ready,1,50.34
+payment_group_004_line_0019,receipt_ref_002,Allocation Ready,1,51.47
+payment_group_004_line_0020,receipt_ref_002,Allocation Ready,1,52.60
+payment_group_004_line_0021,receipt_ref_002,Allocation Ready,1,53.73
+payment_group_004_line_0022,receipt_ref_002,Allocation Ready,1,54.86
+payment_group_004_line_0023,receipt_ref_002,Allocation Ready,1,55.99
+payment_group_004_line_0024,receipt_ref_002,Allocation Ready,1,57.12
+payment_group_004_line_0025,receipt_ref_002,Allocation Ready,1,58.25
+payment_group_004_line_0026,receipt_ref_002,Allocation Ready,1,59.38
+payment_group_004_line_0027,receipt_ref_002,Allocation Ready,1,60.51
+payment_group_004_line_0028,receipt_ref_002,Allocation Ready,1,61.64
+payment_group_004_line_0029,receipt_ref_002,Allocation Ready,1,62.77
+payment_group_004_line_0030,receipt_ref_002,Allocation Ready,1,63.90
+payment_group_004_line_0031,receipt_ref_002,Allocation Ready,1,65.03
+payment_group_004_line_0032,receipt_ref_002,Allocation Ready,1,66.16
+payment_group_004_line_0033,receipt_ref_002,Allocation Ready,1,67.29
+payment_group_004_line_0034,receipt_ref_002,Allocation Ready,1,68.42
+payment_group_004_line_0035,receipt_ref_002,Allocation Ready,1,69.55
+payment_group_004_line_0036,receipt_ref_002,Allocation Ready,1,70.68
+payment_group_004_line_0037,receipt_ref_002,Allocation Ready,1,71.81
+payment_group_004_line_0038,receipt_ref_002,Allocation Ready,1,72.94
+payment_group_004_line_0039,receipt_ref_002,Allocation Ready,1,74.07
+payment_group_004_line_0040,receipt_ref_002,Allocation Ready,1,75.20
+payment_group_004_line_0041,receipt_ref_002,Allocation Ready,1,76.33
+payment_group_004_line_0042,receipt_ref_002,Allocation Ready,1,77.46
+payment_group_004_line_0043,receipt_ref_002,Allocation Ready,1,78.59
+payment_group_004_line_0044,receipt_ref_002,Allocation Ready,1,79.72
+payment_group_004_line_0045,receipt_ref_002,Allocation Ready,1,80.85
+payment_group_004_line_0046,receipt_ref_002,Allocation Ready,1,81.98
+payment_group_004_line_0047,receipt_ref_002,Allocation Ready,1,83.11
+payment_group_004_line_0048,receipt_ref_002,Allocation Ready,1,84.24
+payment_group_004_line_0049,receipt_ref_002,Allocation Ready,1,85.37
+payment_group_004_line_0050,receipt_ref_002,Allocation Ready,1,86.50
+payment_group_004_line_0051,receipt_ref_002,Allocation Ready,1,87.63
+payment_group_004_line_0052,receipt_ref_002,Allocation Ready,1,88.76
+payment_group_004_line_0053,receipt_ref_002,Allocation Ready,1,89.89
+payment_group_004_line_0054,receipt_ref_002,Allocation Ready,1,91.02
+payment_group_004_line_0055,receipt_ref_002,Allocation Ready,1,92.15
+payment_group_004_line_0056,receipt_ref_002,Allocation Ready,1,93.28
+payment_group_004_line_0057,receipt_ref_002,Allocation Ready,1,94.41
+payment_group_004_line_0058,receipt_ref_002,Allocation Ready,1,95.54
+payment_group_004_line_0059,receipt_ref_002,Allocation Ready,1,96.67
+payment_group_004_line_0060,receipt_ref_002,Allocation Ready,1,97.80
+payment_group_004_line_0061,receipt_ref_002,Allocation Ready,1,98.93
+payment_group_004_line_0062,receipt_ref_002,Allocation Ready,1,100.06
+payment_group_004_line_0063,receipt_ref_002,Allocation Ready,1,101.19
+payment_group_004_line_0064,receipt_ref_002,Allocation Ready,1,102.32
+payment_group_004_line_0065,receipt_ref_002,Allocation Ready,1,103.45
+payment_group_004_line_0066,receipt_ref_002,Allocation Ready,1,104.58
+payment_group_004_line_0067,receipt_ref_002,Allocation Ready,1,105.71
+payment_group_004_line_0068,receipt_ref_002,Allocation Ready,1,106.84
+payment_group_004_line_0069,receipt_ref_002,Allocation Ready,1,107.97
+payment_group_004_line_0070,receipt_ref_002,Allocation Ready,1,109.10
+payment_group_004_line_0071,receipt_ref_002,Allocation Ready,1,110.23
+payment_group_004_line_0072,receipt_ref_002,Allocation Ready,1,111.36
+payment_group_004_line_0073,receipt_ref_002,Allocation Ready,1,112.49
+payment_group_004_line_0074,receipt_ref_002,Allocation Ready,1,113.62
+payment_group_004_line_0075,receipt_ref_002,Allocation Ready,1,114.75
+payment_group_004_line_0076,receipt_ref_002,Allocation Ready,1,115.88
+payment_group_004_line_0077,receipt_ref_002,Allocation Ready,1,117.01
+payment_group_004_line_0078,receipt_ref_002,Allocation Ready,1,118.14
+payment_group_004_line_0079,receipt_ref_002,Allocation Ready,1,119.27
+payment_group_004_line_0080,receipt_ref_002,Allocation Ready,1,30.00
+payment_group_004_line_0081,receipt_ref_002,Allocation Ready,1,31.13
+payment_group_004_line_0082,receipt_ref_002,Allocation Ready,1,32.26
+payment_group_004_line_0083,receipt_ref_002,Allocation Ready,1,33.39
+payment_group_004_line_0084,receipt_ref_002,Allocation Ready,1,34.52
+payment_group_004_line_0085,receipt_ref_002,Allocation Ready,1,35.65
+payment_group_004_line_0086,receipt_ref_002,Allocation Ready,1,36.78
+payment_group_004_line_0087,receipt_ref_002,Allocation Ready,1,37.91
+payment_group_004_line_0088,receipt_ref_002,Allocation Ready,1,39.04
+payment_group_004_line_0089,receipt_ref_002,Allocation Ready,1,40.17
+payment_group_004_line_0090,receipt_ref_002,Allocation Ready,1,41.30
+payment_group_004_line_0091,receipt_ref_002,Allocation Ready,1,42.43
+payment_group_004_line_0092,receipt_ref_002,Allocation Ready,1,43.56
+payment_group_004_line_0093,receipt_ref_002,Allocation Ready,1,44.69
+payment_group_004_line_0094,receipt_ref_002,Allocation Ready,1,45.82
+payment_group_004_line_0095,receipt_ref_002,Allocation Ready,1,46.95
+payment_group_004_line_0096,receipt_ref_002,Allocation Ready,1,48.08
+payment_group_004_line_0097,receipt_ref_002,Allocation Ready,1,49.21
+payment_group_004_line_0098,receipt_ref_002,Allocation Ready,1,50.34
+payment_group_004_line_0099,receipt_ref_002,Allocation Ready,1,51.47
+payment_group_004_line_0100,receipt_ref_002,Allocation Ready,1,52.60
+payment_group_004_line_0101,receipt_ref_002,Allocation Ready,1,53.73
+payment_group_004_line_0102,receipt_ref_002,Allocation Ready,1,54.86
+payment_group_004_line_0103,receipt_ref_002,Allocation Ready,1,55.99
+payment_group_004_line_0104,receipt_ref_002,Allocation Ready,1,57.12
+payment_group_004_line_0105,receipt_ref_002,Allocation Ready,1,58.25
+payment_group_004_line_0106,receipt_ref_002,Allocation Ready,1,59.38
+payment_group_004_line_0107,receipt_ref_002,Allocation Ready,1,60.51
+payment_group_004_line_0108,receipt_ref_002,Allocation Ready,1,61.64
+payment_group_004_line_0109,receipt_ref_002,Allocation Ready,1,62.77
+payment_group_004_line_0110,receipt_ref_002,Allocation Ready,1,63.90
+payment_group_004_line_0111,receipt_ref_002,Allocation Ready,1,65.03
+payment_group_004_line_0112,receipt_ref_002,Allocation Ready,1,66.16
+payment_group_004_line_0113,receipt_ref_002,Allocation Ready,1,67.29
+payment_group_004_line_0114,receipt_ref_002,Allocation Ready,1,68.42
+payment_group_004_line_0115,receipt_ref_002,Allocation Ready,1,69.55
+payment_group_004_line_0116,receipt_ref_002,Allocation Ready,1,70.68
+payment_group_004_line_0117,receipt_ref_002,Allocation Ready,1,71.81
+payment_group_004_line_0118,receipt_ref_002,Allocation Ready,1,72.94
+payment_group_004_line_0119,receipt_ref_002,Allocation Ready,1,74.07
+payment_group_004_line_0120,receipt_ref_002,Allocation Ready,1,75.20
+payment_group_004_line_0121,receipt_ref_002,Allocation Ready,1,76.33
+payment_group_004_line_0122,receipt_ref_002,Allocation Ready,1,77.46
+payment_group_004_line_0123,receipt_ref_002,Allocation Ready,1,78.59
+payment_group_004_line_0124,receipt_ref_002,Allocation Ready,1,79.72
+payment_group_004_line_0125,receipt_ref_002,Allocation Ready,1,80.85
+payment_group_004_line_0126,receipt_ref_002,Allocation Ready,1,81.98
+payment_group_004_line_0127,receipt_ref_002,Allocation Ready,1,83.11
+payment_group_004_line_0128,receipt_ref_002,Allocation Ready,1,84.24
+payment_group_004_line_0129,receipt_ref_002,Allocation Ready,1,85.37
+payment_group_004_line_0130,receipt_ref_002,Allocation Ready,1,86.50
+payment_group_004_line_0221,receipt_ref_002,Cancellation Fee Review,1,-120.00
+payment_group_004_line_0222,receipt_ref_002,Cancellation Fee Review,1,-123.00
+payment_group_004_line_0223,receipt_ref_002,Cancellation Fee Review,1,-126.00
+payment_group_004_line_0224,receipt_ref_002,Cancellation Fee Review,1,-129.00
+payment_group_004_line_0225,receipt_ref_002,Cancellation Fee Review,1,-132.00
+payment_group_004_line_0226,receipt_ref_002,Cancellation Fee Review,1,-135.00
+payment_group_004_line_0227,receipt_ref_002,Cancellation Fee Review,1,-138.00
+payment_group_004_line_0228,receipt_ref_002,Cancellation Fee Review,1,-141.00
+payment_group_005_line_0131,receipt_ref_002,Allocation Ready,1,32.26
+payment_group_005_line_0132,receipt_ref_002,Allocation Ready,1,33.39
+payment_group_005_line_0133,receipt_ref_002,Allocation Ready,1,34.52
+payment_group_005_line_0134,receipt_ref_002,Allocation Ready,1,35.65
+payment_group_005_line_0135,receipt_ref_002,Allocation Ready,1,36.78
+payment_group_005_line_0136,receipt_ref_002,Allocation Ready,1,37.91
+payment_group_005_line_0137,receipt_ref_002,Allocation Ready,1,39.04
+payment_group_005_line_0138,receipt_ref_002,Allocation Ready,1,40.17
+payment_group_005_line_0139,receipt_ref_002,Allocation Ready,1,41.30
+payment_group_005_line_0140,receipt_ref_002,Allocation Ready,1,42.43
+payment_group_005_line_0141,receipt_ref_002,Allocation Ready,1,43.56
+payment_group_005_line_0142,receipt_ref_002,Allocation Ready,1,44.69
+payment_group_005_line_0143,receipt_ref_002,Allocation Ready,1,45.82
+payment_group_005_line_0144,receipt_ref_002,Allocation Ready,1,46.95
+payment_group_005_line_0145,receipt_ref_002,Allocation Ready,1,48.08
+payment_group_005_line_0146,receipt_ref_002,Allocation Ready,1,49.21
+payment_group_005_line_0147,receipt_ref_002,Allocation Ready,1,50.34
+payment_group_005_line_0148,receipt_ref_002,Allocation Ready,1,51.47
+payment_group_005_line_0149,receipt_ref_002,Allocation Ready,1,52.60
+payment_group_005_line_0150,receipt_ref_002,Allocation Ready,1,53.73
+payment_group_005_line_0151,receipt_ref_002,Allocation Ready,1,54.86
+payment_group_005_line_0152,receipt_ref_002,Allocation Ready,1,55.99
+payment_group_005_line_0153,receipt_ref_002,Allocation Ready,1,57.12
+payment_group_005_line_0154,receipt_ref_002,Allocation Ready,1,58.25
+payment_group_005_line_0155,receipt_ref_002,Allocation Ready,1,59.38
+payment_group_005_line_0156,receipt_ref_002,Allocation Ready,1,60.51
+payment_group_005_line_0157,receipt_ref_002,Allocation Ready,1,61.64
+payment_group_005_line_0158,receipt_ref_002,Allocation Ready,1,62.77
+payment_group_005_line_0159,receipt_ref_002,Allocation Ready,1,63.90
+payment_group_005_line_0160,receipt_ref_002,Allocation Ready,1,65.03
+payment_group_005_line_0161,receipt_ref_002,Allocation Ready,1,66.16
+payment_group_005_line_0162,receipt_ref_002,Allocation Ready,1,67.29
+payment_group_005_line_0163,receipt_ref_002,Allocation Ready,1,68.42
+payment_group_005_line_0164,receipt_ref_002,Allocation Ready,1,69.55
+payment_group_005_line_0165,receipt_ref_002,Allocation Ready,1,70.68
+payment_group_005_line_0166,receipt_ref_002,Allocation Ready,1,71.81
+payment_group_005_line_0167,receipt_ref_002,Allocation Ready,1,72.94
+payment_group_005_line_0168,receipt_ref_002,Allocation Ready,1,74.07
+payment_group_005_line_0169,receipt_ref_002,Allocation Ready,1,75.20
+payment_group_005_line_0170,receipt_ref_002,Allocation Ready,1,76.33
+payment_group_005_line_0171,receipt_ref_002,Allocation Ready,1,77.46
+payment_group_005_line_0172,receipt_ref_002,Allocation Ready,1,78.59
+payment_group_005_line_0173,receipt_ref_002,Allocation Ready,1,79.72
+payment_group_005_line_0174,receipt_ref_002,Allocation Ready,1,80.85
+payment_group_005_line_0175,receipt_ref_002,Allocation Ready,1,81.98
+payment_group_005_line_0176,receipt_ref_002,Allocation Ready,1,83.11
+payment_group_005_line_0177,receipt_ref_002,Allocation Ready,1,84.24
+payment_group_005_line_0178,receipt_ref_002,Allocation Ready,1,85.37
+payment_group_005_line_0179,receipt_ref_002,Allocation Ready,1,86.50
+payment_group_005_line_0180,receipt_ref_002,Allocation Ready,1,87.63
+payment_group_005_line_0181,receipt_ref_002,Allocation Ready,1,88.76
+payment_group_005_line_0182,receipt_ref_002,Allocation Ready,1,89.89
+payment_group_005_line_0183,receipt_ref_002,Allocation Ready,1,91.02
+payment_group_005_line_0184,receipt_ref_002,Allocation Ready,1,92.15
+payment_group_005_line_0185,receipt_ref_002,Allocation Ready,1,93.28
+payment_group_005_line_0186,receipt_ref_002,Allocation Ready,1,94.41
+payment_group_005_line_0187,receipt_ref_002,Allocation Ready,1,95.54
+payment_group_005_line_0188,receipt_ref_002,Allocation Ready,1,96.67
+payment_group_005_line_0189,receipt_ref_002,Allocation Ready,1,97.80
+payment_group_005_line_0190,receipt_ref_002,Allocation Ready,1,98.93
+payment_group_005_line_0191,receipt_ref_002,Allocation Ready,1,100.06
+payment_group_005_line_0192,receipt_ref_002,Allocation Ready,1,101.19
+payment_group_005_line_0193,receipt_ref_002,Allocation Ready,1,102.32
+payment_group_005_line_0194,receipt_ref_002,Allocation Ready,1,103.45
+payment_group_005_line_0195,receipt_ref_002,Allocation Ready,1,104.58
+payment_group_005_line_0196,receipt_ref_002,Allocation Ready,1,105.71
+payment_group_005_line_0197,receipt_ref_002,Allocation Ready,1,106.84
+payment_group_005_line_0198,receipt_ref_002,Allocation Ready,1,107.97
+payment_group_005_line_0199,receipt_ref_002,Allocation Ready,1,109.10
+payment_group_005_line_0200,receipt_ref_002,Allocation Ready,1,110.23
+payment_group_005_line_0201,receipt_ref_002,Allocation Ready,1,111.36
+payment_group_005_line_0202,receipt_ref_002,Allocation Ready,1,112.49
+payment_group_005_line_0203,receipt_ref_002,Allocation Ready,1,113.62
+payment_group_005_line_0204,receipt_ref_002,Allocation Ready,1,114.75
+payment_group_005_line_0205,receipt_ref_002,Allocation Ready,1,115.88
+payment_group_005_line_0206,receipt_ref_002,Allocation Ready,1,117.01
+payment_group_005_line_0207,receipt_ref_002,Allocation Ready,1,118.14
+payment_group_005_line_0208,receipt_ref_002,Allocation Ready,1,119.27
+payment_group_005_line_0209,receipt_ref_002,Allocation Ready,1,30.00
+payment_group_005_line_0210,receipt_ref_002,Allocation Ready,1,31.13
+payment_group_005_line_0211,receipt_ref_002,Allocation Ready,1,32.26
+payment_group_005_line_0212,receipt_ref_002,Allocation Ready,1,33.39
+payment_group_005_line_0213,receipt_ref_002,Allocation Ready,1,34.52
+payment_group_005_line_0214,receipt_ref_002,Allocation Ready,1,35.65
+payment_group_005_line_0215,receipt_ref_002,Allocation Ready,1,36.78
+payment_group_005_line_0216,receipt_ref_002,Allocation Ready,1,37.91
+payment_group_005_line_0217,receipt_ref_002,Allocation Ready,1,39.04
+payment_group_005_line_0218,receipt_ref_002,Allocation Ready,1,40.17
+payment_group_005_line_0219,receipt_ref_002,Allocation Ready,1,41.30
+payment_group_005_line_0220,receipt_ref_002,Allocation Ready,1,42.43
+payment_group_005_line_0229,receipt_ref_002,Amount Variance Review,1,75.00
+payment_group_005_line_0230,receipt_ref_002,Amount Variance Review,1,77.20
+payment_group_005_line_0231,receipt_ref_002,Amount Variance Review,1,79.40
+payment_group_005_line_0232,receipt_ref_002,Amount Variance Review,1,81.60
+payment_group_005_line_0233,receipt_ref_002,Amount Variance Review,1,83.80
+payment_group_005_line_0234,receipt_ref_002,Amount Variance Review,1,86.00
+payment_group_005_line_0235,receipt_ref_002,Amount Variance Review,1,88.20
+payment_group_005_line_0236,receipt_ref_002,Amount Variance Review,1,90.40
+payment_group_005_line_0237,receipt_ref_002,Amount Variance Review,1,92.60
+payment_group_005_line_0238,receipt_ref_002,Amount Variance Review,1,94.80
+payment_group_005_line_0239,receipt_ref_002,Amount Variance Review,1,97.00
+payment_group_005_line_0240,receipt_ref_002,Amount Variance Review,1,99.20
+payment_group_006_fee_0148,receipt_ref_003,Cancellation Fee Review,1,50.00
+payment_group_006_fee_0149,receipt_ref_003,Cancellation Fee Review,1,50.00
+payment_group_006_fee_0150,receipt_ref_003,Cancellation Fee Review,1,50.00
+payment_group_006_fee_0151,receipt_ref_003,Cancellation Fee Review,1,50.00
+payment_group_006_fee_0152,receipt_ref_003,Cancellation Fee Review,1,50.00
+payment_group_006_fee_0153,receipt_ref_003,Cancellation Fee Review,1,50.00
+payment_group_006_line_0001,receipt_ref_003,Allocation Ready,1,31.13
+payment_group_006_line_0002,receipt_ref_003,Allocation Ready,1,32.26
+payment_group_006_line_0003,receipt_ref_003,Allocation Ready,1,33.39
+payment_group_006_line_0004,receipt_ref_003,Allocation Ready,1,34.52
+payment_group_006_line_0005,receipt_ref_003,Allocation Ready,1,35.65
+payment_group_006_line_0006,receipt_ref_003,Allocation Ready,1,36.78
+payment_group_006_line_0007,receipt_ref_003,Allocation Ready,1,37.91
+payment_group_006_line_0008,receipt_ref_003,Allocation Ready,1,39.04
+payment_group_006_line_0009,receipt_ref_003,Allocation Ready,1,40.17
+payment_group_006_line_0010,receipt_ref_003,Allocation Ready,1,41.30
+payment_group_006_line_0011,receipt_ref_003,Allocation Ready,1,42.43
+payment_group_006_line_0012,receipt_ref_003,Allocation Ready,1,43.56
+payment_group_006_line_0013,receipt_ref_003,Allocation Ready,1,44.69
+payment_group_006_line_0014,receipt_ref_003,Allocation Ready,1,45.82
+payment_group_006_line_0015,receipt_ref_003,Allocation Ready,1,46.95
+payment_group_006_line_0016,receipt_ref_003,Allocation Ready,1,48.08
+payment_group_006_line_0017,receipt_ref_003,Allocation Ready,1,49.21
+payment_group_006_line_0018,receipt_ref_003,Allocation Ready,1,50.34
+payment_group_006_line_0019,receipt_ref_003,Allocation Ready,1,51.47
+payment_group_006_line_0020,receipt_ref_003,Allocation Ready,1,52.60
+payment_group_006_line_0021,receipt_ref_003,Allocation Ready,1,53.73
+payment_group_006_line_0022,receipt_ref_003,Allocation Ready,1,54.86
+payment_group_006_line_0023,receipt_ref_003,Allocation Ready,1,55.99
+payment_group_006_line_0024,receipt_ref_003,Allocation Ready,1,57.12
+payment_group_006_line_0025,receipt_ref_003,Allocation Ready,1,58.25
+payment_group_006_line_0026,receipt_ref_003,Allocation Ready,1,59.38
+payment_group_006_line_0027,receipt_ref_003,Allocation Ready,1,60.51
+payment_group_006_line_0028,receipt_ref_003,Allocation Ready,1,61.64
+payment_group_006_line_0029,receipt_ref_003,Allocation Ready,1,62.77
+payment_group_006_line_0030,receipt_ref_003,Allocation Ready,1,63.90
+payment_group_006_line_0031,receipt_ref_003,Allocation Ready,1,65.03
+payment_group_006_line_0032,receipt_ref_003,Allocation Ready,1,66.16
+payment_group_006_line_0033,receipt_ref_003,Allocation Ready,1,67.29
+payment_group_006_line_0034,receipt_ref_003,Allocation Ready,1,68.42
+payment_group_006_line_0035,receipt_ref_003,Allocation Ready,1,69.55
+payment_group_006_line_0036,receipt_ref_003,Allocation Ready,1,70.68
+payment_group_006_line_0037,receipt_ref_003,Allocation Ready,1,71.81
+payment_group_006_line_0038,receipt_ref_003,Allocation Ready,1,72.94
+payment_group_006_line_0039,receipt_ref_003,Allocation Ready,1,74.07
+payment_group_006_line_0040,receipt_ref_003,Allocation Ready,1,75.20
+payment_group_006_line_0041,receipt_ref_003,Allocation Ready,1,76.33
+payment_group_006_line_0042,receipt_ref_003,Allocation Ready,1,77.46
+payment_group_006_line_0043,receipt_ref_003,Allocation Ready,1,78.59
+payment_group_006_line_0044,receipt_ref_003,Allocation Ready,1,79.72
+payment_group_006_line_0045,receipt_ref_003,Allocation Ready,1,80.85
+payment_group_006_line_0046,receipt_ref_003,Allocation Ready,1,81.98
+payment_group_006_line_0047,receipt_ref_003,Allocation Ready,1,83.11
+payment_group_006_line_0048,receipt_ref_003,Allocation Ready,1,84.24
+payment_group_006_line_0049,receipt_ref_003,Allocation Ready,1,85.37
+payment_group_006_line_0050,receipt_ref_003,Allocation Ready,1,86.50
+payment_group_006_line_0051,receipt_ref_003,Allocation Ready,1,87.63
+payment_group_006_line_0052,receipt_ref_003,Allocation Ready,1,88.76
+payment_group_006_line_0053,receipt_ref_003,Allocation Ready,1,89.89
+payment_group_006_line_0054,receipt_ref_003,Allocation Ready,1,91.02
+payment_group_006_line_0055,receipt_ref_003,Allocation Ready,1,92.15
+payment_group_006_line_0056,receipt_ref_003,Allocation Ready,1,93.28
+payment_group_006_line_0057,receipt_ref_003,Allocation Ready,1,94.41
+payment_group_006_line_0058,receipt_ref_003,Allocation Ready,1,95.54
+payment_group_006_line_0059,receipt_ref_003,Allocation Ready,1,96.67
+payment_group_006_line_0060,receipt_ref_003,Allocation Ready,1,97.80
+payment_group_006_line_0061,receipt_ref_003,Allocation Ready,1,98.93
+payment_group_006_line_0062,receipt_ref_003,Allocation Ready,1,100.06
+payment_group_006_line_0063,receipt_ref_003,Allocation Ready,1,101.19
+payment_group_006_line_0064,receipt_ref_003,Allocation Ready,1,102.32
+payment_group_006_line_0065,receipt_ref_003,Allocation Ready,1,103.45
+payment_group_006_line_0066,receipt_ref_003,Allocation Ready,1,104.58
+payment_group_006_line_0067,receipt_ref_003,Allocation Ready,1,105.71
+payment_group_006_line_0068,receipt_ref_003,Allocation Ready,1,106.84
+payment_group_006_line_0069,receipt_ref_003,Allocation Ready,1,107.97
+payment_group_006_line_0070,receipt_ref_003,Allocation Ready,1,109.10
+payment_group_006_line_0071,receipt_ref_003,Allocation Ready,1,110.23
+payment_group_006_line_0072,receipt_ref_003,Allocation Ready,1,111.36
+payment_group_006_line_0073,receipt_ref_003,Allocation Ready,1,112.49
+payment_group_006_line_0074,receipt_ref_003,Allocation Ready,1,113.62
+payment_group_006_line_0075,receipt_ref_003,Allocation Ready,1,114.75
+payment_group_006_line_0076,receipt_ref_003,Allocation Ready,1,115.88
+payment_group_006_line_0077,receipt_ref_003,Allocation Ready,1,117.01
+payment_group_006_line_0078,receipt_ref_003,Allocation Ready,1,118.14
+payment_group_006_line_0079,receipt_ref_003,Allocation Ready,1,119.27
+payment_group_006_line_0080,receipt_ref_003,Allocation Ready,1,30.00
+payment_group_006_line_0081,receipt_ref_003,Allocation Ready,1,31.13
+payment_group_006_line_0082,receipt_ref_003,Allocation Ready,1,32.26
+payment_group_006_line_0083,receipt_ref_003,Allocation Ready,1,33.39
+payment_group_006_line_0084,receipt_ref_003,Allocation Ready,1,34.52
+payment_group_006_line_0085,receipt_ref_003,Allocation Ready,1,35.65
+payment_group_006_line_0086,receipt_ref_003,Allocation Ready,1,36.78
+payment_group_006_line_0087,receipt_ref_003,Allocation Ready,1,37.91
+payment_group_006_line_0088,receipt_ref_003,Allocation Ready,1,39.04
+payment_group_006_line_0089,receipt_ref_003,Allocation Ready,1,40.17
+payment_group_006_line_0090,receipt_ref_003,Allocation Ready,1,41.30
+payment_group_006_line_0148,receipt_ref_003,Cancellation Fee Review,1,-120.00
+payment_group_006_line_0149,receipt_ref_003,Cancellation Fee Review,1,-123.00
+payment_group_006_line_0150,receipt_ref_003,Cancellation Fee Review,1,-126.00
+payment_group_006_line_0151,receipt_ref_003,Cancellation Fee Review,1,-129.00
+payment_group_006_line_0152,receipt_ref_003,Cancellation Fee Review,1,-132.00
+payment_group_006_line_0153,receipt_ref_003,Cancellation Fee Review,1,-135.00
+payment_group_007_line_0091,receipt_ref_003,Allocation Ready,1,32.26
+payment_group_007_line_0092,receipt_ref_003,Allocation Ready,1,33.39
+payment_group_007_line_0093,receipt_ref_003,Allocation Ready,1,34.52
+payment_group_007_line_0094,receipt_ref_003,Allocation Ready,1,35.65
+payment_group_007_line_0095,receipt_ref_003,Allocation Ready,1,36.78
+payment_group_007_line_0096,receipt_ref_003,Allocation Ready,1,37.91
+payment_group_007_line_0097,receipt_ref_003,Allocation Ready,1,39.04
+payment_group_007_line_0098,receipt_ref_003,Allocation Ready,1,40.17
+payment_group_007_line_0099,receipt_ref_003,Allocation Ready,1,41.30
+payment_group_007_line_0100,receipt_ref_003,Allocation Ready,1,42.43
+payment_group_007_line_0101,receipt_ref_003,Allocation Ready,1,43.56
+payment_group_007_line_0102,receipt_ref_003,Allocation Ready,1,44.69
+payment_group_007_line_0103,receipt_ref_003,Allocation Ready,1,45.82
+payment_group_007_line_0104,receipt_ref_003,Allocation Ready,1,46.95
+payment_group_007_line_0105,receipt_ref_003,Allocation Ready,1,48.08
+payment_group_007_line_0106,receipt_ref_003,Allocation Ready,1,49.21
+payment_group_007_line_0107,receipt_ref_003,Allocation Ready,1,50.34
+payment_group_007_line_0108,receipt_ref_003,Allocation Ready,1,51.47
+payment_group_007_line_0109,receipt_ref_003,Allocation Ready,1,52.60
+payment_group_007_line_0110,receipt_ref_003,Allocation Ready,1,53.73
+payment_group_007_line_0111,receipt_ref_003,Allocation Ready,1,54.86
+payment_group_007_line_0112,receipt_ref_003,Allocation Ready,1,55.99
+payment_group_007_line_0113,receipt_ref_003,Allocation Ready,1,57.12
+payment_group_007_line_0114,receipt_ref_003,Allocation Ready,1,58.25
+payment_group_007_line_0115,receipt_ref_003,Allocation Ready,1,59.38
+payment_group_007_line_0116,receipt_ref_003,Allocation Ready,1,60.51
+payment_group_007_line_0117,receipt_ref_003,Allocation Ready,1,61.64
+payment_group_007_line_0118,receipt_ref_003,Allocation Ready,1,62.77
+payment_group_007_line_0119,receipt_ref_003,Allocation Ready,1,63.90
+payment_group_007_line_0120,receipt_ref_003,Allocation Ready,1,65.03
+payment_group_007_line_0121,receipt_ref_003,Allocation Ready,1,66.16
+payment_group_007_line_0122,receipt_ref_003,Allocation Ready,1,67.29
+payment_group_007_line_0123,receipt_ref_003,Allocation Ready,1,68.42
+payment_group_007_line_0124,receipt_ref_003,Allocation Ready,1,69.55
+payment_group_007_line_0125,receipt_ref_003,Allocation Ready,1,70.68
+payment_group_007_line_0126,receipt_ref_003,Allocation Ready,1,71.81
+payment_group_007_line_0127,receipt_ref_003,Allocation Ready,1,72.94
+payment_group_007_line_0128,receipt_ref_003,Allocation Ready,1,74.07
+payment_group_007_line_0129,receipt_ref_003,Allocation Ready,1,75.20
+payment_group_007_line_0130,receipt_ref_003,Allocation Ready,1,76.33
+payment_group_007_line_0131,receipt_ref_003,Allocation Ready,1,77.46
+payment_group_007_line_0132,receipt_ref_003,Allocation Ready,1,78.59
+payment_group_007_line_0133,receipt_ref_003,Allocation Ready,1,79.72
+payment_group_007_line_0134,receipt_ref_003,Allocation Ready,1,80.85
+payment_group_007_line_0135,receipt_ref_003,Allocation Ready,1,81.98
+payment_group_007_line_0136,receipt_ref_003,Allocation Ready,1,83.11
+payment_group_007_line_0137,receipt_ref_003,Allocation Ready,1,84.24
+payment_group_007_line_0138,receipt_ref_003,Allocation Ready,1,85.37
+payment_group_007_line_0139,receipt_ref_003,Allocation Ready,1,86.50
+payment_group_007_line_0140,receipt_ref_003,Allocation Ready,1,87.63
+payment_group_007_line_0141,receipt_ref_003,Allocation Ready,1,88.76
+payment_group_007_line_0142,receipt_ref_003,Allocation Ready,1,89.89
+payment_group_007_line_0143,receipt_ref_003,Allocation Ready,1,91.02
+payment_group_007_line_0144,receipt_ref_003,Allocation Ready,1,92.15
+payment_group_007_line_0145,receipt_ref_003,Allocation Ready,1,93.28
+payment_group_007_line_0146,receipt_ref_003,Allocation Ready,1,94.41
+payment_group_007_line_0147,receipt_ref_003,Allocation Ready,1,95.54
+payment_group_007_line_0154,receipt_ref_003,Amount Variance Review,1,75.00
+payment_group_007_line_0155,receipt_ref_003,Amount Variance Review,1,77.20
+payment_group_007_line_0156,receipt_ref_003,Amount Variance Review,1,79.40
+payment_group_007_line_0157,receipt_ref_003,Amount Variance Review,1,81.60
+payment_group_007_line_0158,receipt_ref_003,Amount Variance Review,1,83.80
+payment_group_007_line_0159,receipt_ref_003,Amount Variance Review,1,86.00
+payment_group_007_line_0160,receipt_ref_003,Amount Variance Review,1,88.20
+payment_group_007_line_0161,receipt_ref_003,Amount Variance Review,1,90.40
+payment_group_008_fee_0112,receipt_ref_004,Cancellation Fee Review,1,50.00
+payment_group_008_fee_0113,receipt_ref_004,Cancellation Fee Review,1,50.00
+payment_group_008_fee_0114,receipt_ref_004,Cancellation Fee Review,1,50.00
+payment_group_008_fee_0115,receipt_ref_004,Cancellation Fee Review,1,50.00
+payment_group_008_fee_0116,receipt_ref_004,Cancellation Fee Review,1,50.00
+payment_group_008_line_0001,receipt_ref_004,Allocation Ready,1,31.13
+payment_group_008_line_0002,receipt_ref_004,Allocation Ready,1,32.26
+payment_group_008_line_0003,receipt_ref_004,Allocation Ready,1,33.39
+payment_group_008_line_0004,receipt_ref_004,Allocation Ready,1,34.52
+payment_group_008_line_0005,receipt_ref_004,Allocation Ready,1,35.65
+payment_group_008_line_0006,receipt_ref_004,Allocation Ready,1,36.78
+payment_group_008_line_0007,receipt_ref_004,Allocation Ready,1,37.91
+payment_group_008_line_0008,receipt_ref_004,Allocation Ready,1,39.04
+payment_group_008_line_0009,receipt_ref_004,Allocation Ready,1,40.17
+payment_group_008_line_0010,receipt_ref_004,Allocation Ready,1,41.30
+payment_group_008_line_0011,receipt_ref_004,Allocation Ready,1,42.43
+payment_group_008_line_0012,receipt_ref_004,Allocation Ready,1,43.56
+payment_group_008_line_0013,receipt_ref_004,Allocation Ready,1,44.69
+payment_group_008_line_0014,receipt_ref_004,Allocation Ready,1,45.82
+payment_group_008_line_0015,receipt_ref_004,Allocation Ready,1,46.95
+payment_group_008_line_0016,receipt_ref_004,Allocation Ready,1,48.08
+payment_group_008_line_0017,receipt_ref_004,Allocation Ready,1,49.21
+payment_group_008_line_0018,receipt_ref_004,Allocation Ready,1,50.34
+payment_group_008_line_0019,receipt_ref_004,Allocation Ready,1,51.47
+payment_group_008_line_0020,receipt_ref_004,Allocation Ready,1,52.60
+payment_group_008_line_0021,receipt_ref_004,Allocation Ready,1,53.73
+payment_group_008_line_0022,receipt_ref_004,Allocation Ready,1,54.86
+payment_group_008_line_0023,receipt_ref_004,Allocation Ready,1,55.99
+payment_group_008_line_0024,receipt_ref_004,Allocation Ready,1,57.12
+payment_group_008_line_0025,receipt_ref_004,Allocation Ready,1,58.25
+payment_group_008_line_0026,receipt_ref_004,Allocation Ready,1,59.38
+payment_group_008_line_0027,receipt_ref_004,Allocation Ready,1,60.51
+payment_group_008_line_0028,receipt_ref_004,Allocation Ready,1,61.64
+payment_group_008_line_0029,receipt_ref_004,Allocation Ready,1,62.77
+payment_group_008_line_0030,receipt_ref_004,Allocation Ready,1,63.90
+payment_group_008_line_0031,receipt_ref_004,Allocation Ready,1,65.03
+payment_group_008_line_0032,receipt_ref_004,Allocation Ready,1,66.16
+payment_group_008_line_0033,receipt_ref_004,Allocation Ready,1,67.29
+payment_group_008_line_0034,receipt_ref_004,Allocation Ready,1,68.42
+payment_group_008_line_0035,receipt_ref_004,Allocation Ready,1,69.55
+payment_group_008_line_0036,receipt_ref_004,Allocation Ready,1,70.68
+payment_group_008_line_0037,receipt_ref_004,Allocation Ready,1,71.81
+payment_group_008_line_0038,receipt_ref_004,Allocation Ready,1,72.94
+payment_group_008_line_0039,receipt_ref_004,Allocation Ready,1,74.07
+payment_group_008_line_0040,receipt_ref_004,Allocation Ready,1,75.20
+payment_group_008_line_0041,receipt_ref_004,Allocation Ready,1,76.33
+payment_group_008_line_0042,receipt_ref_004,Allocation Ready,1,77.46
+payment_group_008_line_0043,receipt_ref_004,Allocation Ready,1,78.59
+payment_group_008_line_0044,receipt_ref_004,Allocation Ready,1,79.72
+payment_group_008_line_0045,receipt_ref_004,Allocation Ready,1,80.85
+payment_group_008_line_0046,receipt_ref_004,Allocation Ready,1,81.98
+payment_group_008_line_0047,receipt_ref_004,Allocation Ready,1,83.11
+payment_group_008_line_0048,receipt_ref_004,Allocation Ready,1,84.24
+payment_group_008_line_0049,receipt_ref_004,Allocation Ready,1,85.37
+payment_group_008_line_0050,receipt_ref_004,Allocation Ready,1,86.50
+payment_group_008_line_0051,receipt_ref_004,Allocation Ready,1,87.63
+payment_group_008_line_0052,receipt_ref_004,Allocation Ready,1,88.76
+payment_group_008_line_0053,receipt_ref_004,Allocation Ready,1,89.89
+payment_group_008_line_0054,receipt_ref_004,Allocation Ready,1,91.02
+payment_group_008_line_0055,receipt_ref_004,Allocation Ready,1,92.15
+payment_group_008_line_0056,receipt_ref_004,Allocation Ready,1,93.28
+payment_group_008_line_0057,receipt_ref_004,Allocation Ready,1,94.41
+payment_group_008_line_0058,receipt_ref_004,Allocation Ready,1,95.54
+payment_group_008_line_0059,receipt_ref_004,Allocation Ready,1,96.67
+payment_group_008_line_0060,receipt_ref_004,Allocation Ready,1,97.80
+payment_group_008_line_0061,receipt_ref_004,Allocation Ready,1,98.93
+payment_group_008_line_0062,receipt_ref_004,Allocation Ready,1,100.06
+payment_group_008_line_0063,receipt_ref_004,Allocation Ready,1,101.19
+payment_group_008_line_0064,receipt_ref_004,Allocation Ready,1,102.32
+payment_group_008_line_0065,receipt_ref_004,Allocation Ready,1,103.45
+payment_group_008_line_0066,receipt_ref_004,Allocation Ready,1,104.58
+payment_group_008_line_0067,receipt_ref_004,Allocation Ready,1,105.71
+payment_group_008_line_0068,receipt_ref_004,Allocation Ready,1,106.84
+payment_group_008_line_0069,receipt_ref_004,Allocation Ready,1,107.97
+payment_group_008_line_0070,receipt_ref_004,Allocation Ready,1,109.10
+payment_group_008_line_0112,receipt_ref_004,Cancellation Fee Review,1,-120.00
+payment_group_008_line_0113,receipt_ref_004,Cancellation Fee Review,1,-123.00
+payment_group_008_line_0114,receipt_ref_004,Cancellation Fee Review,1,-126.00
+payment_group_008_line_0115,receipt_ref_004,Cancellation Fee Review,1,-129.00
+payment_group_008_line_0116,receipt_ref_004,Cancellation Fee Review,1,-132.00
+payment_group_009_line_0071,receipt_ref_004,Allocation Ready,1,32.26
+payment_group_009_line_0072,receipt_ref_004,Allocation Ready,1,33.39
+payment_group_009_line_0073,receipt_ref_004,Allocation Ready,1,34.52
+payment_group_009_line_0074,receipt_ref_004,Allocation Ready,1,35.65
+payment_group_009_line_0075,receipt_ref_004,Allocation Ready,1,36.78
+payment_group_009_line_0076,receipt_ref_004,Allocation Ready,1,37.91
+payment_group_009_line_0077,receipt_ref_004,Allocation Ready,1,39.04
+payment_group_009_line_0078,receipt_ref_004,Allocation Ready,1,40.17
+payment_group_009_line_0079,receipt_ref_004,Allocation Ready,1,41.30
+payment_group_009_line_0080,receipt_ref_004,Allocation Ready,1,42.43
+payment_group_009_line_0081,receipt_ref_004,Allocation Ready,1,43.56
+payment_group_009_line_0082,receipt_ref_004,Allocation Ready,1,44.69
+payment_group_009_line_0083,receipt_ref_004,Allocation Ready,1,45.82
+payment_group_009_line_0084,receipt_ref_004,Allocation Ready,1,46.95
+payment_group_009_line_0085,receipt_ref_004,Allocation Ready,1,48.08
+payment_group_009_line_0086,receipt_ref_004,Allocation Ready,1,49.21
+payment_group_009_line_0087,receipt_ref_004,Allocation Ready,1,50.34
+payment_group_009_line_0088,receipt_ref_004,Allocation Ready,1,51.47
+payment_group_009_line_0089,receipt_ref_004,Allocation Ready,1,52.60
+payment_group_009_line_0090,receipt_ref_004,Allocation Ready,1,53.73
+payment_group_009_line_0091,receipt_ref_004,Allocation Ready,1,54.86
+payment_group_009_line_0092,receipt_ref_004,Allocation Ready,1,55.99
+payment_group_009_line_0093,receipt_ref_004,Allocation Ready,1,57.12
+payment_group_009_line_0094,receipt_ref_004,Allocation Ready,1,58.25
+payment_group_009_line_0095,receipt_ref_004,Allocation Ready,1,59.38
+payment_group_009_line_0096,receipt_ref_004,Allocation Ready,1,60.51
+payment_group_009_line_0097,receipt_ref_004,Allocation Ready,1,61.64
+payment_group_009_line_0098,receipt_ref_004,Allocation Ready,1,62.77
+payment_group_009_line_0099,receipt_ref_004,Allocation Ready,1,63.90
+payment_group_009_line_0100,receipt_ref_004,Allocation Ready,1,65.03
+payment_group_009_line_0101,receipt_ref_004,Allocation Ready,1,66.16
+payment_group_009_line_0102,receipt_ref_004,Allocation Ready,1,67.29
+payment_group_009_line_0103,receipt_ref_004,Allocation Ready,1,68.42
+payment_group_009_line_0104,receipt_ref_004,Allocation Ready,1,69.55
+payment_group_009_line_0105,receipt_ref_004,Allocation Ready,1,70.68
+payment_group_009_line_0106,receipt_ref_004,Allocation Ready,1,71.81
+payment_group_009_line_0107,receipt_ref_004,Allocation Ready,1,72.94
+payment_group_009_line_0108,receipt_ref_004,Allocation Ready,1,74.07
+payment_group_009_line_0109,receipt_ref_004,Allocation Ready,1,75.20
+payment_group_009_line_0110,receipt_ref_004,Allocation Ready,1,76.33
+payment_group_009_line_0111,receipt_ref_004,Allocation Ready,1,77.46
+payment_group_009_line_0117,receipt_ref_004,Amount Variance Review,1,75.00
+payment_group_009_line_0118,receipt_ref_004,Amount Variance Review,1,77.20
+payment_group_009_line_0119,receipt_ref_004,Amount Variance Review,1,79.40
+payment_group_009_line_0120,receipt_ref_004,Amount Variance Review,1,81.60
+payment_group_009_line_0121,receipt_ref_004,Amount Variance Review,1,83.80
+payment_group_009_line_0122,receipt_ref_004,Amount Variance Review,1,86.00

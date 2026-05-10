@@ -52,7 +52,7 @@ select
     nullif(regexp_extract(r.your_reference, 'RA[: ]*([0-9]+)', 1), '') as acquirer_ref,
     nullif(cast(g.merchant_reference as varchar), '') as gateway_reservation_ref,
     case
-        when upper(r.contract_type) = 'SECURE E-COMMERCE'
+        when upper(r.contract_type) = 'ONLINE CARD PAYMENT'
             then nullif(cast(g.merchant_reference as varchar), '')
         else nullif(regexp_extract(r.your_reference, 'RES[: ]*([0-9]{10})', 1), '')
     end as reservation_ref,
@@ -78,11 +78,11 @@ select
         and (
             upper(r.type_of_transaction) like '%CANCELLATION FEE%'
             or upper(r.your_reference) like '%CANCELLATION_FEE%'
-            or upper(r.your_reference) like '%CFEE%'
+            or upper(r.your_reference) like '%CANCELLATION_FEE%'
         )
             then 'REFUND_WITH_CANCELLATION_FEE'
         when upper(r.your_reference) like '%CANCELLATION_FEE%'
-          or upper(r.your_reference) like '%CFEE%'
+          or upper(r.your_reference) like '%CANCELLATION_FEE%'
             then 'CANCELLATION_FEE'
         else 'STANDARD_PAYMENT'
     end as receipt_transaction_type

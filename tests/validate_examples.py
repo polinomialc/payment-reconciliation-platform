@@ -31,8 +31,14 @@ def main() -> None:
     require(len(gateway_mapping) > 0, "Gateway-token mapping sample should not be empty.")
     require(len(receipt_exceptions) > 0, "Receipt exception output should not be empty.")
 
-    status_counts = Counter(row["match_status"] for row in by_payment_batch)
-    for required_status in ["MATCH", "CFEE", "OVP", "CHECK", "UNMATCHED"]:
+    status_counts = Counter(row["reconciliation_outcome"] for row in by_payment_batch)
+    for required_status in [
+        "Allocation Ready",
+        "Cancellation Fee Review",
+        "Amount Variance Review",
+        "Evidence Review Required",
+        "Missing Receipt Evidence",
+    ]:
         require(status_counts[required_status] > 0, f"Missing sample coverage for {required_status}.")
     require(
         any(row["status"] == "Rejected" for row in receipts),

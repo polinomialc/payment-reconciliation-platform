@@ -53,11 +53,11 @@ def main() -> None:
             select
                 payment_batch_id,
                 coalesce(receipt_ref, '') as receipt_ref,
-                match_status,
+                reconciliation_outcome,
                 row_count,
                 printf('%.2f', payment_batch_total) as payment_batch_total
             from reconciliation_by_payment_batch
-            order by payment_batch_id, receipt_ref, match_status
+            order by payment_batch_id, receipt_ref, reconciliation_outcome
             """
         ).df().to_dict("records")
     )
@@ -67,11 +67,11 @@ def main() -> None:
             """
             select
                 receipt_ref,
-                match_status,
+                reconciliation_outcome,
                 row_count,
                 printf('%.2f', receipt_total) as receipt_total
             from reconciliation_by_receipt
-            order by receipt_ref, match_status
+            order by receipt_ref, reconciliation_outcome
             """
         ).df().to_dict("records")
     )

@@ -64,7 +64,7 @@ select
     invoice_ref,
     acquirer_ref,
     case
-        when upper(contract_type) = 'SECURE E-COMMERCE' then reservation_ref
+        when upper(contract_type) = 'ONLINE CARD PAYMENT' then reservation_ref
         when upper(brand) like '%MAESTRO%' then coalesce(invoice_ref, acquirer_ref, reservation_ref)
         else coalesce(invoice_ref, reservation_ref, acquirer_ref)
     end as primary_ref,

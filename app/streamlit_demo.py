@@ -32,7 +32,7 @@ def extract_gateway_token(reference: str) -> str:
 
 
 def extract_receipt_business_ref(reference: str, contract_type: str, gateway_lookup: dict[str, str]) -> str:
-    if str(contract_type).upper() == "SECURE E-COMMERCE":
+    if str(contract_type).upper() == "ONLINE CARD PAYMENT":
         return gateway_lookup.get(extract_gateway_token(reference), "")
     reservation_match = re.search(r"RES[: ]*([0-9]{10})", str(reference))
     if reservation_match:
@@ -60,9 +60,9 @@ def reference_type(description: str) -> str:
 def receipt_reference_type(reference: str, contract_type: str) -> str:
     if "CHB:" in reference or "CHARGEBACK" in reference.upper():
         return "Chargeback / adjustment"
-    if "CFEE" in reference.upper() or "CANCELLATION_FEE" in reference.upper():
+    if "CANCELLATION_FEE" in reference.upper():
         return "Refund / cancellation fee"
-    if contract_type == "Secure E-Commerce":
+    if contract_type == "Online Card Payment":
         return "Payment-channel token"
     if "INV:" in reference and "RES:" in reference:
         return "Invoice / reservation"
@@ -72,12 +72,12 @@ def receipt_reference_type(reference: str, contract_type: str) -> str:
 
 
 STATUS_LABELS = {
-    "MATCH": "Ready for Allocation",
-    "CFEE": "Cancellation Fee Review",
-    "OVP": "Amount Variance Review",
-    "REJECTED": "Rejected Card Transaction",
-    "CHECK": "Evidence Review",
-    "UNMATCHED": "Missing Payment Evidence",
+    "Allocation Ready": "Allocation Ready",
+    "Cancellation Fee Review": "Cancellation Fee Review",
+    "Amount Variance Review": "Amount Variance Review",
+    "Rejected Card Transaction": "Rejected Card Transaction",
+    "Evidence Review Required": "Evidence Review Required",
+    "Missing Receipt Evidence": "Missing Receipt Evidence",
 }
 
 
@@ -99,63 +99,63 @@ def load_data(data_version: tuple[float, ...]) -> dict[str, pd.DataFrame]:
     batch_aging = by_payment_batch.merge(payment_batches, on="payment_batch_id", how="left")
     batch_aging["payment_reference"] = batch_aging["item_description"].apply(extract_payment_reference)
     batch_aging["reference_type"] = batch_aging["item_description"].apply(reference_type)
-    batch_aging["portfolio_status"] = batch_aging["match_status"].map(STATUS_LABELS)
+    batch_aging["portfolio_status"] = batch_aging["reconciliation_outcome"].map(STATUS_LABELS)
     batch_aging["days_open"] = (AS_OF_DATE.normalize() - batch_aging["transaction_date"]).dt.days.clip(lower=0)
     batch_aging["aging_bucket"] = batch_aging["days_open"].apply(aging_bucket)
-    allocation_statuses = {"MATCH"}
-    explained_statuses = {"MATCH", "CFEE"}
+    allocation_statuses = {"Allocation Ready"}
+    explained_statuses = {"Allocation Ready", "Cancellation Fee Review"}
     batch_aging["allocated_amount"] = batch_aging.apply(
-        lambda row: row["payment_batch_total"] if row["match_status"] in allocation_statuses else 0,
+        lambda row: row["payment_batch_total"] if row["reconciliation_outcome"] in allocation_statuses else 0,
         axis=1,
     )
     batch_aging["explained_amount"] = batch_aging.apply(
-        lambda row: row["payment_batch_total"] if row["match_status"] in explained_statuses else 0,
+        lambda row: row["payment_batch_total"] if row["reconciliation_outcome"] in explained_statuses else 0,
         axis=1,
     )
     batch_aging["open_amount"] = batch_aging["payment_batch_total"] - batch_aging["explained_amount"]
-    batch_aging["financial_status"] = batch_aging["match_status"].map(
+    batch_aging["financial_status"] = batch_aging["reconciliation_outcome"].map(
         {
-            "MATCH": "Ready for full allocation",
-            "CFEE": "Open - cancellation fee requires financial treatment",
-            "OVP": "Open - amount variance requires review",
-            "REJECTED": "Open - card transaction rejected by payment provider",
-            "CHECK": "Open - evidence requires review",
-            "UNMATCHED": "Open - missing payment evidence",
+            "Allocation Ready": "Ready for full allocation",
+            "Cancellation Fee Review": "Open - cancellation fee requires financial treatment",
+            "Amount Variance Review": "Open - amount variance requires review",
+            "Rejected Card Transaction": "Open - card transaction rejected by payment provider",
+            "Evidence Review Required": "Open - evidence requires review",
+            "Missing Receipt Evidence": "Open - missing receipt evidence",
         }
     )
-    batch_aging["owner"] = batch_aging["match_status"].map(
+    batch_aging["owner"] = batch_aging["reconciliation_outcome"].map(
         {
-            "MATCH": "Auto-allocation",
-            "CFEE": "Operations",
-            "OVP": "Operations",
-            "REJECTED": "Finance",
-            "CHECK": "Operations",
-            "UNMATCHED": "Finance",
+            "Allocation Ready": "Auto-allocation",
+            "Cancellation Fee Review": "Operations",
+            "Amount Variance Review": "Operations",
+            "Rejected Card Transaction": "Finance",
+            "Evidence Review Required": "Operations",
+            "Missing Receipt Evidence": "Finance",
         }
     )
-    batch_aging["next_action"] = batch_aging["match_status"].map(
+    batch_aging["next_action"] = batch_aging["reconciliation_outcome"].map(
         {
-            "MATCH": "Allocate matched receipt payment",
-            "CFEE": "Review refund and cancellation-fee treatment",
-            "OVP": "Review over/under payment variance before allocation",
-            "REJECTED": "Confirm rejected card handling and keep out of allocation",
-            "CHECK": "Validate invoice, reservation, or payment-channel mapping",
-            "UNMATCHED": "Investigate missing receipt or operational reference",
+            "Allocation Ready": "Allocate matched receipt payment",
+            "Cancellation Fee Review": "Review refund and cancellation-fee treatment",
+            "Amount Variance Review": "Review over/under payment variance before allocation",
+            "Rejected Card Transaction": "Confirm rejected card handling and keep out of allocation",
+            "Evidence Review Required": "Validate invoice, reservation, or payment-channel mapping",
+            "Missing Receipt Evidence": "Investigate missing receipt or operational reference",
         }
     )
-    batch_aging["business_exception"] = batch_aging["match_status"].map(
+    batch_aging["business_exception"] = batch_aging["reconciliation_outcome"].map(
         {
-            "MATCH": "None",
-            "CFEE": "Cancellation fee",
-            "OVP": "Over/under payment",
-            "REJECTED": "Rejected card transaction",
-            "CHECK": "Reference review",
-            "UNMATCHED": "Missing evidence",
+            "Allocation Ready": "None",
+            "Cancellation Fee Review": "Cancellation fee",
+            "Amount Variance Review": "Over/under payment",
+            "Rejected Card Transaction": "Rejected card transaction",
+            "Evidence Review Required": "Reference review",
+            "Missing Receipt Evidence": "Missing evidence",
         }
     )
 
     allocation_evidence = by_receipt.merge(receipts, on="receipt_ref", how="left")
-    allocation_evidence["portfolio_status"] = allocation_evidence["match_status"].map(STATUS_LABELS)
+    allocation_evidence["portfolio_status"] = allocation_evidence["reconciliation_outcome"].map(STATUS_LABELS)
     receipt_exceptions["portfolio_exception"] = receipt_exceptions["receipt_transaction_type"].map(
         {
             "CHARGEBACK": "Chargeback",
@@ -205,7 +205,7 @@ if page == "Receipt Reconciliation":
     st.title("Receipt Reconciliation")
     st.caption(
         "Select a payment receipt and run the same kind of read-out an analyst would use: receipt lines, "
-        "linked payment batches, unmatched transactions, and exception treatment."
+        "linked payment batches, missing-evidence transactions, and exception treatment."
     )
 
     receipts = data["receipts"].copy()
@@ -273,11 +273,11 @@ if page == "Receipt Reconciliation":
             group = ", ".join(sorted(candidates["payment_group_id"].unique()))
             review_action = "Review over/under payment difference."
         elif not exact_candidates.empty:
-            outcome = "Ready for Allocation"
+            outcome = "Allocation Ready"
             group = ", ".join(sorted(exact_candidates["payment_group_id"].unique()))
             review_action = "Allocate matched payment-group line."
         else:
-            outcome = "Missing Payment Group Evidence"
+            outcome = "Missing Receipt Evidence"
             group = ""
             review_action = "Investigate missing payment group line or mapping."
 
@@ -301,7 +301,7 @@ if page == "Receipt Reconciliation":
     line_detail = pd.DataFrame(line_results)
     receipt_channel = selected_receipt["contract_type"]
     receipt_market = selected_receipt["market_code"]
-    lines_ready = (line_detail["Outcome"] == "Ready for Allocation").sum() if not line_detail.empty else 0
+    lines_ready = (line_detail["Outcome"] == "Allocation Ready").sum() if not line_detail.empty else 0
     lines_review = len(line_detail) - lines_ready
     linked_payment_groups = sorted(
         {
@@ -311,7 +311,7 @@ if page == "Receipt Reconciliation":
             if payment_group_name
         }
     ) if not line_detail.empty else []
-    missing_lines = (line_detail["Outcome"] == "Missing Payment Group Evidence").sum() if not line_detail.empty else 0
+    missing_lines = (line_detail["Outcome"] == "Missing Receipt Evidence").sum() if not line_detail.empty else 0
 
     st.write(
         f"Receipt `{selected_receipt_ref}` contains `{len(receipt_lines):,}` transaction lines. "
@@ -361,7 +361,7 @@ if page == "Receipt Reconciliation":
             related_batches.groupby("payment_group_id", as_index=False)
             .agg(
                 group_lines=("payment_batch_id", "count"),
-                ready_lines=("portfolio_status", lambda values: (values == "Ready for Allocation").sum()),
+                ready_lines=("portfolio_status", lambda values: (values == "Allocation Ready").sum()),
                 cancellation_fee_lines=(
                     "portfolio_status",
                     lambda values: (values == "Cancellation Fee Review").sum(),
@@ -387,7 +387,7 @@ if page == "Receipt Reconciliation":
         st.dataframe(payment_group_summary, hide_index=True, use_container_width=True)
 
     st.subheader("Items Requiring Review")
-    review_detail = line_detail[line_detail["Outcome"] != "Ready for Allocation"]
+    review_detail = line_detail[line_detail["Outcome"] != "Allocation Ready"]
     if review_detail.empty:
         st.success("All receipt lines found exact payment-group matches.")
     else:
@@ -455,7 +455,7 @@ if page == "Receipt Reconciliation":
         st.code(
             """
 case
-    when contract_type = 'Secure E-Commerce'
+    when contract_type = 'Online Card Payment'
         then gateway_mapping.merchant_reference
     when invoice_ref is not null
         then invoice_ref
@@ -476,7 +476,7 @@ select
     mapped_reference,
     receipt_amount,
     payment_group_amount,
-    'READY_FOR_ALLOCATION' as reconciliation_outcome
+    'Allocation Ready' as reconciliation_outcome
 from receipt_lines r
 join payment_group_lines p
   on p.mapped_reference = r.mapped_reference
@@ -496,12 +496,12 @@ case
     when provider_status = 'Rejected'
         then 'REJECTED_TRANSACTION'
     when refund_amount + cancellation_fee = receipt_amount
-        then 'CANCELLATION_FEE_REVIEW'
+        then 'Cancellation Fee Review'
     when same_reference = true and amount_difference <> 0
-        then 'AMOUNT_VARIANCE_REVIEW'
+        then 'Amount Variance Review'
     when payment_group_line_id is null
-        then 'MISSING_PAYMENT_GROUP_EVIDENCE'
-    else 'READY_FOR_ALLOCATION'
+        then 'Missing Receipt Evidence'
+    else 'Allocation Ready'
 end as reconciliation_outcome
             """.strip(),
             language="sql",
@@ -516,9 +516,9 @@ end as reconciliation_outcome
         st.code(
             """
 select * from reconciliation_rules
--- market | channel           | date_tolerance | cancellation_fee | reference_priority
--- UK     | Secure E-Commerce | 180            | 45.00            | gateway_ref, reservation
--- SP     | Card Present      | 0              | 50.00            | invoice, reservation, acquirer
+-- market | channel             | date_tolerance | cancellation_fee | reference_priority
+-- MKT_A  | Online Card Payment | 180            | 45.00            | payment_token, reservation
+-- MKT_B  | Card Present        | 0              | 50.00            | invoice, reservation, acquirer
             """.strip(),
             language="sql",
         )
@@ -576,10 +576,15 @@ filtered_receipts = data["allocation_evidence"][
 filtered_open = filtered_aging[filtered_aging["open_amount"] > 0]
 filtered_review = filtered_aging[
     filtered_aging["portfolio_status"].isin(
-        ["Evidence Review", "Amount Variance Review", "Rejected Card Transaction", "Missing Payment Evidence"]
+        [
+            "Evidence Review Required",
+            "Amount Variance Review",
+            "Rejected Card Transaction",
+            "Missing Receipt Evidence",
+        ]
     )
 ]
-filtered_ready = filtered_aging[filtered_aging["portfolio_status"] == "Ready for Allocation"]
+filtered_ready = filtered_aging[filtered_aging["portfolio_status"] == "Allocation Ready"]
 filtered_cfee = filtered_aging[filtered_aging["portfolio_status"] == "Cancellation Fee Review"]
 chargeback_count = (data["receipt_exceptions"]["receipt_transaction_type"] == "CHARGEBACK").sum()
 chargeback_amount = data["receipt_exceptions"].loc[
@@ -756,7 +761,12 @@ with tab_exceptions:
     st.subheader("Batch Exceptions")
     batch_exceptions = filtered_aging[
         filtered_aging["portfolio_status"].isin(
-            ["Amount Variance Review", "Rejected Card Transaction", "Cancellation Fee Review", "Evidence Review"]
+            [
+                "Amount Variance Review",
+                "Rejected Card Transaction",
+                "Cancellation Fee Review",
+                "Evidence Review Required",
+            ]
         )
     ]
     st.dataframe(

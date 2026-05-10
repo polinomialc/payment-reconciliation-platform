@@ -1,4 +1,4 @@
--- Sanitized schedule-driven reconciliation logic.
+-- Sanitized payment-batch reconciliation logic.
 --
 -- This layer mirrors the complete operational pattern without exposing
 -- private system names:
@@ -6,15 +6,15 @@
 -- 2. rejected receipt override
 -- 3. cancellation-fee pairing for refund + fee lines
 -- 4. over/under-payment detection
--- 5. CHECK / UNMATCHED open-balance classification
+-- 5. evidence-review and missing-evidence open-balance classification
 
 create or replace view market_rules as
 select * from (
     values
-        ('DE', 50.00::decimal(18, 2)),
-        ('SP', 50.00::decimal(18, 2)),
-        ('FR', 50.00::decimal(18, 2)),
-        ('UK', 45.00::decimal(18, 2))
+        ('MKT_A', 45.00::decimal(18, 2)),
+        ('MKT_B', 50.00::decimal(18, 2)),
+        ('MKT_C', 50.00::decimal(18, 2)),
+        ('MKT_D', 50.00::decimal(18, 2))
 ) as t(market_code, cancellation_fee);
 
 create or replace view exact_match_candidates as
@@ -35,7 +35,7 @@ select
 from payment_batch_keys s
 join receipt_keys r
   on r.market_code = s.market_code
- and upper(r.contract_type) <> 'SECURE E-COMMERCE'
+ and upper(r.contract_type) <> 'ONLINE CARD PAYMENT'
  and s.key_inv = r.key_inv
  and s.occurrence_inv = r.occurrence_inv
  and s.transaction_date = r.transaction_date
@@ -60,7 +60,7 @@ select
 from payment_batch_keys s
 join receipt_keys r
   on r.market_code = s.market_code
- and upper(r.contract_type) <> 'SECURE E-COMMERCE'
+ and upper(r.contract_type) <> 'ONLINE CARD PAYMENT'
  and s.is_maestro = true
  and s.key_ra = r.key_ra
  and s.occurrence_ra = r.occurrence_ra
@@ -86,7 +86,7 @@ select
 from payment_batch_keys s
 join receipt_keys r
   on r.market_code = s.market_code
- and upper(r.contract_type) <> 'SECURE E-COMMERCE'
+ and upper(r.contract_type) <> 'ONLINE CARD PAYMENT'
  and s.key_res = r.key_res
  and s.occurrence_res = r.occurrence_res
  and s.transaction_date = r.transaction_date
@@ -111,7 +111,7 @@ select
 from payment_batch_keys s
 join receipt_keys r
   on r.market_code = s.market_code
- and upper(r.contract_type) = 'SECURE E-COMMERCE'
+ and upper(r.contract_type) = 'ONLINE CARD PAYMENT'
  and s.reservation_ref = r.reservation_ref
  and s.amount = r.gross_amount
  and s.occurrence_ref_amount = r.occurrence_cyb
@@ -179,7 +179,7 @@ select
 from pairs p
 join receipt_keys r
   on r.market_code = p.market_code
- and upper(r.contract_type) = 'SECURE E-COMMERCE'
+ and upper(r.contract_type) = 'ONLINE CARD PAYMENT'
  and r.reservation_ref = p.reservation_ref
  and r.gross_amount = p.expected_receipt_amount
  and r.status <> 'Rejected';
@@ -237,7 +237,7 @@ select
 from payment_batch_keys s
 join receipt_keys r
   on r.market_code = s.market_code
- and upper(r.contract_type) = 'SECURE E-COMMERCE'
+ and upper(r.contract_type) = 'ONLINE CARD PAYMENT'
  and r.status <> 'Rejected'
  and s.reservation_ref = r.reservation_ref
  and sign(s.amount) = sign(r.gross_amount)
@@ -279,17 +279,17 @@ select
     m.variance_amount,
     case
         when m.receipt_ref is not null and m.receipt_status = 'Rejected'
-            then 'REJECTED'
+            then 'Rejected Card Transaction'
         when m.match_rule = 'CANCELLATION_FEE_PAIR'
-            then 'CFEE'
+            then 'Cancellation Fee Review'
         when m.match_rule = 'OVER_UNDER_PAYMENT'
-            then 'OVP'
+            then 'Amount Variance Review'
         when m.receipt_ref is not null
-            then 'MATCH'
+            then 'Allocation Ready'
         when s.primary_ref is not null
-            then 'CHECK'
-        else 'UNMATCHED'
-    end as match_status
+            then 'Evidence Review Required'
+        else 'Missing Receipt Evidence'
+    end as reconciliation_outcome
 from payment_batch_keys s
 left join all_reconciliation_matches m
   on m.payment_batch_id = s.payment_batch_id

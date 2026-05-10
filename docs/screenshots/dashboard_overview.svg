@@ -41,16 +41,16 @@
   <rect x="980" y="516" width="168" height="48" rx="12" fill="#efd7d2"/>
   <rect x="980" y="584" width="118" height="48" rx="12" fill="#dfe7f4"/>
 
-  <text x="996" y="411" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">MATCH</text>
+  <text x="996" y="411" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">Allocation Ready</text>
   <text x="1330" y="411" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">5,284</text>
 
-  <text x="996" y="479" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">CHECK</text>
+  <text x="996" y="479" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">Evidence Review Required</text>
   <text x="1218" y="479" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">1,421</text>
 
   <text x="996" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">Cancellation fee</text>
   <text x="1098" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">264</text>
 
-  <text x="996" y="615" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">OVP</text>
+  <text x="996" y="615" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#14342b">Amount Variance Review</text>
   <text x="1050" y="615" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#14342b">93</text>
 
   <text x="48" y="874" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#7a756d">Sanitized illustrative mockup - no real operational data</text>

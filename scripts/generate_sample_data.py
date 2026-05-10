@@ -8,17 +8,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_DATE = date(2026, 2, 1)
-MARKETS = ("DE", "SP", "UK", "FR")
+MARKETS = ("MKT_A", "MKT_B", "MKT_C", "MKT_D")
 
-
-SCENARIOS = {
-    "MATCH": 600,
-    "REJECTED": 40,
-    "OVP": 40,
-    "CFEE": 20,
-    "CHECK": 220,
-    "UNMATCHED": 100,
-}
+ALLOCATION_READY = "Allocation Ready"
+CANCELLATION_FEE_REVIEW = "Cancellation Fee Review"
+AMOUNT_VARIANCE_REVIEW = "Amount Variance Review"
+EVIDENCE_REVIEW = "Evidence Review Required"
+MISSING_RECEIPT_EVIDENCE = "Missing Receipt Evidence"
 
 
 def write_csv(relative_path: str, fieldnames: list[str], rows: list[dict[str, str]]) -> None:
@@ -39,7 +35,7 @@ def market_for(index: int) -> str:
 
 
 def cfee_fee(market_code: str) -> Decimal:
-    return Decimal("45.00") if market_code == "UK" else Decimal("50.00")
+    return Decimal("45.00") if market_code == "MKT_A" else Decimal("50.00")
 
 
 def append_receipt(
@@ -99,14 +95,14 @@ def append_payment_output(
     output_by_payment_batch: list[dict[str, str]],
     payment_batch_id: str,
     receipt_ref: str,
-    match_status: str,
+    reconciliation_outcome: str,
     amount: Decimal,
 ) -> None:
     output_by_payment_batch.append(
         {
             "payment_batch_id": payment_batch_id,
             "receipt_ref": receipt_ref,
-            "match_status": match_status,
+            "reconciliation_outcome": reconciliation_outcome,
             "row_count": "1",
             "payment_batch_total": f"{amount:.2f}",
         }
@@ -116,14 +112,14 @@ def append_payment_output(
 def append_receipt_output(
     output_by_receipt: list[dict[str, str]],
     receipt_ref: str,
-    match_status: str,
+    reconciliation_outcome: str,
     row_count: int,
     receipt_total: Decimal,
 ) -> None:
     output_by_receipt.append(
         {
             "receipt_ref": receipt_ref,
-            "match_status": match_status,
+            "reconciliation_outcome": reconciliation_outcome,
             "row_count": str(row_count),
             "receipt_total": f"{receipt_total:.2f}",
         }
@@ -163,15 +159,15 @@ def build_rows() -> tuple[
         transaction_type: str,
         *,
         status: str = "Accepted",
-        match_status: str | None = None,
+        reconciliation_outcome: str | None = None,
         batch_amount: Decimal | None = None,
-        schedule_id: str | None = None,
+        payment_group_id: str | None = None,
         extra_fee: Decimal | None = None,
     ) -> None:
         token = f"{receipt_ref}-{line_index:04d}"
         receipt_reference = token
         if transaction_type == "Refund With Cancellation Fee":
-            receipt_reference = f"{token} RFND CFEE"
+            receipt_reference = f"{token} REFUND CANCELLATION_FEE"
         elif transaction_type == "Chargeback Adjustment":
             receipt_reference = f"{token} CHARGEBACK"
 
@@ -198,27 +194,27 @@ def build_rows() -> tuple[
                 }
             )
 
-        if match_status and schedule_id:
-            schedule_amount = batch_amount if batch_amount is not None else amount
-            batch_id = f"{schedule_id}_line_{line_index:04d}"
+        if reconciliation_outcome and payment_group_id:
+            payment_group_amount = batch_amount if batch_amount is not None else amount
+            batch_id = f"{payment_group_id}_line_{line_index:04d}"
             append_batch(
                 payment_batches,
                 batch_id,
                 transaction_date,
                 market_code,
                 f"{reservation_ref}:{receipt_ref}:LINE{line_index:04d}",
-                schedule_amount,
+                payment_group_amount,
             )
             append_payment_output(
                 output_by_payment_batch,
                 batch_id,
                 receipt_ref,
-                match_status,
-                schedule_amount,
+                reconciliation_outcome,
+                payment_group_amount,
             )
 
             if extra_fee is not None:
-                fee_batch_id = f"{schedule_id}_fee_{line_index:04d}"
+                fee_batch_id = f"{payment_group_id}_fee_{line_index:04d}"
                 append_batch(
                     payment_batches,
                     fee_batch_id,
@@ -231,7 +227,7 @@ def build_rows() -> tuple[
                     output_by_payment_batch,
                     fee_batch_id,
                     receipt_ref,
-                    match_status,
+                    reconciliation_outcome,
                     extra_fee,
                 )
 
@@ -270,13 +266,13 @@ def build_rows() -> tuple[
         rejected_lines: int,
         chargeback_lines: int,
     ) -> None:
-        contract_type = "Secure E-Commerce"
+        contract_type = "Online Card Payment"
         totals: dict[str, dict[str, Decimal | int | None]] = {}
-        cfee_schedule_id = exact_groups[0][1]
-        ovp_schedule_id = exact_groups[-1][1]
+        cfee_payment_group_id = exact_groups[0][1]
+        ovp_payment_group_id = exact_groups[-1][1]
 
-        def track(match_status: str, rows: int, amount: Decimal) -> None:
-            summary = totals.setdefault(match_status, {"rows": 0, "receipt_amount": None})
+        def track(reconciliation_outcome: str, rows: int, amount: Decimal) -> None:
+            summary = totals.setdefault(reconciliation_outcome, {"rows": 0, "receipt_amount": None})
             summary["rows"] = int(summary["rows"]) + rows
             current_amount = summary["receipt_amount"]
             if current_amount is None or amount > Decimal(current_amount):
@@ -285,7 +281,7 @@ def build_rows() -> tuple[
         line_index = 1
         ref_seed = int("".join(ch for ch in receipt_ref if ch.isdigit())[-5:] or "10000")
 
-        for group_index, (count, schedule_id, ref_prefix) in enumerate(exact_groups, start=1):
+        for group_index, (count, payment_group_id, ref_prefix) in enumerate(exact_groups, start=1):
             for offset in range(count):
                 reservation_ref = f"{ref_prefix + offset:010d}"
                 amount = (
@@ -301,10 +297,10 @@ def build_rows() -> tuple[
                     line_index,
                     amount,
                     "Payment",
-                    match_status="MATCH",
-                    schedule_id=schedule_id,
+                    reconciliation_outcome=ALLOCATION_READY,
+                    payment_group_id=payment_group_id,
                 )
-                track("MATCH", 1, amount)
+                track(ALLOCATION_READY, 1, amount)
                 line_index += 1
 
         fee_amount = cfee_fee(market_code)
@@ -323,20 +319,20 @@ def build_rows() -> tuple[
                 line_index,
                 receipt_amount,
                 "Refund With Cancellation Fee",
-                match_status="CFEE",
+                reconciliation_outcome=CANCELLATION_FEE_REVIEW,
                 batch_amount=refund_batch_amount,
-                schedule_id=cfee_schedule_id,
+                payment_group_id=cfee_payment_group_id,
                 extra_fee=fee_amount,
             )
-            track("CFEE", 2, receipt_amount)
+            track(CANCELLATION_FEE_REVIEW, 2, receipt_amount)
             line_index += 1
 
         for offset in range(ovp_lines):
             reservation_ref = f"{1180000000 + ref_seed + offset:010d}"
-            schedule_amount = (
+            payment_group_amount = (
                 Decimal("75.00") + Decimal(offset % 30) * Decimal("2.20")
             ).quantize(Decimal("0.01"))
-            receipt_amount = (schedule_amount + Decimal("4.75")).quantize(Decimal("0.01"))
+            receipt_amount = (payment_group_amount + Decimal("4.75")).quantize(Decimal("0.01"))
             add_receipt_line(
                 receipt_ref,
                 transaction_date,
@@ -346,11 +342,11 @@ def build_rows() -> tuple[
                 line_index,
                 receipt_amount,
                 "Payment",
-                match_status="OVP",
-                batch_amount=schedule_amount,
-                schedule_id=ovp_schedule_id,
+                reconciliation_outcome=AMOUNT_VARIANCE_REVIEW,
+                batch_amount=payment_group_amount,
+                payment_group_id=ovp_payment_group_id,
             )
-            track("OVP", 1, receipt_amount)
+            track(AMOUNT_VARIANCE_REVIEW, 1, receipt_amount)
             line_index += 1
 
         for offset in range(rejected_lines):
@@ -411,7 +407,7 @@ def build_rows() -> tuple[
 
     create_demo_receipt(
         "receipt_ref_001",
-        "UK",
+        "MKT_A",
         BASE_DATE + timedelta(days=78),
         total_lines=500,
         exact_groups=[
@@ -426,7 +422,7 @@ def build_rows() -> tuple[
     )
     create_demo_receipt(
         "receipt_ref_002",
-        "SP",
+        "MKT_B",
         BASE_DATE + timedelta(days=79),
         total_lines=260,
         exact_groups=[
@@ -440,7 +436,7 @@ def build_rows() -> tuple[
     )
     create_demo_receipt(
         "receipt_ref_003",
-        "DE",
+        "MKT_C",
         BASE_DATE + timedelta(days=80),
         total_lines=180,
         exact_groups=[
@@ -454,7 +450,7 @@ def build_rows() -> tuple[
     )
     create_demo_receipt(
         "receipt_ref_004",
-        "FR",
+        "MKT_D",
         BASE_DATE + timedelta(days=81),
         total_lines=140,
         exact_groups=[
@@ -472,18 +468,24 @@ def build_rows() -> tuple[
         amount = (Decimal("180.00") + Decimal(index) * Decimal("11.00")).quantize(Decimal("0.01"))
         append_batch(
             payment_batches,
-            f"open_payment_group_check_{index:03d}",
+            f"open_payment_group_evidence_{index:03d}",
             BASE_DATE + timedelta(days=95 + index),
             market_code,
             f"{reservation_ref}:{invoice_ref}:OPEN_REVIEW",
             amount,
         )
-        append_payment_output(output_by_payment_batch, f"open_payment_group_check_{index:03d}", "", "CHECK", amount)
+        append_payment_output(
+            output_by_payment_batch,
+            f"open_payment_group_evidence_{index:03d}",
+            "",
+            EVIDENCE_REVIEW,
+            amount,
+        )
 
         unresolved_amount = (Decimal("95.00") + Decimal(index) * Decimal("7.00")).quantize(Decimal("0.01"))
         append_batch(
             payment_batches,
-            f"open_payment_group_unmatched_{index:03d}",
+            f"open_payment_group_missing_{index:03d}",
             BASE_DATE + timedelta(days=102 + index),
             market_code,
             f"UNRESOLVED_CUSTOMER_{market_code}_{index:04d}",
@@ -491,9 +493,9 @@ def build_rows() -> tuple[
         )
         append_payment_output(
             output_by_payment_batch,
-            f"open_payment_group_unmatched_{index:03d}",
+            f"open_payment_group_missing_{index:03d}",
             "",
-            "UNMATCHED",
+            MISSING_RECEIPT_EVIDENCE,
             unresolved_amount,
         )
 
@@ -538,13 +540,13 @@ def main() -> None:
     )
     write_csv(
         "output_examples/reconciliation_by_payment_batch.csv",
-        ["payment_batch_id", "receipt_ref", "match_status", "row_count", "payment_batch_total"],
+        ["payment_batch_id", "receipt_ref", "reconciliation_outcome", "row_count", "payment_batch_total"],
         sorted(output_by_payment_batch, key=lambda row: row["payment_batch_id"]),
     )
     write_csv(
         "output_examples/reconciliation_by_receipt.csv",
-        ["receipt_ref", "match_status", "row_count", "receipt_total"],
-        sorted(output_by_receipt, key=lambda row: (row["receipt_ref"], row["match_status"])),
+        ["receipt_ref", "reconciliation_outcome", "row_count", "receipt_total"],
+        sorted(output_by_receipt, key=lambda row: (row["receipt_ref"], row["reconciliation_outcome"])),
     )
     write_csv(
         "output_examples/receipt_exception_classification.csv",

@@ -1,13 +1,13 @@
-receipt_ref,match_status,row_count,receipt_total
-receipt_ref_001,CFEE,40,-75.00
-receipt_ref_001,MATCH,429,119.27
-receipt_ref_001,OVP,30,143.55
-receipt_ref_002,CFEE,16,-70.00
-receipt_ref_002,MATCH,220,119.27
-receipt_ref_002,OVP,12,103.95
-receipt_ref_003,CFEE,12,-70.00
-receipt_ref_003,MATCH,147,119.27
-receipt_ref_003,OVP,8,95.15
-receipt_ref_004,CFEE,10,-70.00
-receipt_ref_004,MATCH,111,109.10
-receipt_ref_004,OVP,6,90.75
+receipt_ref,reconciliation_outcome,row_count,receipt_total
+receipt_ref_001,Allocation Ready,429,119.27
+receipt_ref_001,Amount Variance Review,30,143.55
+receipt_ref_001,Cancellation Fee Review,40,-75.00
+receipt_ref_002,Allocation Ready,220,119.27
+receipt_ref_002,Amount Variance Review,12,103.95
+receipt_ref_002,Cancellation Fee Review,16,-70.00
+receipt_ref_003,Allocation Ready,147,119.27
+receipt_ref_003,Amount Variance Review,8,95.15
+receipt_ref_003,Cancellation Fee Review,12,-70.00
+receipt_ref_004,Allocation Ready,111,109.10
+receipt_ref_004,Amount Variance Review,6,90.75
+receipt_ref_004,Cancellation Fee Review,10,-70.00
