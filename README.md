@@ -1,6 +1,12 @@
-# Payment Reconciliation Platform
+<p align="center">
+  <img src="docs/assets/reconciliation-platform-icon.svg" width="104" alt="Payment Reconciliation Platform icon">
+</p>
 
-Public, sanitized case study of a reconciliation platform designed to replace spreadsheet-heavy financial operations with a centralized, auditable, and cloud-ready workflow.
+<h1 align="center">Payment Reconciliation Platform</h1>
+
+<p align="center">
+  Public, sanitized case study of a reconciliation platform designed to replace spreadsheet-heavy financial operations with a centralized, auditable, and cloud-ready workflow.
+</p>
 
 ## Executive Summary
 This project represents the design and prototyping of an internal reconciliation platform for high-volume payment operations.

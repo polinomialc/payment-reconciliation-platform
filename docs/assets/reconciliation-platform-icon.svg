@@ -1,0 +1,21 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Payment Reconciliation Platform icon</title>
+  <desc id="desc">A database, analytics panel, and verified reconciliation check mark.</desc>
+  <rect x="12" y="18" width="136" height="124" rx="22" fill="#F7F9FC"/>
+  <rect x="12" y="18" width="136" height="124" rx="22" stroke="#D9E0EA" stroke-width="4"/>
+
+  <rect x="32" y="46" width="64" height="70" rx="8" fill="#FFFFFF" stroke="#202635" stroke-width="6"/>
+  <rect x="44" y="82" width="10" height="22" rx="2" fill="#0F766E"/>
+  <rect x="60" y="68" width="10" height="36" rx="2" fill="#2F80ED"/>
+  <rect x="76" y="56" width="10" height="48" rx="2" fill="#B42318"/>
+  <path d="M44 120H84" stroke="#98A2B3" stroke-width="6" stroke-linecap="round"/>
+
+  <path d="M104 45C104 37.268 112.954 31 124 31C135.046 31 144 37.268 144 45V95C144 102.732 135.046 109 124 109C112.954 109 104 102.732 104 95V45Z" fill="#EAF3FF"/>
+  <ellipse cx="124" cy="45" rx="20" ry="14" fill="#FFFFFF" stroke="#202635" stroke-width="6"/>
+  <path d="M104 45C104 52.732 112.954 59 124 59C135.046 59 144 52.732 144 45" stroke="#202635" stroke-width="6"/>
+  <path d="M104 70C104 77.732 112.954 84 124 84C135.046 84 144 77.732 144 70" stroke="#202635" stroke-width="6"/>
+  <path d="M104 95C104 102.732 112.954 109 124 109C135.046 109 144 102.732 144 95" stroke="#202635" stroke-width="6"/>
+
+  <circle cx="105" cy="111" r="25" fill="#FFFFFF" stroke="#202635" stroke-width="6"/>
+  <path d="M93 111.5L101.5 120L118 102" stroke="#0F766E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
