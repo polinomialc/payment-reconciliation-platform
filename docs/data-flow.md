@@ -1,5 +1,7 @@
 # Data Flow
 
+![Payment reconciliation platform flow](platform-flow.svg)
+
 ## Inputs
 - payment batch exports
 - receipt exports

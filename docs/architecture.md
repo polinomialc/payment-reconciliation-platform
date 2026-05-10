@@ -60,3 +60,6 @@ The local demo keeps its inputs in CSV files. DuckDB is included to execute and 
 Reconciliation platforms do not fail only because of code. They also fail when operational knowledge is scattered across spreadsheets, emails, and individual analysts.
 
 BookStack is included as the shared library for the department's procedures and rule knowledge. It stores how to interpret allocation-ready items, evidence-review items, chargebacks, refund-with-cancellation-fee cases, aging thresholds, escalation criteria, and rule-change approvals.
+
+## Platform Flow
+![Payment reconciliation platform flow](platform-flow.svg)

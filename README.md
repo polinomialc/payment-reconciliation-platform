@@ -94,6 +94,8 @@ The main architectural principle is simple:
 
 That makes the platform easier to audit, easier to evolve, and easier to migrate from a local PoC to a cloud production model.
 
+![Payment reconciliation platform flow](docs/platform-flow.svg)
+
 ## Key Design Decisions
 ### 1. Local first, cloud ready
 The demo data lives in CSV files so the project can be reviewed without private systems or cloud access. DuckDB is used only as a lightweight in-memory SQL execution layer to validate that the SQL scripts reproduce the published reconciliation outputs from those CSV inputs. The target design was always a cloud-native architecture.
@@ -175,19 +177,6 @@ pip install -r requirements.txt
 streamlit run app/streamlit_demo.py
 ```
 
-### Demo Walkthrough
-Use this short path when presenting the project:
-
-1. Open the Streamlit app and start on **Operations Dashboard**.
-2. Show the executive KPIs: allocation-ready amount, open exposure, open batches, operational review items, and chargebacks.
-3. Open **Aging Procedure** to show how unresolved payment batches are grouped by aging bucket and review status.
-4. Open **Exception Procedure** to show amount variances, rejected card transactions, cancellation-fee cases, and receipt-side chargebacks.
-5. Switch to **Receipt Reconciliation** from the sidebar.
-6. Select `receipt_ref_001` and show how one receipt with hundreds of lines is reconciled against multiple payment groups.
-7. Point out the split between allocation-ready lines, linked payment groups, and items requiring review.
-8. Open **Presentation Role** to explain that the same procedure can be adapted by changing SQL rules, tolerance tables, and exception ownership.
-9. Optionally open BookStack to show where the business concepts, procedures, and exception playbooks would live.
-
 Run the separate BookStack knowledge-library demo:
 
 ```bash
@@ -227,6 +216,7 @@ python3 scripts/generate_sample_data.py
 - [Business Rules](docs/business-rules.md)
 - [BookStack Knowledge Library](docs/bookstack-knowledge-library.md)
 - [Data Flow](docs/data-flow.md)
+- [Platform Flow Diagram](docs/platform-flow.svg)
 - [Vendor Independence](docs/vendor-independence.md)
 
 ## Sample Screenshots
