@@ -14,6 +14,11 @@ One of the main strategic goals of this project was to reduce operational depend
 - lower operational dependency
 - easier troubleshooting
 - better control over data structures, outputs, and governance
+- shared ownership of procedures and departmental knowledge through BookStack
 
 This is a technical improvement, but also an operating-model improvement.
 
+## Knowledge Independence
+Vendor independence is not only about owning the SQL logic. It is also about owning the operational knowledge that explains how the process works.
+
+BookStack supports that by keeping procedures, exception rules, approval notes, and troubleshooting guides inside a departmental knowledge library. This reduces dependence on external support flows and prevents critical process knowledge from living only in personal notes or informal conversations.

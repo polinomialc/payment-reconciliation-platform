@@ -24,7 +24,14 @@ This project separates concerns into four layers:
 4. **Consumption**
    - Streamlit for guided operational execution
    - Metabase for reporting
-   - BookStack for governance and documentation
+   - BookStack as the departmental procedure and knowledge library
+
+5. **Knowledge / Governance**
+   - rule definitions and business glossary
+   - exception-handling procedures
+   - aging review playbooks
+   - change history and approval notes
+   - onboarding and troubleshooting material
 
 ## Local PoC
 - DuckDB
@@ -37,10 +44,16 @@ This project separates concerns into four layers:
 - BigQuery raw tables
 - BigQuery SQL views
 - Streamlit container on Cloud Run
-- optional BI and documentation services alongside the main interface
+- Metabase dashboards for reporting
+- BookStack for departmental knowledge management and governed procedures
 
 ## Why Keep Logic Out Of The App
 - easier to audit
 - easier to test
 - easier to migrate from local PoC to cloud
 - business-rule changes do not require application rewrites
+
+## Why Include BookStack
+Reconciliation platforms do not fail only because of code. They also fail when operational knowledge is scattered across spreadsheets, emails, and individual analysts.
+
+BookStack is included as the shared library for the department's procedures and rule knowledge. It stores how to interpret allocation-ready items, evidence-review items, chargebacks, refund-with-cancellation-fee cases, aging thresholds, escalation criteria, and rule-change approvals.

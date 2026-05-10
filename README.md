@@ -24,7 +24,7 @@ The intended production architecture was designed for **Google Cloud**, with:
 - **Streamlit** as the operational interface
 - **Cloud Run** as the container runtime
 - **Metabase** as the reporting layer
-- **BookStack** as the documentation and governance layer
+- **BookStack** as the departmental knowledge library for business concepts, procedures, exception playbooks, rule definitions, and operational governance
 
 ## Why This Project Matters
 This is not just a tooling exercise. It is a process-control and operating-model improvement.
@@ -58,12 +58,13 @@ The solution combines:
 - reconciliation logic
 - exception classification
 - guided operational outputs
+- a governed knowledge base for business concepts, procedures, rule explanations, and exception-handling playbooks
 
 Core rule areas include:
 - invoice matching
 - reservation matching
 - acquirer-reference matching
-- payment-gateway token resolution
+- payment-channel token resolution
 - chargeback handling
 - cancellation fee handling for fees charged to the customer after reservation cancellation
 - overpayment detection
@@ -84,7 +85,7 @@ Core rule areas include:
 - SQL transformation and reporting views in BigQuery
 - Streamlit deployed as a container on Cloud Run
 - Metabase dashboards
-- BookStack documentation
+- BookStack as the departmental financial-operations knowledge library
 
 The main architectural principle is simple:
 
@@ -105,9 +106,14 @@ The project was explicitly designed to reduce dependence on third-party reconcil
 ### 4. Governance by design
 Raw data is preserved, transformations are explicit, and reporting outputs can be traced back to governed rule layers.
 
+### 5. Knowledge management as part of the platform
+BookStack was included in the target operating model as a departmental library for business concepts, reconciliation procedures, payment exception playbooks, rule definitions, and change history. This keeps business knowledge close to the platform instead of scattered across email threads, private notes, and spreadsheet comments.
+
 ## What This Repository Contains
 - architecture notes
 - business-rule documentation
+- BookStack knowledge-library design
+- real BookStack demo configuration and sample procedure content
 - sanitized SQL examples
 - fake sample datasets
 - example reconciliation outputs
@@ -128,11 +134,13 @@ payment-reconciliation-platform/
 ├─ README.md
 ├─ docs/
 │  ├─ architecture.md
+│  ├─ bookstack-knowledge-library.md
 │  ├─ business-rules.md
 │  ├─ data-flow.md
 │  └─ vendor-independence.md
 ├─ sql/
 ├─ app/
+├─ bookstack/
 ├─ sample_data/
 ├─ output_examples/
 ├─ docker/
@@ -145,6 +153,7 @@ While this repository uses sanitized examples, the original project was aimed at
 - consistency across countries
 - traceability of exceptions
 - operational maintainability
+- departmental knowledge retention
 - internal control over business rules
 - historical aging review by allowing older balances to be reanalyzed whenever new receipts, payment batches, or reference mappings become available
 
@@ -160,13 +169,40 @@ Designed and prototyped a financial reconciliation platform to replace spreadshe
 Run the small Streamlit demo locally:
 
 ```bash
-pip install streamlit pandas
+pip install -r requirements.txt
 streamlit run app/streamlit_demo.py
+```
+
+Run the separate BookStack knowledge-library demo:
+
+```bash
+cd bookstack
+cp .env.example .env
+# Generate APP_KEY, then update .env:
+docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
+docker compose up -d
+```
+
+BookStack will be available at `http://localhost:6875`.
+
+## Validation
+Validate that the sanitized sample data reproduces the published output examples:
+
+```bash
+python3 tests/validate_examples.py
+python3 tests/validate_duckdb_sql.py
+```
+
+Regenerate the deterministic sample dataset:
+
+```bash
+python3 scripts/generate_sample_data.py
 ```
 
 ## Related Docs
 - [Architecture](docs/architecture.md)
 - [Business Rules](docs/business-rules.md)
+- [BookStack Knowledge Library](docs/bookstack-knowledge-library.md)
 - [Data Flow](docs/data-flow.md)
 - [Vendor Independence](docs/vendor-independence.md)
 

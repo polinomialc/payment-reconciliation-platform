@@ -1,6 +1,13 @@
-.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.pycache_compile/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
 .DS_Store
 .streamlit/
-
+.streamlit/secrets.toml
+bookstack/.env
+bookstack/config/

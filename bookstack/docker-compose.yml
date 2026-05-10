@@ -1,0 +1,37 @@
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    container_name: reconciliation_bookstack
+    depends_on:
+      - bookstack_db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Europe/Lisbon}
+      - APP_URL=${APP_URL:?Set APP_URL in .env}
+      - APP_KEY=${APP_KEY:?Set APP_KEY in .env}
+      - DB_HOST=bookstack_db
+      - DB_PORT=3306
+      - DB_USERNAME=${MYSQL_USER:?Set MYSQL_USER in .env}
+      - DB_PASSWORD=${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
+      - DB_DATABASE=${MYSQL_DATABASE:?Set MYSQL_DATABASE in .env}
+    ports:
+      - "6875:80"
+    volumes:
+      - ./config/bookstack:/config
+    restart: unless-stopped
+
+  bookstack_db:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: reconciliation_bookstack_db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ:-Europe/Lisbon}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:?Set MYSQL_DATABASE in .env}
+      - MYSQL_USER=${MYSQL_USER:?Set MYSQL_USER in .env}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+    volumes:
+      - ./config/mariadb:/config
+    restart: unless-stopped
