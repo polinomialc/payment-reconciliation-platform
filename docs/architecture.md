@@ -34,10 +34,13 @@ This project separates concerns into four layers:
    - onboarding and troubleshooting material
 
 ## Local PoC
-- DuckDB
+- sanitized CSV sample inputs
 - Python
 - Streamlit
+- DuckDB used only as an in-memory SQL validation engine
 - CSV and spreadsheet outputs
+
+The local demo keeps its inputs in CSV files. DuckDB is included to execute and validate the SQL logic locally against those files, not as the source system or the intended production database.
 
 ## Production Target
 - Google Drive / Cloud Storage landing zone

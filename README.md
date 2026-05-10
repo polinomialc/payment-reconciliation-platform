@@ -13,7 +13,7 @@ The original workflow relied on:
 - low auditability
 - dependence on a third-party reconciliation platform for rule changes
 
-To address that, a local proof of concept was built in **DuckDB + Python + Streamlit** to validate:
+To address that, a local proof of concept was built with **sanitized CSV sample inputs, Python, Streamlit, and a lightweight DuckDB validation layer** to validate:
 - reconciliation logic
 - exception handling
 - performance
@@ -74,9 +74,10 @@ Core rule areas include:
 
 ## Architecture
 ### Local Proof of Concept
-- DuckDB
+- sanitized CSV sample inputs
 - Python
 - Streamlit
+- DuckDB used only as an in-memory SQL validation engine
 - CSV / XLSX operational outputs
 
 ### Production Target
@@ -95,7 +96,7 @@ That makes the platform easier to audit, easier to evolve, and easier to migrate
 
 ## Key Design Decisions
 ### 1. Local first, cloud ready
-DuckDB was used to validate the model quickly and cheaply, but the target design was always a cloud-native architecture.
+The demo data lives in CSV files so the project can be reviewed without private systems or cloud access. DuckDB is used only as a lightweight in-memory SQL execution layer to validate that the SQL scripts reproduce the published reconciliation outputs from those CSV inputs. The target design was always a cloud-native architecture.
 
 ### 2. Logic centralized in SQL
 Reconciliation logic stays in views and transformation layers rather than being spread across UI code.
@@ -163,7 +164,7 @@ To keep the case study understandable outside the original internal context:
 - **receipt reference** = identifier of the external receipt or remittance document
 
 ## Resume Version
-Designed and prototyped a financial reconciliation platform to replace spreadsheet-based operational workflows across multiple countries. Built a local proof of concept in DuckDB and Python to validate reconciliation logic, exception handling, and operational workflows, while defining the target production architecture in Google Cloud using BigQuery and a containerized Streamlit interface on Cloud Run.
+Designed and prototyped a financial reconciliation platform to replace spreadsheet-based operational workflows across multiple countries. Built a local proof of concept using sanitized CSV inputs, Python, Streamlit, and DuckDB-based SQL validation to test reconciliation logic, exception handling, and operational workflows, while defining the target production architecture in Google Cloud using BigQuery and a containerized Streamlit interface on Cloud Run.
 
 ## Demo
 Run the small Streamlit demo locally:
@@ -186,7 +187,7 @@ docker compose up -d
 BookStack will be available at `http://localhost:6875`.
 
 ## Validation
-Validate that the sanitized sample data reproduces the published output examples:
+Validate that the sanitized CSV sample data reproduces the published output examples. The second command runs the SQL scripts in DuckDB memory as a local validation substitute for the target warehouse layer:
 
 ```bash
 python3 tests/validate_examples.py
