@@ -1,0 +1,42 @@
+services:
+  analytics-db:
+    image: postgres:16-alpine
+    container_name: reconciliation-analytics-db
+    environment:
+      POSTGRES_DB: metabase
+      POSTGRES_USER: metabase
+      POSTGRES_PASSWORD: metabase
+    ports:
+      - "5433:5432"
+    volumes:
+      - reconciliation_analytics_db:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
+      - ../sample_data:/sample_data:ro
+      - ../output_examples:/output_examples:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U metabase -d metabase"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: reconciliation-metabase
+    depends_on:
+      analytics-db:
+        condition: service_healthy
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER: metabase
+      MB_DB_PASS: metabase
+      MB_DB_HOST: analytics-db
+    ports:
+      - "3000:3000"
+    volumes:
+      - reconciliation_metabase_plugins:/plugins
+
+volumes:
+  reconciliation_analytics_db:
+  reconciliation_metabase_plugins:

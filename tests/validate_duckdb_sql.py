@@ -44,6 +44,7 @@ def main() -> None:
         "sql/02_key_generation.sql",
         "sql/03_reconciliation_logic.sql",
         "sql/04_reporting_views.sql",
+        "sql/05_bi_views.sql",
     ]:
         connection.execute((ROOT / sql_file).read_text(encoding="utf-8"))
 
@@ -109,6 +110,19 @@ def main() -> None:
             "receipt exception SQL output mismatch:\n"
             f"actual={receipt_exception_rows}\nexpected={expected_receipt_exception_rows}"
         )
+
+    bi_counts = connection.sql(
+        """
+        select
+            (select count(*) from bi_reconciliation_daily_kpis) as daily_kpis,
+            (select count(*) from bi_aging_exposure) as aging_exposure,
+            (select count(*) from bi_exception_backlog) as exception_backlog,
+            (select count(*) from bi_receipt_exception_summary) as receipt_exceptions,
+            (select count(*) from bi_allocation_readiness) as allocation_readiness
+        """
+    ).fetchone()
+    if any(count == 0 for count in bi_counts):
+        raise AssertionError(f"BI views should not be empty: {bi_counts}")
 
     print("DuckDB validation passed: SQL reproduces the published reconciliation outputs.")
 

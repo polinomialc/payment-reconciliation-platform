@@ -123,6 +123,7 @@ BookStack was included in the target operating model as a departmental library f
 - business-rule documentation
 - BookStack knowledge-library design
 - real BookStack demo configuration and sample procedure content
+- optional Metabase reporting demo configuration
 - sanitized SQL examples
 - fake sample datasets
 - example reconciliation outputs
@@ -151,6 +152,7 @@ payment-reconciliation-platform/
 ├─ scripts/
 ├─ app/
 ├─ bookstack/
+├─ metabase/
 ├─ sample_data/
 ├─ output_examples/
 ├─ docker/
@@ -195,6 +197,15 @@ docker compose up -d
 
 BookStack will be available at `http://localhost:6875`.
 
+Run the optional Metabase reporting demo:
+
+```bash
+cd metabase
+docker compose up -d
+```
+
+Metabase will be available at `http://localhost:3000`. The reporting database is initialized from the sanitized CSV samples and published reconciliation outputs.
+
 ## Validation
 Validate that the sanitized CSV sample data reproduces the published output examples. The second command runs the SQL scripts in DuckDB memory as a local validation substitute for the target warehouse layer:
 
@@ -223,6 +234,7 @@ python3 scripts/generate_sample_data.py
 - [BookStack Knowledge Library](docs/bookstack-knowledge-library.md)
 - [Data Flow](docs/data-flow.md)
 - [Platform Flow Diagram](docs/platform-flow.svg)
+- [Metabase Reporting Demo](metabase/README.md)
 - [Vendor Independence](docs/vendor-independence.md)
 
 ## Sample Screenshots

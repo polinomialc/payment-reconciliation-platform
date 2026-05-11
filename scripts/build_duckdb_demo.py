@@ -20,6 +20,7 @@ def execute_sql_files(connection: duckdb.DuckDBPyConnection) -> None:
         "sql/02_key_generation.sql",
         "sql/03_reconciliation_logic.sql",
         "sql/04_reporting_views.sql",
+        "sql/05_bi_views.sql",
     ]:
         connection.execute((ROOT / sql_file).read_text(encoding="utf-8"))
 
@@ -60,6 +61,21 @@ def build_database(output_path: Path) -> None:
             create or replace table demo_receipt_exception_classification as
             select * from receipt_exception_classification;
 
+            create or replace table demo_bi_reconciliation_daily_kpis as
+            select * from bi_reconciliation_daily_kpis;
+
+            create or replace table demo_bi_aging_exposure as
+            select * from bi_aging_exposure;
+
+            create or replace table demo_bi_exception_backlog as
+            select * from bi_exception_backlog;
+
+            create or replace table demo_bi_receipt_exception_summary as
+            select * from bi_receipt_exception_summary;
+
+            create or replace table demo_bi_allocation_readiness as
+            select * from bi_allocation_readiness;
+
             create or replace table demo_dataset_summary as
             select 'raw_payment_batches' as object_name, count(*) as row_count from raw_payment_batches
             union all
@@ -71,7 +87,17 @@ def build_database(output_path: Path) -> None:
             union all
             select 'demo_reconciliation_by_receipt', count(*) from demo_reconciliation_by_receipt
             union all
-            select 'demo_receipt_exception_classification', count(*) from demo_receipt_exception_classification;
+            select 'demo_receipt_exception_classification', count(*) from demo_receipt_exception_classification
+            union all
+            select 'demo_bi_reconciliation_daily_kpis', count(*) from demo_bi_reconciliation_daily_kpis
+            union all
+            select 'demo_bi_aging_exposure', count(*) from demo_bi_aging_exposure
+            union all
+            select 'demo_bi_exception_backlog', count(*) from demo_bi_exception_backlog
+            union all
+            select 'demo_bi_receipt_exception_summary', count(*) from demo_bi_receipt_exception_summary
+            union all
+            select 'demo_bi_allocation_readiness', count(*) from demo_bi_allocation_readiness;
             """
         )
 
