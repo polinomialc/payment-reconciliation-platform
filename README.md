@@ -233,11 +233,16 @@ python3 scripts/generate_sample_data.py
 - [Business Rules](docs/business-rules.md)
 - [BookStack Knowledge Library](docs/bookstack-knowledge-library.md)
 - [Data Flow](docs/data-flow.md)
+- [Metabase Dashboard Guide](docs/metabase-dashboard-guide.md)
 - [Platform Flow Diagram](docs/platform-flow.svg)
 - [Metabase Reporting Demo](metabase/README.md)
+- [Screenshot Placement Guide](docs/screenshots/README.md)
+- [Tooling Roles](docs/tooling-roles.md)
 - [Vendor Independence](docs/vendor-independence.md)
 
-## Sample Screenshots
+## Visual Assets
+- [Platform flow diagram](docs/platform-flow.svg)
+- [Screenshot placement guide](docs/screenshots/README.md)
 - [Operations dashboard mockup](docs/screenshots/dashboard_overview.svg)
 - [Exception review mockup](docs/screenshots/exception_review.svg)
 

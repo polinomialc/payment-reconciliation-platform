@@ -63,3 +63,15 @@ BookStack is included as the shared library for the department's procedures and 
 
 ## Platform Flow
 ![Payment reconciliation platform flow](platform-flow.svg)
+
+## Tool Responsibilities
+
+The platform separates responsibilities across tools:
+
+- **BigQuery** is the production data and SQL logic layer.
+- **Streamlit** is the operational workflow interface for analysts.
+- **Metabase** is the management reporting layer for KPIs, exposure, and backlog.
+- **BookStack** is the business knowledge and governance library.
+- **DuckDB** is used only for local SQL validation in the portfolio demo.
+
+See [Tooling Roles](tooling-roles.md) for the full breakdown.

@@ -390,9 +390,13 @@ st.sidebar.markdown(
     '<p class="sidebar-note">Operational view for allocation readiness, open-balance aging, and receipt-level exception review.</p>',
     unsafe_allow_html=True,
 )
+default_page_index = 0
+if st.query_params.get("view") == "receipt":
+    default_page_index = 1
 page = st.sidebar.radio(
     "Navigation",
     ["Operations Dashboard", "Receipt Reconciliation"],
+    index=default_page_index,
 )
 st.sidebar.markdown('<div class="section-label">Dataset</div>', unsafe_allow_html=True)
 st.sidebar.caption(
@@ -418,7 +422,8 @@ if page == "Receipt Reconciliation":
     default_receipt = "receipt_ref_001"
     receipt_options = receipts[["receipt_ref", "display_label"]].drop_duplicates().sort_values("receipt_ref")
     receipt_refs = receipt_options["receipt_ref"].tolist()
-    default_index = receipt_refs.index(default_receipt) if default_receipt in receipt_refs else 0
+    selected_receipt_query = st.query_params.get("receipt", default_receipt)
+    default_index = receipt_refs.index(selected_receipt_query) if selected_receipt_query in receipt_refs else 0
     selected_label = st.selectbox(
         "Receipt",
         receipt_options["display_label"].tolist(),
