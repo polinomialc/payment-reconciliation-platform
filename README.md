@@ -1,250 +1,228 @@
-<p align="center">
-  <img src="docs/assets/reconciliation-platform-icon.svg" width="104" alt="Payment Reconciliation Platform icon">
-</p>
-
-<h1 align="center">Payment Reconciliation Platform</h1>
+<h1 align="center">
+  <img src="docs/assets/reconciliation-platform-icon.svg" width="54" alt="Payment Reconciliation Platform icon"> Payment Reconciliation Platform
+</h1>
 
 <p align="center">
-  Public, sanitized case study of a reconciliation platform designed to replace spreadsheet-heavy financial operations with a centralized, auditable, and cloud-ready workflow.
+  Public, sanitized case study of a financial reconciliation platform designed to replace spreadsheet-heavy operations with governed SQL logic, analyst workflows, BI reporting, and procedural knowledge management.
 </p>
 
-## Executive Summary
-This project represents the design and prototyping of an internal reconciliation platform for high-volume payment operations.
+## Quick Read
 
-The original workflow relied on:
-- multiple spreadsheets per country
-- manual cross-checks between payment batches, receipts, and post-treatment files
-- duplicated logic and formula drift
-- slow troubleshooting
-- low auditability
-- dependence on a third-party reconciliation platform for rule changes
+This repository demonstrates how a finance operations process can be moved from manual spreadsheets into a controlled platform pattern:
 
-To address that, a local proof of concept was built with **sanitized CSV sample inputs, Python, Streamlit, and a lightweight DuckDB validation layer** to validate:
-- reconciliation logic
-- exception handling
-- performance
-- operational usability
+- **BigQuery-first architecture** for production-grade SQL transformations and governed reporting views
+- **Streamlit** for analyst-facing workflows such as receipt reconciliation, allocation readiness, and exception review
+- **Metabase** for management reporting on aging exposure, backlog, and operational KPIs
+- **BookStack** for business definitions, reconciliation procedures, exception playbooks, and rule-change governance
+- **DuckDB** only as a local validation engine so the sanitized SQL can be tested without private systems or cloud access
 
-The intended production architecture was designed for **Google Cloud**, with:
-- **BigQuery** as the centralized data and logic layer
-- **Streamlit** as the operational interface
-- **Cloud Run** as the container runtime
-- **Metabase** as the reporting layer
-- **BookStack** as the departmental knowledge library for business concepts, procedures, exception playbooks, rule definitions, and operational governance
+The project is intentionally public and sanitized. It contains fake sample data, simplified business rules, and generic terminology while preserving the core structure of a real reconciliation operating model.
 
-## Why This Project Matters
-This is not just a tooling exercise. It is a process-control and operating-model improvement.
+## Business Problem
 
-The platform was designed to:
-- reduce manual reconciliation effort
-- standardize logic across countries
-- improve auditability and traceability
-- remove vendor bottlenecks for rule changes
-- bring reconciliation logic fully under internal control
+High-volume reconciliation becomes fragile when spreadsheets are the operating layer. Common failure points include:
 
-In the previous vendor-driven model, rule corrections and troubleshooting depended on external workflows. In this model, business-rule changes can be implemented internally in minutes after validation.
+- manual matching between payment batches, receipts, and reference mapping files
+- duplicated formulas and inconsistent rules across teams or markets
+- weak visibility into aging exposure and unresolved exceptions
+- limited traceability of why a transaction was allocated, reviewed, or excluded
+- slow rule changes when logic is locked inside external tools or undocumented analyst workbooks
 
-## Problem Statement
-Large-scale payment reconciliation often breaks down when the process depends on spreadsheets as the main operating layer.
+The platform reframes reconciliation as a governed data workflow: raw evidence is preserved, SQL views apply explicit rules, analysts work from structured queues, and management reporting consumes the same controlled outputs.
 
-Typical failure modes include:
-- slow files with hundreds of thousands of rows
-- logic inconsistencies across teams and countries
-- manual error from copy/paste and formula drift
-- weak visibility into unmatched items
-- poor traceability of post-treatment decisions
+## What The Demo Shows
 
-This project reframed reconciliation as a **data platform problem**, not just a spreadsheet problem.
+The repository includes a complete local demo using sanitized inputs:
 
-## Solution Overview
-The solution combines:
-- raw data ingestion
-- SQL-based parsing and normalization
-- deterministic key generation
-- reconciliation logic
-- exception classification
-- guided operational outputs
-- a governed knowledge base for business concepts, procedures, rule explanations, and exception-handling playbooks
+- payment batch samples
+- receipt samples with accepted, rejected, chargeback, refund, cancellation-fee, and amount-variance scenarios
+- payment-channel reference mapping
+- SQL layers for parsing, key generation, matching, exception classification, reporting, and BI views
+- Streamlit operational demo
+- BookStack knowledge-library demo
+- optional Metabase reporting stack
+- validation tests that compare generated results to published output examples
 
-Core rule areas include:
-- invoice matching
-- reservation matching
-- acquirer-reference matching
-- payment-channel token resolution
-- chargeback handling
-- cancellation fee handling for fees charged to the customer after reservation cancellation
-- overpayment detection
-- intercompany payment detection
-- mixed or misapplied payment detection
-- country-specific exception logic
+The demo is small enough to run locally, but the design mirrors a cloud production model where BigQuery is the central SQL layer.
 
 ## Architecture
-### Local Proof of Concept
-- sanitized CSV sample inputs
-- Python
-- Streamlit
-- DuckDB used only as an in-memory SQL validation engine
-- CSV / XLSX operational outputs
-
-### Production Target
-- Google Drive or cloud landing folders by country
-- BigQuery raw tables
-- SQL transformation and reporting views in BigQuery
-- Streamlit deployed as a container on Cloud Run
-- Metabase dashboards
-- BookStack as the departmental financial-operations knowledge library
-
-The main architectural principle is simple:
-
-> keep business logic in SQL, keep the application layer thin
-
-That makes the platform easier to audit, easier to evolve, and easier to migrate from a local PoC to a cloud production model.
 
 ![Payment reconciliation platform flow](docs/platform-flow.svg)
 
-## Key Design Decisions
-### 1. Local first, cloud ready
-The demo data lives in CSV files so the project can be reviewed without private systems or cloud access. DuckDB is used only as a lightweight in-memory SQL execution layer to validate that the SQL scripts reproduce the published reconciliation outputs from those CSV inputs. The target design was always a cloud-native architecture.
+The architecture separates responsibilities deliberately:
 
-### 2. Logic centralized in SQL
-Reconciliation logic stays in views and transformation layers rather than being spread across UI code.
+- **Source exports** provide raw operational evidence.
+- **BigQuery data layer** parses, keys, matches, classifies, and publishes governed views.
+- **Streamlit Operations** gives analysts a guided workflow for allocation and exception review.
+- **Metabase Reporting** gives leaders KPI visibility without turning the operational app into a BI tool.
+- **BookStack Library** keeps business concepts, procedures, and rule-change history close to the platform.
+- **DuckDB Local SQL Validation** runs the same SQL locally against sanitized CSVs for demo and testing only.
 
-### 3. Vendor independence
-The project was explicitly designed to reduce dependence on third-party reconciliation platforms and give the department direct ownership of rules, outputs, and troubleshooting.
+The main design principle:
 
-### 4. Governance by design
-Raw data is preserved, transformations are explicit, and reporting outputs can be traced back to governed rule layers.
+> Keep business logic in SQL; keep applications thin, explainable, and replaceable.
 
-### 5. Knowledge management as part of the platform
-BookStack was included in the target operating model as a departmental library for business concepts, reconciliation procedures, payment exception playbooks, rule definitions, and change history. This keeps business knowledge close to the platform instead of scattered across email threads, private notes, and spreadsheet comments.
+## Core Reconciliation Logic
 
-## What This Repository Contains
-- architecture notes
-- business-rule documentation
-- BookStack knowledge-library design
-- real BookStack demo configuration and sample procedure content
-- optional Metabase reporting demo configuration
-- sanitized SQL examples
-- fake sample datasets
-- example reconciliation outputs
-- a small Streamlit demo
-- a sample Dockerfile for the target deployment direction
+The SQL flow is split into clear layers:
 
-## What This Repository Does Not Contain
-- real customer or merchant data
-- production database dumps
-- proprietary identifiers
-- company-specific names
-- confidential operational metrics
-- exact internal rule sets that would expose private process details
+1. **Raw to parsed**: normalize dates, amounts, receipt references, payment references, and channel fields.
+2. **Key generation**: derive comparable business keys from invoice references, reservation references, payment-channel tokens, and mapped external references.
+3. **Reconciliation logic**: match payment batches to receipt lines using reference, amount, sign, date, and channel-specific rules.
+4. **Exception classification**: separate allocation-ready items from rejected card transactions, chargebacks, cancellation-fee reviews, amount variances, and missing evidence.
+5. **Reporting views**: expose aging, allocation readiness, receipt-level reconciliation, and exception backlog outputs.
+6. **BI views**: publish management-friendly summaries for Metabase.
+
+See [SQL Reconciliation Walkthrough](docs/sql-reconciliation-walkthrough.md) for a deeper explanation.
+
+## Tooling Roles
+
+| Tool | Role | Why it is included |
+| --- | --- | --- |
+| BigQuery | Target production data warehouse and SQL logic layer | Centralizes rules, auditability, and reporting outputs |
+| Streamlit | Operational analyst interface | Lets users inspect receipts, payment batches, exceptions, and allocation readiness |
+| Metabase | BI and management reporting | Provides dashboards for KPIs, aging exposure, and backlog trends |
+| BookStack | Knowledge governance | Documents business concepts, procedures, exception playbooks, and rule changes |
+| DuckDB | Local SQL validation only | Lets reviewers run the SQL demo without cloud access |
+| Docker | Demo runtime | Makes BookStack and Metabase reproducible locally |
 
 ## Repository Structure
+
 ```text
 payment-reconciliation-platform/
-├─ README.md
-├─ docs/
-│  ├─ architecture.md
-│  ├─ bookstack-knowledge-library.md
-│  ├─ business-rules.md
-│  ├─ data-flow.md
-│  └─ vendor-independence.md
-├─ sql/
-├─ scripts/
-├─ app/
-├─ bookstack/
-├─ metabase/
-├─ sample_data/
-├─ output_examples/
-├─ docker/
-└─ .gitignore
+├─ app/                         # Streamlit operational demo
+├─ bookstack/                   # BookStack demo configuration and content import scripts
+├─ docs/                        # Architecture, business rules, walkthroughs, and visual assets
+├─ metabase/                    # Optional Metabase + PostgreSQL reporting demo
+├─ output_examples/             # Published expected outputs from sanitized data
+├─ sample_data/                 # Sanitized source CSV samples
+├─ scripts/                     # Sample-data and local DuckDB build scripts
+├─ sql/                         # Reconciliation and reporting SQL layers
+└─ tests/                       # Output and SQL validation checks
 ```
 
-## Example Impact Areas
-While this repository uses sanitized examples, the original project was aimed at improving:
-- reconciliation speed
-- consistency across countries
-- traceability of exceptions
-- operational maintainability
-- departmental knowledge retention
-- internal control over business rules
-- historical aging review by allowing older balances to be reanalyzed whenever new receipts, payment batches, or reference mappings become available
-
-## Terminology
-To keep the case study understandable outside the original internal context:
-- **payment batch** = grouped payment block generated on the ERP side
-- **receipt reference** = identifier of the external receipt or remittance document
-
-## Resume Version
-Designed and prototyped a financial reconciliation platform to replace spreadsheet-based operational workflows across multiple countries. Built a local proof of concept using sanitized CSV inputs, Python, Streamlit, and DuckDB-based SQL validation to test reconciliation logic, exception handling, and operational workflows, while defining the target production architecture in Google Cloud using BigQuery and a containerized Streamlit interface on Cloud Run.
-
-## Demo
-Run the small Streamlit demo locally:
+## Run The Streamlit Demo
 
 ```bash
 pip install -r requirements.txt
 streamlit run app/streamlit_demo.py
 ```
 
-Run the separate BookStack knowledge-library demo:
+Open:
+
+```text
+http://localhost:8501
+```
+
+Useful direct demo route:
+
+```text
+http://localhost:8501/?view=receipt&receipt=receipt_ref_001
+```
+
+## Run The BookStack Demo
 
 ```bash
 cd bookstack
 cp .env.example .env
-# Generate APP_KEY, then update .env:
 docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
 docker compose up -d
 ```
 
-BookStack will be available at `http://localhost:6875`.
+After replacing `APP_KEY` in `.env`, BookStack is available at:
 
-Run the optional Metabase reporting demo:
+```text
+http://localhost:6875
+```
+
+The `bookstack/content/` folder contains sanitized pages that can be imported into BookStack as a departmental knowledge library.
+
+## Run The Optional Metabase Demo
 
 ```bash
 cd metabase
 docker compose up -d
 ```
 
-Metabase will be available at `http://localhost:3000`. The reporting database is initialized from the sanitized CSV samples and published reconciliation outputs.
+Metabase is available at:
 
-## Validation
-Validate that the sanitized CSV sample data reproduces the published output examples. The second command runs the SQL scripts in DuckDB memory as a local validation substitute for the target warehouse layer:
+```text
+http://localhost:3000
+```
+
+The reporting database is initialized from sanitized CSV samples and published reconciliation outputs. Dashboard screenshots are intentionally not committed; see [Screenshot Placement Guide](docs/screenshots/README.md).
+
+## Validate The Demo
+
+Validate published outputs:
 
 ```bash
 python3 tests/validate_examples.py
+```
+
+Run the SQL scripts locally through DuckDB:
+
+```bash
 python3 tests/validate_duckdb_sql.py
 ```
 
-Build an optional local DuckDB database from the CSV samples and SQL views:
+Build an optional local DuckDB file for SQL inspection:
 
 ```bash
 python3 scripts/build_duckdb_demo.py
 ```
 
-This creates `local_reconciliation_demo.duckdb`, which is ignored by Git. The repository keeps CSVs as transparent sample inputs while the generated DuckDB file provides a local database artifact for SQL inspection.
+This creates `local_reconciliation_demo.duckdb`, which is ignored by Git.
 
-Regenerate the deterministic sample dataset:
+Regenerate deterministic sample data:
 
 ```bash
 python3 scripts/generate_sample_data.py
 ```
 
+## Case Study Summary
+
+**Business challenge:** spreadsheet-driven reconciliation created manual effort, inconsistent rules, limited auditability, and slow exception follow-up.
+
+**Technical approach:** model the process as a SQL-governed reconciliation pipeline, expose operational workflows through Streamlit, expose management views through Metabase, and document business procedures in BookStack.
+
+**Design outcome:** a reusable platform pattern where rule changes are explicit, historical aging can be recalculated, receipt-level evidence can be traced to payment batches, and exceptions become managed queues rather than spreadsheet comments.
+
+See [Case Study](docs/case-study.md) and [Demo Walkthrough](docs/demo-walkthrough.md).
+
+## What This Repository Does Not Contain
+
+- real customer or merchant data
+- production database dumps
+- proprietary identifiers
+- company-specific names
+- confidential operational metrics
+- exact internal rules that would expose private processes
+
+## Resume Version
+
+Designed and prototyped a financial reconciliation platform to replace spreadsheet-based operational workflows. Built a sanitized local proof of concept using Python, Streamlit, SQL, and DuckDB validation; modeled the target production architecture around BigQuery, containerized operations, BI reporting, and governed procedural documentation.
+
 ## Related Docs
+
 - [Architecture](docs/architecture.md)
 - [Business Rules](docs/business-rules.md)
-- [BookStack Knowledge Library](docs/bookstack-knowledge-library.md)
+- [Case Study](docs/case-study.md)
 - [Data Flow](docs/data-flow.md)
-- [Metabase Dashboard Guide](docs/metabase-dashboard-guide.md)
-- [Platform Flow Diagram](docs/platform-flow.svg)
-- [Metabase Reporting Demo](metabase/README.md)
-- [Screenshot Placement Guide](docs/screenshots/README.md)
+- [Demo Walkthrough](docs/demo-walkthrough.md)
+- [SQL Reconciliation Walkthrough](docs/sql-reconciliation-walkthrough.md)
 - [Tooling Roles](docs/tooling-roles.md)
+- [Metabase Dashboard Guide](docs/metabase-dashboard-guide.md)
+- [BookStack Knowledge Library](docs/bookstack-knowledge-library.md)
+- [Screenshot Placement Guide](docs/screenshots/README.md)
 - [Vendor Independence](docs/vendor-independence.md)
 
 ## Visual Assets
+
 - [Platform flow diagram](docs/platform-flow.svg)
-- [Screenshot placement guide](docs/screenshots/README.md)
 - [Operations dashboard mockup](docs/screenshots/dashboard_overview.svg)
 - [Exception review mockup](docs/screenshots/exception_review.svg)
 
 ## License
+
 MIT

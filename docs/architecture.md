@@ -72,6 +72,6 @@ The platform separates responsibilities across tools:
 - **Streamlit** is the operational workflow interface for analysts.
 - **Metabase** is the management reporting layer for KPIs, exposure, and backlog.
 - **BookStack** is the business knowledge and governance library.
-- **DuckDB** is used only for local SQL validation in the portfolio demo.
+- **DuckDB** is used only for local SQL validation in the local demo.
 
 See [Tooling Roles](tooling-roles.md) for the full breakdown.

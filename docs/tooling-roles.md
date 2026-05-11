@@ -62,7 +62,7 @@ BigQuery is the intended production warehouse layer. Raw source data would land 
 
 ## DuckDB
 
-**Role:** local SQL validation for the portfolio demo.
+**Role:** local SQL validation.
 
 DuckDB is not the target production database. It is used locally to prove that the SQL scripts execute against the sanitized CSV samples and reproduce the published reconciliation outputs.
 
@@ -73,5 +73,5 @@ BigQuery  = production data and SQL logic layer
 Streamlit = operational workflow
 Metabase  = management reporting
 BookStack = procedures, rules, and knowledge governance
-DuckDB    = local portfolio validation
+DuckDB    = local SQL validation
 ```

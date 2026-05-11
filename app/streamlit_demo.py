@@ -289,7 +289,7 @@ def load_data(data_version: tuple[float, ...]) -> dict[str, pd.DataFrame]:
     batch_aging = by_payment_batch.merge(payment_batches, on="payment_batch_id", how="left")
     batch_aging["payment_reference"] = batch_aging["item_description"].apply(extract_payment_reference)
     batch_aging["reference_type"] = batch_aging["item_description"].apply(reference_type)
-    batch_aging["portfolio_status"] = batch_aging["reconciliation_outcome"].map(STATUS_LABELS)
+    batch_aging["public_status"] = batch_aging["reconciliation_outcome"].map(STATUS_LABELS)
     batch_aging["days_open"] = (AS_OF_DATE.normalize() - batch_aging["transaction_date"]).dt.days.clip(lower=0)
     batch_aging["aging_bucket"] = batch_aging["days_open"].apply(aging_bucket)
     allocation_statuses = {"Allocation Ready"}
@@ -345,8 +345,8 @@ def load_data(data_version: tuple[float, ...]) -> dict[str, pd.DataFrame]:
     )
 
     allocation_evidence = by_receipt.merge(receipts, on="receipt_ref", how="left")
-    allocation_evidence["portfolio_status"] = allocation_evidence["reconciliation_outcome"].map(STATUS_LABELS)
-    receipt_exceptions["portfolio_exception"] = receipt_exceptions["receipt_transaction_type"].map(
+    allocation_evidence["public_status"] = allocation_evidence["reconciliation_outcome"].map(STATUS_LABELS)
+    receipt_exceptions["public_exception"] = receipt_exceptions["receipt_transaction_type"].map(
         {
             "CHARGEBACK": "Chargeback",
             "REFUND_WITH_CANCELLATION_FEE": "Refund with cancellation fee",
@@ -473,11 +473,11 @@ if page == "Receipt Reconciliation":
             outcome = "Rejected Card Transaction"
             group = ", ".join(sorted(candidates["payment_group_id"].unique())) if not candidates.empty else ""
             review_action = "Do not allocate; confirm rejected transaction treatment."
-        elif not candidates.empty and (candidates["portfolio_status"] == "Cancellation Fee Review").any():
+        elif not candidates.empty and (candidates["public_status"] == "Cancellation Fee Review").any():
             outcome = "Cancellation Fee Review"
             group = ", ".join(sorted(candidates["payment_group_id"].unique()))
             review_action = "Validate refund line and cancellation fee line before treatment."
-        elif not candidates.empty and (candidates["portfolio_status"] == "Amount Variance Review").any():
+        elif not candidates.empty and (candidates["public_status"] == "Amount Variance Review").any():
             outcome = "Amount Variance Review"
             group = ", ".join(sorted(candidates["payment_group_id"].unique()))
             review_action = "Review over/under payment difference."
@@ -574,12 +574,12 @@ if page == "Receipt Reconciliation":
             related_batches.groupby("payment_group_id", as_index=False)
             .agg(
                 group_lines=("payment_batch_id", "count"),
-                ready_lines=("portfolio_status", lambda values: (values == "Allocation Ready").sum()),
+                ready_lines=("public_status", lambda values: (values == "Allocation Ready").sum()),
                 cancellation_fee_lines=(
-                    "portfolio_status",
+                    "public_status",
                     lambda values: (values == "Cancellation Fee Review").sum(),
                 ),
-                variance_lines=("portfolio_status", lambda values: (values == "Amount Variance Review").sum()),
+                variance_lines=("public_status", lambda values: (values == "Amount Variance Review").sum()),
                 group_amount=("payment_batch_total", "sum"),
                 explained_amount=("explained_amount", "sum"),
                 open_amount=("open_amount", "sum"),
@@ -637,27 +637,27 @@ if page == "Receipt Reconciliation":
                 {
                     "Step": "1. Parse receipt lines",
                     "Purpose": "Extract the transaction date, channel, status, transaction type, reference, and amount.",
-                    "Portfolio point": "Shows that the pipeline starts from raw operational data, not a hand-built report.",
+                    "What it demonstrates": "The pipeline starts from raw operational data, not a hand-built report.",
                 },
                 {
                     "Step": "2. Generate matching keys",
                     "Purpose": "Build comparable keys from invoice, reservation, acquirer reference, or payment-channel token.",
-                    "Portfolio point": "The same model can support different departments by changing the key priority.",
+                    "What it demonstrates": "The same model can support different procedures by changing the key priority.",
                 },
                 {
                     "Step": "3. Match payment groups",
                     "Purpose": "Link receipt lines to payment-group lines by reference, value, sign, and date rule.",
-                    "Portfolio point": "This is the core allocation evidence used by finance operations.",
+                    "What it demonstrates": "This is the core allocation evidence used by finance operations.",
                 },
                 {
                     "Step": "4. Classify exceptions",
                     "Purpose": "Identify chargebacks, rejected transactions, cancellation-fee cases, amount variances, and missing evidence.",
-                    "Portfolio point": "Exceptions become controlled queues instead of manual spreadsheet notes.",
+                    "What it demonstrates": "Exceptions become controlled queues instead of manual spreadsheet notes.",
                 },
                 {
                     "Step": "5. Review and adapt",
                     "Purpose": "Expose rules as SQL blocks that can be tuned by market, channel, fee policy, or procedure.",
-                    "Portfolio point": "The reconciliation framework is reusable and governed, not locked to one internal process.",
+                    "What it demonstrates": "The reconciliation framework is reusable and governed, not locked to one internal process.",
                 },
             ]
         )
@@ -737,7 +737,7 @@ select * from reconciliation_rules
         )
 
         st.info(
-            "Portfolio reading: this is not just a dashboard. It is a controllable reconciliation layer "
+            "Presentation reading: this is not just a dashboard. It is a controllable reconciliation layer "
             "where raw payment evidence becomes allocation evidence, exceptions become work queues, and "
             "business rules can be maintained as documented SQL."
         )
@@ -775,7 +775,7 @@ with st.expander("Dashboard filters", expanded=False):
     )
 
 filtered_aging = batch_aging[
-    batch_aging["portfolio_status"].isin(selected_statuses)
+    batch_aging["public_status"].isin(selected_statuses)
     & batch_aging["aging_bucket"].isin(selected_buckets)
 ]
 if selected_owner != "All":
@@ -784,12 +784,12 @@ if selected_reference != "All":
     filtered_aging = filtered_aging[filtered_aging["reference_type"] == selected_reference]
 
 filtered_receipts = data["allocation_evidence"][
-    data["allocation_evidence"]["portfolio_status"].isin(selected_statuses)
+    data["allocation_evidence"]["public_status"].isin(selected_statuses)
 ]
 
 filtered_open = filtered_aging[filtered_aging["open_amount"] > 0]
 filtered_review = filtered_aging[
-    filtered_aging["portfolio_status"].isin(
+    filtered_aging["public_status"].isin(
         [
             "Evidence Review Required",
             "Amount Variance Review",
@@ -798,8 +798,8 @@ filtered_review = filtered_aging[
         ]
     )
 ]
-filtered_ready = filtered_aging[filtered_aging["portfolio_status"] == "Allocation Ready"]
-filtered_cfee = filtered_aging[filtered_aging["portfolio_status"] == "Cancellation Fee Review"]
+filtered_ready = filtered_aging[filtered_aging["public_status"] == "Allocation Ready"]
+filtered_cfee = filtered_aging[filtered_aging["public_status"] == "Cancellation Fee Review"]
 chargeback_count = (data["receipt_exceptions"]["receipt_transaction_type"] == "CHARGEBACK").sum()
 chargeback_amount = data["receipt_exceptions"].loc[
     data["receipt_exceptions"]["receipt_transaction_type"] == "CHARGEBACK",
@@ -837,17 +837,17 @@ with tab_overview:
     with left:
         st.subheader("Allocation Readiness")
         status_summary = (
-            filtered_aging.groupby("portfolio_status", as_index=False)
+            filtered_aging.groupby("public_status", as_index=False)
             .agg(
                 batches=("payment_batch_id", "count"),
                 total_amount=("payment_batch_total", "sum"),
                 allocated_amount=("allocated_amount", "sum"),
                 open_amount=("open_amount", "sum"),
             )
-            .sort_values("portfolio_status")
+            .sort_values("public_status")
             .rename(
                 columns={
-                    "portfolio_status": "Status",
+                    "public_status": "Status",
                     "batches": "Batches",
                     "total_amount": "Total amount",
                     "allocated_amount": "Ready to allocate",
@@ -911,7 +911,7 @@ with tab_aging:
     aging_amount = (
         filtered_open.pivot_table(
             index="aging_bucket",
-            columns="portfolio_status",
+            columns="public_status",
             values="open_amount",
             aggfunc="sum",
             fill_value=0,
@@ -923,7 +923,7 @@ with tab_aging:
     aging_count = (
         filtered_open.pivot_table(
             index="aging_bucket",
-            columns="portfolio_status",
+            columns="public_status",
             values="payment_batch_id",
             aggfunc="count",
             fill_value=0,
@@ -947,7 +947,7 @@ with tab_aging:
                 "transaction_date",
                 "days_open",
                 "aging_bucket",
-                "portfolio_status",
+                "public_status",
                 "business_exception",
                 "payment_batch_total",
                 "open_amount",
@@ -963,18 +963,18 @@ with tab_exceptions:
     exception_kpis = st.columns(4)
     exception_kpis[0].metric(
         "Amount variances",
-        f"{(filtered_aging['portfolio_status'] == 'Amount Variance Review').sum():,}",
+        f"{(filtered_aging['public_status'] == 'Amount Variance Review').sum():,}",
     )
     exception_kpis[1].metric(
         "Rejected cards",
-        f"{(filtered_aging['portfolio_status'] == 'Rejected Card Transaction').sum():,}",
+        f"{(filtered_aging['public_status'] == 'Rejected Card Transaction').sum():,}",
     )
     exception_kpis[2].metric("Cancellation fee items", f"{len(filtered_cfee):,}")
     exception_kpis[3].metric("Chargebacks", f"{chargeback_count:,}", f"{chargeback_amount:,.2f}")
 
     st.subheader("Batch Exceptions")
     batch_exceptions = filtered_aging[
-        filtered_aging["portfolio_status"].isin(
+        filtered_aging["public_status"].isin(
             [
                 "Amount Variance Review",
                 "Rejected Card Transaction",
@@ -990,7 +990,7 @@ with tab_exceptions:
                 "receipt_ref",
                 "payment_reference",
                 "reference_type",
-                "portfolio_status",
+                "public_status",
                 "business_exception",
                 "transaction_date",
                 "payment_batch_total",
@@ -1008,7 +1008,7 @@ with tab_exceptions:
         data["receipt_exceptions"][
             [
                 "receipt_ref",
-                "portfolio_exception",
+                "public_exception",
                 "transaction_date",
                 "gross_amount",
                 "net_amount",
@@ -1027,7 +1027,7 @@ with tab_allocation:
                 "receipt_ref",
                 "transaction_date",
                 "your_reference",
-                "portfolio_status",
+                "public_status",
                 "gross_amount",
                 "receipt_total",
                 "contract_type",

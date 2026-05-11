@@ -219,7 +219,7 @@ select
     null::decimal(18, 2) as variance_amount
 from cancellation_fee_pairs;
 
-create or replace view ovp_matches as
+create or replace view amount_variance_matches as
 select
     s.payment_batch_id,
     r.receipt_ref,
@@ -262,7 +262,7 @@ select * from exact_matches
 union all
 select * from cancellation_fee_matches
 union all
-select * from ovp_matches;
+select * from amount_variance_matches;
 
 create or replace view reconciled_rows as
 select

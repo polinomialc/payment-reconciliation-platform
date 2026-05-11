@@ -42,7 +42,7 @@ The `content/` folder contains sanitized markdown pages that can be loaded into 
 - business concepts for invoices, reservations, receipts, payment batches, and channels
 - daily reconciliation procedures
 - open-balance aging review
-- MATCH / CHECK / UNMATCHED definitions
+- allocation-ready, evidence-review, and missing-evidence definitions
 - e-commerce payment-channel mapping
 - chargeback handling
 - rejected card transaction handling
@@ -85,7 +85,7 @@ BOOKSTACK_TOKEN_SECRET=token_secret_here \
 python3 update_first_book_demo_pages.py
 ```
 
-Update existing demo pages after changing portfolio-facing status labels:
+Update existing demo pages after changing public status labels:
 
 ```bash
 BOOKSTACK_URL=http://localhost:6875 \
