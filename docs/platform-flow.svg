@@ -23,7 +23,7 @@
     <text x="88" y="246" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#202635">Payment batches</text>
     <text x="88" y="278" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#202635">Payment receipts</text>
     <text x="88" y="310" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#202635">Reference mappings</text>
-    <text x="88" y="358" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Portfolio demo uses</text>
+    <text x="88" y="358" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Local demo uses</text>
     <text x="88" y="382" font-family="Consolas, Monaco, monospace" font-size="13" fill="#475467">sample_data/*.csv</text>
   </g>
 
@@ -70,13 +70,15 @@
   <path d="M948 292 H988" stroke="#637083" stroke-width="2.5" marker-end="url(#arrow)"/>
 
   <g filter="url(#shadow)">
-    <rect x="174" y="506" width="336" height="112" rx="8" fill="#FFFFFF" stroke="#D9E0EA" stroke-dasharray="7 6"/>
-    <text x="198" y="540" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#202635">Local Portfolio Validation</text>
-    <text x="198" y="572" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#202635">DuckDB runs the same SQL against sanitized CSVs</text>
-    <text x="198" y="600" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Testing substitute only, not a production architecture component</text>
+    <rect x="150" y="506" width="430" height="122" rx="8" fill="#FFFFFF" stroke="#D9E0EA" stroke-dasharray="7 6"/>
+    <text x="174" y="540" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#202635">Local SQL Validation</text>
+    <text x="174" y="572" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#202635">DuckDB runs the same SQL against sanitized CSV samples</text>
+    <text x="174" y="600" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Used only to validate the demo locally</text>
+    <text x="174" y="620" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Not a production architecture component</text>
   </g>
 
   <path d="M382 416 V494" stroke="#98A2B3" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
 
-  <text x="64" y="670" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Production flow: source exports land in BigQuery, SQL views apply parsing, matching, exception classification, and reporting logic. Streamlit, Metabase, and BookStack consume governed outputs. DuckDB appears only as a local validation substitute for the portfolio demo.</text>
+  <text x="64" y="664" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Production flow: source exports land in BigQuery, where governed SQL views apply parsing, matching, exception classification, and reporting logic.</text>
+  <text x="64" y="686" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#667085">Streamlit, Metabase, and BookStack consume governed outputs. DuckDB is used only for local SQL validation of the demo.</text>
 </svg>
