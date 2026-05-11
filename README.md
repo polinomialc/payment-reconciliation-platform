@@ -1,6 +1,8 @@
-<h1 align="center">
-  <img src="docs/assets/reconciliation-platform-icon.svg" width="54" alt="Payment Reconciliation Platform icon"> Payment Reconciliation Platform
-</h1>
+<p align="center">
+  <img src="docs/assets/reconciliation-platform-icon.svg" width="96" alt="Payment Reconciliation Platform icon">
+</p>
+
+<h1 align="center">Payment Reconciliation Platform</h1>
 
 <p align="center">
   Public, sanitized case study of a financial reconciliation platform designed to replace spreadsheet-heavy operations with governed SQL logic, analyst workflows, BI reporting, and procedural knowledge management.
