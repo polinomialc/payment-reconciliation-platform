@@ -217,12 +217,6 @@ Designed and prototyped a financial reconciliation platform to replace spreadshe
 - [Screenshot Placement Guide](docs/screenshots/README.md)
 - [Vendor Independence](docs/vendor-independence.md)
 
-## Visual Assets
-
-- [Platform flow diagram](docs/platform-flow.svg)
-- [Operations dashboard mockup](docs/screenshots/dashboard_overview.svg)
-- [Exception review mockup](docs/screenshots/exception_review.svg)
-
 ## License
 
 MIT
