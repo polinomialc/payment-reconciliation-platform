@@ -11,8 +11,8 @@ services:
     volumes:
       - reconciliation_analytics_db:/var/lib/postgresql/data
       - ./init:/docker-entrypoint-initdb.d:ro
+      - ./generated:/generated:ro
       - ../sample_data:/sample_data:ro
-      - ../output_examples:/output_examples:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U metabase -d metabase"]
       interval: 5s

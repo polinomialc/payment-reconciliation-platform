@@ -1,261 +1,371 @@
--- Sanitized payment-batch reconciliation logic.
+-- Reconciliation engine.
 --
--- This layer mirrors the complete operational pattern without exposing
--- private system names:
--- 1. exact matching by INV, RA, RES, and gateway token
--- 2. rejected receipt override
--- 3. cancellation-fee pairing for refund + fee lines
--- 4. over/under-payment detection
--- 5. evidence-review and missing-evidence open-balance classification
-
-create or replace view market_rules as
-select * from (
-    values
-        ('MKT_A', 45.00::decimal(18, 2)),
-        ('MKT_B', 50.00::decimal(18, 2)),
-        ('MKT_C', 50.00::decimal(18, 2)),
-        ('MKT_D', 50.00::decimal(18, 2))
-) as t(market_code, cancellation_fee);
+-- This public version keeps the same operating objects as the internal tool:
+-- payment-batch lines, receipt lines, channel-aware matching, explicit
+-- exception queues, and channel-aware invoice / reservation logic.
 
 create or replace view exact_match_candidates as
 select
+    s.payment_batch_line_id,
     s.payment_batch_id,
-    r.receipt_ref,
-    s.primary_ref,
-    s.amount as payment_batch_amount,
-    r.gross_amount as receipt_amount,
-    r.reference_resolution_method,
-    r.receipt_transaction_type,
     s.transaction_date as payment_batch_date,
+    s.market_code,
+    s.channel_type as payment_batch_channel,
+    s.primary_reference,
+    s.line_total,
+    r.receipt_line_id,
+    r.receipt_ref,
     r.transaction_date as receipt_date,
-    r.status as receipt_status,
-    'INV' as match_rule,
+    r.channel_type as receipt_channel,
+    r.transaction_status,
+    r.receipt_exception_type,
+    r.reference_resolution_method,
+    r.gross_amount as receipt_amount,
+    'INVOICE' as match_rule,
     1 as match_priority,
-    null::decimal(18, 2) as variance_amount
+    cast(null as decimal(18, 2)) as variance_amount
 from payment_batch_keys s
 join receipt_keys r
-  on r.market_code = s.market_code
- and upper(r.contract_type) <> 'ONLINE CARD PAYMENT'
- and s.key_inv = r.key_inv
- and s.occurrence_inv = r.occurrence_inv
- and s.transaction_date = r.transaction_date
- and sign(s.amount) = sign(r.gross_amount)
+  on s.market_code = r.market_code
+ and s.invoice_ref is not null
+ and s.invoice_ref = r.invoice_ref
+ and s.line_total = r.gross_amount
+ and sign(s.line_total) = sign(r.gross_amount)
+join channel_rules c
+  on c.channel_type = s.channel_type
+where abs(date_diff('day', s.transaction_date, r.transaction_date)) <= c.date_window_days
 
 union all
 
 select
+    s.payment_batch_line_id,
     s.payment_batch_id,
-    r.receipt_ref,
-    s.primary_ref,
-    s.amount as payment_batch_amount,
-    r.gross_amount as receipt_amount,
-    r.reference_resolution_method,
-    r.receipt_transaction_type,
     s.transaction_date as payment_batch_date,
+    s.market_code,
+    s.channel_type as payment_batch_channel,
+    s.primary_reference,
+    s.line_total,
+    r.receipt_line_id,
+    r.receipt_ref,
     r.transaction_date as receipt_date,
-    r.status as receipt_status,
-    'RA' as match_rule,
+    r.channel_type as receipt_channel,
+    r.transaction_status,
+    r.receipt_exception_type,
+    r.reference_resolution_method,
+    r.gross_amount as receipt_amount,
+    'RESERVATION' as match_rule,
     2 as match_priority,
-    null::decimal(18, 2) as variance_amount
+    cast(null as decimal(18, 2)) as variance_amount
 from payment_batch_keys s
 join receipt_keys r
-  on r.market_code = s.market_code
- and upper(r.contract_type) <> 'ONLINE CARD PAYMENT'
- and s.is_maestro = true
- and s.key_ra = r.key_ra
- and s.occurrence_ra = r.occurrence_ra
- and s.transaction_date = r.transaction_date
- and sign(s.amount) = sign(r.gross_amount)
-
-union all
-
-select
-    s.payment_batch_id,
-    r.receipt_ref,
-    s.primary_ref,
-    s.amount as payment_batch_amount,
-    r.gross_amount as receipt_amount,
-    r.reference_resolution_method,
-    r.receipt_transaction_type,
-    s.transaction_date as payment_batch_date,
-    r.transaction_date as receipt_date,
-    r.status as receipt_status,
-    'RES' as match_rule,
-    3 as match_priority,
-    null::decimal(18, 2) as variance_amount
-from payment_batch_keys s
-join receipt_keys r
-  on r.market_code = s.market_code
- and upper(r.contract_type) <> 'ONLINE CARD PAYMENT'
- and s.key_res = r.key_res
- and s.occurrence_res = r.occurrence_res
- and s.transaction_date = r.transaction_date
- and sign(s.amount) = sign(r.gross_amount)
-
-union all
-
-select
-    s.payment_batch_id,
-    r.receipt_ref,
-    s.primary_ref,
-    s.amount as payment_batch_amount,
-    r.gross_amount as receipt_amount,
-    r.reference_resolution_method,
-    r.receipt_transaction_type,
-    s.transaction_date as payment_batch_date,
-    r.transaction_date as receipt_date,
-    r.status as receipt_status,
-    'GATEWAY_TOKEN' as match_rule,
-    4 as match_priority,
-    null::decimal(18, 2) as variance_amount
-from payment_batch_keys s
-join receipt_keys r
-  on r.market_code = s.market_code
- and upper(r.contract_type) = 'ONLINE CARD PAYMENT'
+  on s.market_code = r.market_code
+ and s.reservation_ref is not null
  and s.reservation_ref = r.reservation_ref
- and s.amount = r.gross_amount
- and s.occurrence_ref_amount = r.occurrence_cyb
- and abs(date_diff('day', s.transaction_date, r.transaction_date)) <= 180
- and sign(s.amount) = sign(r.gross_amount);
+ and s.line_total = r.gross_amount
+ and sign(s.line_total) = sign(r.gross_amount)
+ and s.channel_type <> 'E_COMMERCE'
+ and r.channel_type <> 'E_COMMERCE'
+join channel_rules c
+  on c.channel_type = s.channel_type
+where abs(date_diff('day', s.transaction_date, r.transaction_date)) <= c.date_window_days
+
+union all
+
+select
+    s.payment_batch_line_id,
+    s.payment_batch_id,
+    s.transaction_date as payment_batch_date,
+    s.market_code,
+    s.channel_type as payment_batch_channel,
+    s.primary_reference,
+    s.line_total,
+    r.receipt_line_id,
+    r.receipt_ref,
+    r.transaction_date as receipt_date,
+    r.channel_type as receipt_channel,
+    r.transaction_status,
+    r.receipt_exception_type,
+    r.reference_resolution_method,
+    r.gross_amount as receipt_amount,
+    'ACQUIRER_REFERENCE' as match_rule,
+    3 as match_priority,
+    cast(null as decimal(18, 2)) as variance_amount
+from payment_batch_keys s
+join receipt_keys r
+  on s.market_code = r.market_code
+ and s.acquirer_reference is not null
+ and s.acquirer_reference = r.acquirer_reference
+ and s.line_total = r.gross_amount
+ and sign(s.line_total) = sign(r.gross_amount)
+join channel_rules c
+  on c.channel_type = s.channel_type
+where abs(date_diff('day', s.transaction_date, r.transaction_date)) <= c.date_window_days
+
+union all
+
+select
+    s.payment_batch_line_id,
+    s.payment_batch_id,
+    s.transaction_date as payment_batch_date,
+    s.market_code,
+    s.channel_type as payment_batch_channel,
+    s.primary_reference,
+    s.line_total,
+    r.receipt_line_id,
+    r.receipt_ref,
+    r.transaction_date as receipt_date,
+    r.channel_type as receipt_channel,
+    r.transaction_status,
+    r.receipt_exception_type,
+    r.reference_resolution_method,
+    r.gross_amount as receipt_amount,
+    'GATEWAY_TOKEN_RESOLUTION' as match_rule,
+    4 as match_priority,
+    cast(null as decimal(18, 2)) as variance_amount
+from payment_batch_keys s
+join receipt_keys r
+  on s.market_code = r.market_code
+ and s.channel_type = 'E_COMMERCE'
+ and r.channel_type = 'E_COMMERCE'
+ and s.reservation_ref is not null
+ and s.reservation_ref = r.reservation_ref
+ and s.line_total = r.gross_amount
+ and sign(s.line_total) = sign(r.gross_amount)
+join channel_rules c
+  on c.channel_type = s.channel_type
+where abs(date_diff('day', s.transaction_date, r.transaction_date)) <= c.date_window_days
+
+;
+
+create or replace view exact_matches_ranked as
+select
+    *,
+    row_number() over (
+        partition by payment_batch_line_id
+        order by match_priority, abs(date_diff('day', payment_batch_date, receipt_date)), receipt_line_id
+    ) as payment_batch_rank,
+    row_number() over (
+        partition by receipt_line_id
+        order by match_priority, abs(date_diff('day', payment_batch_date, receipt_date)), payment_batch_line_id
+    ) as receipt_rank
+from exact_match_candidates;
 
 create or replace view exact_matches as
-select *
-from exact_match_candidates
-qualify row_number() over (
-    partition by payment_batch_id
-    order by match_priority, receipt_date, receipt_ref
-) = 1;
+select
+    payment_batch_line_id,
+    payment_batch_id,
+    payment_batch_date,
+    market_code,
+    payment_batch_channel,
+    primary_reference,
+    line_total,
+    receipt_line_id,
+    receipt_ref,
+    receipt_date,
+    receipt_channel,
+    transaction_status,
+    receipt_exception_type,
+    reference_resolution_method,
+    receipt_amount,
+    match_rule,
+    match_priority,
+    variance_amount
+from exact_matches_ranked
+where payment_batch_rank = 1
+  and receipt_rank = 1;
 
-create or replace view cancellation_fee_pairs as
+create or replace view unmatched_after_exact as
+select s.*
+from payment_batch_keys s
+left join exact_matches m
+  on m.payment_batch_line_id = s.payment_batch_line_id
+where m.payment_batch_line_id is null;
+
+create or replace view cancellation_fee_pair_candidates as
 with refunds as (
     select
-        s.payment_batch_id as refund_batch_id,
+        s.payment_batch_line_id as refund_line_id,
+        s.payment_batch_id,
+        s.transaction_date,
         s.market_code,
         s.reservation_ref,
-        s.amount as refund_amount,
-        s.transaction_date
-    from payment_batch_keys s
-    where s.amount < 0
+        s.line_total as refund_amount
+    from unmatched_after_exact s
+    where s.line_total < 0
       and s.reservation_ref is not null
 ),
 fees as (
     select
-        s.payment_batch_id as fee_batch_id,
+        s.payment_batch_line_id as fee_line_id,
+        s.payment_batch_id,
         s.market_code,
         s.reservation_ref,
-        s.amount as fee_amount
-    from payment_batch_keys s
+        s.line_total as fee_amount
+    from unmatched_after_exact s
     join market_rules m
       on m.market_code = s.market_code
-     and s.amount = m.cancellation_fee
-),
-pairs as (
-    select
-        r.refund_batch_id,
-        f.fee_batch_id,
-        r.market_code,
-        r.reservation_ref,
-        r.refund_amount,
-        f.fee_amount,
-        r.refund_amount + f.fee_amount as expected_receipt_amount
-    from refunds r
-    join fees f
-      on f.market_code = r.market_code
-     and f.reservation_ref = r.reservation_ref
+     and s.line_total = m.cancellation_fee_amount
+    where s.reservation_ref is not null
 )
 select
-    p.refund_batch_id,
-    p.fee_batch_id,
-    p.market_code,
-    p.reservation_ref,
-    p.refund_amount,
-    p.fee_amount,
-    p.expected_receipt_amount,
-    r.receipt_ref,
-    r.transaction_date as receipt_date,
-    r.status as receipt_status,
-    r.reference_resolution_method,
-    r.receipt_transaction_type
-from pairs p
-join receipt_keys r
-  on r.market_code = p.market_code
- and upper(r.contract_type) = 'ONLINE CARD PAYMENT'
- and r.reservation_ref = p.reservation_ref
- and r.gross_amount = p.expected_receipt_amount
- and r.status <> 'Rejected';
+    r.refund_line_id,
+    f.fee_line_id,
+    r.payment_batch_id,
+    r.transaction_date as payment_batch_date,
+    r.market_code,
+    r.reservation_ref,
+    r.refund_amount,
+    f.fee_amount,
+    round(r.refund_amount + f.fee_amount, 2) as expected_receipt_amount,
+    rcpt.receipt_line_id,
+    rcpt.receipt_ref,
+    rcpt.transaction_date as receipt_date,
+    rcpt.transaction_status,
+    rcpt.receipt_exception_type,
+    rcpt.reference_resolution_method
+from refunds r
+join fees f
+  on f.market_code = r.market_code
+ and f.reservation_ref = r.reservation_ref
+ and f.payment_batch_id = r.payment_batch_id
+join receipt_keys rcpt
+  on rcpt.market_code = r.market_code
+ and rcpt.channel_type = 'E_COMMERCE'
+ and rcpt.reservation_ref = r.reservation_ref
+ and rcpt.gross_amount = round(r.refund_amount + f.fee_amount, 2)
+ and rcpt.transaction_status <> 'Rejected';
 
 create or replace view cancellation_fee_matches as
 select
-    refund_batch_id as payment_batch_id,
+    refund_line_id as payment_batch_line_id,
+    payment_batch_id,
+    payment_batch_date,
+    market_code,
+    'E_COMMERCE' as payment_batch_channel,
+    reservation_ref as primary_reference,
+    refund_amount as line_total,
+    receipt_line_id,
     receipt_ref,
-    reservation_ref as primary_ref,
-    refund_amount as payment_batch_amount,
-    expected_receipt_amount as receipt_amount,
-    reference_resolution_method,
-    receipt_transaction_type,
-    null::date as payment_batch_date,
     receipt_date,
-    receipt_status,
-    'CANCELLATION_FEE_PAIR' as match_rule,
-    5 as match_priority,
-    null::decimal(18, 2) as variance_amount
-from cancellation_fee_pairs
+    'E_COMMERCE' as receipt_channel,
+    transaction_status,
+    receipt_exception_type,
+    reference_resolution_method,
+    expected_receipt_amount as receipt_amount,
+    'CANCELLATION_FEE' as match_rule,
+    10 as match_priority,
+    cast(null as decimal(18, 2)) as variance_amount
+from cancellation_fee_pair_candidates
 
 union all
 
 select
-    fee_batch_id as payment_batch_id,
+    fee_line_id as payment_batch_line_id,
+    payment_batch_id,
+    payment_batch_date,
+    market_code,
+    'E_COMMERCE' as payment_batch_channel,
+    reservation_ref as primary_reference,
+    fee_amount as line_total,
+    receipt_line_id,
     receipt_ref,
-    reservation_ref as primary_ref,
-    fee_amount as payment_batch_amount,
-    expected_receipt_amount as receipt_amount,
-    reference_resolution_method,
-    receipt_transaction_type,
-    null::date as payment_batch_date,
     receipt_date,
-    receipt_status,
-    'CANCELLATION_FEE_PAIR' as match_rule,
-    5 as match_priority,
-    null::decimal(18, 2) as variance_amount
-from cancellation_fee_pairs;
+    'E_COMMERCE' as receipt_channel,
+    transaction_status,
+    receipt_exception_type,
+    reference_resolution_method,
+    expected_receipt_amount as receipt_amount,
+    'CANCELLATION_FEE' as match_rule,
+    10 as match_priority,
+    cast(null as decimal(18, 2)) as variance_amount
+from cancellation_fee_pair_candidates;
+
+create or replace view unmatched_after_cfee as
+select s.*
+from unmatched_after_exact s
+left join cancellation_fee_matches c
+  on c.payment_batch_line_id = s.payment_batch_line_id
+where c.payment_batch_line_id is null;
+
+create or replace view amount_variance_candidates as
+select
+    s.payment_batch_line_id,
+    s.payment_batch_id,
+    s.transaction_date as payment_batch_date,
+    s.market_code,
+    s.channel_type as payment_batch_channel,
+    s.primary_reference,
+    s.line_total,
+    r.receipt_line_id,
+    r.receipt_ref,
+    r.transaction_date as receipt_date,
+    r.channel_type as receipt_channel,
+    r.transaction_status,
+    r.receipt_exception_type,
+    r.reference_resolution_method,
+    r.gross_amount as receipt_amount,
+    'AMOUNT_VARIANCE' as match_rule,
+    20 as match_priority,
+    round(r.gross_amount - s.line_total, 2) as variance_amount
+from unmatched_after_cfee s
+join receipt_keys r
+  on s.market_code = r.market_code
+ and sign(s.line_total) = sign(r.gross_amount)
+ and r.transaction_status <> 'Rejected'
+ and (
+        (s.channel_type = 'E_COMMERCE' and s.reservation_ref is not null and s.reservation_ref = r.reservation_ref)
+     or (s.channel_type <> 'E_COMMERCE' and s.invoice_ref is not null and s.invoice_ref = r.invoice_ref)
+     or (s.channel_type <> 'E_COMMERCE' and s.reservation_ref is not null and s.reservation_ref = r.reservation_ref)
+     or (s.acquirer_reference is not null and s.acquirer_reference = r.acquirer_reference)
+ )
+join channel_rules c
+  on c.channel_type = s.channel_type
+left join market_rules m
+  on m.market_code = s.market_code
+where abs(date_diff('day', s.transaction_date, r.transaction_date)) <= c.date_window_days
+  and s.line_total <> r.gross_amount
+  and not (
+        m.cancellation_fee_amount is not null
+    and s.line_total = m.cancellation_fee_amount
+    and s.reservation_ref is not null
+  );
+
+create or replace view amount_variance_matches_ranked as
+select
+    *,
+    row_number() over (
+        partition by payment_batch_line_id
+        order by abs(variance_amount), abs(date_diff('day', payment_batch_date, receipt_date)), receipt_line_id
+    ) as payment_batch_rank,
+    row_number() over (
+        partition by receipt_line_id
+        order by abs(variance_amount), abs(date_diff('day', payment_batch_date, receipt_date)), payment_batch_line_id
+    ) as receipt_rank
+from amount_variance_candidates;
 
 create or replace view amount_variance_matches as
 select
-    s.payment_batch_id,
-    r.receipt_ref,
-    s.primary_ref,
-    s.amount as payment_batch_amount,
-    r.gross_amount as receipt_amount,
-    r.reference_resolution_method,
-    r.receipt_transaction_type,
-    s.transaction_date as payment_batch_date,
-    r.transaction_date as receipt_date,
-    r.status as receipt_status,
-    'OVER_UNDER_PAYMENT' as match_rule,
-    6 as match_priority,
-    round(r.gross_amount - s.amount, 2) as variance_amount
-from payment_batch_keys s
-join receipt_keys r
-  on r.market_code = s.market_code
- and upper(r.contract_type) = 'ONLINE CARD PAYMENT'
- and r.status <> 'Rejected'
- and s.reservation_ref = r.reservation_ref
- and sign(s.amount) = sign(r.gross_amount)
- and s.amount <> r.gross_amount
- and abs(date_diff('day', s.transaction_date, r.transaction_date)) <= 180
-left join exact_matches em
-  on em.payment_batch_id = s.payment_batch_id
-left join cancellation_fee_matches cf
-  on cf.payment_batch_id = s.payment_batch_id
-left join market_rules m
-  on m.market_code = s.market_code
-where em.payment_batch_id is null
-  and cf.payment_batch_id is null
-  and round(abs(r.gross_amount - s.amount), 2) <> m.cancellation_fee
-qualify row_number() over (
-    partition by s.payment_batch_id
-    order by round(abs(r.gross_amount - s.amount), 2), r.transaction_date, r.receipt_ref
-) = 1;
+    payment_batch_line_id,
+    payment_batch_id,
+    payment_batch_date,
+    market_code,
+    payment_batch_channel,
+    primary_reference,
+    line_total,
+    receipt_line_id,
+    receipt_ref,
+    receipt_date,
+    receipt_channel,
+    transaction_status,
+    receipt_exception_type,
+    reference_resolution_method,
+    receipt_amount,
+    match_rule,
+    match_priority,
+    variance_amount
+from amount_variance_matches_ranked
+where payment_batch_rank = 1
+  and receipt_rank = 1;
 
 create or replace view all_reconciliation_matches as
 select * from exact_matches
@@ -264,36 +374,63 @@ select * from cancellation_fee_matches
 union all
 select * from amount_variance_matches;
 
-create or replace view reconciled_rows as
+create or replace view reconciled_payment_batch_lines as
 select
+    s.payment_batch_line_id,
     s.payment_batch_id,
+    s.transaction_date,
+    s.market_code,
+    s.channel_type,
+    s.customer_name,
+    s.customer_number,
+    s.item_description,
+    s.line_total,
+    sum(s.line_total) over (partition by s.payment_batch_id) as payment_batch_total,
+    s.invoice_ref,
+    s.reservation_ref,
+    s.acquirer_reference,
+    s.primary_reference,
+    s.reference_parse_status,
+    m.receipt_line_id,
     m.receipt_ref,
-    s.primary_ref,
-    s.amount as payment_batch_amount,
-    m.receipt_amount,
-    m.reference_resolution_method,
-    m.receipt_transaction_type,
-    s.transaction_date as payment_batch_date,
     m.receipt_date,
+    m.receipt_channel,
+    m.transaction_status as receipt_status,
+    m.receipt_exception_type,
+    m.reference_resolution_method,
     m.match_rule,
+    m.receipt_amount,
     m.variance_amount,
     case
-        when m.receipt_ref is not null and m.receipt_status = 'Rejected'
-            then 'Rejected Card Transaction'
-        when m.match_rule = 'CANCELLATION_FEE_PAIR'
-            then 'Cancellation Fee Review'
-        when m.match_rule = 'OVER_UNDER_PAYMENT'
-            then 'Amount Variance Review'
-        when m.receipt_ref is not null
-            then 'Allocation Ready'
-        when s.primary_ref is not null
-            then 'Evidence Review Required'
-        else 'Missing Receipt Evidence'
-    end as reconciliation_outcome
+        when m.payment_batch_line_id is not null and m.transaction_status = 'Rejected' then 'REJECTED'
+        when m.match_rule = 'CANCELLATION_FEE' then 'CANCELLATION_FEE'
+        when m.match_rule = 'AMOUNT_VARIANCE' then 'AMOUNT_VARIANCE'
+        when m.payment_batch_line_id is not null then 'MATCH'
+        when s.line_total = mr.cancellation_fee_amount and s.reservation_ref is not null then 'CHECK'
+        when s.primary_reference is not null then 'CHECK'
+        else 'MISSING_REFERENCE'
+    end as match_status,
+    case
+        when m.payment_batch_line_id is not null and m.transaction_status = 'Rejected' then 'REJECTED'
+        when m.match_rule in ('CANCELLATION_FEE', 'AMOUNT_VARIANCE') then 'REVIEW'
+        when m.payment_batch_line_id is not null then 'READY'
+        when s.primary_reference is not null then 'CHECK_QUEUE'
+        else 'DATA_QUALITY_QUEUE'
+    end as workflow_queue,
+    case
+        when m.receipt_ref is not null then m.receipt_ref
+        when s.primary_reference is not null then 'CHECK'
+        else 'MISSING_REFERENCE'
+    end as reconciliation_target,
+    case
+        when m.payment_batch_line_id is not null and m.transaction_status = 'Rejected' then 'REJECTED_CARD_TRANSACTION'
+        when m.match_rule = 'CANCELLATION_FEE' then 'CANCELLATION_FEE'
+        when m.match_rule = 'AMOUNT_VARIANCE' then 'AMOUNT_VARIANCE'
+        when s.primary_reference is not null and m.payment_batch_line_id is null then 'CHECK'
+        else null
+    end as review_reason
 from payment_batch_keys s
 left join all_reconciliation_matches m
-  on m.payment_batch_id = s.payment_batch_id
-qualify row_number() over (
-    partition by s.payment_batch_id
-    order by coalesce(m.match_priority, 99), m.receipt_date, m.receipt_ref
-) = 1;
+  on m.payment_batch_line_id = s.payment_batch_line_id
+left join market_rules mr
+  on mr.market_code = s.market_code;

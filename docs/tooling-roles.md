@@ -16,7 +16,7 @@ Typical users:
 Typical use cases:
 - receipt reconciliation
 - open-balance aging review
-- allocation evidence review
+- payment-batch evidence review
 - exception investigation
 
 ## Metabase
@@ -31,10 +31,10 @@ Typical users:
 - stakeholders reviewing process performance
 
 Typical use cases:
-- allocation readiness by day
+- matched amount by day
 - open exposure by aging bucket
 - exception backlog by outcome
-- chargeback and refund exception trends
+- chargeback and rejected-transaction trends
 - market-level backlog comparison
 
 ## BookStack
@@ -50,7 +50,7 @@ Typical users:
 
 Typical use cases:
 - document reconciliation rules
-- explain chargebacks, rejected payments, cancellation fees, and amount variances
+- explain chargebacks, rejected payments, reference mapping, and aging procedures
 - maintain daily procedure checklists
 - preserve department knowledge outside spreadsheets and private notes
 
@@ -64,7 +64,7 @@ BigQuery is the intended production warehouse layer. Raw source data would land 
 
 **Role:** local SQL validation.
 
-DuckDB is not the target production database. It is used locally to prove that the SQL scripts execute against the sanitized CSV samples and reproduce the published reconciliation outputs.
+DuckDB is not the target production database. It is used locally to prove that the SQL scripts execute against the sanitized CSV samples and produce the same live operational views the app consumes.
 
 ## Summary
 

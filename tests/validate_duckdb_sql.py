@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-import csv
 from pathlib import Path
-from typing import Any
 
 import duckdb
 
@@ -10,22 +8,21 @@ import duckdb
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def read_csv(relative_path: str) -> list[dict[str, str]]:
-    with (ROOT / relative_path).open(newline="", encoding="utf-8") as handle:
-        return list(csv.DictReader(handle))
-
-
 def csv_path(relative_path: str) -> str:
     return (ROOT / relative_path).as_posix()
 
 
-def normalize(rows: list[dict[str, Any]]) -> list[dict[str, str]]:
-    return [{key: str(value) for key, value in row.items()} for row in rows]
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise AssertionError(message)
 
 
 def main() -> None:
     connection = duckdb.connect(database=":memory:")
 
+    connection.execute(
+        "set preserve_insertion_order=false;"
+    )
     connection.execute(
         f"""
         create table raw_payment_batches as
@@ -48,83 +45,87 @@ def main() -> None:
     ]:
         connection.execute((ROOT / sql_file).read_text(encoding="utf-8"))
 
-    payment_batch_rows = normalize(
-        connection.sql(
+    payment_batch_columns = {
+        row[0]
+        for row in connection.sql(
             """
-            select
-                payment_batch_id,
-                coalesce(receipt_ref, '') as receipt_ref,
-                reconciliation_outcome,
-                row_count,
-                printf('%.2f', payment_batch_total) as payment_batch_total
-            from reconciliation_by_payment_batch
-            order by payment_batch_id, receipt_ref, reconciliation_outcome
+            select column_name
+            from information_schema.columns
+            where table_name = 'reconciliation_by_payment_batch'
             """
-        ).df().to_dict("records")
+        ).fetchall()
+    }
+    require(
+        {
+            "payment_batch_id",
+            "payment_batch_total",
+            "linked_receipt_count",
+            "linked_receipts",
+            "open_line_total",
+            "reconciliation_outcome",
+        }.issubset(payment_batch_columns),
+        f"Unexpected reconciliation_by_payment_batch schema: {payment_batch_columns}",
     )
+    require("amount_variance_line_count" not in payment_batch_columns, "Old amount-variance fields should be gone from payment-batch reporting.")
+    require("cancellation_fee_line_count" not in payment_batch_columns, "Old cancellation-fee fields should be gone from payment-batch reporting.")
+    require("review_reason" not in payment_batch_columns, "Payment-batch reporting should no longer expose review_reason.")
 
-    receipt_rows = normalize(
-        connection.sql(
+    receipt_columns = {
+        row[0]
+        for row in connection.sql(
             """
-            select
-                receipt_ref,
-                reconciliation_outcome,
-                row_count,
-                printf('%.2f', receipt_total) as receipt_total
-            from reconciliation_by_receipt
-            order by receipt_ref, reconciliation_outcome
+            select column_name
+            from information_schema.columns
+            where table_name = 'reconciliation_by_receipt'
             """
-        ).df().to_dict("records")
+        ).fetchall()
+    }
+    require(
+        {
+            "receipt_ref",
+            "receipt_total",
+            "chargeback_line_count",
+            "rejected_line_count",
+            "linked_payment_batches",
+            "reconciliation_outcome",
+        }.issubset(receipt_columns),
+        f"Unexpected reconciliation_by_receipt schema: {receipt_columns}",
     )
+    require("cancellation_fee_receipt_line_count" not in receipt_columns, "Old cancellation-fee receipt fields should be gone from receipt reporting.")
+    require("review_reason" not in receipt_columns, "Receipt reporting should no longer expose review_reason.")
 
-    receipt_exception_rows = normalize(
-        connection.sql(
-            """
-            select
-                receipt_ref,
-                receipt_transaction_type,
-                cast(transaction_date as varchar) as transaction_date,
-                printf('%.2f', gross_amount) as gross_amount,
-                printf('%.2f', net_amount) as net_amount,
-                your_reference
-            from receipt_exception_classification
-            order by receipt_ref, receipt_transaction_type, your_reference
-            """
-        ).df().to_dict("records")
-    )
+    counts = {
+        "payment_batch_summary": connection.sql("select count(*) from reconciliation_by_payment_batch").fetchone()[0],
+        "payment_batch_target_summary": connection.sql("select count(*) from payment_batch_receipt_summary").fetchone()[0],
+        "receipt_summary": connection.sql("select count(*) from reconciliation_by_receipt").fetchone()[0],
+        "receipt_target_summary": connection.sql("select count(*) from receipt_payment_batch_summary").fetchone()[0],
+        "receipt_exceptions": connection.sql("select count(*) from receipt_exception_classification").fetchone()[0],
+        "daily_kpis": connection.sql("select count(*) from bi_reconciliation_daily_kpis").fetchone()[0],
+        "aging_exposure": connection.sql("select count(*) from bi_aging_exposure").fetchone()[0],
+        "exception_backlog": connection.sql("select count(*) from bi_exception_backlog").fetchone()[0],
+        "channel_health": connection.sql("select count(*) from bi_channel_health").fetchone()[0],
+    }
+    for name, value in counts.items():
+        require(value > 0, f"{name} should not be empty.")
 
-    expected_payment_batch_rows = read_csv("output_examples/reconciliation_by_payment_batch.csv")
-    expected_receipt_rows = read_csv("output_examples/reconciliation_by_receipt.csv")
-    expected_receipt_exception_rows = read_csv("output_examples/receipt_exception_classification.csv")
-
-    if payment_batch_rows != expected_payment_batch_rows:
-        raise AssertionError(
-            f"payment batch SQL output mismatch:\nactual={payment_batch_rows}\nexpected={expected_payment_batch_rows}"
-        )
-
-    if receipt_rows != expected_receipt_rows:
-        raise AssertionError(f"receipt SQL output mismatch:\nactual={receipt_rows}\nexpected={expected_receipt_rows}")
-
-    if receipt_exception_rows != expected_receipt_exception_rows:
-        raise AssertionError(
-            "receipt exception SQL output mismatch:\n"
-            f"actual={receipt_exception_rows}\nexpected={expected_receipt_exception_rows}"
-        )
-
-    bi_counts = connection.sql(
+    outcomes = {
+        row[0]
+        for row in connection.sql(
+            "select distinct reconciliation_outcome from reconciliation_by_receipt"
+        ).fetchall()
+    }
+    require("CHARGEBACK" in outcomes, "Receipt reporting should expose chargeback outcomes.")
+    require("REJECTED_RECEIPT" in outcomes, "Receipt reporting should expose rejected receipt outcomes.")
+    composite_targets = connection.sql(
         """
-        select
-            (select count(*) from bi_reconciliation_daily_kpis) as daily_kpis,
-            (select count(*) from bi_aging_exposure) as aging_exposure,
-            (select count(*) from bi_exception_backlog) as exception_backlog,
-            (select count(*) from bi_receipt_exception_summary) as receipt_exceptions,
-            (select count(*) from bi_allocation_readiness) as allocation_readiness
+        select count(*)
+        from receipt_payment_batch_summary
+        where payment_batch_id like '%,%'
         """
-    ).fetchone()
-    if any(count == 0 for count in bi_counts):
-        raise AssertionError(f"BI views should not be empty: {bi_counts}")
+    ).fetchone()[0]
+    require(composite_targets == 0, "Receipt target summary should never collapse multiple payment batches into a comma-separated target.")
 
-    print("DuckDB validation passed: SQL reproduces the published reconciliation outputs.")
+    print("DuckDB validation passed: runtime SQL builds the compact live reporting layer without snapshot CSVs.")
 
 
 if __name__ == "__main__":

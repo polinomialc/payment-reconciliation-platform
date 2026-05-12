@@ -7,7 +7,7 @@ import duckdb
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "local_reconciliation_demo.duckdb"
+DEFAULT_OUTPUT = ROOT / "payment_reconciliation_demo.duckdb"
 
 
 def csv_path(relative_path: str) -> str:
@@ -28,13 +28,22 @@ def execute_sql_files(connection: duckdb.DuckDBPyConnection) -> None:
 def build_database(output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     if output_path.exists():
-        output_path.unlink()
+        try:
+            output_path.unlink()
+        except PermissionError as exc:
+            raise PermissionError(
+                f"Cannot overwrite {output_path} because the file is in use. "
+                "Close any open DuckDB/Streamlit session or choose a different --output path."
+            ) from exc
+
     wal_path = output_path.with_suffix(output_path.suffix + ".wal")
     if wal_path.exists():
         wal_path.unlink()
 
     connection = duckdb.connect(database=output_path.as_posix())
     try:
+        connection.execute("set preserve_insertion_order=false;")
+        connection.execute("set threads=1;")
         connection.execute(
             f"""
             create table raw_payment_batches as
@@ -50,62 +59,11 @@ def build_database(output_path: Path) -> None:
 
         execute_sql_files(connection)
 
-        connection.execute(
-            """
-            create or replace table demo_reconciliation_by_payment_batch as
-            select * from reconciliation_by_payment_batch;
-
-            create or replace table demo_reconciliation_by_receipt as
-            select * from reconciliation_by_receipt;
-
-            create or replace table demo_receipt_exception_classification as
-            select * from receipt_exception_classification;
-
-            create or replace table demo_bi_reconciliation_daily_kpis as
-            select * from bi_reconciliation_daily_kpis;
-
-            create or replace table demo_bi_aging_exposure as
-            select * from bi_aging_exposure;
-
-            create or replace table demo_bi_exception_backlog as
-            select * from bi_exception_backlog;
-
-            create or replace table demo_bi_receipt_exception_summary as
-            select * from bi_receipt_exception_summary;
-
-            create or replace table demo_bi_allocation_readiness as
-            select * from bi_allocation_readiness;
-
-            create or replace table demo_dataset_summary as
-            select 'raw_payment_batches' as object_name, count(*) as row_count from raw_payment_batches
-            union all
-            select 'raw_receipts', count(*) from raw_receipts
-            union all
-            select 'raw_gateway_reference_mapping', count(*) from raw_gateway_reference_mapping
-            union all
-            select 'demo_reconciliation_by_payment_batch', count(*) from demo_reconciliation_by_payment_batch
-            union all
-            select 'demo_reconciliation_by_receipt', count(*) from demo_reconciliation_by_receipt
-            union all
-            select 'demo_receipt_exception_classification', count(*) from demo_receipt_exception_classification
-            union all
-            select 'demo_bi_reconciliation_daily_kpis', count(*) from demo_bi_reconciliation_daily_kpis
-            union all
-            select 'demo_bi_aging_exposure', count(*) from demo_bi_aging_exposure
-            union all
-            select 'demo_bi_exception_backlog', count(*) from demo_bi_exception_backlog
-            union all
-            select 'demo_bi_receipt_exception_summary', count(*) from demo_bi_receipt_exception_summary
-            union all
-            select 'demo_bi_allocation_readiness', count(*) from demo_bi_allocation_readiness;
-            """
-        )
-
         summary = connection.sql(
             """
             select object_name, row_count
-            from demo_dataset_summary
-            order by object_name;
+            from reconciliation_runtime_summary
+            order by object_name
             """
         ).fetchall()
     finally:
@@ -118,7 +76,7 @@ def build_database(output_path: Path) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Build a local DuckDB database from the sanitized CSV samples and SQL views."
+        description="Build a local DuckDB database for the sanitized reconciliation runtime demo."
     )
     parser.add_argument(
         "--output",
@@ -131,8 +89,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    output_path = args.output.expanduser().resolve()
-    build_database(output_path)
+    build_database(args.output.expanduser().resolve())
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # Metabase Dashboard Guide
 
-Metabase provides the management reporting layer for the reconciliation platform. It sits on top of governed SQL views and helps stakeholders monitor aging exposure, allocation readiness, exception backlog, and receipt-side disputes.
+Metabase provides the management reporting layer for the reconciliation platform. It sits on top of governed SQL views and helps stakeholders monitor aging exposure, matched versus open balances, exception backlog, and receipt-side disputes.
 
 Streamlit remains the operational tool for analysts. Metabase is used for visibility and management review.
 
@@ -11,7 +11,7 @@ The optional Metabase demo runs with:
 - PostgreSQL container: `analytics-db`
 - Metabase container: `metabase`
 - schema: `analytics`
-- source data: sanitized CSV samples and published reconciliation outputs
+- source data: sanitized CSV samples transformed through the same SQL layers used by the live Streamlit demo
 
 Connection details:
 
@@ -28,11 +28,12 @@ Schema: analytics
 
 Use these views for dashboards:
 
+- `bi_payment_batch_summary`
 - `bi_reconciliation_daily_kpis`
 - `bi_aging_exposure`
 - `bi_exception_backlog`
 - `bi_receipt_exception_summary`
-- `bi_allocation_readiness`
+- `bi_channel_health`
 
 ## Recommended Dashboard
 
@@ -70,7 +71,7 @@ Bi Exception Backlog
 
 Purpose:
 
-Shows how many payment-batch lines remain in each review queue, such as amount variance, evidence review, cancellation fee review, or missing receipt evidence.
+Shows how many payment-batch lines remain open by outcome, with emphasis on `CHECK`, rejected evidence, and other unresolved balances.
 
 Suggested Metabase setup:
 
@@ -78,7 +79,7 @@ Suggested Metabase setup:
 - Group by: `reconciliation_outcome`
 - Visualization: bar chart or table
 
-### 3. Allocation Ready Amount By Day
+### 3. Matched Amount By Day
 
 Source:
 
@@ -88,7 +89,7 @@ Bi Reconciliation Daily Kpis
 
 Purpose:
 
-Shows how much value is ready for allocation over time. This helps distinguish normal throughput from unresolved exposure.
+Shows how much value matched cleanly over time. This helps distinguish normal throughput from unresolved exposure.
 
 Suggested Metabase setup:
 
@@ -106,7 +107,7 @@ Bi Receipt Exception Summary
 
 Purpose:
 
-Tracks receipt-side exceptions such as chargebacks and refund-with-cancellation-fee cases. These are separated from standard allocation because they follow different operational treatment.
+Tracks receipt-side exceptions such as chargebacks and rejected transactions. These are separated from standard matching because they follow different operational treatment.
 
 Suggested Metabase setup:
 
@@ -115,7 +116,7 @@ Suggested Metabase setup:
 - Optional breakout: `transaction_date`
 - Visualization: stacked bar chart or table
 
-### 5. Allocation Readiness By Market
+### 5. Open Versus Matched By Market
 
 Source:
 
@@ -125,7 +126,7 @@ Bi Allocation Readiness
 
 Purpose:
 
-Compares allocation-ready value and review exposure across sanitized market groups. This helps identify where backlog or exceptions are concentrated.
+Compares matched value and open exposure across sanitized market groups. This helps identify where backlog or exceptions are concentrated.
 
 Suggested Metabase setup:
 

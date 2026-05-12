@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY app /app/app
 COPY sample_data /app/sample_data
-COPY output_examples /app/output_examples
 
 RUN pip install --no-cache-dir streamlit pandas
 

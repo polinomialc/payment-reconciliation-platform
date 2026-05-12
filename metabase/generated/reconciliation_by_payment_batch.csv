@@ -1,0 +1,9 @@
+payment_batch_id,transaction_date,market_code,channel_type,payment_batch_total,linked_to,line_count,linked_amount,line_statuses
+payment_batch2,2026-03-24,DE,CARD_PRESENT,1770.23,CHECK,1,140.17,CHECK
+payment_batch2,2026-03-24,DE,CARD_PRESENT,1770.23,receipt3,3,571.45,MATCH
+payment_batch2,2026-03-24,DE,CARD_PRESENT,1770.23,receipt4,3,1058.61,MATCH
+payment_batch3,2026-03-28,GB,CARD_PRESENT,690.95,CHECK,2,189.95,CHECK
+payment_batch3,2026-03-28,GB,CARD_PRESENT,690.95,receipt5,3,501.00,MATCH
+payment_batch1,2026-04-26,GB,E_COMMERCE,7883.27,CHECK,1,100.31,CHECK
+payment_batch1,2026-04-26,GB,E_COMMERCE,7883.27,receipt1,3,4260.50,MATCH
+payment_batch1,2026-04-26,GB,E_COMMERCE,7883.27,receipt2,4,3522.46,MATCH

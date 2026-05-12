@@ -27,7 +27,7 @@ The proposed platform separates the process into four responsibilities:
    BigQuery is the intended production layer for parsing, key generation, matching, exception classification, aging, and reporting views.
 
 2. **Operational workflow**
-   Streamlit gives analysts a focused interface for allocation readiness, receipt-level reconciliation, and exception review.
+   Streamlit gives analysts a focused interface for payment-batch reconciliation, receipt-level reconciliation, open checks, chargebacks, and rejected receipt transactions.
 
 3. **Management visibility**
    Metabase consumes reporting views for exposure, backlog, trend, and KPI dashboards.
@@ -42,7 +42,7 @@ DuckDB is included only so the public demo can run SQL locally against sanitized
 - Preserve raw inputs before transformation.
 - Express matching logic in SQL instead of UI code.
 - Make every output traceable to a payment batch, receipt line, and rule outcome.
-- Separate allocation-ready items from items that require review.
+- Separate matched evidence from open checks and receipt-side exceptions.
 - Keep business terminology understandable outside the original company context.
 - Make the platform adaptable by changing rules and reference priorities, not by rewriting the whole app.
 
@@ -53,8 +53,8 @@ The demo proves that the reconciliation model can:
 - parse receipt and payment-batch files
 - normalize references across payment channels
 - match transactions using deterministic keys
-- identify allocation-ready payment batches
-- isolate chargebacks, rejected card transactions, cancellation-fee cases, and amount variances
+- show how payment-batch totals split across linked receipts and open check queues
+- isolate chargebacks and rejected card transactions on the receipt side
 - produce open-balance aging views
 - expose both operational and management outputs from the same governed data layer
 - support a knowledge library for business procedures and rule explanations

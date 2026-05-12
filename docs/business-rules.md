@@ -40,15 +40,17 @@ This keeps matching deterministic while still supporting payment methods that do
 
 ## Public Outcomes
 
-The demo uses business-facing outcomes instead of internal shorthand:
+The live demo keeps the visible outcomes intentionally simple:
 
-- **Allocation Ready**: receipt evidence and payment-batch evidence agree.
-- **Evidence Review Required**: a usable reference exists, but exact evidence is incomplete or requires review.
-- **Missing Receipt Evidence**: the payment batch remains open because no receipt evidence was found.
-- **Rejected Card Transaction**: the provider rejected the transaction; it should not be allocated as a successful payment.
-- **Chargeback Review**: the receipt line represents a dispute or reversal that needs a separate treatment.
-- **Cancellation Fee Review**: a refund and a cancellation fee must be reviewed together before financial treatment.
-- **Amount Variance Review**: the reference chain exists, but the value is above or below the expected amount.
+- **Matched to receipts**: payment-batch evidence and receipt evidence agree.
+- **Check**: the payment batch remains open and still needs analyst follow-up.
+- **Rejected**: the payment batch is tied to rejected provider evidence and should not be treated as a normal successful payment.
+- **Linked to payment batches**: the receipt has usable evidence tied back to payment batches.
+- **Chargeback**: the receipt line represents a dispute or reversal.
+- **Rejected receipt**: the receipt contains rejected provider-side evidence.
+- **Unlinked receipt**: the receipt line is still outside the current matching result.
+
+More advanced scenarios can still be documented in the portfolio, but they are not pushed into the compact Streamlit surface.
 
 ## Rule Themes
 
@@ -57,8 +59,6 @@ The demo uses business-facing outcomes instead of internal shorthand:
 - Use occurrence counters to avoid accidental many-to-many joins.
 - Keep rejected transactions out of allocation-ready outputs.
 - Treat chargebacks as receipt-side evidence that follows a separate exception procedure.
-- Identify cancellation-fee cases as financial-treatment items, not clean allocations.
-- Identify amount variance cases when the reference is present but the value differs.
 - Preserve raw data and apply all logic in the SQL transformation layer.
 
 ## Historical Reanalysis

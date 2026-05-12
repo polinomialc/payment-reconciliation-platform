@@ -1,97 +1,101 @@
--- BI-facing views for a management reporting layer such as Metabase.
+-- BI-facing views.
 --
--- These views are expressed against the published reconciliation outputs.
--- In production, the same pattern would be implemented as governed BigQuery
--- views on top of the reconciliation layer.
+-- These stay aligned with the compact runtime demo: core matching, open
+-- payment-batch items, and receipt-side exceptions.
 
 create or replace view bi_payment_batch_enriched as
 select
-    b.payment_batch_id,
-    b.transaction_date,
-    b.market_code,
-    b.customer,
-    b.item_description,
-    b.amount,
-    coalesce(r.receipt_ref, '') as receipt_ref,
-    r.reconciliation_outcome,
-    r.row_count,
-    r.payment_batch_total,
+    payment_batch_line_id,
+    payment_batch_id,
+    transaction_date,
+    market_code,
+    channel_type,
+    customer_name,
+    customer_number,
+    item_description,
+    line_total,
+    primary_reference,
+    receipt_ref,
+    match_rule,
+    match_status,
+    workflow_queue,
+    greatest(date_diff('day', transaction_date, current_date), 0) as days_open,
     case
-        when r.reconciliation_outcome = 'Allocation Ready' then r.payment_batch_total
-        else 0
-    end as allocation_ready_amount,
-    case
-        when r.reconciliation_outcome in ('Allocation Ready', 'Cancellation Fee Review') then 0
-        else r.payment_batch_total
-    end as open_exposure_amount,
-    greatest(date_diff('day', b.transaction_date, current_date), 0) as days_open,
-    case
-        when greatest(date_diff('day', b.transaction_date, current_date), 0) <= 7 then '0-7 days'
-        when greatest(date_diff('day', b.transaction_date, current_date), 0) <= 30 then '8-30 days'
-        when greatest(date_diff('day', b.transaction_date, current_date), 0) <= 60 then '31-60 days'
+        when greatest(date_diff('day', transaction_date, current_date), 0) <= 7 then '0-7 days'
+        when greatest(date_diff('day', transaction_date, current_date), 0) <= 30 then '8-30 days'
+        when greatest(date_diff('day', transaction_date, current_date), 0) <= 60 then '31-60 days'
         else '60+ days'
     end as aging_bucket,
     case
-        when r.reconciliation_outcome = 'Allocation Ready' then 'Auto-allocation'
-        when r.reconciliation_outcome in ('Cancellation Fee Review', 'Amount Variance Review', 'Evidence Review Required') then 'Operations'
-        else 'Finance'
-    end as operational_owner
-from raw_payment_batches b
-left join reconciliation_by_payment_batch r
-  on r.payment_batch_id = b.payment_batch_id;
+        when match_status = 'MATCH' then line_total
+        else 0
+    end as auto_reconciled_amount,
+    case
+        when match_status in ('CHECK', 'REJECTED', 'MISSING_REFERENCE') then line_total
+        else 0
+    end as review_amount
+from reconciled_payment_batch_lines;
 
 create or replace view bi_reconciliation_daily_kpis as
 select
     transaction_date,
-    count(*) as payment_batch_lines,
-    sum(payment_batch_total) as total_payment_batch_amount,
-    sum(allocation_ready_amount) as allocation_ready_amount,
-    sum(open_exposure_amount) as open_exposure_amount,
-    count(*) filter (where reconciliation_outcome = 'Allocation Ready') as allocation_ready_lines,
-    count(*) filter (where reconciliation_outcome <> 'Allocation Ready') as review_lines
+    count(*) as payment_batch_line_count,
+    sum(line_total) as payment_batch_total,
+    sum(auto_reconciled_amount) as auto_reconciled_amount,
+    sum(review_amount) as review_amount,
+    count(*) filter (where match_status = 'MATCH') as match_line_count,
+    count(*) filter (where match_status = 'CHECK') as check_line_count,
+    count(*) filter (where match_status = 'REJECTED') as rejected_line_count
 from bi_payment_batch_enriched
 group by transaction_date;
 
-create or replace view bi_aging_exposure as
-select
-    aging_bucket,
-    reconciliation_outcome,
-    operational_owner,
-    count(*) as payment_batch_lines,
-    sum(open_exposure_amount) as open_exposure_amount
-from bi_payment_batch_enriched
-where open_exposure_amount <> 0
-group by aging_bucket, reconciliation_outcome, operational_owner;
-
 create or replace view bi_exception_backlog as
 select
-    reconciliation_outcome,
-    operational_owner,
+    match_status,
+    workflow_queue,
     market_code,
-    count(*) as payment_batch_lines,
-    sum(payment_batch_total) as payment_batch_amount,
-    sum(open_exposure_amount) as open_exposure_amount
+    channel_type,
+    count(*) as payment_batch_line_count,
+    sum(line_total) as payment_batch_amount,
+    sum(review_amount) as review_amount
 from bi_payment_batch_enriched
-where reconciliation_outcome <> 'Allocation Ready'
-group by reconciliation_outcome, operational_owner, market_code;
+where match_status <> 'MATCH'
+group by match_status, workflow_queue, market_code, channel_type;
+
+create or replace view bi_channel_health as
+select
+    channel_type,
+    count(*) as payment_batch_line_count,
+    sum(line_total) as payment_batch_amount,
+    count(*) filter (where match_status = 'MATCH') as matched_line_count,
+    count(*) filter (where match_status = 'CHECK') as check_line_count,
+    count(*) filter (where match_status = 'REJECTED') as rejected_line_count,
+    round(
+        100.0 * count(*) filter (where match_status = 'MATCH') / nullif(count(*), 0),
+        2
+    ) as match_rate_pct
+from bi_payment_batch_enriched
+group by channel_type;
 
 create or replace view bi_receipt_exception_summary as
 select
     transaction_date,
-    receipt_transaction_type,
-    count(*) as receipt_lines,
+    market_code,
+    channel_type,
+    receipt_exception_type,
+    count(*) as receipt_line_count,
     sum(gross_amount) as gross_amount,
     sum(net_amount) as net_amount
 from receipt_exception_classification
-group by transaction_date, receipt_transaction_type;
+group by transaction_date, market_code, channel_type, receipt_exception_type;
 
-create or replace view bi_allocation_readiness as
+create or replace view bi_aging_exposure as
 select
-    market_code,
-    reconciliation_outcome,
-    count(*) as payment_batch_lines,
-    sum(payment_batch_total) as payment_batch_amount,
-    sum(allocation_ready_amount) as allocation_ready_amount,
-    sum(open_exposure_amount) as open_exposure_amount
+    aging_bucket,
+    match_status,
+    workflow_queue,
+    count(*) as payment_batch_line_count,
+    sum(review_amount) as review_amount
 from bi_payment_batch_enriched
-group by market_code, reconciliation_outcome;
+where match_status <> 'MATCH'
+group by aging_bucket, match_status, workflow_queue;

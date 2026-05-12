@@ -138,9 +138,9 @@ Simplified pattern:
 case
     when receipt_ref is not null and receipt_status = 'Rejected'
         then 'Rejected Card Transaction'
-    when match_rule = 'CANCELLATION_FEE_PAIR'
+    when match_rule = 'CANCELLATION_FEE'
         then 'Cancellation Fee Review'
-    when match_rule = 'OVER_UNDER_PAYMENT'
+    when match_rule = 'AMOUNT_VARIANCE'
         then 'Amount Variance Review'
     when receipt_ref is not null
         then 'Allocation Ready'

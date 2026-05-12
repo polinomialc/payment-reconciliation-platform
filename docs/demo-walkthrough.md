@@ -19,7 +19,7 @@ Call out the main architecture:
 - BookStack is the business knowledge library
 - DuckDB is only the local validation substitute for the public demo
 
-## 2. Open Streamlit Operations
+## 2. Open Streamlit
 
 Run:
 
@@ -33,49 +33,58 @@ Open:
 http://localhost:8501
 ```
 
-Start with the Operations Dashboard.
+Start with the overview tab.
 
 Explain:
 
-> This page is the operational control surface. It shows open amount, allocation readiness, review volume, chargeback indicators, and aging exposure. The purpose is not to replace BI. It is to help analysts act on the current reconciliation queue.
+> This page is the compact operational surface. It runs the SQL live in DuckDB and shows a small but readable sample of payment batches, receipts, open check lines, chargebacks, and rejected receipt transactions.
 
 Show:
 
-- status filters
-- aging buckets
-- owner and reference-type filtering
-- aging exposure
-- exception queue
-- allocation evidence
+- channel scope
+- payment-batch snapshot
+- receipt snapshot
+- matched amount
+- open amount
+- direct row-per-target reading
 
 ## 3. Open Receipt Reconciliation
 
-Use the sidebar or open:
-
-```text
-http://localhost:8501/?view=receipt&receipt=receipt_ref_001
-```
+Open the receipt tab inside the app.
 
 Explain:
 
-> A receipt can contain many transaction lines. Each line has a date, payment channel, provider status, transaction type, reference, and amount. The procedure tries to link those lines to payment batches. Matched lines become allocation evidence. Unmatched or special lines become review items.
+> A receipt can contain many transaction lines. Each line has a transaction date, payment channel, provider status, transaction type, reference, and amount. The procedure links those lines to payment batches where possible. The receipt view also keeps chargebacks and rejected card transactions visible on the receipt side instead of hiding them in a batch-only summary.
 
 Show:
 
 - selected receipt reference
 - receipt line count
-- allocation-ready lines
-- review lines
-- linked payment groups
-- line-level reconciliation table
-- payment group coverage
-- items requiring review
+- linked payment batches
+- chargeback or rejected examples
+- receipt breakdown table
+- line detail table
 
 Useful talking point:
 
-> The value is not just that a row says ready or review. The value is that the app shows which receipt line supports which payment group, and which receipt lines need a separate treatment such as chargeback, rejected card transaction, amount variance, or missing evidence.
+> The value is not just that a row says matched or check. The value is that the app shows which receipt line supports which payment batch, and which receipt lines remain outside the normal matching flow because they are chargebacks, rejected transactions, or simply still open.
 
-## 4. Explain The SQL Behind It
+## 4. Open Payment-Batch Reconciliation
+
+Stay in the same app and open the payment-batch tab.
+
+Explain:
+
+> This side reads like an analyst pivot. A payment batch total is shown once, then split across the receipts or open queue targets that explain it. If a payment batch links to two receipts and still has a check amount, the app shows three rows rather than compressing everything into one text field.
+
+Show:
+
+- payment-batch summary table
+- one row per receipt or `CHECK`
+- selected payment-batch breakdown
+- line detail tied to a receipt or queue target
+
+## 5. Explain The SQL Behind It
 
 Open:
 
@@ -97,7 +106,7 @@ Explain the layers:
 
 Use [SQL Reconciliation Walkthrough](sql-reconciliation-walkthrough.md) as the detailed reference.
 
-## 5. Open BookStack
+## 6. Open BookStack
 
 Run:
 
@@ -124,11 +133,13 @@ Show:
 - exception playbooks
 - page history or updates
 
-## 6. Open Metabase
+## 7. Open Metabase
 
 Run:
 
 ```bash
+cd ..
+python3 scripts/export_metabase_seed.py
 cd metabase
 docker compose up -d
 ```
@@ -141,7 +152,7 @@ http://localhost:3000
 
 Explain:
 
-> Streamlit is for doing the operational work. Metabase is for management visibility. It consumes published BI views from the same reconciliation outputs and turns them into dashboards for aging exposure, backlog, allocation readiness, and exception trends.
+> Streamlit is for doing the operational work. Metabase is for management visibility. It consumes BI views from the same reconciliation outputs and turns them into dashboards for aging exposure, backlog, matched versus open balances, and exception trends.
 
 Suggested views:
 
@@ -149,9 +160,9 @@ Suggested views:
 - `analytics.bi_aging_exposure`
 - `analytics.bi_exception_backlog`
 - `analytics.bi_receipt_exception_summary`
-- `analytics.bi_allocation_readiness`
+- `analytics.bi_channel_health`
 
-## 7. Run Validation
+## 8. Run Validation
 
 Run:
 
@@ -162,9 +173,9 @@ python3 tests/validate_duckdb_sql.py
 
 Explain:
 
-> The validation tests prove that the sanitized sample inputs reproduce the published output examples, and that the SQL can run locally through DuckDB. This is what makes the demo reviewable without private systems.
+> The validation tests prove that the sanitized sample inputs can run locally through DuckDB and still produce the same operational views the app uses. This is what makes the demo reviewable without private systems.
 
-## 8. Closing Statement
+## 9. Closing Statement
 
 End with:
 
