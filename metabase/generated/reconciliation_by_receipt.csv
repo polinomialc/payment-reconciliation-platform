@@ -1,8 +1,15 @@
 receipt_ref,transaction_date,market_code,channel_type,receipt_total,linked_to,line_count,linked_amount,line_statuses
-receipt3,2026-03-24,DE,CARD_PRESENT,571.45,payment_batch2,3,571.45,Matched
-receipt4,2026-03-24,DE,CARD_PRESENT,1370.61,Rejected transaction,1,312.00,Rejected transaction
-receipt4,2026-03-24,DE,CARD_PRESENT,1370.61,payment_batch2,3,1058.61,Matched
-receipt5,2026-03-28,GB,CARD_PRESENT,501.00,payment_batch3,3,501.00,Matched
-receipt2,2026-04-25,GB,E_COMMERCE,3212.46,Chargeback,1,-310.00,Chargeback
-receipt2,2026-04-25,GB,E_COMMERCE,3212.46,payment_batch1,4,3522.46,Matched
-receipt1,2026-04-29,GB,E_COMMERCE,4260.50,payment_batch1,3,4260.50,Matched
+receipt_ref_007,2026-02-15,ES,CARD_PRESENT,2812.85,payment_batch_005,10,2812.85,Matched
+receipt_ref_011,2026-03-11,GB,E_COMMERCE,2389.70,Chargeback,1,-145.00,Chargeback
+receipt_ref_011,2026-03-11,GB,E_COMMERCE,2389.70,payment_batch_008,8,2534.70,Matched
+receipt_ref_004,2026-03-24,DE,CARD_PRESENT,2772.20,payment_batch_003,10,2772.20,"Matched, Rejected transaction"
+receipt_ref_005,2026-03-24,DE,CARD_PRESENT,1537.95,payment_batch_003,5,1537.95,Matched
+receipt_ref_006,2026-03-28,GB,CARD_PRESENT,3056.55,payment_batch_004,12,3056.55,Matched
+receipt_ref_009,2026-04-13,DE,E_COMMERCE,2147.10,payment_batch_006,7,2147.10,Matched
+receipt_ref_008,2026-04-14,DE,E_COMMERCE,1958.45,payment_batch_006,7,1958.45,Matched
+receipt_ref_003,2026-04-25,GB,E_COMMERCE,3276.05,Chargeback,1,-310.00,Chargeback
+receipt_ref_003,2026-04-25,GB,E_COMMERCE,3276.05,payment_batch_002,12,3586.05,Matched
+receipt_ref_002,2026-04-27,GB,E_COMMERCE,4689.60,payment_batch_001,12,2948.55,Matched
+receipt_ref_002,2026-04-27,GB,E_COMMERCE,4689.60,payment_batch_002,6,1741.05,Matched
+receipt_ref_001,2026-04-28,GB,E_COMMERCE,3109.30,payment_batch_001,13,3109.30,Matched
+receipt_ref_010,2026-05-02,DE,CARD_PRESENT,2510.70,payment_batch_007,8,2510.70,Matched

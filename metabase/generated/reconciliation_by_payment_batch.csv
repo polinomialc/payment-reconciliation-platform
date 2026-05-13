@@ -1,9 +1,16 @@
 payment_batch_id,transaction_date,market_code,channel_type,payment_batch_total,linked_to,line_count,linked_amount,line_statuses
-payment_batch2,2026-03-24,DE,CARD_PRESENT,1770.23,Review queue,1,140.17,Review
-payment_batch2,2026-03-24,DE,CARD_PRESENT,1770.23,receipt3,3,571.45,Matched
-payment_batch2,2026-03-24,DE,CARD_PRESENT,1770.23,receipt4,3,1058.61,Matched
-payment_batch3,2026-03-28,GB,CARD_PRESENT,690.95,Review queue,2,189.95,Review
-payment_batch3,2026-03-28,GB,CARD_PRESENT,690.95,receipt5,3,501.00,Matched
-payment_batch1,2026-04-26,GB,E_COMMERCE,7883.27,Review queue,1,100.31,Review
-payment_batch1,2026-04-26,GB,E_COMMERCE,7883.27,receipt1,3,4260.50,Matched
-payment_batch1,2026-04-26,GB,E_COMMERCE,7883.27,receipt2,4,3522.46,Matched
+payment_batch_005,2026-02-15,ES,CARD_PRESENT,3370.90,Review queue,3,558.05,Review
+payment_batch_005,2026-02-15,ES,CARD_PRESENT,3370.90,receipt_ref_007,10,2812.85,Matched
+payment_batch_008,2026-03-10,GB,E_COMMERCE,3205.35,Review queue,2,670.65,Review
+payment_batch_008,2026-03-10,GB,E_COMMERCE,3205.35,receipt_ref_011,8,2534.70,Matched
+payment_batch_003,2026-03-24,DE,CARD_PRESENT,4310.15,receipt_ref_004,10,2772.20,"Matched, Rejected transaction"
+payment_batch_003,2026-03-24,DE,CARD_PRESENT,4310.15,receipt_ref_005,5,1537.95,Matched
+payment_batch_004,2026-03-28,GB,CARD_PRESENT,3056.55,receipt_ref_006,12,3056.55,Matched
+payment_batch_006,2026-04-12,DE,E_COMMERCE,4105.55,receipt_ref_008,7,1958.45,Matched
+payment_batch_006,2026-04-12,DE,E_COMMERCE,4105.55,receipt_ref_009,7,2147.10,Matched
+payment_batch_002,2026-04-25,GB,E_COMMERCE,6515.45,Review queue,4,1188.35,Review
+payment_batch_002,2026-04-25,GB,E_COMMERCE,6515.45,receipt_ref_002,6,1741.05,Matched
+payment_batch_002,2026-04-25,GB,E_COMMERCE,6515.45,receipt_ref_003,12,3586.05,Matched
+payment_batch_001,2026-04-26,GB,E_COMMERCE,6057.85,receipt_ref_001,13,3109.30,Matched
+payment_batch_001,2026-04-26,GB,E_COMMERCE,6057.85,receipt_ref_002,12,2948.55,Matched
+payment_batch_007,2026-05-02,DE,CARD_PRESENT,2510.70,receipt_ref_010,8,2510.70,Matched

@@ -18,8 +18,8 @@ select
     count(*) filter (where match_status = 'MISSING_REFERENCE') as missing_reference_line_count,
     count(distinct receipt_ref) filter (where receipt_ref is not null) as linked_receipt_count,
     string_agg(distinct receipt_ref, ', ' order by receipt_ref) filter (where receipt_ref is not null) as linked_receipts,
-    sum(line_total) filter (where receipt_ref is not null) as linked_receipt_total,
-    sum(line_total) filter (where receipt_ref is null) as open_line_total,
+    coalesce(sum(line_total) filter (where receipt_ref is not null), 0) as linked_receipt_total,
+    coalesce(sum(line_total) filter (where receipt_ref is null), 0) as open_line_total,
     case
         when count(*) filter (where match_status in ('CHECK', 'MISSING_REFERENCE')) > 0 then 'CHECK'
         when count(*) filter (where match_status = 'REJECTED') > 0 then 'REJECTED'

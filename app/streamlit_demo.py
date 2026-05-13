@@ -19,6 +19,7 @@ def build_runtime_engine() -> dict[str, object]:
     start = perf_counter()
     connection = duckdb.connect(database=":memory:")
     connection.execute("set preserve_insertion_order=false;")
+    connection.execute("set threads=1;")
     connection.execute(
         f"""
         create table raw_payment_batches as
@@ -100,6 +101,27 @@ def load_runtime_snapshot() -> dict[str, object]:
             select *
             from reconciliation_runtime_summary
             order by object_name
+            """
+        ).df(),
+        "raw_payment_batches": connection.sql(
+            """
+            select *
+            from raw_payment_batches
+            order by transaction_date, payment_batch_id, payment_batch_line_id
+            """
+        ).df(),
+        "raw_receipts": connection.sql(
+            """
+            select *
+            from raw_receipts
+            order by transaction_date, receipt_ref, receipt_line_id
+            """
+        ).df(),
+        "raw_gateway_reference_mapping": connection.sql(
+            """
+            select *
+            from raw_gateway_reference_mapping
+            order by transaction_date, gateway_token
             """
         ).df(),
     }
@@ -582,6 +604,86 @@ def prepare_receipt_lines(df: pd.DataFrame) -> pd.DataFrame:
     ]
 
 
+def prepare_source_payment_batches(df: pd.DataFrame) -> pd.DataFrame:
+    return df.rename(
+        columns={
+            "payment_batch_line_id": "Payment Batch Line",
+            "payment_batch_id": "Payment Batch",
+            "transaction_date": "Transaction Date",
+            "market_code": "Market",
+            "channel_type": "Channel",
+            "customer_number": "Customer",
+            "item_description": "Source Description",
+            "line_total": "Amount",
+        }
+    )[
+        [
+            "Payment Batch Line",
+            "Payment Batch",
+            "Transaction Date",
+            "Market",
+            "Channel",
+            "Customer",
+            "Source Description",
+            "Amount",
+        ]
+    ]
+
+
+def prepare_source_receipts(df: pd.DataFrame) -> pd.DataFrame:
+    return df.rename(
+        columns={
+            "receipt_line_id": "Receipt Line",
+            "receipt_ref": "Receipt",
+            "transaction_date": "Transaction Date",
+            "transaction_time": "Time",
+            "market_code": "Market",
+            "channel_type": "Channel",
+            "transaction_status": "Provider Status",
+            "transaction_type": "Transaction Type",
+            "your_reference": "Provider Reference",
+            "gross_amount": "Gross Amount",
+            "terminal_id": "Terminal",
+        }
+    )[
+        [
+            "Receipt Line",
+            "Receipt",
+            "Transaction Date",
+            "Time",
+            "Market",
+            "Channel",
+            "Provider Status",
+            "Transaction Type",
+            "Provider Reference",
+            "Gross Amount",
+            "Terminal",
+        ]
+    ]
+
+
+def prepare_source_mapping(df: pd.DataFrame) -> pd.DataFrame:
+    return df.rename(
+        columns={
+            "gateway_token": "Gateway Token",
+            "merchant_reference": "Business Reference",
+            "transaction_date": "Transaction Date",
+            "amount": "Amount",
+            "market_code": "Market",
+            "source_channel": "Source Channel",
+        }
+    )[
+        [
+            "Gateway Token",
+            "Business Reference",
+            "Transaction Date",
+            "Amount",
+            "Market",
+            "Source Channel",
+        ]
+    ]
+
+
 def describe_distribution(name: str, total_amount: float, breakdown_df: pd.DataFrame) -> str:
     parts = []
     for _, row in breakdown_df.iterrows():
@@ -603,6 +705,7 @@ def main() -> None:
 
     runtime = load_runtime_snapshot()
     engine = build_runtime_engine()
+    query_receipt = st.query_params.get("receipt")
 
     payment_batch_summary = runtime["payment_batch_summary"].copy()
     payment_batch_lines = runtime["payment_batch_lines"].copy()
@@ -611,6 +714,9 @@ def main() -> None:
     receipt_lines = runtime["receipt_lines"].copy()
     receipt_payment_batch_summary = runtime["receipt_payment_batch_summary"].copy()
     runtime_summary = runtime["runtime_summary"].copy()
+    raw_payment_batches = runtime["raw_payment_batches"].copy()
+    raw_receipts = runtime["raw_receipts"].copy()
+    raw_gateway_reference_mapping = runtime["raw_gateway_reference_mapping"].copy()
 
     hero(float(engine["build_seconds"]), float(runtime["query_seconds"]))
 
@@ -636,6 +742,11 @@ def main() -> None:
         receipt_lines = receipt_lines[receipt_lines["channel_type"] == selected_channel].copy()
         receipt_payment_batch_summary = receipt_payment_batch_summary[
             receipt_payment_batch_summary["channel_type"] == selected_channel
+        ].copy()
+        raw_payment_batches = raw_payment_batches[raw_payment_batches["channel_type"] == selected_channel].copy()
+        raw_receipts = raw_receipts[raw_receipts["channel_type"] == selected_channel].copy()
+        raw_gateway_reference_mapping = raw_gateway_reference_mapping[
+            raw_gateway_reference_mapping["source_channel"] == selected_channel
         ].copy()
 
     total_lines = len(payment_batch_lines)
@@ -686,11 +797,12 @@ def main() -> None:
         unsafe_allow_html=True,
     )
 
-    tab_overview, tab_batches, tab_receipts, tab_runtime = st.tabs(
+    tab_overview, tab_batches, tab_receipts, tab_source, tab_runtime = st.tabs(
         [
             "Overview",
             "Reconciliation by Payment Batch",
             "Reconciliation by Receipt",
+            "Source Evidence",
             "Runtime and SQL",
         ]
     )
@@ -800,7 +912,8 @@ def main() -> None:
 
         receipt_options = receipt_summary["receipt_ref"].tolist()
         if receipt_options:
-            selected_receipt = st.selectbox("Select receipt", receipt_options, index=0)
+            default_receipt_index = receipt_options.index(query_receipt) if query_receipt in receipt_options else 0
+            selected_receipt = st.selectbox("Select receipt", receipt_options, index=default_receipt_index)
             receipt_row = receipt_summary[receipt_summary["receipt_ref"] == selected_receipt].iloc[0]
             receipt_breakdown_raw = receipt_payment_batch_summary[
                 receipt_payment_batch_summary["receipt_ref"] == selected_receipt
@@ -850,6 +963,49 @@ def main() -> None:
                 hide_index=True,
             )
 
+    with tab_source:
+        st.subheader("Source evidence")
+        st.caption("Sanitized raw inputs loaded before the SQL parsing, keying, matching, and reporting layers run.")
+
+        src1, src2, src3 = st.columns(3)
+        with src1:
+            render_metric("Raw Payment-Batch Lines", str(len(raw_payment_batches)), "Internal-side financial records.")
+        with src2:
+            render_metric("Raw Receipt Lines", str(len(raw_receipts)), "Provider or bank-side evidence.")
+        with src3:
+            render_metric("Gateway Mappings", str(len(raw_gateway_reference_mapping)), "Reference bridge for e-commerce tokens.")
+
+        st.markdown("**Raw payment batches**")
+        st.dataframe(
+            format_display_frame(
+                prepare_source_payment_batches(raw_payment_batches),
+                channel_columns=["Channel"],
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+        st.markdown("**Raw receipts**")
+        st.dataframe(
+            format_display_frame(
+                prepare_source_receipts(raw_receipts),
+                channel_columns=["Channel"],
+                status_columns=["Provider Status"],
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+        st.markdown("**Gateway reference mapping**")
+        st.dataframe(
+            format_display_frame(
+                prepare_source_mapping(raw_gateway_reference_mapping),
+                channel_columns=["Source Channel"],
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+
     with tab_runtime:
         st.subheader("Runtime and SQL")
         st.caption("The app stays focused on the live reconciliation flow. Broader scenario modeling stays in the portfolio documentation.")
@@ -876,11 +1032,11 @@ def main() -> None:
                 """
                 **Current sample design**
 
-                - `payment_batch1` is split across `receipt1`, `receipt2`, and `Review`.
-                - `payment_batch2` is split across `receipt3`, `receipt4`, and `Review`.
-                - `payment_batch3` is split across `receipt5` and `Review`.
-                - `receipt2` includes a chargeback example.
-                - `receipt4` includes a rejected transaction example.
+                - Most payment-batch lines reconcile directly to receipt evidence.
+                - A small number of lines remain in review queues.
+                - Some receipts contain chargeback examples.
+                - One receipt contains rejected provider-side evidence.
+                - E-commerce receipts use gateway-token mapping before matching.
                 """
             )
         with right:

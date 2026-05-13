@@ -1,3 +1,4 @@
 receipt_ref,transaction_date,market_code,channel_type,transaction_status,receipt_exception_type,gross_amount,net_amount,your_reference
-receipt4,2026-03-24,DE,CARD_PRESENT,Rejected,Rejected transaction,312.00,312.00,RES 1200799999 INV 100440009999
-receipt2,2026-04-25,GB,E_COMMERCE,Accepted,Chargeback,-310.00,-310.00,CHB 1201199999
+receipt_ref_011,2026-03-11,GB,E_COMMERCE,Accepted,Chargeback,-145.00,-145.00,CHARGEBACK RES 1299999002
+receipt_ref_004,2026-03-24,DE,CARD_PRESENT,Rejected,Rejected transaction,223.10,223.10,RES 1200001057 INV 100660001057
+receipt_ref_003,2026-04-25,GB,E_COMMERCE,Accepted,Chargeback,-310.00,-310.00,CHARGEBACK RES 1299999001

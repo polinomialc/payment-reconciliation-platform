@@ -1,21 +1,120 @@
 payment_batch_line_id,payment_batch_id,transaction_date,market_code,channel_type,customer_name,customer_number,item_description,line_total
-pb1_line1,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1001,RES 1201100001 INV 100660000001 online prepayment,1500.00
-pb1_line2,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1002,RES 1201100002 INV 100660000002 online prepayment,2200.50
-pb1_line3,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1003,RES 1201100003 INV 100660000003 online prepayment,1840.20
-pb1_line4,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1004,RES 1201100004 INV 100660000004 online prepayment,1005.30
-pb1_line5,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1005,RES 1201100005 INV 100660000005 pending evidence,100.31
-pb1_line6,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1006,RES 1201100006 INV 100660000006 online prepayment,560.00
-pb1_line7,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1007,RES 1201100007 INV 100660000007 online prepayment,745.25
-pb1_line8,payment_batch1,2026-04-26,GB,E_COMMERCE,Online Rental,CU1008,RES 1201100008 INV 100660000008 online refund,-68.29
-pb2_line1,payment_batch2,2026-03-24,DE,CARD_PRESENT,Station Desk,CU2001,RES 1200706681 INV 100550001001 local card sale,228.53
-pb2_line2,payment_batch2,2026-03-24,DE,CARD_PRESENT,Station Desk,CU2002,RES 1200666992 INV 100440006692 local card sale,217.00
-pb2_line3,payment_batch2,2026-03-24,DE,CARD_PRESENT,Station Desk,CU2003,RES 1200675644 INV 100440006744 local card sale,125.92
-pb2_line4,payment_batch2,2026-03-24,DE,CARD_PRESENT,Station Desk,CU2004,RES 1200695464 INV 100440006801 local card sale,394.36
-pb2_line5,payment_batch2,2026-03-24,DE,CARD_PRESENT,Station Desk,CU2005,RES 1200687430 INV 100440006745 local card sale,253.81
-pb2_line6,payment_batch2,2026-03-24,DE,CARD_PRESENT,Station Desk,CU2006,RES 1200711111 INV 100440007111 local card sale,410.44
-pb2_line7,payment_batch2,2026-03-24,DE,CARD_PRESENT,Station Desk,CU2007,RES 1200722222 INV 100440007222 pending terminal,140.17
-pb3_line1,payment_batch3,2026-03-28,GB,CARD_PRESENT,Branch Desk,CU3001,RES 1200900001 INV 100770000001 walk-in payment,217.00
-pb3_line2,payment_batch3,2026-03-28,GB,CARD_PRESENT,Branch Desk,CU3002,RES 1200900002 INV 100770000002 walk-in payment,188.40
-pb3_line3,payment_batch3,2026-03-28,GB,CARD_PRESENT,Branch Desk,CU3003,RES 1200900003 INV 100770000003 walk-in payment,95.60
-pb3_line4,payment_batch3,2026-03-28,GB,CARD_PRESENT,Branch Desk,CU3004,RES 1200900004 INV 100770000004 terminal pending,100.50
-pb3_line5,payment_batch3,2026-03-28,GB,CARD_PRESENT,Branch Desk,CU3005,RES 1200900005 INV 100770000005 terminal pending,89.45
+pb001_line001,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001001,RES 1200001001 INV 100660001001 payment evidence,160.75
+pb001_line002,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001002,RES 1200001002 INV 100660001002 payment evidence,280.35
+pb001_line003,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001003,RES 1200001003 INV 100660001003 payment evidence,448.80
+pb001_line004,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001004,RES 1200001004 INV 100660001004 payment evidence,92.95
+pb001_line005,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001005,RES 1200001005 INV 100660001005 payment evidence,160.75
+pb001_line006,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001006,RES 1200001006 INV 100660001006 payment evidence,280.35
+pb001_line007,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001007,RES 1200001007 INV 100660001007 payment evidence,448.80
+pb001_line008,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001008,RES 1200001008 INV 100660001008 payment evidence,92.95
+pb001_line009,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001009,RES 1200001009 INV 100660001009 payment evidence,160.75
+pb001_line010,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001010,RES 1200001010 INV 100660001010 payment evidence,280.35
+pb001_line011,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001011,RES 1200001011 INV 100660001011 payment evidence,448.80
+pb001_line012,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001012,RES 1200001012 INV 100660001012 payment evidence,92.95
+pb001_line013,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001013,RES 1200001013 INV 100660001013 payment evidence,160.75
+pb001_line014,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001014,RES 1200001014 INV 100660001014 payment evidence,280.35
+pb001_line015,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001015,RES 1200001015 INV 100660001015 payment evidence,448.80
+pb001_line016,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001016,RES 1200001016 INV 100660001016 payment evidence,92.95
+pb001_line017,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001017,RES 1200001017 INV 100660001017 payment evidence,160.75
+pb001_line018,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001018,RES 1200001018 INV 100660001018 payment evidence,280.35
+pb001_line019,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001019,RES 1200001019 INV 100660001019 payment evidence,448.80
+pb001_line020,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001020,RES 1200001020 INV 100660001020 payment evidence,92.95
+pb001_line021,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001021,RES 1200001021 INV 100660001021 payment evidence,160.75
+pb001_line022,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001022,RES 1200001022 INV 100660001022 payment evidence,280.35
+pb001_line023,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001023,RES 1200001023 INV 100660001023 payment evidence,448.80
+pb001_line024,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001024,RES 1200001024 INV 100660001024 payment evidence,92.95
+pb001_line025,payment_batch_001,2026-04-26,GB,E_COMMERCE,Portfolio Customer,CU001025,RES 1200001025 INV 100660001025 payment evidence,160.75
+pb002_line001,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001026,RES 1200001026 INV 100660001026 payment evidence,219.10
+pb002_line002,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001027,RES 1200001027 INV 100660001027 payment evidence,326.60
+pb002_line003,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001028,RES 1200001028 INV 100660001028 payment evidence,519.25
+pb002_line004,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001029,RES 1200001029 INV 100660001029 payment evidence,130.40
+pb002_line005,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001030,RES 1200001030 INV 100660001030 payment evidence,219.10
+pb002_line006,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001031,RES 1200001031 INV 100660001031 payment evidence,326.60
+pb002_line007,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001032,RES 1200001032 INV 100660001032 payment evidence,519.25
+pb002_line008,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001033,RES 1200001033 INV 100660001033 payment evidence,130.40
+pb002_line009,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001034,RES 1200001034 INV 100660001034 payment evidence,219.10
+pb002_line010,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001035,RES 1200001035 INV 100660001035 payment evidence,326.60
+pb002_line011,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001036,RES 1200001036 INV 100660001036 payment evidence,519.25
+pb002_line012,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001037,RES 1200001037 INV 100660001037 payment evidence,130.40
+pb002_line013,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001038,RES 1200001038 INV 100660001038 payment evidence,219.10
+pb002_line014,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001039,RES 1200001039 INV 100660001039 payment evidence,326.60
+pb002_line015,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001040,RES 1200001040 INV 100660001040 payment evidence,519.25
+pb002_line016,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001041,RES 1200001041 INV 100660001041 payment evidence,130.40
+pb002_line017,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001042,RES 1200001042 INV 100660001042 payment evidence,219.10
+pb002_line018,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001043,RES 1200001043 INV 100660001043 payment evidence,326.60
+pb002_line019,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001044,RES 1200001044 INV 100660001044 pending receipt evidence,518.25
+pb002_line020,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001045,RES 1200001045 INV 100660001045 pending receipt evidence,128.40
+pb002_line021,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001046,RES 1200001046 INV 100660001046 pending receipt evidence,217.10
+pb002_line022,payment_batch_002,2026-04-25,GB,E_COMMERCE,Portfolio Customer,CU001047,RES 1200001047 INV 100660001047 pending receipt evidence,324.60
+pb003_line001,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001048,RES 1200001048 INV 100660001048 payment evidence,134.40
+pb003_line002,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001049,RES 1200001049 INV 100660001049 payment evidence,223.10
+pb003_line003,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001050,RES 1200001050 INV 100660001050 payment evidence,330.60
+pb003_line004,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001051,RES 1200001051 INV 100660001051 payment evidence,519.25
+pb003_line005,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001052,RES 1200001052 INV 100660001052 payment evidence,134.40
+pb003_line006,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001053,RES 1200001053 INV 100660001053 payment evidence,223.10
+pb003_line007,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001054,RES 1200001054 INV 100660001054 payment evidence,330.60
+pb003_line008,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001055,RES 1200001055 INV 100660001055 payment evidence,519.25
+pb003_line009,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001056,RES 1200001056 INV 100660001056 payment evidence,134.40
+pb003_line010,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001057,RES 1200001057 INV 100660001057 payment evidence,223.10
+pb003_line011,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001058,RES 1200001058 INV 100660001058 payment evidence,330.60
+pb003_line012,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001059,RES 1200001059 INV 100660001059 payment evidence,519.25
+pb003_line013,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001060,RES 1200001060 INV 100660001060 payment evidence,134.40
+pb003_line014,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001061,RES 1200001061 INV 100660001061 payment evidence,223.10
+pb003_line015,payment_batch_003,2026-03-24,DE,CARD_PRESENT,Portfolio Customer,CU001062,RES 1200001062 INV 100660001062 payment evidence,330.60
+pb004_line001,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001063,RES 1200001063 INV 100660001063 payment evidence,102.95
+pb004_line002,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001064,RES 1200001064 INV 100660001064 payment evidence,170.75
+pb004_line003,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001065,RES 1200001065 INV 100660001065 payment evidence,290.35
+pb004_line004,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001066,RES 1200001066 INV 100660001066 payment evidence,454.80
+pb004_line005,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001067,RES 1200001067 INV 100660001067 payment evidence,102.95
+pb004_line006,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001068,RES 1200001068 INV 100660001068 payment evidence,170.75
+pb004_line007,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001069,RES 1200001069 INV 100660001069 payment evidence,290.35
+pb004_line008,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001070,RES 1200001070 INV 100660001070 payment evidence,454.80
+pb004_line009,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001071,RES 1200001071 INV 100660001071 payment evidence,102.95
+pb004_line010,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001072,RES 1200001072 INV 100660001072 payment evidence,170.75
+pb004_line011,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001073,RES 1200001073 INV 100660001073 payment evidence,290.35
+pb004_line012,payment_batch_004,2026-03-28,GB,CARD_PRESENT,Portfolio Customer,CU001074,RES 1200001074 INV 100660001074 payment evidence,454.80
+pb005_line001,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001075,RES 1200001075 INV 100660001075 payment evidence,291.35
+pb005_line002,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001076,RES 1200001076 INV 100660001076 payment evidence,459.80
+pb005_line003,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001077,RES 1200001077 INV 100660001077 payment evidence,107.95
+pb005_line004,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001078,RES 1200001078 INV 100660001078 payment evidence,171.75
+pb005_line005,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001079,RES 1200001079 INV 100660001079 payment evidence,291.35
+pb005_line006,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001080,RES 1200001080 INV 100660001080 payment evidence,459.80
+pb005_line007,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001081,RES 1200001081 INV 100660001081 payment evidence,107.95
+pb005_line008,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001082,RES 1200001082 INV 100660001082 payment evidence,171.75
+pb005_line009,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001083,RES 1200001083 INV 100660001083 payment evidence,291.35
+pb005_line010,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001084,RES 1200001084 INV 100660001084 payment evidence,459.80
+pb005_line011,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001085,RES 1200001085 INV 100660001085 pending receipt evidence,100.95
+pb005_line012,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001086,RES 1200001086 INV 100660001086 pending receipt evidence,168.75
+pb005_line013,payment_batch_005,2026-02-15,ES,CARD_PRESENT,Portfolio Customer,CU001087,RES 1200001087 INV 100660001087 pending receipt evidence,288.35
+pb006_line001,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001088,RES 1200001088 INV 100660001088 payment evidence,143.40
+pb006_line002,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001089,RES 1200001089 INV 100660001089 payment evidence,232.10
+pb006_line003,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001090,RES 1200001090 INV 100660001090 payment evidence,339.60
+pb006_line004,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001091,RES 1200001091 INV 100660001091 payment evidence,528.25
+pb006_line005,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001092,RES 1200001092 INV 100660001092 payment evidence,143.40
+pb006_line006,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001093,RES 1200001093 INV 100660001093 payment evidence,232.10
+pb006_line007,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001094,RES 1200001094 INV 100660001094 payment evidence,339.60
+pb006_line008,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001095,RES 1200001095 INV 100660001095 payment evidence,528.25
+pb006_line009,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001096,RES 1200001096 INV 100660001096 payment evidence,143.40
+pb006_line010,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001097,RES 1200001097 INV 100660001097 payment evidence,232.10
+pb006_line011,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001098,RES 1200001098 INV 100660001098 payment evidence,339.60
+pb006_line012,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001099,RES 1200001099 INV 100660001099 payment evidence,528.25
+pb006_line013,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001100,RES 1200001100 INV 100660001100 payment evidence,143.40
+pb006_line014,payment_batch_006,2026-04-12,DE,E_COMMERCE,Portfolio Customer,CU001101,RES 1200001101 INV 100660001101 payment evidence,232.10
+pb007_line001,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001102,RES 1200001102 INV 100660001102 payment evidence,532.25
+pb007_line002,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001103,RES 1200001103 INV 100660001103 payment evidence,147.40
+pb007_line003,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001104,RES 1200001104 INV 100660001104 payment evidence,236.10
+pb007_line004,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001105,RES 1200001105 INV 100660001105 payment evidence,339.60
+pb007_line005,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001106,RES 1200001106 INV 100660001106 payment evidence,532.25
+pb007_line006,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001107,RES 1200001107 INV 100660001107 payment evidence,147.40
+pb007_line007,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001108,RES 1200001108 INV 100660001108 payment evidence,236.10
+pb007_line008,payment_batch_007,2026-05-02,DE,CARD_PRESENT,Portfolio Customer,CU001109,RES 1200001109 INV 100660001109 payment evidence,339.60
+pb008_line001,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001110,RES 1200001110 INV 100660001110 payment evidence,535.25
+pb008_line002,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001111,RES 1200001111 INV 100660001111 payment evidence,150.40
+pb008_line003,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001112,RES 1200001112 INV 100660001112 payment evidence,239.10
+pb008_line004,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001113,RES 1200001113 INV 100660001113 payment evidence,342.60
+pb008_line005,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001114,RES 1200001114 INV 100660001114 payment evidence,535.25
+pb008_line006,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001115,RES 1200001115 INV 100660001115 payment evidence,150.40
+pb008_line007,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001116,RES 1200001116 INV 100660001116 payment evidence,239.10
+pb008_line008,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001117,RES 1200001117 INV 100660001117 payment evidence,342.60
+pb008_line009,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001118,RES 1200001118 INV 100660001118 pending receipt evidence,530.25
+pb008_line010,payment_batch_008,2026-03-10,GB,E_COMMERCE,Portfolio Customer,CU001119,RES 1200001119 INV 100660001119 pending receipt evidence,140.40

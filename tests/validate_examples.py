@@ -56,13 +56,23 @@ def main() -> None:
     receipts = read_csv("sample_data/receipts_sample.csv")
     gateway_mapping = read_csv("sample_data/gateway_reference_mapping_sample.csv")
 
+    payment_batch_count = len({row["payment_batch_id"] for row in payment_batches})
+    receipt_count = len({row["receipt_ref"] for row in receipts})
     require(
-        len({row["payment_batch_id"] for row in payment_batches}) == 3,
-        "The compact public sample should expose exactly 3 payment batches.",
+        6 <= payment_batch_count <= 10,
+        "The public sample should expose enough payment batches for reporting without becoming noisy.",
     )
     require(
-        len({row["receipt_ref"] for row in receipts}) == 5,
-        "The compact public sample should expose exactly 5 receipts.",
+        8 <= receipt_count <= 12,
+        "The public sample should expose enough receipts for line-level walkthroughs without becoming noisy.",
+    )
+    require(
+        80 <= len(payment_batches) <= 150,
+        "The public sample should contain enough payment-batch lines for a credible demo.",
+    )
+    require(
+        80 <= len(receipts) <= 160,
+        "The public sample should contain enough receipt lines for a credible demo.",
     )
     require(len(gateway_mapping) > 0, "Gateway-token mapping sample should not be empty.")
     require(
@@ -111,6 +121,8 @@ def main() -> None:
 
     batch_status_counts = Counter(row["reconciliation_outcome"] for row in by_payment_batch)
     require(batch_status_counts["CHECK"] > 0, "Missing payment-batch review coverage.")
+    require(batch_status_counts["MATCHED_TO_RECEIPTS"] > 0, "Missing fully matched payment-batch coverage.")
+    require(batch_status_counts["REJECTED"] > 0, "Missing rejected payment-batch coverage.")
     require(
         any(int(row["linked_receipt_count"]) >= 2 for row in by_payment_batch),
         "Expected at least one payment batch linked to multiple receipts.",

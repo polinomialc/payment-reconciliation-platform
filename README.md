@@ -52,7 +52,7 @@ The local demo runs directly from sanitized CSVs and rebuilds the reconciliation
 
 - `sample_data/` contains compact source exports for payment batches, receipts, and gateway reference mappings.
 - `sql/` applies parsing, key generation, matching, reporting, and BI transformations.
-- `app/streamlit_demo.py` runs the SQL live in DuckDB and presents analyst-facing workflows.
+- `app/streamlit_demo.py` runs the SQL live in DuckDB, shows the raw source evidence, and presents analyst-facing workflows.
 - `metabase/` provides optional BI seed data and a dashboard guide.
 - `bookstack/` provides example knowledge-library content for procedures, concepts, and rule governance.
 - `tests/` validates that the compact runtime still covers matching, review queues, chargebacks, and rejected transactions.
