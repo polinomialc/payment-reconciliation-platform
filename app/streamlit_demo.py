@@ -381,9 +381,7 @@ def prepare_batch_summary(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def prepare_batch_grid(batch_summary: pd.DataFrame, batch_target_summary: pd.DataFrame) -> pd.DataFrame:
-    meta = batch_summary[
-        ["payment_batch_id", "transaction_date", "channel_type", "payment_batch_total", "reconciliation_outcome"]
-    ].copy()
+    meta = batch_summary[["payment_batch_id", "reconciliation_outcome"]].copy()
     grid = batch_target_summary.merge(meta, on="payment_batch_id", how="left")
     return grid.rename(
         columns={
@@ -492,9 +490,7 @@ def prepare_receipt_summary(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def prepare_receipt_grid(receipt_summary: pd.DataFrame, receipt_target_summary: pd.DataFrame) -> pd.DataFrame:
-    meta = receipt_summary[
-        ["receipt_ref", "transaction_date", "channel_type", "receipt_total", "reconciliation_outcome"]
-    ].copy()
+    meta = receipt_summary[["receipt_ref", "receipt_total", "reconciliation_outcome"]].copy()
     grid = receipt_target_summary.merge(meta, on="receipt_ref", how="left")
     return grid.rename(
         columns={
