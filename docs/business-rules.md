@@ -40,14 +40,15 @@ This keeps matching deterministic while still supporting payment methods that do
 
 ## Public Outcomes
 
-The live demo keeps the visible outcomes intentionally simple:
+The live demo keeps the visible outcomes intentionally simple. The SQL layer can
+still use stable internal tokens, but Streamlit, Metabase seeds, and public
+documentation use business-facing labels:
 
 - **Matched to receipts**: payment-batch evidence and receipt evidence agree.
-- **Check**: the payment batch remains open and still needs analyst follow-up.
-- **Rejected**: the payment batch is tied to rejected provider evidence and should not be treated as a normal successful payment.
+- **Review**: the payment batch remains open and still needs analyst follow-up.
+- **Rejected transaction**: the payment evidence was rejected by the provider and should not be treated as a normal successful payment.
 - **Linked to payment batches**: the receipt has usable evidence tied back to payment batches.
 - **Chargeback**: the receipt line represents a dispute or reversal.
-- **Rejected receipt**: the receipt contains rejected provider-side evidence.
 - **Unlinked receipt**: the receipt line is still outside the current matching result.
 
 More advanced scenarios can still be documented in the portfolio, but they are not pushed into the compact Streamlit surface.

@@ -90,8 +90,8 @@ select
     market_code,
     channel_type,
     max(payment_batch_total) as payment_batch_total,
-    sum(case when linked_to <> 'CHECK' then linked_amount else 0 end) as matched_amount,
-    sum(case when linked_to = 'CHECK' then linked_amount else 0 end) as open_amount
+    sum(case when linked_to <> 'Review queue' then linked_amount else 0 end) as matched_amount,
+    sum(case when linked_to = 'Review queue' then linked_amount else 0 end) as open_amount
 from analytics.reconciliation_by_payment_batch
 group by payment_batch_id, transaction_date, market_code, channel_type;
 
@@ -129,7 +129,7 @@ select
     count(*) as rows_in_queue,
     sum(linked_amount) as queue_amount
 from analytics.reconciliation_by_payment_batch
-where linked_to = 'CHECK'
+where linked_to = 'Review queue'
 group by linked_to, market_code, channel_type;
 
 create or replace view analytics.bi_receipt_exception_summary as

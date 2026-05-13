@@ -22,7 +22,7 @@ The public demo is intentionally compact. It focuses on:
 
 - payment-batch to receipt matching
 - channel-aware logic for `E_COMMERCE` and `CARD_PRESENT`
-- open `CHECK` queues
+- open review queues
 - receipt-side chargebacks
 - receipt-side rejected transactions
 

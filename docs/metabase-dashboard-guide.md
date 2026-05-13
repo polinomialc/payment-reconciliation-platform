@@ -71,7 +71,7 @@ Bi Exception Backlog
 
 Purpose:
 
-Shows how many payment-batch lines remain open by outcome, with emphasis on `CHECK`, rejected evidence, and other unresolved balances.
+Shows how many payment-batch lines remain open by outcome, with emphasis on review queues, rejected evidence, and other unresolved balances.
 
 Suggested Metabase setup:
 

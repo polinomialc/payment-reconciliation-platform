@@ -67,7 +67,7 @@ Show:
 
 Useful talking point:
 
-> The value is not just that a row says matched or check. The value is that the app shows which receipt line supports which payment batch, and which receipt lines remain outside the normal matching flow because they are chargebacks, rejected transactions, or simply still open.
+> The value is not just that a row says matched or review. The value is that the app shows which receipt line supports which payment batch, and which receipt lines remain outside the normal matching flow because they are chargebacks, rejected transactions, or simply still open.
 
 ## 4. Open Payment-Batch Reconciliation
 
@@ -75,12 +75,12 @@ Stay in the same app and open the payment-batch tab.
 
 Explain:
 
-> This side reads like an analyst pivot. A payment batch total is shown once, then split across the receipts or open queue targets that explain it. If a payment batch links to two receipts and still has a check amount, the app shows three rows rather than compressing everything into one text field.
+> This side reads like an analyst pivot. A payment batch total is shown once, then split across the receipts or open queue targets that explain it. If a payment batch links to two receipts and still has a review amount, the app shows three rows rather than compressing everything into one text field.
 
 Show:
 
 - payment-batch summary table
-- one row per receipt or `CHECK`
+- one row per receipt or review queue
 - selected payment-batch breakdown
 - line detail tied to a receipt or queue target
 

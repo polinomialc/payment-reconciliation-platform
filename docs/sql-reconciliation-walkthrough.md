@@ -99,58 +99,66 @@ The same structure can be repeated with different reference priorities:
 
 The final exact match view keeps one best match per payment-batch line using match priority.
 
-## Layer 4: Special Business Cases
+## Layer 4: Receipt-Side Exceptions
 
-Not every valid financial event is a simple one-to-one payment match. The SQL separates special cases so the operational workflow can route them correctly.
+Not every valid financial event is a simple one-to-one payment match. The current public demo keeps the operational surface compact and separates receipt-side exceptions from normal payment-batch matching.
 
-### Rejected Card Transactions
+### Rejected Transactions
 
-A rejected transaction is visible in the receipt feed, but it should not become allocation evidence. It needs a different operational treatment because the payment provider rejected the transaction.
+A rejected transaction is visible in the receipt feed, but it should not be treated as a normal successful payment. The receipt view keeps it visible as a rejected transaction so the analyst can explain why it does not support allocation.
 
 ### Chargebacks
 
-Chargebacks represent a reversal or dispute. They are receipt-side evidence, but they are not treated like normal customer payment settlement. The demo classifies them into a review path so analysts can handle them separately.
+Chargebacks represent a reversal or dispute. They are receipt-side evidence, but they are not treated like normal customer payment settlement. The demo keeps them on the receipt side as a separate outcome so they remain visible without being forced into a clean match.
 
-### Cancellation Fee Review
+### Advanced Review Scenarios
 
-Some refund scenarios include a cancellation fee charged to the customer. In those cases, the receipt amount may represent the net effect of a refund plus a fee. The SQL identifies the relationship between refund lines, fee lines, and receipt evidence, then routes the item to a financial treatment queue instead of labeling it as a clean allocation.
-
-### Amount Variance Review
-
-Amount variance review captures cases where the reference chain exists, but the amount does not agree exactly. These records need review before allocation because the payment may be above or below the expected value.
+The SQL engine still contains hooks for advanced review patterns such as cancellation-fee treatment and amount variance detection. The compact Streamlit demo does not foreground those scenarios; it focuses on the clearer public read-out: matched payment evidence, open review queues, chargebacks, and rejected transactions.
 
 ## Layer 5: Reconciled Rows
 
-The final reconciliation view assigns one public outcome per payment-batch line.
+The reporting layer exposes business-facing outcomes for payment batches and receipts. Internally, SQL uses stable tokens; the Streamlit app maps those tokens to cleaner labels.
 
-Public outcomes include:
+Payment-batch outcomes:
 
-- Allocation Ready
-- Cancellation Fee Review
-- Amount Variance Review
-- Rejected Card Transaction
-- Evidence Review Required
-- Missing Receipt Evidence
+- **Matched to receipts**: the payment batch is fully supported by receipt evidence.
+- **Review**: one or more payment-batch lines remain open for analyst follow-up.
+- **Rejected transaction**: the payment batch is tied to rejected provider evidence.
+
+Receipt outcomes:
+
+- **Linked to payment batches**: receipt evidence is tied back to one or more payment batches.
+- **Chargeback**: the receipt contains dispute or reversal evidence.
+- **Rejected transaction**: the receipt contains rejected provider-side evidence.
+- **Unlinked receipt**: receipt evidence is not yet linked to a payment batch.
 
 Simplified pattern:
 
 ```sql
 case
-    when receipt_ref is not null and receipt_status = 'Rejected'
-        then 'Rejected Card Transaction'
-    when match_rule = 'CANCELLATION_FEE'
-        then 'Cancellation Fee Review'
-    when match_rule = 'AMOUNT_VARIANCE'
-        then 'Amount Variance Review'
-    when receipt_ref is not null
-        then 'Allocation Ready'
-    when primary_ref is not null
-        then 'Evidence Review Required'
-    else 'Missing Receipt Evidence'
+    when matched_line_count = line_count
+        then 'Matched to receipts'
+    when rejected_line_count > 0
+        then 'Rejected transaction'
+    else 'Review'
 end as reconciliation_outcome
 ```
 
-The key idea is precedence. A record can have evidence but still require review if the evidence indicates a special business case.
+For receipts, the same idea is applied from the opposite side:
+
+```sql
+case
+    when chargeback_line_count > 0
+        then 'Chargeback'
+    when rejected_line_count > 0
+        then 'Rejected transaction'
+    when unreconciled_receipt_line_count > 0
+        then 'Unlinked receipt'
+    else 'Linked to payment batches'
+end as reconciliation_outcome
+```
+
+The key idea is readability. The app shows where the money landed: a receipt, a payment batch, a review queue, a chargeback, or a rejected transaction.
 
 ## Layer 6: Reporting Views
 
@@ -165,7 +173,7 @@ Purpose:
 - expose reconciliation by payment batch
 - expose reconciliation by receipt
 - expose receipt exception classification
-- calculate open amount and allocation-ready amount
+- calculate matched amount and open review amount
 - support aging review
 
 The operational app consumes these outputs rather than recomputing the full business logic in Python.

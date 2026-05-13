@@ -110,7 +110,7 @@ def main() -> None:
         connection.close()
 
     batch_status_counts = Counter(row["reconciliation_outcome"] for row in by_payment_batch)
-    require(batch_status_counts["CHECK"] > 0, "Missing payment-batch CHECK coverage.")
+    require(batch_status_counts["CHECK"] > 0, "Missing payment-batch review coverage.")
     require(
         any(int(row["linked_receipt_count"]) >= 2 for row in by_payment_batch),
         "Expected at least one payment batch linked to multiple receipts.",
@@ -127,7 +127,7 @@ def main() -> None:
         "Missing rejected transaction example in receipt exceptions.",
     )
 
-    print("Validation passed: compact runtime sample stays readable while covering multi-receipt, check, chargeback, and rejected flows.")
+    print("Validation passed: compact runtime sample stays readable while covering multi-receipt, review, chargeback, and rejected flows.")
 
 
 if __name__ == "__main__":
