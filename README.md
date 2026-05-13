@@ -5,28 +5,34 @@
 <h1 align="center">Payment Reconciliation Platform</h1>
 
 <p align="center">
-  Public, sanitized case study of a reconciliation operating model built around SQL, Streamlit, BI reporting, and procedural knowledge.
+  Public, sanitized case study of a financial reconciliation platform for SQL-governed matching, exception review, BI reporting, and procedural knowledge management.
 </p>
 
 ## Quick Read
 
-This repository shows how a spreadsheet-heavy reconciliation process can be turned into a governed data workflow:
+This project demonstrates how a spreadsheet-heavy financial operations process can be turned into a controlled reconciliation platform.
 
-- `sample_data/` contains small but realistic public inputs
-- `sql/` holds the parsing, keying, reconciliation, and reporting layers
-- `app/streamlit_demo.py` runs the SQL live in DuckDB
-- `metabase/` is the optional BI-facing layer
-- `bookstack/` holds procedural documentation examples
+It is built as a recruiter-friendly case study: small enough to run locally, but structured like a real operating model with source evidence, governed SQL logic, analyst workflows, management reporting, and process documentation.
 
-The public demo is intentionally compact. It focuses on:
+The public demo focuses on:
 
-- payment-batch to receipt matching
-- channel-aware logic for `E_COMMERCE` and `CARD_PRESENT`
-- open review queues
-- receipt-side chargebacks
-- receipt-side rejected transactions
+- matching internal payment batches to external receipt evidence;
+- identifying open review queues instead of hiding them in spreadsheets;
+- tracing receipt lines to the payment batches they support;
+- separating chargebacks and rejected transactions from normal matched flows;
+- showing how operational views, BI reporting, and business procedures can share the same governed logic.
 
-More advanced scenarios can still be documented in the portfolio, but they are no longer pushed into the Streamlit surface.
+The project is intentionally sanitized and compact. It does not contain private data, company-specific identifiers, or confidential production rules.
+
+## Executive Summary
+
+**Problem:** financial reconciliation often depends on spreadsheets, manual matching, repeated analyst judgment, and undocumented exception handling.
+
+**Solution:** a SQL-centered workflow that parses source exports, generates deterministic matching keys, reconciles payment batches against receipts, classifies exceptions, and exposes the results through operational and reporting tools.
+
+**Demo implementation:** Streamlit runs the reconciliation SQL live in DuckDB over sanitized CSVs. Metabase demonstrates the BI layer. BookStack demonstrates the procedural knowledge layer.
+
+**What this shows:** finance operations knowledge, SQL-based business rule modeling, data quality thinking, workflow design, Docker-based local demos, and the ability to turn a real operating process into a reusable public case study.
 
 ## Business Problem
 
@@ -42,16 +48,24 @@ The platform reframes reconciliation as a governed workflow: raw evidence is pre
 
 ## What The Demo Shows
 
-The local demo runs directly from sanitized CSVs:
+The local demo runs directly from sanitized CSVs and rebuilds the reconciliation layer at runtime:
 
-- payment-batch lines shaped like ERP settlement exports
-- receipt lines shaped like payment-provider exports
-- gateway-token mapping for e-commerce
-- live DuckDB runtime for SQL execution
-- Streamlit views that read like analyst pivots
-- optional Metabase layer
-- BookStack knowledge-library examples
-- runtime validation tests
+- `sample_data/` contains compact source exports for payment batches, receipts, and gateway reference mappings.
+- `sql/` applies parsing, key generation, matching, reporting, and BI transformations.
+- `app/streamlit_demo.py` runs the SQL live in DuckDB and presents analyst-facing workflows.
+- `metabase/` provides optional BI seed data and a dashboard guide.
+- `bookstack/` provides example knowledge-library content for procedures, concepts, and rule governance.
+- `tests/` validates that the compact runtime still covers matching, review queues, chargebacks, and rejected transactions.
+
+## Evaluation Path
+
+For a quick technical review:
+
+1. Read the case study summary below.
+2. Run the Streamlit demo and open receipt reconciliation.
+3. Inspect `sql/03_reconciliation_logic.sql` and `sql/04_reporting_views.sql`.
+4. Run the validation scripts.
+5. Optionally start Metabase or BookStack to see the reporting and governance layers.
 
 ## Architecture
 
@@ -88,6 +102,19 @@ Open:
 http://localhost:8501
 ```
 
+Direct receipt-reconciliation view:
+
+```text
+http://localhost:8501/?view=receipt&receipt=receipt_ref_001
+```
+
+Docker alternative:
+
+```bash
+docker build -f docker/Dockerfile -t payment-reconciliation-streamlit .
+docker run --rm -p 8501:8501 payment-reconciliation-streamlit
+```
+
 ## Run The BookStack Demo
 
 ```bash
@@ -117,6 +144,14 @@ Metabase is available at:
 http://localhost:3000
 ```
 
+If an existing Postgres volume contains older demo data, reset the Metabase demo with:
+
+```bash
+cd metabase
+docker compose down -v
+docker compose up -d
+```
+
 ## Validate The Demo
 
 Validate the compact sample design:
@@ -141,11 +176,24 @@ This creates `payment_reconciliation_demo.duckdb`, which is ignored by Git.
 
 ## Case Study Summary
 
-**Business challenge:** spreadsheet-driven reconciliation created manual effort, inconsistent rules, weak auditability, and slow exception follow-up.
+**Business challenge:** spreadsheet-driven reconciliation creates manual effort, inconsistent rules, weak auditability, and slow exception follow-up.
 
 **Technical approach:** model the process as a SQL-governed reconciliation pipeline, expose operational workflows through Streamlit, expose management views through Metabase, and document business procedures in BookStack.
 
 **Design outcome:** a reusable platform pattern where rule changes are explicit, historical aging can be recalculated, receipt-level evidence can be traced to payment batches, and exceptions become managed queues rather than spreadsheet comments.
+
+**Transferability:** although inspired by real financial operations work, the pattern applies to any business that reconciles external payment evidence against internal operational or accounting records: retail, marketplaces, SaaS billing, logistics, travel, rental, and other transaction-heavy environments.
+
+## Skills Demonstrated
+
+- Financial reconciliation and exception-analysis domain understanding.
+- SQL transformation design for parsing, keying, matching, and reporting.
+- Data quality checks and runtime validation.
+- Python and Streamlit prototyping for operational workflows.
+- DuckDB for local SQL execution without cloud access.
+- Metabase-ready reporting tables and BI-oriented views.
+- Docker-based local demos for Streamlit, Metabase, and BookStack.
+- Documentation of business rules, procedures, and governance.
 
 ## What This Repository Does Not Contain
 
