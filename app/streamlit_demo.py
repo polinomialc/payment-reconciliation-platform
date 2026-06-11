@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from time import perf_counter
 
@@ -12,6 +13,27 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 st.set_page_config(page_title="Payment Reconciliation Platform", layout="wide")
+
+
+def data_backend() -> str:
+    return os.getenv("DATA_BACKEND", "duckdb").strip().lower()
+
+
+def bigquery_table(table_name: str) -> str:
+    project_id = os.getenv("GCP_PROJECT_ID") or os.getenv("GOOGLE_CLOUD_PROJECT")
+    dataset = os.getenv("BIGQUERY_DATASET", "payment_reconciliation_demo")
+    if not project_id:
+        raise RuntimeError("GCP_PROJECT_ID or GOOGLE_CLOUD_PROJECT must be set when DATA_BACKEND=bigquery.")
+    return f"`{project_id}.{dataset}.{table_name}`"
+
+
+def read_bigquery_table(table_name: str, order_by: str) -> pd.DataFrame:
+    from google.cloud import bigquery
+
+    project_id = os.getenv("GCP_PROJECT_ID") or os.getenv("GOOGLE_CLOUD_PROJECT")
+    client = bigquery.Client(project=project_id)
+    query = f"select * from {bigquery_table(table_name)} order by {order_by}"
+    return client.query(query).to_dataframe(create_bqstorage_client=False)
 
 
 @st.cache_resource(show_spinner=False)
@@ -48,8 +70,59 @@ def build_runtime_engine() -> dict[str, object]:
     }
 
 
+def load_bigquery_snapshot() -> dict[str, object]:
+    start = perf_counter()
+    snapshot = {
+        "payment_batch_summary": read_bigquery_table(
+            "reconciliation_by_payment_batch",
+            "transaction_date, payment_batch_id",
+        ),
+        "payment_batch_lines": read_bigquery_table(
+            "reconciled_payment_batch_lines",
+            "transaction_date, payment_batch_id, payment_batch_line_id",
+        ),
+        "payment_batch_receipt_summary": read_bigquery_table(
+            "payment_batch_receipt_summary",
+            "transaction_date, payment_batch_id, reconciliation_target",
+        ),
+        "receipt_summary": read_bigquery_table(
+            "reconciliation_by_receipt",
+            "transaction_date, receipt_ref",
+        ),
+        "receipt_lines": read_bigquery_table(
+            "reconciled_receipt_lines",
+            "transaction_date, receipt_ref, receipt_line_id",
+        ),
+        "receipt_payment_batch_summary": read_bigquery_table(
+            "receipt_payment_batch_summary",
+            "transaction_date, receipt_ref, payment_batch_id",
+        ),
+        "runtime_summary": read_bigquery_table(
+            "reconciliation_runtime_summary",
+            "object_name",
+        ),
+        "raw_payment_batches": read_bigquery_table(
+            "raw_payment_batches",
+            "transaction_date, payment_batch_id, payment_batch_line_id",
+        ),
+        "raw_receipts": read_bigquery_table(
+            "raw_receipts",
+            "transaction_date, receipt_ref, receipt_line_id",
+        ),
+        "raw_gateway_reference_mapping": read_bigquery_table(
+            "raw_gateway_reference_mapping",
+            "transaction_date, gateway_token",
+        ),
+    }
+    snapshot["query_seconds"] = round(perf_counter() - start, 3)
+    return snapshot
+
+
 @st.cache_data(show_spinner=False)
 def load_runtime_snapshot() -> dict[str, object]:
+    if data_backend() == "bigquery":
+        return load_bigquery_snapshot()
+
     start = perf_counter()
     connection = build_runtime_engine()["connection"]
 
@@ -351,20 +424,20 @@ def render_metric(label: str, value: str, subtitle: str) -> None:
     )
 
 
-def hero(build_seconds: float, query_seconds: float) -> None:
+def hero(build_seconds: float, query_seconds: float, backend_label: str) -> None:
     st.markdown(
         f"""
         <div class="hero-shell">
             <div class="hero-kicker">Sanitized Runtime Demo</div>
             <div class="hero-title">Payment Reconciliation Platform</div>
             <p class="hero-copy">
-                This app runs the reconciliation flow live in DuckDB over a compact public sample.
+                This app runs the reconciliation flow over a compact public sample.
                 The focus is direct operational reading: each payment batch shows the receipts or open
                 queue it lands on, and each receipt shows the payment batches, chargebacks, or rejected
                 transactions it carries.
             </p>
             <div class="pill-row">
-                <span class="pill">Live SQL runtime</span>
+                <span class="pill">Data backend: {backend_label}</span>
                 <span class="pill">Compact public sample</span>
                 <span class="pill">Direct payment-batch-to-receipt reading</span>
                 <span class="pill">Channels: E-commerce / Card Present</span>
@@ -703,8 +776,9 @@ def describe_distribution(name: str, total_amount: float, breakdown_df: pd.DataF
 def main() -> None:
     apply_styles()
 
+    backend = data_backend()
     runtime = load_runtime_snapshot()
-    engine = build_runtime_engine()
+    engine = build_runtime_engine() if backend == "duckdb" else {"build_seconds": 0.0}
     query_receipt = st.query_params.get("receipt")
 
     payment_batch_summary = runtime["payment_batch_summary"].copy()
@@ -718,7 +792,8 @@ def main() -> None:
     raw_receipts = runtime["raw_receipts"].copy()
     raw_gateway_reference_mapping = runtime["raw_gateway_reference_mapping"].copy()
 
-    hero(float(engine["build_seconds"]), float(runtime["query_seconds"]))
+    backend_label = "BigQuery" if backend == "bigquery" else "DuckDB live SQL"
+    hero(float(engine["build_seconds"]), float(runtime["query_seconds"]), backend_label)
 
     scope_choice = st.radio(
         "Channel scope",

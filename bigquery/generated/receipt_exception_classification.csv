@@ -1,0 +1,4 @@
+receipt_line_id,receipt_ref,transaction_date,market_code,channel_type,transaction_status,receipt_exception_type,source_capture_method,gross_amount,net_amount,your_reference,reservation_ref,invoice_ref
+receipt_ref_003_line099,receipt_ref_003,2026-04-25,GB,E_COMMERCE,Accepted,CHARGEBACK,PORTAL_CSV,-310.00,-310.00,CHARGEBACK RES 1299999001,,
+receipt_ref_004_line010,receipt_ref_004,2026-03-24,DE,CARD_PRESENT,Rejected,REJECTED_CARD_TRANSACTION,TERMINAL_EXPORT,223.10,223.10,RES 1200001057 INV 100660001057,1200001057,100660001057
+receipt_ref_011_line099,receipt_ref_011,2026-03-11,GB,E_COMMERCE,Accepted,CHARGEBACK,PORTAL_CSV,-145.00,-145.00,CHARGEBACK RES 1299999002,,

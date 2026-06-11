@@ -218,6 +218,7 @@ Designed and prototyped a financial reconciliation platform to replace spreadshe
 - [SQL Reconciliation Walkthrough](docs/sql-reconciliation-walkthrough.md)
 - [Tooling Roles](docs/tooling-roles.md)
 - [Metabase Dashboard Guide](docs/metabase-dashboard-guide.md)
+- [Cloud Run and BigQuery Deployment](docs/cloud-run-bigquery-deployment.md)
 - [BookStack Knowledge Library](docs/bookstack-knowledge-library.md)
 - [Screenshot Placement Guide](docs/screenshots/README.md)
 - [Vendor Independence](docs/vendor-independence.md)

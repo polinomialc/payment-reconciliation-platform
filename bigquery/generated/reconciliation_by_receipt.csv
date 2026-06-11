@@ -1,0 +1,12 @@
+receipt_ref,market_code,channel_type,transaction_date,receipt_line_count,receipt_total,linked_payment_batch_total,reconciled_receipt_line_count,unreconciled_receipt_line_count,chargeback_line_count,rejected_line_count,linked_batch_group_count,linked_payment_batches,reconciliation_outcome
+receipt_ref_007,ES,CARD_PRESENT,2026-02-15,10,2812.85,2812.85,10,0,0,0,1,payment_batch_005,LINKED_TO_PAYMENT_BATCHES
+receipt_ref_002,GB,E_COMMERCE,2026-04-27,18,4689.60,4689.60,18,0,0,0,2,"payment_batch_001, payment_batch_002",LINKED_TO_PAYMENT_BATCHES
+receipt_ref_001,GB,E_COMMERCE,2026-04-28,13,3109.30,3109.30,13,0,0,0,1,payment_batch_001,LINKED_TO_PAYMENT_BATCHES
+receipt_ref_004,DE,CARD_PRESENT,2026-03-24,10,2772.20,2772.20,10,0,0,1,1,payment_batch_003,REJECTED_RECEIPT
+receipt_ref_005,DE,CARD_PRESENT,2026-03-24,5,1537.95,1537.95,5,0,0,0,1,payment_batch_003,LINKED_TO_PAYMENT_BATCHES
+receipt_ref_010,DE,CARD_PRESENT,2026-05-02,8,2510.70,2510.70,8,0,0,0,1,payment_batch_007,LINKED_TO_PAYMENT_BATCHES
+receipt_ref_006,GB,CARD_PRESENT,2026-03-28,12,3056.55,3056.55,12,0,0,0,1,payment_batch_004,LINKED_TO_PAYMENT_BATCHES
+receipt_ref_011,GB,E_COMMERCE,2026-03-11,9,2389.70,2534.70,8,1,1,0,1,payment_batch_008,CHARGEBACK
+receipt_ref_009,DE,E_COMMERCE,2026-04-13,7,2147.10,2147.10,7,0,0,0,1,payment_batch_006,LINKED_TO_PAYMENT_BATCHES
+receipt_ref_008,DE,E_COMMERCE,2026-04-14,7,1958.45,1958.45,7,0,0,0,1,payment_batch_006,LINKED_TO_PAYMENT_BATCHES
+receipt_ref_003,GB,E_COMMERCE,2026-04-25,13,3276.05,3586.05,12,1,1,0,1,payment_batch_002,CHARGEBACK

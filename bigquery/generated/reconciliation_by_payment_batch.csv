@@ -1,0 +1,9 @@
+payment_batch_id,market_code,channel_type,transaction_date,line_count,payment_batch_total,matched_line_count,rejected_line_count,check_line_count,missing_reference_line_count,linked_receipt_count,linked_receipts,linked_receipt_total,open_line_total,reconciliation_outcome
+payment_batch_004,GB,CARD_PRESENT,2026-03-28,12,3056.55,12,0,0,0,1,receipt_ref_006,3056.55,0.00,MATCHED_TO_RECEIPTS
+payment_batch_003,DE,CARD_PRESENT,2026-03-24,15,4310.15,14,1,0,0,2,"receipt_ref_004, receipt_ref_005",4310.15,0.00,REJECTED
+payment_batch_001,GB,E_COMMERCE,2026-04-26,25,6057.85,25,0,0,0,2,"receipt_ref_001, receipt_ref_002",6057.85,0.00,MATCHED_TO_RECEIPTS
+payment_batch_005,ES,CARD_PRESENT,2026-02-15,13,3370.90,10,0,3,0,1,receipt_ref_007,2812.85,558.05,CHECK
+payment_batch_006,DE,E_COMMERCE,2026-04-12,14,4105.55,14,0,0,0,2,"receipt_ref_008, receipt_ref_009",4105.55,0.00,MATCHED_TO_RECEIPTS
+payment_batch_007,DE,CARD_PRESENT,2026-05-02,8,2510.70,8,0,0,0,1,receipt_ref_010,2510.70,0.00,MATCHED_TO_RECEIPTS
+payment_batch_008,GB,E_COMMERCE,2026-03-10,10,3205.35,8,0,2,0,1,receipt_ref_011,2534.70,670.65,CHECK
+payment_batch_002,GB,E_COMMERCE,2026-04-25,22,6515.45,18,0,4,0,2,"receipt_ref_002, receipt_ref_003",5327.10,1188.35,CHECK

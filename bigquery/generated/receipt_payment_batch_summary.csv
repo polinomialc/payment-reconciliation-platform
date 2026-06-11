@@ -1,0 +1,15 @@
+receipt_ref,market_code,channel_type,transaction_date,payment_batch_id,line_count,linked_amount,line_statuses
+receipt_ref_001,GB,E_COMMERCE,2026-04-28,payment_batch_001,13,3109.30,MATCH
+receipt_ref_002,GB,E_COMMERCE,2026-04-27,payment_batch_001,12,2948.55,MATCH
+receipt_ref_002,GB,E_COMMERCE,2026-04-27,payment_batch_002,6,1741.05,MATCH
+receipt_ref_003,GB,E_COMMERCE,2026-04-25,CHARGEBACK,1,-310.00,CHARGEBACK
+receipt_ref_003,GB,E_COMMERCE,2026-04-25,payment_batch_002,12,3586.05,MATCH
+receipt_ref_004,DE,CARD_PRESENT,2026-03-24,payment_batch_003,10,2772.20,"MATCH, REJECTED"
+receipt_ref_005,DE,CARD_PRESENT,2026-03-24,payment_batch_003,5,1537.95,MATCH
+receipt_ref_006,GB,CARD_PRESENT,2026-03-28,payment_batch_004,12,3056.55,MATCH
+receipt_ref_007,ES,CARD_PRESENT,2026-02-15,payment_batch_005,10,2812.85,MATCH
+receipt_ref_008,DE,E_COMMERCE,2026-04-14,payment_batch_006,7,1958.45,MATCH
+receipt_ref_009,DE,E_COMMERCE,2026-04-13,payment_batch_006,7,2147.10,MATCH
+receipt_ref_010,DE,CARD_PRESENT,2026-05-02,payment_batch_007,8,2510.70,MATCH
+receipt_ref_011,GB,E_COMMERCE,2026-03-11,CHARGEBACK,1,-145.00,CHARGEBACK
+receipt_ref_011,GB,E_COMMERCE,2026-03-11,payment_batch_008,8,2534.70,MATCH
