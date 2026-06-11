@@ -112,7 +112,7 @@ Docker alternative:
 
 ```bash
 docker build -f docker/Dockerfile -t payment-reconciliation-streamlit .
-docker run --rm -p 8501:8501 payment-reconciliation-streamlit
+docker run --rm -p 8080:8080 -e PORT=8080 payment-reconciliation-streamlit
 ```
 
 ## Run The BookStack Demo
